@@ -1,8 +1,8 @@
 {
-  "name": "myApp",
+  "name": "mobile-examiner-alpha",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "DVSA",
+  "homepage": "https://github.com/dvsa/mobile-examiner-alpha",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -34,5 +34,5 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "DVSA Mobile Examiner Services (GDS Alpha phase)"
 }
