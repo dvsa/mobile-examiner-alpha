@@ -1,6 +1,6 @@
 {
-  "name": "dl25-prototypes",
-  "app_id": "c7e8f5ff",
+  "name": "dl25-proto",
+  "app_id": "bd4acc76",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
