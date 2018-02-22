@@ -1,0 +1,43 @@
+{
+  "_from": "govuk_frontend_toolkit@7.1.0",
+  "_id": "govuk_frontend_toolkit@7.1.0",
+  "_inBundle": false,
+  "_integrity": "sha1-nCTMvM0rTfWuns0+7qxwtDZZcyU=",
+  "_location": "/govuk_frontend_toolkit",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "govuk_frontend_toolkit@7.1.0",
+    "name": "govuk_frontend_toolkit",
+    "escapedName": "govuk_frontend_toolkit",
+    "rawSpec": "7.1.0",
+    "saveSpec": null,
+    "fetchSpec": "7.1.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/govuk_frontend_toolkit/-/govuk_frontend_toolkit-7.1.0.tgz",
+  "_shasum": "9c24ccbccd2b4df5ae9ecd3eeeac70b436597325",
+  "_spec": "govuk_frontend_toolkit@7.1.0",
+  "_where": "/Users/ammar.haider/bjss/govuk/govuk_prototype_kit",
+  "author": {
+    "name": "Government Digital Service developers",
+    "email": "govuk-dev@digital.cabinet-office.gov.uk"
+  },
+  "bugs": {
+    "url": "https://github.com/alphagov/govuk_frontend_toolkit/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "npm package for using the GOV.UK frontend toolkit",
+  "homepage": "https://github.com/alphagov/govuk_frontend_toolkit_npm#readme",
+  "license": "MIT",
+  "name": "govuk_frontend_toolkit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alphagov/govuk_frontend_toolkit_npm.git"
+  },
+  "version": "7.1.0"
+}
