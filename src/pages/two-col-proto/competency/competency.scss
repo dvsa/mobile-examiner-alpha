@@ -4,7 +4,8 @@ page-competency {
     }
 
     ion-checkbox {
-        margin:2px 10px 5px 0;
+        top: -3px;
+        margin:0px 5px 5px 0;
         transform: scale(1.25);
     }
 
@@ -17,6 +18,10 @@ page-competency {
     .lines {
         border: 1px solid #ddd;
         margin: 10px 0;
+
+        > ion-row h2.titles {
+            font-weight: bold;
+        }
     }
 
     .testContent {
@@ -35,7 +40,7 @@ page-competency {
         padding: 5px 0px;
 
         ion-row {
-            height: 30px;
+            height: 25px;
         }
     }
 
