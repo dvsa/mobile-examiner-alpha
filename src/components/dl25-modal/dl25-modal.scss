@@ -1,16 +1,12 @@
-dl25-modal {
+dl25-modal.ion-page {
+    top: 20%;
+    left: 15%;
+    padding:  20px;
+    background-color: map-get($colors, light);
+    width: 70%;
+    height: 45%;
+    border-radius: 10px;
     ion-modal {
         background-color: rgba(0, 0, 0, 0.5);
-        ion-content.content{
-            top: 20%;
-            left: 10%;
-    
-            width: 80%;
-            height: 50%;
-            border-radius: 10px;
-            .scroll-content {
-                border-radius: 20px;
-            }
-        }
     }
 }
