@@ -31,9 +31,9 @@
                 </ion-row>
                 <div class="testContent">
                   <ul *ngIf="test.marks">
-                    <li class="nestedList" *ngFor="let marks of test.marks">
+                    <li class="nestedList" *ngFor="let marks_1 of test.marks">
                         <ion-row>
-                        <ion-col col-6><h2 class="titles">{{marks}}</h2></ion-col>
+                        <ion-col col-6><h2 class="titles">{{marks_1}}</h2></ion-col>
                         <ion-col col-4 class="buttons">
                           <!-- <ion-row>
                               <ion-col col-3 right><button ion-button >-</button></ion-col>
@@ -56,7 +56,7 @@
       </ion-col>
       <ion-col col-6>
           <ul>
-              <li class="lines" *ngFor="let test of data1">
+              <li class="lines" *ngFor="let test of data2">
                 <ion-row>
                   <ion-col col-8><h2 class="titles">{{test.name}}</h2></ion-col>
                   <ion-col *ngIf="!test.marks" col-2 class="buttons">
@@ -75,9 +75,9 @@
                 </ion-row>
                 <div class="testContent">
                   <ul *ngIf="test.marks">
-                    <li class="nestedList" *ngFor="let marks of test.marks">
+                    <li class="nestedList" *ngFor="let marks_2 of test.marks">
                         <ion-row>
-                        <ion-col col-8><h2 class="titles">{{marks.name}}</h2></ion-col>
+                        <ion-col col-8><h2 class="titles">{{marks_2}}</h2></ion-col>
                         <ion-col col-2 class="buttons">
                           <!-- <ion-row>
                               <ion-col col-3 right><button ion-button >-</button></ion-col>
