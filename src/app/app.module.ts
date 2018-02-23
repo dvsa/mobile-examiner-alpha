@@ -14,6 +14,8 @@ import { TimerComponent } from '../components/timer/timer';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
+import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons-modals';
+import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
     ReportHeaderComponent,
     TimerComponent,
     FaultsScorecardComponent,
-    FaultControlsComponent
+    FaultControlsComponent,
+    Dl25ButtonsModalsPage,
+    Dl25ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
   entryComponents: [
     MyApp,
     HomePage,
-    ComponentLibraryPage
+    ComponentLibraryPage,
+    Dl25ButtonsModalsPage,
+    Dl25ModalComponent
   ],
   providers: [
     StatusBar,

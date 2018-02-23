@@ -1,0 +1,16 @@
+dl25-modal {
+    ion-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        ion-content.content{
+            top: 20%;
+            left: 10%;
+    
+            width: 80%;
+            height: 50%;
+            border-radius: 10px;
+            .scroll-content {
+                border-radius: 20px;
+            }
+        }
+    }
+}
