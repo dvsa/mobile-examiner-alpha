@@ -1,6 +1,6 @@
 report-header {
-    // .toolbar {
-    //     min-height: 44px;
-    //     top: 45px;
-    // }
+    #end-button {
+        background-color: map-get($colors, dark);
+        border-radius: 3px;
+    }
 }
