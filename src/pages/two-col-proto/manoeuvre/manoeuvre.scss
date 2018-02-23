@@ -1,0 +1,65 @@
+page-manoeuvre {
+
+    .buttons {
+        text-align: center;
+    }
+
+    ion-checkbox {
+        margin: 20px;
+        transform: scale(2);
+    }
+
+    ion-input {
+        border: 1px solid #aaa;
+        padding: 3px;
+        margin: 3px 7px;
+    }
+
+    .lines {
+        border: 1px solid #ddd;
+        margin: 10px 0;
+    }
+
+    .testContent {
+        display: inline;
+        & > .buttons {
+            padding-right: 15px;
+            top: -15px;
+        }
+    }
+
+    .titles {
+        display:inline;
+    }
+
+    .nestedList {
+        padding: 5px 0px;
+    }
+
+    .nestedList:nth-child(odd) {
+        background: #f3f3f3;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 5px;
+
+    }
+
+    .header {
+        .buttons {
+            top: 15px;
+            right: 15px;
+            span {
+                padding: 0 23px;
+                &:first-child {
+                    padding: 0 45px;
+                }
+            }
+        }
+    }
+}
