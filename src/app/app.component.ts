@@ -1,6 +1,7 @@
 import { LegalPage } from './../pages/legal/legal';
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform, NavController, MenuController } from 'ionic-angular';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,127 +10,26 @@ import { TablePage } from '../pages/table/table';
 import { IFormPage, IFormItem } from '../sheared/interfaces';
 import { FailCounter } from '../pages/fail-counter/fail-counter';
 
+
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp {  
+  @ViewChild('myNav') nav: NavController;
   rootPage: any = HomePage;
-  tableP: any = TablePage;
 
-  @ViewChild('content') _NAV: NavController
-  categories: string[] = ["Manoeuvers", "Control", "Moving Off", "Mirrors", "Signalling", "Response to signs", "Speed", "Junctions", "Judgement", "Positioning", "Corissings"];
-  formSections: any[] = [
-    {
-      pageName: "Eye sight",
-      page: TablePage,
-      pageOptions: {
-        sections: [
-          {
-            // TODO
-            header: "Eyesight correct",
-            items: [
-              createFailCounter("Control")
-            ]
-          }
-        ]
-      },
-    },
-    {
-      pageName: "Legal requirements",
-      page: LegalPage,
-      pageOptions: {
-      },
-    },
-    {
-      pageName: "Manoeuvres",
-      page: TablePage,
-      pageOptions: {
-        sections: [
-          {
-            header: "Controlled Stop",
-            items: [
-              createFailCounter("Promptness"),
-              createFailCounter("Control")
-            ]
-          },
-          {
-            header: "Reverse Right",
-            items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
-            ]
-          },
-          {
-            header: "Reverse Left",
-            items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
-            ]
-          },
-          {
-            header: "Turn in Road",
-            items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
-            ]
-          }
-        ]
-      },
-    },
-    {
-      pageName: "Control",
-      page: TablePage,
-      pageOptions: {
-        sections: [
-          {
-            header: " ",
-            items: [
-              createFailCounter("Accelerator"),
-              createFailCounter("Clutch"),
-              createFailCounter("Gears"),
-              createFailCounter("Footbrake"),
-              createFailCounter("Parking Brake"),
-              createFailCounter("Steering"),
-              createFailCounter("Balance M/C"),
-            ]
-          }
-        ]
-      },
-    },
-    {
-      pageName: "Speed",
-      page: TablePage,
-      pageOptions: {
-        sections: [
-          {
-            header: " ",
-            items: [
-              createFailCounter("Use of speed"),
-              createFailCounter("Following Distance"),
-              createFailCounter("Appropriate Speed"),
-              createFailCounter("Undue hesitation")
-            ]
-          }
-        ]
-      },
-    }
-  ]
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menu: MenuController) {
     platform.ready().then(() => {
-      statusBar.styleDefault();
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.overlaysWebView(false);
+
       splashScreen.hide();
     });
   }
 
-  sectionToLoad(formPage: IFormPage) {
-    this._NAV.setRoot(formPage.page, { options: formPage });
-    // this._NAV.setRoot(formPage.page, { options: {pageName: formPage.pageName, pageOptions: formPage.pageOptions} });
+  goHome() {
+    this.menu.close();
+    this.nav.popTo(HomePage);
   }
-}
-
-function createFailCounter(name: string): IFormItem | any {
-  return {
-    name: name, counter: 0, isSerious: false, isDangerous: false
-  };
 }

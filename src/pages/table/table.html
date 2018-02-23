@@ -8,10 +8,13 @@
 
 <ion-content padding>
   <ion-list *ngFor="let section of formPage.pageOptions.sections; let i = index;">
-    <ion-list-header>
-      {{section.header}}
-      <div *ngIf="i==0" style="display:inline-block;">
-        <span style="margin-left: 60px;">S</span>
+    <ion-list-header style="overflow:auto;">
+      <span class="float-left">
+          {{section.header}}
+      </span>
+      
+      <div *ngIf="i==0" class="right-input-margin float-right">
+        <span>S</span>
         <span style="margin-left: 24px;">D</span>
       </div>
     </ion-list-header>
