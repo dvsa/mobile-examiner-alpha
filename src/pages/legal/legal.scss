@@ -1,0 +1,14 @@
+page-legal {
+  label {
+    width: 100%;
+    display: block;
+  }
+  label * {
+    float: right;
+  }
+
+  .item-ios .item-button {
+    padding: 0 1em;
+    height: 40px;
+  }
+}

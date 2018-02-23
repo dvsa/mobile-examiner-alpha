@@ -1,0 +1,37 @@
+page-table {
+  span {
+    display: inline-block;
+    padding-top: 13px;
+  }
+  button {
+    border-radius: 50%;
+    font-size: 28px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+  }
+  button:active {
+    background: gray;
+  }
+  input {
+    margin-right: 10px
+  }
+  .input-controls {
+    float: right;
+    margin-bottom: 8px;
+  }
+  .side-margins {
+    margin-left: 10px;
+    margin-right: 10px
+  }
+  .label-ios {
+    margin: 8px 8px 8px 0;
+  }
+  ion-list-header {
+    font-size: 18px !important;
+  }
+}
+.greyed-out{
+  opacity: 0.6; /* Real browsers */
+  filter: alpha(opacity = 60); /* MSIE */ 
+}
