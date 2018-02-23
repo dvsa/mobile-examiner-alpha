@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
+import { ReportHeaderComponent } from '../components/report-header/report-header';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BackLinkComponent } from '../components/back-link/back-link';
     HomePage,
     ComponentLibraryPage,
     HeaderComponent,
-    BackLinkComponent
+    BackLinkComponent,
+    ReportHeaderComponent
   ],
   imports: [
     BrowserModule,
