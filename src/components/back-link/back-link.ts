@@ -20,5 +20,4 @@ export class BackLinkComponent {
     this.navCtrl.pop();
   }
 
-
 }
