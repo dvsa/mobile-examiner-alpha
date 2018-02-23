@@ -10,6 +10,7 @@ import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
+import { TimerComponent } from '../components/timer/timer';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReportHeaderComponent } from '../components/report-header/report-header
     ComponentLibraryPage,
     HeaderComponent,
     BackLinkComponent,
-    ReportHeaderComponent
+    ReportHeaderComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
