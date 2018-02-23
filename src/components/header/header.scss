@@ -3,6 +3,10 @@ mes-header {
     .toolbar {
         min-height: 44px;
     }
+    header {
+        padding: 4px;
+        background-color: map-get($colors, black)
+    }
     .heading-small {
         position: absolute;
         top: -14px;
