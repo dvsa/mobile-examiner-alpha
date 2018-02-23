@@ -9,6 +9,11 @@ import { HomePage } from '../pages/home/home';
 import { ManoeuvrePage } from '../pages/two-col-proto/manoeuvre/manoeuvre';
 import { CompetencyPage } from '../pages/two-col-proto/competency/competency';
 import { TwoColPage } from '../pages/two-col-proto/two-column/two-col';
+import { HeaderComponent } from '../components/header/header';
+import { ComponentLibraryPage } from '../pages/component-library/component-library';
+import { BackLinkComponent } from '../components/back-link/back-link';
+import { ReportHeaderComponent } from '../components/report-header/report-header';
+import { TimerComponent } from '../components/timer/timer';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { TwoColPage } from '../pages/two-col-proto/two-column/two-col';
     HomePage,
     TwoColPage,
     ManoeuvrePage,
-    CompetencyPage
+    CompetencyPage,
+    ComponentLibraryPage,
+    HeaderComponent,
+    BackLinkComponent,
+    ReportHeaderComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +38,8 @@ import { TwoColPage } from '../pages/two-col-proto/two-column/two-col';
     HomePage,
     TwoColPage,
     ManoeuvrePage,
-    CompetencyPage
+    CompetencyPage,
+    ComponentLibraryPage
   ],
   providers: [
     StatusBar,

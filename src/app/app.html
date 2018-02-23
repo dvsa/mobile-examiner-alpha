@@ -1,1 +1,28 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu side="right" [content]="myNav" type="overlay" persistent="true">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Navigation</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list no-margin>
+            <button ion-item (click)="goHome()">
+                Home
+            </button>
+            <button ion-item>
+                Nav link #1
+            </button>
+            <button ion-item>
+                Nav link #2
+            </button>
+            <button ion-item>
+                Nav link #3
+            </button>
+            <button ion-item>
+                Nav link #4
+            </button>
+            <ion-item menuClose detail-none>Close Menu</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="myNav" #myNav [root]="rootPage"></ion-nav>

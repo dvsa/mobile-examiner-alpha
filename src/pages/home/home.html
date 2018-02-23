@@ -1,16 +1,24 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <mes-header></mes-header>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-
-  <button [navPush]="twoColPage">Go To the two column prototype</button>
+<ion-content padding margin-top>
+  <h1 margin-top class="heading-xlarge">
+    Digital DL25 Prototypes
+  </h1>
+  <div margin-bottom>
+    <a class="button" href="#" role="button">Sidebar</a>
+  </div>
+  <div margin-bottom>
+    <a class="button" href="#" role="button">All on one page</a>
+  </div>
+  <div margin-bottom>
+    <button [navPush]="twoColPage">Mulitple tabs</button>
+  </div>
+  <div margin-bottom>
+    <a class="button" href="#" role="button">Buttons with modals</a>
+  </div>
+  <div margin-top float-right>
+    <a class="mes-bottom-link" (click)="goToComponentLibrary()">Component library</a>
+  </div>
 </ion-content>

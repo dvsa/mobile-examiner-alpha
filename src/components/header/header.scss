@@ -1,0 +1,14 @@
+mes-header {
+    color: #ffff;
+    .toolbar {
+        min-height: 44px;
+    }
+    .heading-small {
+        position: absolute;
+        top: -14px;
+        left: 38px;
+    }
+    p {
+        font-size: smaller;
+    }
+}
