@@ -1,30 +1,20 @@
-<header id="global-header" color="black">
-  <div class="header-wrapper">
-    <div class="header-global">
-      <ion-grid no-padding>
-        <ion-row>
-          <ion-col>
-            <img src="assets/imgs/dvsa-logo-black.jpg" width="36" height="32" alt="">
-            <span class="heading-small">DVSA</span>
-          </ion-col>
-          <ion-col>
-            <h3 text-center no-margin class="heading-medium">Driving Test</h3>
-          </ion-col>
-          <ion-col>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <p no-margin padding-left text-left>Nav link #1</p>
-          </ion-col>
-          <ion-col>
-            <p no-margin text-center>Nav link #2</p>
-          </ion-col>
-          <ion-col>
-            <p no-margin padding-right text-right>Nav link #3</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </div>
-</header>
+<ion-header>
+  <ion-navbar hideBackButton no-padding color="black">
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/dvsa-logo-black.jpg" width="36" height="32" alt="">
+          <span class="heading-small">DVSA</span>
+        </ion-col>
+        <ion-col>
+          <h3 text-center no-margin class="heading-medium">Driving Test</h3>
+        </ion-col>
+        <ion-col>
+          <button id="mes-menu-button" no-margin ion-button menuToggle icon-only>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
