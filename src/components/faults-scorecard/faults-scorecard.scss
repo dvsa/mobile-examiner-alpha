@@ -1,5 +1,12 @@
 faults-scorecard {
     .faults-container {
-        padding-left: 80px;
+        padding-left: 35px;
+    }
+    .scorecard-item {
+        background-color: map-get($colors, dark);
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+        margin-left: 3px;
+        color: white;
     }
 }
