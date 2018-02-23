@@ -10,11 +10,35 @@
           <h3 text-center no-margin class="heading-medium">Driving Test</h3>
         </ion-col>
         <ion-col>
-          <button id="mes-menu-button" no-margin ion-button menuToggle icon-only>
+          <button id="mes-menu-button" float-right padding-right no-margin ion-button menuToggle icon-only>
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-navbar>
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Navigation</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item>
+          Nav link #1
+        </button>
+        <button ion-item>
+          Nav link #2
+        </button>
+        <button ion-item>
+          Nav link #3
+        </button>
+        <button ion-item>
+          Nav link #4
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>
 </ion-header>
