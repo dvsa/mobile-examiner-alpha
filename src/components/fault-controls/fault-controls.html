@@ -13,9 +13,9 @@
     </button>
   </ion-col>
   <ion-col>
-    <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
   </ion-col>
   <ion-col>
-    <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
   </ion-col>
 </ion-row>
