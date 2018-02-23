@@ -1,6 +1,20 @@
 page-competency {
     .buttons {
         text-align: center;
+
+        ion-row {
+            left: 15px;
+            position: relative;
+            top: -12px;
+        }
+
+        &.singleLine ion-row {
+            top: -5px;
+        }
+    }
+
+    .button {
+        height: 20px;
     }
 
     ion-checkbox {
@@ -10,9 +24,13 @@ page-competency {
     }
 
     ion-input {
+        height: 25px;
         border: 1px solid #aaa;
-        padding: 3px;
-        margin: 3px 7px;
+        margin: 3px 4px;
+
+        .text-input-ios {
+            margin: 2px 8px 11px 4px;
+        }
     }
 
     .lines {
@@ -21,6 +39,10 @@ page-competency {
 
         > ion-row h2.titles {
             font-weight: bold;
+        }
+
+        > .row .buttons ion-checkbox {
+            top: 5px;
         }
     }
 
