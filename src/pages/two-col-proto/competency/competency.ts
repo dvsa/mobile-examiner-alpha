@@ -10,38 +10,26 @@ export class CompetencyPage {
 
   public data1 = [{
     "name": "control",
-    "marks": [{
-      "name": "accelerator",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "clutch",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "gears",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "footbrake",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "parking break",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "steering",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    }]
-  }];
+    "marks": ["accelerator","clutch","gears","footbrake","parking brake","steering"]
+  }, {
+    "name": "Move off",
+    "marks": ["safety","control"]
+  },{
+    "name": "Use of mirrors",
+    "marks": ["signalling", "change direction", "change speed"]
+  },
+  {
+    "name": "Signals",
+    "marks": ["necessary", "correctly", "timed"]
+  },
+  {
+    "name": "clearance/obstructions"
+  },
+  {
+    "name": "Response to signs",
+    "marks": ["traffic signals", "road markings", "traffic lights", "traffic controls", "other road users"]
+  }
+];
   public data2 = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

@@ -16,53 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ManoeuvrePage {
 
   public data = [{
-    "name" : "Controlled Stop",
-    "fault": 0,
-    "serious": 0,
-    "dangerous": 0
+    "name" : "Controlled Stop"
   }, {
     "name": "Reverse Right",
-    "marks": [{
-      "name": "Control",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "Observation",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    }]
+    "marks": ["Control", "Observation"]
   },{
     "name": "Reverse Park",
-    "marks": [{
-      "name": "Control",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    },{
-      "name": "Observation",
-      "fault": 0,
-      "serious": 0,
-      "dangerous": 0
-    }]
+    "marks": ["Control", "Observation"]
   },{
-    "name" : "Vehicle Check",
-    "fault": 0,
-    "serious": 0,
-    "dangerous": 0
+    "name" : "Vehicle Check"
   },{
-    "name" : "Forward Park",
-    "fault": 0,
-    "serious": 0,
-    "dangerous": 0
+    "name" : "Forward Park"
   },{
-    "name" : "Precautions",
-    "fault": 0,
-    "serious": 0,
-    "dangerous": 0
+    "name" : "Precautions"
   }
-
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
