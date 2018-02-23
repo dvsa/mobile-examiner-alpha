@@ -1,7 +1,6 @@
 dl25-modal.ion-page {
     top: 20%;
     left: 15%;
-    padding:  20px;
     background-color: map-get($colors, light);
     width: 70%;
     height: 45%;
@@ -9,4 +8,16 @@ dl25-modal.ion-page {
     ion-modal {
         background-color: rgba(0, 0, 0, 0.5);
     }
+    .modal-heading {
+        background-color: map-get($colors, dark);
+        h3 {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 10px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: map-get($colors, light);
+        }
+    }
+
 }

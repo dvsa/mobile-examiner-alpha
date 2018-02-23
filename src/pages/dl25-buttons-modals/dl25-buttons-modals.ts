@@ -37,10 +37,9 @@ export class Dl25ButtonsModalsPage {
     public modalCtrl: ModalController) {
   }
 
-  createModal(data: FaultData) {
+  createModal(faultData: FaultData) {
     this.modalCtrl.create(Dl25ModalComponent, {
-      title: data.title,
-      sections: data.sections
+      faultData
     }).present();
   }
 
