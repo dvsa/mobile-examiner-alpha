@@ -17,4 +17,8 @@ export class ComponentLibraryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  goBack() {
+    this.navCtrl.pop();
+  }
+
 }
