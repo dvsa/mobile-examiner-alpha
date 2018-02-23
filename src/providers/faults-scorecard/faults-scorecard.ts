@@ -20,6 +20,10 @@ export class FaultsScorecardProvider {
     this.drivingFaults++;
   }
 
+  removeDrivingFault() {
+    if (this.drivingFaults > 0) this.drivingFaults--;
+  }
+
   addSerious() {
     this.serious++;
   }

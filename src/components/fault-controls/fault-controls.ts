@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 
 /**
  * Generated class for the FaultControlsComponent component.
@@ -13,7 +14,23 @@ import { Component } from '@angular/core';
 export class FaultControlsComponent {
 
 
-  constructor() {
+  constructor(private faultsService: FaultsScorecardProvider) {
+  }
+
+  addDrivingFault() {
+    this.faultsService.addDrivingFault();
+  }
+
+  removeDrivingFault() {
+    this.faultsService.removeDrivingFault();
+  }
+
+  addSerious() {
+    this.faultsService.addSerious();
+  }
+
+  addDangerous() {
+    this.faultsService.addDangerous();
   }
 
 }
