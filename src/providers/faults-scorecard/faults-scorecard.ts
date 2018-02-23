@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 /*
   Generated class for the FaultsScorecardProvider provider.
@@ -6,30 +7,42 @@ import { Injectable } from '@angular/core';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+interface ReportState {
+  drivingFaults: number,
+  serious: number,
+  dangerous: number
+}
 @Injectable()
 export class FaultsScorecardProvider {
 
-  drivingFaults: number = 0;
-  serious: number = 0;
-  dangerous: number = 0;
+  reportState: ReportState = {
+    drivingFaults: 0,
+    serious: 0,
+    dangerous: 0
+  }
+  change: Subject<ReportState> = new Subject<ReportState>();
 
   constructor() {
   }
 
   addDrivingFault() {
-    this.drivingFaults++;
+    this.reportState.drivingFaults++;
+    this.change.next(this.reportState);
   }
 
   removeDrivingFault() {
-    if (this.drivingFaults > 0) this.drivingFaults--;
+    if (this.reportState.drivingFaults > 0) this.reportState.drivingFaults--;
+    this.change.next(this.reportState);
   }
 
   addSerious() {
-    this.serious++;
+    this.reportState.serious++;
+    this.change.next(this.reportState);
   }
 
   addDangerous() {
-    this.dangerous++;
+    this.reportState.dangerous++;
+    this.change.next(this.reportState);
   }
 
 }
