@@ -11,6 +11,8 @@ import { ComponentLibraryPage } from '../pages/component-library/component-libra
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
 import { TimerComponent } from '../components/timer/timer';
+import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
+import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TimerComponent } from '../components/timer/timer';
     HeaderComponent,
     BackLinkComponent,
     ReportHeaderComponent,
-    TimerComponent
+    TimerComponent,
+    FaultsScorecardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { TimerComponent } from '../components/timer/timer';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FaultsScorecardProvider
   ]
 })
 export class AppModule {}
