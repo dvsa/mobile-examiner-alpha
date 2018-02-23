@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
+import { BackLinkComponent } from '../components/back-link/back-link';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ComponentLibraryPage,
-    HeaderComponent
+    HeaderComponent,
+    BackLinkComponent
   ],
   imports: [
     BrowserModule,
