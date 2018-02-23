@@ -34,6 +34,10 @@ page-manoeuvre {
 
     .nestedList {
         padding: 5px 0px;
+
+        .row > ion-col h2 {
+            padding-left: 10px;
+        }
     }
 
     .nestedList:nth-child(odd) {
@@ -47,7 +51,6 @@ page-manoeuvre {
 
     li {
         padding: 5px;
-
     }
 
     .header {
