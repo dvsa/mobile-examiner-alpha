@@ -13,6 +13,7 @@ import { ReportHeaderComponent } from '../components/report-header/report-header
 import { TimerComponent } from '../components/timer/timer';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
+import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-sc
     BackLinkComponent,
     ReportHeaderComponent,
     TimerComponent,
-    FaultsScorecardComponent
+    FaultsScorecardComponent,
+    FaultControlsComponent
   ],
   imports: [
     BrowserModule,
