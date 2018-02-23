@@ -1,0 +1,20 @@
+<ion-header>
+    <mes-header></mes-header>
+    <report-header></report-header>
+  </ion-header>
+<ion-split-pane>
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}</button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav [root]="rootPage" main #content></ion-nav>
+</ion-split-pane>
