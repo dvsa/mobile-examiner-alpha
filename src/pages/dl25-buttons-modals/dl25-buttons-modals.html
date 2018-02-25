@@ -13,7 +13,16 @@
   <!-- <button ion-button (click)="createModal(mockFaultData)">Modal</button> -->
   <ion-row>
     <ion-col *ngFor="let column of columns">
-      <button class="section-button" block ion-button color="grey" *ngFor="let button of column">{{button.title}}</button>
+      <button 
+        class="section-button" 
+        block 
+        ion-button 
+        color="grey" 
+        *ngFor="let button of column"
+        (click)="createModal(button)"
+      >
+        {{button.title}}
+      </button>
     </ion-col>
   </ion-row>
 </ion-content>
