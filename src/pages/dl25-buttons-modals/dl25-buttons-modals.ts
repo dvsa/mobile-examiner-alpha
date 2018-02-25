@@ -1,20 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Dl25ModalComponent } from '../../components/dl25-modal/dl25-modal';
-
-/**
- * Generated class for the Dl25ButtonsModalsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-interface FaultSection {
-  title: string;
-}
-interface FaultData {
-  title: string;
-  sections: FaultSection[];
-}
+import faultData from './fault-data';
 
 @Component({
   selector: 'page-dl25-buttons-modals',
@@ -22,14 +9,7 @@ interface FaultData {
 })
 export class Dl25ButtonsModalsPage {
 
-  mockFaultData: FaultData = {
-    title: 'Signals',
-    sections: [{
-      title: 'Controls'
-    }, {
-      title: 'Observations'
-    }]
-  }
+  columns: any = faultData;
 
   constructor(
     public navCtrl: NavController, 
@@ -37,7 +17,7 @@ export class Dl25ButtonsModalsPage {
     public modalCtrl: ModalController) {
   }
 
-  createModal(faultData: FaultData) {
+  createModal(faultData) {
     this.modalCtrl.create(Dl25ModalComponent, {
       faultData
     }).present();

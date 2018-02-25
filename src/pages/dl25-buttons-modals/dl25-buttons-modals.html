@@ -12,15 +12,8 @@
 <ion-content padding>
   <!-- <button ion-button (click)="createModal(mockFaultData)">Modal</button> -->
   <ion-row>
-    <ion-col>
-      <button block ion-button color="light">Signals</button>
-      <button block ion-button color="light">Signals</button>
-    </ion-col>
-    <ion-col>
-        <button block ion-button color="light">Signals</button>
-    </ion-col>
-    <ion-col>
-      <button block ion-button color="light">Signals</button>
+    <ion-col *ngFor="let column of columns">
+      <button block ion-button color="light" *ngFor="let button of column">{{button.title}}</button>
     </ion-col>
   </ion-row>
 </ion-content>
