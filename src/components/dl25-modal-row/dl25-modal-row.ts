@@ -12,6 +12,7 @@ import { Component, Input } from '@angular/core';
 })
 export class Dl25ModalRowComponent {
 
+  @Input() hasSections: boolean;
   @Input() section: string;
 
   constructor() {

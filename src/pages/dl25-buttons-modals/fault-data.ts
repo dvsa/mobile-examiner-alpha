@@ -163,6 +163,14 @@ export default [
       {
         hasSections: false,
         title: 'Ancilliary controls'
-      }
+      },
+      {
+        hasSections: false,
+        title: 'ETA',
+        radioButtons: [
+          'V',
+          'P'
+        ]
+      },
     ]
   ]
