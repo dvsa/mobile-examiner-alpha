@@ -13,9 +13,11 @@
     </button>
   </ion-col>
   <ion-col>
+    <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
     <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
   </ion-col>
   <ion-col>
+    <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
     <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
   </ion-col>
 </ion-row>
