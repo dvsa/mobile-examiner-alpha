@@ -16,6 +16,7 @@ import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-sc
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
 import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons-modals';
 import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
+import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-row';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
     FaultsScorecardComponent,
     FaultControlsComponent,
     Dl25ButtonsModalsPage,
-    Dl25ModalComponent
+    Dl25ModalComponent,
+    Dl25ModalRowComponent
   ],
   imports: [
     BrowserModule,

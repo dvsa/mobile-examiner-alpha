@@ -1,6 +1,8 @@
-<!-- Generated template for the Dl25ModalComponent component -->
 <div>
   <div class="modal-heading">
     <h3 class="heading-medium">{{faultData.title}}</h3>
+  </div>
+  <div class="modal-content">
+    <dl25-modal-row *ngFor="let section of faultData.sections" [section]="section"></dl25-modal-row>
   </div>
 </div>
