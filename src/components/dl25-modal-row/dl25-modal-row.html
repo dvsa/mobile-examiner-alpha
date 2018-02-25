@@ -1,9 +1,9 @@
 <div class="modal-row">
   <ion-row>
     <ion-col>
-      <h3 no-margin class="heading-small">{{section}}</h3>
+      <h3 no-margin class="heading-small" *ngIf="!!section">{{section}}</h3>
+      <h3 no-margin class="heading-small" *ngIf="!section">{{faultTitle}}</h3>
     </ion-col>
     <fault-controls></fault-controls>
-    <ion-col *ngIf="!hasSections"></ion-col>
   </ion-row>
 </div>

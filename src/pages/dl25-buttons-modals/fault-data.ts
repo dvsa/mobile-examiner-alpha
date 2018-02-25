@@ -52,11 +52,11 @@ export default [
           'Accelerator',
           'Clutch',
           'Gears',
-          'Parking brake/MC front brake',
+          'Parking brake',
           'Footbrake',
           'Steering',
           'Balance MC',
-          'PVC Door exercise'
+          // 'PVC Door exercise'
         ]
       }
     ],
@@ -122,7 +122,7 @@ export default [
         hasSections: true,
         title: 'Junctions',
         sections: [
-          'Apprach speed',
+          'Approach speed',
           'Observation',
           'Turning right',
           'Turning left',

@@ -14,6 +14,7 @@ export class Dl25ModalRowComponent {
 
   @Input() hasSections: boolean;
   @Input() section: string;
+  @Input() faultTitle: string;
 
   constructor() {
   }
