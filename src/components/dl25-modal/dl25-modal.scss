@@ -3,7 +3,7 @@ dl25-modal.ion-page {
     left: 15%;
     background-color: map-get($colors, light);
     width: 70%;
-    height: 45%;
+    height: 80%;
     border-radius: 10px;
     ion-modal {
         background-color: rgba(0, 0, 0, 0.5);
@@ -17,6 +17,11 @@ dl25-modal.ion-page {
             margin-top: 0px;
             margin-bottom: 10px;
             color: map-get($colors, light);
+        }
+    }
+    .modal-footer {
+        button {
+            font-size: 18px;
         }
     }
 

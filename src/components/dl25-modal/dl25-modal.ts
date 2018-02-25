@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the Dl25ModalComponent component.
@@ -22,8 +22,12 @@ export class Dl25ModalComponent {
 
   faultData: FaultData;
 
-  constructor(public params: NavParams) {
+  constructor(public params: NavParams, public viewCtrl: ViewController) {
     this.faultData = params.get('faultData');
+  }
+
+  closeModal() {
+   this.viewCtrl.dismiss();
   }
 
 }

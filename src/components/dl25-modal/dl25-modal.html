@@ -5,4 +5,8 @@
   <div class="modal-content">
     <dl25-modal-row *ngFor="let section of faultData.sections" [section]="section"></dl25-modal-row>
   </div>
+  <div class="modal-footer" float-right margin-right>
+    <button ion-button color="dark" outline (click)="closeModal()">Cancel</button>
+    <button ion-button color="dark" (click)="closeModal()">Confirm</button>
+  </div>
 </div>
