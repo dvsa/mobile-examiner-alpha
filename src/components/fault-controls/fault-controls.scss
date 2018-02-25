@@ -1,0 +1,17 @@
+fault-controls {
+    ion-icon {
+        font-size: 32px;
+    }
+    .fault-total {
+        line-height: 1.5;
+    }
+    ion-checkbox {
+        padding-top: 5px;
+    }
+    .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+        left: 13px;
+        top: 6px;
+        width: 5px;
+        height: 15px;
+    }
+}

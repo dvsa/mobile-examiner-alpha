@@ -12,23 +12,23 @@ import { Component } from '@angular/core';
 })
 export class TimerComponent {
 
-  time: number;
+  secondsCounter: number;
   date: Date = new Date(null);
-  dateTime: string;
+  timer: string;
 
   constructor() {
-    this.time = 0;
-    this.date.setSeconds(this.time);
-    this.dateTime = '';
+    this.secondsCounter = 0;
+    this.date.setSeconds(this.secondsCounter);
+    this.timer = '';
   }
 
   ngOnInit() {
     setInterval(() => {
       this.date = new Date(null);
-      this.date.setSeconds(this.time++);
+      this.date.setSeconds(this.secondsCounter++);
       const showExtraZeroMins = this.date.getMinutes() < 10;
       const showExtraZeroSecs = this.date.getSeconds() < 10;
-      this.dateTime = `${showExtraZeroMins ? '0' : ''}${this.date.getMinutes()}:${showExtraZeroSecs ? '0' : ''}${this.date.getSeconds()}`;
+      this.timer = `${showExtraZeroMins ? '0' : ''}${this.date.getMinutes()}:${showExtraZeroSecs ? '0' : ''}${this.date.getSeconds()}`;
     }, 1000);
   }
 

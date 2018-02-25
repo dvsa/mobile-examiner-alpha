@@ -1,6 +1,12 @@
 report-header {
-    // .toolbar {
-    //     min-height: 44px;
-    //     top: 45px;
-    // }
+    #end-button {
+        background-color: map-get($colors, dark);
+        border-radius: 3px;
+    }
+    .report-header-text {
+        line-height: 3.5;
+    }
+    .data-item {
+        line-height: 2;
+    }
 }

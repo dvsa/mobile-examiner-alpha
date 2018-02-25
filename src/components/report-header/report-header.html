@@ -1,13 +1,15 @@
-<ion-toolbar>
+<ion-toolbar no-padding>
   <ion-grid no-padding>
     <ion-row>
       <ion-col>
-        <span padding-left>Candidate name</span>
+        <span class="report-header-text" padding-left>Candidate name</span>
       </ion-col>
       <ion-col>
         <timer text-center></timer>
       </ion-col>
       <ion-col>
+        <faults-scorecard></faults-scorecard>
+        <button float-right ion-button color="dark" id="end-button">End</button>
       </ion-col>
     </ion-row>
   </ion-grid>
