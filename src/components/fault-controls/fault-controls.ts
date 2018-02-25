@@ -13,6 +13,8 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
 })
 export class FaultControlsComponent {
 
+  serious: boolean;
+  dangerous: boolean;
 
   constructor(private faultsService: FaultsScorecardProvider) {
   }
@@ -25,12 +27,14 @@ export class FaultControlsComponent {
     this.faultsService.removeDrivingFault();
   }
 
-  addSerious() {
-    this.faultsService.addSerious();
+  updateSerious() {
+    if (!this.serious) return this.faultsService.removeSerious();
+    return this.faultsService.addSerious();
   }
 
-  addDangerous() {
-    this.faultsService.addDangerous();
+  updateDangerous() {
+    if (!this.dangerous) return this.faultsService.removeDangerous();
+    return this.faultsService.addDangerous();
   }
 
 }

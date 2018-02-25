@@ -45,4 +45,14 @@ export class FaultsScorecardProvider {
     this.change.next(this.reportState);
   }
 
+  removeSerious() {
+    if (this.reportState.serious > 0) this.reportState.serious--;
+    this.change.next(this.reportState);
+  }
+
+  removeDangerous() {
+    if (this.reportState.dangerous > 0) this.reportState.dangerous--;
+    this.change.next(this.reportState);
+  }
+
 }
