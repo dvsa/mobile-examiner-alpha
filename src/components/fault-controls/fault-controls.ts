@@ -15,15 +15,18 @@ export class FaultControlsComponent {
 
   serious: boolean;
   dangerous: boolean;
+  numDrivingFaults: number = 0;
 
   constructor(private faultsService: FaultsScorecardProvider) {
   }
 
   addDrivingFault() {
+    this.numDrivingFaults++;
     this.faultsService.addDrivingFault();
   }
 
   removeDrivingFault() {
+    if (this.numDrivingFaults > 0) this.numDrivingFaults--;
     this.faultsService.removeDrivingFault();
   }
 
