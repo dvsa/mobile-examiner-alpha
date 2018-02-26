@@ -11,6 +11,7 @@ import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
+import { AllOnOnePage } from '../pages/all-on-one/all-on-one';
 import { TimerComponent } from '../components/timer/timer';
 
 import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
@@ -21,6 +22,10 @@ import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
 import { NotesPage } from '../pages/notes/notes';
+
+import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
+import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,10 @@ import { NotesPage } from '../pages/notes/notes';
     HeaderComponent,
     BackLinkComponent,
     ReportHeaderComponent,
+    AllOnOnePage,
     TimerComponent,
+    AllOnOneFormElementComponent,
+    AllOnOneFormSubElementComponent,
     SidebarPrototypePage,
     FaultsScorecardComponent,
     FaultControlsComponent
@@ -49,6 +57,7 @@ import { NotesPage } from '../pages/notes/notes';
     HomePage,
     TablePage,
     FailCounter,
+    AllOnOnePage,
     LegalPage,
     ComponentLibraryPage,
     SidebarPrototypePage,

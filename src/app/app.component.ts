@@ -4,7 +4,7 @@ import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home'
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +25,6 @@ export class MyApp {
 
   goHome() {
     this.menu.close();
-    this.nav.popTo(HomePage);
+    this.nav.popTo(this.rootPage);
   }
 }

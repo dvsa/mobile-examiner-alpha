@@ -2,6 +2,7 @@ import { SidebarPrototypePage } from './../sidebar-prototype/sidebar-prototype';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ComponentLibraryPage } from '../component-library/component-library';
+import { AllOnOnePage } from '../all-on-one/all-on-one';
 
 @Component({
   selector: 'page-home',
@@ -18,6 +19,10 @@ export class HomePage {
 
   goToComponentLibrary() {
     this.navCtrl.push(ComponentLibraryPage);
+  }
+
+  goToAllOnOnePagePrototype() {
+    this.navCtrl.push(AllOnOnePage);
   }
 
 }
