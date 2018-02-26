@@ -20,8 +20,12 @@
         "C"
       ],
       "sections": [
-        "Control",
-        "Observation"
+        {
+          "title": "Control"
+        },
+        {
+          "title": "Observation"
+        }
       ]
     },
     {
@@ -37,8 +41,12 @@
       "hasSections": true,
       "title": "Forward Park",
       "sections": [
-        "Control",
-        "Observation"
+        {
+          "title": "Control"
+        },
+        {
+          "title": "Observation"
+        }
       ]
     },
     {
@@ -49,14 +57,30 @@
       "hasSections": true,
       "title": "Control",
       "sections": [
-        "Accelerator",
-        "Clutch",
-        "Gears",
-        "Parking brake/MC front brake",
-        "Footbrake",
-        "Steering",
-        "Balance MC",
-        "PVC Door exercise"
+        {
+          "title": "Accelerator"
+        },
+        {
+          "title": "Clutch"
+        },
+        {
+          "title": "Gears"
+        },
+        {
+          "title": "Parking brake/MC front brake"
+        },
+        {
+          "title": "Footbrake"
+        },
+        {
+          "title": "Steering"
+        },
+        {
+          "title": "Balance MC"
+        },
+        {
+          "title": "PVC Door exercise"
+        }
       ]
     }
   ],
@@ -65,26 +89,42 @@
       "hasSections": true,
       "title": "Move Off",
       "sections": [
-        "Safety",
-        "Control"
+        {
+          "title": "Safety"
+        },
+        {
+          "title": "Control"
+        }
       ]
     },
     {
       "hasSections": true,
       "title": "Use of mirrors",
       "sections": [
-        "Signalling",
-        "Change direction",
-        "Change speed"
+        {
+          "title": "Signalling"
+        },
+        {
+          "title": "Change direction"
+        },
+        {
+          "title": "Change speed"
+        }
       ]
     },
     {
       "hasSections": true,
       "title": "Signals",
       "sections": [
-        "Necessary",
-        "Correctly",
-        "Timed"
+        {
+          "title": "Necessary"
+        },
+        {
+          "title": "Correctly"
+        },
+        {
+          "title": "Timed"
+        }
       ]
     },
     {
@@ -95,11 +135,21 @@
       "hasSections": true,
       "title": "Response to signs/signals",
       "sections": [
-        "Traffic signs",
-        "Road markings",
-        "Traffic lights",
-        "Traffic controllers",
-        "Other road users"
+        {
+          "title": "Traffic signs"
+        },
+        {
+          "title": "Road markings"
+        },
+        {
+          "title": "Traffic lights"
+        },
+        {
+          "title": "Traffic controllers"
+        },
+        {
+          "title": "Other road users"
+        }
       ]
     },
     {
@@ -114,28 +164,48 @@
       "hasSections": true,
       "title": "Progress",
       "sections": [
-        "Appropriate speeds",
-        "Undue hesitation"
+        {
+          "title": "Appropriate speeds"
+        },
+        {
+          "title": "Undue hesitation"
+        }
       ]
     },
     {
       "hasSections": true,
       "title": "Junctions",
       "sections": [
-        "Apprach speed",
-        "Observation",
-        "Turning right",
-        "Turning left",
-        "Cutting corners"
+        {
+          "title": "Approach speed"
+        },
+        {
+          "title": "Observation"
+        },
+        {
+          "title": "Turning right"
+        },
+        {
+          "title": "Turning left"
+        },
+        {
+          "title": "Cutting corners"
+        }
       ]
     },
     {
       "hasSections": true,
       "title": "Judgement",
       "sections": [
-        "Overtaking",
-        "Meeting",
-        "Crossing"
+        {
+          "title": "Overtaking"
+        },
+        {
+          "title": "Meeting"
+        },
+        {
+          "title": "Crossing"
+        }
       ]
     }
   ],
@@ -144,8 +214,12 @@
       "hasSections": true,
       "title": "Positioning",
       "sections": [
-        "Normal driving",
-        "Lane discipline"
+        {
+          "title": "Normal driving"
+        },
+        {
+          "title": "Lane discipline"
+        }
       ]
     },
     {

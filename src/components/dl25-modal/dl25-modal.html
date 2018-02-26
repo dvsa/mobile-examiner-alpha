@@ -7,7 +7,7 @@
       [hasSections]="faultData.hasSections"
       [faultTitle]="faultData.title"
       *ngFor="let section of faultData.sections" 
-      [section]="section" 
+      [section]="section.title" 
     ></dl25-modal-row>
     <dl25-modal-row [faultTitle]="faultData.title" *ngIf="!faultData.hasSections"></dl25-modal-row>
   </div>

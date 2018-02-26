@@ -21,16 +21,27 @@ export class FaultDataProvider {
     _(this.faultData) 
       .each(column => {
         _(column).each(fault => {
-          fault.faults = {
-            df: 0,
-            s: false,
-            d: false
+          if (fault.hasSections) {
+            _(fault.sections).each(section => {
+              section.faults = {
+                df: 0,
+                s: false,
+                d: false
+              }
+            });
+          } else {
+            fault.faults = {
+              df: 0,
+              s: false,
+              d: false
+            }
           }
         });
       });
   }
 
   getFault(faultTitle: string, title: string, action: string) {
+    // Faults without sub-sections
     if (typeof title === 'undefined') {
       if (action === 'addDrivingFault') {
         return _(this.faultData)
@@ -80,8 +91,63 @@ export class FaultDataProvider {
         .first()
         .filter(faultItem => faultItem.title === faultTitle)[0];
       }
+    // Faults with sub-sections
     } else {
-
+      if (action === 'addDrivingFault') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.df++;
+      }
+      if (action === 'removeDrivingFault') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.df--;
+      }
+      if (action === 'addSerious') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.s = true;
+      }
+      if (action === 'removeSerious') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.s = false;
+      }
+      if (action === 'addDangerous') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.d = true;
+      }
+      if (action === 'removeDangerous') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0]
+        .faults.d = false;
+      }
+      if (action === null) {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faults => faults.title === faultTitle)[0]
+        .sections.filter(section => section.title === title)[0];
+      }
     }
   }
 
