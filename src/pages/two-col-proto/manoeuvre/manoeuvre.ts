@@ -21,6 +21,8 @@ export class ManoeuvrePage {
     "name": "Reverse Park",
     "marks": ["Control", "Observation"]
   },{
+    "name" : "Show me"
+  },{
     "name" : "Vehicle Check"
   },{
     "name" : "Forward Park"
