@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { IFormPage, IFormItem } from '../../sheared/interfaces';
 import { LegalPage } from '../legal/legal';
 import { TablePage } from '../../components/table/table';
+import { NotesPage } from '../notes/notes';
 
 @Component({
   selector: 'page-sidebar-prototype',
@@ -23,21 +24,6 @@ export class SidebarPrototypePage {
   }
 
   formSections: any[] = [
-    {
-      pageName: "Eye sight",
-      page: TablePage,
-      pageOptions: {
-        sections: [
-          {
-            // TODO
-            header: "Eyesight correct",
-            items: [
-              createFailCounter("Control")
-            ]
-          }
-        ]
-      },
-    },
     {
       pageName: "Legal requirements",
       page: LegalPage,
@@ -118,7 +104,7 @@ export class SidebarPrototypePage {
       },
     },
     {
-      pageName: "Response to signs/signals",
+      pageName: "Response to signs",
       page: TablePage,
       pageOptions: {
         sections: [
@@ -166,6 +152,15 @@ export class SidebarPrototypePage {
               createFailCounter("Crossing"),
             ]
           }
+        ]
+      },
+    },
+    {
+      pageName: "Notes",
+      page: NotesPage,
+      pageOptions: {
+        sections: [
+          { text: 'My typed notes...' }
         ]
       },
     }

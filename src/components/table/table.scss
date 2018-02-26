@@ -10,12 +10,13 @@ page-table {
     width: 50px;
     height: 50px;
     background-color: #dddddd;
+    padding: 0;
   }
   button:active {
     background: gray;
   }
   input {
-    margin-right: 10px
+    margin-right: 25px;
   }
   .input-controls {
     float: right;
@@ -23,7 +24,9 @@ page-table {
   }
   .side-margins {
     margin-left: 10px;
-    margin-right: 10px
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
   }
   .label-ios {
     margin: 8px 8px 8px 0;
@@ -38,7 +41,7 @@ page-table {
     font-size: 18px !important;
   }
   .right-input-margin {
-    margin-right: 169px;
+    margin-right: 195px;
   }
 }
 .greyed-out{

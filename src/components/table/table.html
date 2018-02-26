@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list *ngFor="let section of formPage.pageOptions.sections; let i = index;">
     <ion-list-header style="overflow:auto;">
       <span class="float-left">
@@ -15,7 +15,7 @@
       
       <div *ngIf="i==0" class="right-input-margin float-right">
         <span>S</span>
-        <span style="margin-left: 24px;">D</span>
+        <span style="margin-left: 40px;">D</span>
       </div>
     </ion-list-header>
     <ion-item *ngFor="let item of section.items">

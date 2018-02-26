@@ -20,6 +20,7 @@ import { LegalPage } from '../pages/legal/legal';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
+import { NotesPage } from '../pages/notes/notes';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
     TablePage,
     FailCounter,
     LegalPage,
+    NotesPage,
     ComponentLibraryPage,
     HeaderComponent,
     BackLinkComponent,
@@ -50,6 +52,7 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
     LegalPage,
     ComponentLibraryPage,
     SidebarPrototypePage,
+    NotesPage
   ],
   providers: [
     StatusBar,
