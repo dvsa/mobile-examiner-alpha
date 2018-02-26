@@ -3,7 +3,7 @@ import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Dl25ModalComponent } from '../../components/dl25-modal/dl25-modal';
 import { FaultDataProvider } from '../../providers/fault-data/fault-data';
 import { Subscription } from 'rxjs/Subscription';
-// import faultData from './fault-data';
+import _ from 'lodash';
 
 @Component({
   selector: 'page-dl25-buttons-modals',
@@ -29,6 +29,13 @@ export class Dl25ButtonsModalsPage {
     this.modalCtrl.create(Dl25ModalComponent, {
       faultData
     }).present();
+  }
+
+  getNumberOfFaults(fault) {
+    if (!fault.hasSections) return fault.faults.df;
+    return _(fault.sections)
+      .map(subSection => subSection.faults.df)
+      .reduce((acc, prev) => acc + prev);
   }
 
 }
