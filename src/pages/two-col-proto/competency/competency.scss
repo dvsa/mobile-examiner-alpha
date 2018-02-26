@@ -1,72 +1,42 @@
 page-competency {
+
+    fault-controls-multiCol {
+        .button[icon-only] {
+            height: 1.5em;
+            width: 1.5em;
+        }
+
+        ion-checkbox {
+            transform: scale(1.2);
+            margin: 0;
+        }
+
+    }
+
     .buttons {
-        text-align: center;
-
-        ion-row {
-            left: 15px;
-            position: relative;
-            top: -12px;
-        }
-
-        &.singleLine ion-row {
-            top: -5px;
-        }
-    }
-
-    .button {
-        height: 20px;
-    }
-
-    ion-checkbox {
-        top: -3px;
-        margin:0px 5px 5px 0;
-        transform: scale(1.25);
-    }
-
-    ion-input {
-        height: 25px;
-        border: 1px solid #aaa;
-        margin: 3px 4px;
-
-        .text-input-ios {
-            margin: 2px 8px 11px 4px;
-        }
+        padding-left: 15px;
     }
 
     .lines {
         border: 1px solid #ddd;
         margin: 10px 0;
-
-        > ion-row h2.titles {
-            font-weight: bold;
-        }
-
-        > .row .buttons ion-checkbox {
-            top: 5px;
-        }
-
-        > .row {
-            height: 20px;
-        }
     }
 
     .testContent {
         display: inline;
-        & > .buttons {
-            padding-right: 15px;
-            top: -15px;
-        }
     }
 
     .titles {
         display:inline;
+        font-weight: bold;
+        font-size: 1.2em;
     }
 
     .nestedList {
         padding: 5px 0px;
 
-        ion-row {
-            height: 25px;
+        .row > ion-col h2 {
+            padding-left: 10px;
         }
     }
 
@@ -80,20 +50,6 @@ page-competency {
     }
 
     li {
-        padding: 2px;
-
-    }
-
-    .header {
-        .buttons {
-            top: 15px;
-            right: 15px;
-            span {
-                padding: 0 23px;
-                &:first-child {
-                    padding: 0 45px;
-                }
-            }
-        }
+        padding: 5px;
     }
 }
