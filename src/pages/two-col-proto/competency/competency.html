@@ -5,8 +5,8 @@
           <ul>
               <li class="lines" *ngFor="let test of data1">
                 <ion-row>
-                  <ion-col col-5><h2 class="titles">{{test.name}}</h2></ion-col>
-                  <ion-col *ngIf="!test.marks" col-7 class="buttons">
+                  <ion-col col-6><h2 class="titles">{{test.name}}</h2></ion-col>
+                  <ion-col *ngIf="!test.marks" col-6 class="buttons">
                     <ion-row>
                         <fault-controls-multiCol></fault-controls-multiCol>
                     </ion-row>
@@ -16,8 +16,8 @@
                   <ul *ngIf="test.marks">
                     <li class="nestedList" *ngFor="let marks_1 of test.marks">
                         <ion-row>
-                            <ion-col col-5><h2 class="titles">{{marks_1}}</h2></ion-col>
-                            <ion-col col-7 class="buttons">
+                            <ion-col col-6><h2 class="titles">{{marks_1}}</h2></ion-col>
+                            <ion-col col-6 class="buttons">
                                 <ion-row>
                                     <fault-controls-multiCol></fault-controls-multiCol>
                                 </ion-row>
