@@ -40,7 +40,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   dvsa_green: #006b54,
-  black:   #000
+  black:   #000,
+  grey:    #d8dde6
 );
 
 
@@ -89,6 +90,8 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
+// $checkbox-ios-icon-size: 42px;
+// $button-ios-font-size: 12px;
 $split-pane-side-max-width: 230px;
 $split-pane-side-min-width: 100px;
 

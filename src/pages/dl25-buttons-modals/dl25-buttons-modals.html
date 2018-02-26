@@ -1,0 +1,24 @@
+<ion-header>
+  <mes-header></mes-header>
+  <report-header></report-header>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col *ngFor="let column of columns">
+      <button
+        class="section-button"
+        block 
+        ion-button 
+        color="grey" 
+        *ngFor="let button of column"
+        (click)="createModal(button)"
+      >
+        <span class="fault-badge dangerous" *ngIf="hasDangerousFault(button)">D</span>
+        <span class="fault-badge serious" *ngIf="hasSeriousFault(button)">S</span>
+        <span class="fault-badge df" *ngIf="getNumberOfFaults(button) > 0" color="dark">{{getNumberOfFaults(button)}}</span>
+        {{button.title}}
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -25,6 +25,10 @@ import { LegalPage } from '../pages/legal/legal';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
+import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons-modals';
+import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
+import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-row';
+import { FaultDataProvider } from '../providers/fault-data/fault-data';
 import { FaultControlsMultiTabComponent } from '../components/fault-controls-multiTab/fault-controls-multiTab';
 import { NotesPage } from '../pages/notes/notes';
 
@@ -55,6 +59,9 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
     SidebarPrototypePage,
     FaultsScorecardComponent,
     FaultControlsComponent,
+    Dl25ButtonsModalsPage,
+    Dl25ModalComponent,
+    Dl25ModalRowComponent,
     FaultControlsMultiTabComponent
   ],
   imports: [
@@ -65,6 +72,9 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
   entryComponents: [
     MyApp,
     HomePage,
+    ComponentLibraryPage,
+    Dl25ButtonsModalsPage,
+    Dl25ModalComponent,
     TabsPage,
     ManoeuvrePage,
     CompetencyPage,
@@ -82,7 +92,8 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FaultsScorecardProvider
+    FaultsScorecardProvider,
+    FaultDataProvider
   ]
 })
 export class AppModule { }

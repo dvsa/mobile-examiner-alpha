@@ -1,0 +1,28 @@
+page-dl25-buttons-modals {
+    .section-button {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 36px 15px;
+        margin: 10px 5px;
+        border-radius: 10px;
+    }
+    .fault-badge {
+        position: absolute;
+        top: 5px;
+        background-color: map-get($colors, light);
+        border: 1px solid map-get($colors, dark);
+        color: map-get($colors, dark);
+        padding: 4px 6px;
+        border-radius: 8px;
+        font-size: 14px;
+        &.df {
+            right: 5px;
+        }
+        &.serious {
+            right: 30px;
+        }
+        &.dangerous {
+            right: 55px;
+        }
+    }
+}

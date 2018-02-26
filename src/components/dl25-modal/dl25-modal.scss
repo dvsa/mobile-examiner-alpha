@@ -1,0 +1,34 @@
+dl25-modal.ion-page {
+    left: 15%;
+    background-color: map-get($colors, light);
+    width: 75%;
+    height: 100%;
+    border-radius: 10px;
+    ion-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-heading {
+        background-color: map-get($colors, dark);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        h3 {
+            padding: 10px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            color: map-get($colors, light);
+        }
+    }
+    .modal-footer {
+        position: absolute;
+        bottom: 10px;
+        width: 94%;
+        button {
+            font-size: 18px;
+        }
+    }
+    .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+        display: none;
+    }
+
+}

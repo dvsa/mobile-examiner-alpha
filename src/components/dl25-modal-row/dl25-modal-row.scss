@@ -1,0 +1,31 @@
+dl25-modal-row {
+    .modal-row {
+        margin: 10px;
+    }
+    .heading-small {
+        padding-top: 8px;
+    }
+    .fault-controls {
+        .button-df-control {
+            transform: scale(1.2);
+            font-size: 13px;
+        }
+        .fault-total {
+            line-height: 1.75;
+        }
+        .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+            display: none;
+        }
+        .fault-type-text {
+            position: absolute;
+            top: 17px;
+            left: 21px;
+            z-index: 1;
+            font-weight: bold;
+            pointer-events: none;
+            &.focused {
+                color: #fff;
+            }
+        }
+    }
+}
