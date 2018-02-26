@@ -3,53 +3,24 @@
   <ul>
     <li class="lines" *ngFor="let test of data">
       <ion-row>
-        <ion-col col-8><h2 class="titles">{{test.name}}</h2></ion-col>
-        <ion-col *ngIf="!test.marks" col-2 class="buttons">
+        <ion-col col-7><h2 class="titles">{{test.name}}</h2></ion-col>
+        <ion-col *ngIf="!test.marks" col-5 class="buttons">
           <ion-row>
-            <ion-col col-3 right>
-              <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
-                <ion-icon name="remove"></ion-icon>
-              </button>
-            <ion-col col-4 center><span text-center class="fault-total bold-medium">3</span></ion-col>
-            <ion-col col-3 center>
-              <button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
-                <ion-icon name="add"></ion-icon>
-              </button></ion-col> 
-            </ion-col>
+              <fault-controls-multiCol></fault-controls-multiCol>
           </ion-row>
-        </ion-col>
-        <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
-        </ion-col>
-        <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
         </ion-col>
       </ion-row>
       <div class="testContent">
         <ul *ngIf="test.marks">
           <li class="nestedList" *ngFor="let marks of test.marks">
               <ion-row>
-              <ion-col col-8><h2 class="titles">{{marks}}</h2></ion-col>
-              <ion-col col-2 class="buttons">
-                <ion-row>
-                    <ion-col col-3 right>
-                      <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
-                        <ion-icon name="remove"></ion-icon>
-                      </button>
-                    </ion-col>
-                    <ion-col col-4 center><span text-center class="fault-total bold-medium">3</span></ion-col>
-                    <ion-col col-3 center><button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
-                        <ion-icon name="add"></ion-icon>
-                      </button></ion-col>
-                </ion-row>
-              </ion-col>
-              <ion-col col-1 class="buttons">
-                  <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
-              </ion-col>
-              <ion-col col-1 class="buttons">
-                  <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
-              </ion-col>
-            </ion-row>
+                <ion-col col-7><h2 class="titles">{{marks}}</h2></ion-col>
+                <ion-col col-5 class="buttons">
+                    <ion-row>
+                        <fault-controls-multiCol></fault-controls-multiCol>
+                    </ion-row>
+                  </ion-col>
+              </ion-row>
           </li>
         </ul>
       </div>

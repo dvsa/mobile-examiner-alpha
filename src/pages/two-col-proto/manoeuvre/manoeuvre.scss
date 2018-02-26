@@ -1,29 +1,7 @@
 page-manoeuvre {
 
     .buttons {
-        text-align: center;
-    }
-
-    ion-icon {
-        font-size: 32px;
-    }
-    .fault-total {
-        line-height: 1.5;
-    }
-    ion-checkbox {
-        padding-top: 5px;
-    }
-    .checkbox-ios-dark .checkbox-checked .checkbox-inner {
-        left: 13px;
-        top: 6px;
-        width: 5px;
-        height: 15px;
-    }
-
-    ion-input {
-        border: 1px solid #aaa;
-        padding: 3px;
-        margin: 3px 7px;
+        padding-left: 15px;
     }
 
     .lines {
@@ -33,10 +11,6 @@ page-manoeuvre {
 
     .testContent {
         display: inline;
-        & > .buttons {
-            padding-right: 15px;
-            top: -15px;
-        }
     }
 
     .titles {
@@ -64,18 +38,5 @@ page-manoeuvre {
 
     li {
         padding: 5px;
-    }
-
-    .header {
-        .buttons {
-            top: 15px;
-            right: 15px;
-            span {
-                padding: 0 23px;
-                &:first-child {
-                    padding: 0 45px;
-                }
-            }
-        }
     }
 }

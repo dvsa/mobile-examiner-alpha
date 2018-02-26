@@ -5,32 +5,24 @@
           <ul>
               <li class="lines" *ngFor="let test of data1">
                 <ion-row>
-                  <ion-col col-6><h2 class="titles">{{test.name}}</h2></ion-col>
-                  <ion-col *ngIf="!test.marks" col-4 class="buttons singleLine">
-                      <fault-controls></fault-controls>
-                  </ion-col>
-                  <ion-col *ngIf="!test.marks" col-1 class="buttons">
-                      <ion-checkbox></ion-checkbox>
-                  </ion-col>
-                  <ion-col *ngIf="!test.marks" col-1 class="buttons">
-                      <ion-checkbox></ion-checkbox>
+                  <ion-col col-5><h2 class="titles">{{test.name}}</h2></ion-col>
+                  <ion-col *ngIf="!test.marks" col-7 class="buttons">
+                    <ion-row>
+                        <fault-controls-multiCol></fault-controls-multiCol>
+                    </ion-row>
                   </ion-col>
                 </ion-row>
                 <div class="testContent">
                   <ul *ngIf="test.marks">
                     <li class="nestedList" *ngFor="let marks_1 of test.marks">
                         <ion-row>
-                        <ion-col col-6><h2 class="titles">{{marks_1}}</h2></ion-col>
-                        <ion-col col-4 class="buttons">
-                            <fault-controls></fault-controls>
-                        </ion-col>
-                        <ion-col col-1 class="buttons">
-                            <ion-checkbox></ion-checkbox>
-                        </ion-col>
-                        <ion-col col-1 class="buttons">
-                            <ion-checkbox></ion-checkbox>
-                        </ion-col>
-                      </ion-row>
+                            <ion-col col-5><h2 class="titles">{{marks_1}}</h2></ion-col>
+                            <ion-col col-7 class="buttons">
+                                <ion-row>
+                                    <fault-controls-multiCol></fault-controls-multiCol>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
                     </li>
                   </ul>
                 </div>
@@ -41,38 +33,22 @@
           <ul>
               <li class="lines" *ngFor="let test_2 of data2">
                   <ion-row>
-                    <ion-col col-6><h2 class="titles">{{test_2.name}}</h2></ion-col>
-                    <ion-col *ngIf="!test_2.marks" col-4 class="buttons singleLine">
-                      <ion-row>
-                          <ion-col col-3 right><button ion-button >-</button></ion-col>
-                          <ion-col col-4 center><ion-input type="number" placeholder="0"></ion-input></ion-col>
-                          <ion-col col-3 center><button ion-button >+</button></ion-col>
-                      </ion-row>
-                    </ion-col>
-                    <ion-col *ngIf="!test_2.marks" col-1 class="buttons">
-                        <ion-checkbox></ion-checkbox>
-                    </ion-col>
-                    <ion-col *ngIf="!test_2.marks" col-1 class="buttons">
-                        <ion-checkbox></ion-checkbox>
+                    <ion-col col-5><h2 class="titles">{{test_2.name}}</h2></ion-col>
+                    <ion-col *ngIf="!test_2.marks" col-7 class="buttons">
+                        <ion-row>
+                            <fault-controls-multiCol></fault-controls-multiCol>
+                        </ion-row>
                     </ion-col>
                   </ion-row>
                   <div class="testContent">
                     <ul *ngIf="test_2.marks">
                       <li class="nestedList" *ngFor="let marks_2 of test_2.marks">
                           <ion-row>
-                          <ion-col col-6><h2 class="titles">{{marks_2}}</h2></ion-col>
-                          <ion-col col-4 class="buttons">
+                          <ion-col col-5><h2 class="titles">{{marks_2}}</h2></ion-col>
+                          <ion-col col-7 class="buttons">
                             <ion-row>
-                                <ion-col col-3 right><button ion-button >-</button></ion-col>
-                                <ion-col col-4 center><ion-input type="number" placeholder="0"></ion-input></ion-col>
-                                <ion-col col-3 center><button ion-button >+</button></ion-col>
+                                <fault-controls-multiCol></fault-controls-multiCol>
                             </ion-row>
-                          </ion-col>
-                          <ion-col col-1 class="buttons">
-                              <ion-checkbox></ion-checkbox>
-                          </ion-col>
-                          <ion-col col-1 class="buttons">
-                              <ion-checkbox></ion-checkbox>
                           </ion-col>
                         </ion-row>
                       </li>

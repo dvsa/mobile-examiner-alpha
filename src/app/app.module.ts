@@ -17,6 +17,7 @@ import { TimerComponent } from '../components/timer/timer';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
+import { FaultControlsMultiColComponent } from '../components/fault-controls-multiCol/fault-controls-multiCol';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
     ReportHeaderComponent,
     TimerComponent,
     FaultsScorecardComponent,
-    FaultControlsComponent
+    FaultControlsComponent,
+    FaultControlsMultiColComponent
   ],
   imports: [
     BrowserModule,
