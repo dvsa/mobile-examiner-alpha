@@ -79,8 +79,7 @@ export class SidebarPrototypePage {
               createFailCounter("Gears"),
               createFailCounter("Footbrake"),
               createFailCounter("Parking Brake"),
-              createFailCounter("Steering"),
-              createFailCounter("Balance M/C"),
+              createFailCounter("Steering")
             ]
           }
         ]
@@ -150,6 +149,23 @@ export class SidebarPrototypePage {
               createFailCounter("Overtaking"),
               createFailCounter("Meeting"),
               createFailCounter("Crossing"),
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: "Positioning",
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: " ",
+            items: [
+              createFailCounter("Normal driving"),
+              createFailCounter("Lane discipline"),
+              createFailCounter("Predestian crossings"),
+              createFailCounter("Position/normal stops"),
             ]
           }
         ]
