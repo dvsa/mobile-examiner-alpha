@@ -46,6 +46,34 @@ export class FaultDataProvider {
         .filter(faultItem => faultItem.title === faultTitle)[0]
         .faults.df--;
       }
+      if (action === 'addSerious') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .faults.s = true;
+      }
+      if (action === 'removeSerious') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .faults.s = false;
+      }
+      if (action === 'addDangerous') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .faults.d = true;
+      }
+      if (action === 'removeDangerous') {
+        return _(this.faultData)
+        .filter(column => column.some(faultItem => faultItem.title === faultTitle))
+        .first()
+        .filter(faultItem => faultItem.title === faultTitle)[0]
+        .faults.d = false;
+      }
       if (action === null) {
         return _(this.faultData)
         .filter(column => column.some(faultItem => faultItem.title === faultTitle))
@@ -67,13 +95,23 @@ export class FaultDataProvider {
     this.change.next(this.faultData);
   }
 
-  toggleSerious(faultTitle, title) {
-    !this.getFault(faultTitle, title, 'toggleSerious');
+  addSerious(faultTitle, title) {
+    this.getFault(faultTitle, title, 'addSerious');
     this.change.next(this.faultData);
   }
 
-  toggleDangerous(faultTitle, title) {
-    !this.getFault(faultTitle, title, 'toggleDangerous');
+  removeSerious(faultTitle, title) {
+    this.getFault(faultTitle, title, 'removeSerious');
+    this.change.next(this.faultData);
+  }
+
+  addDangerous(faultTitle, title) {
+    this.getFault(faultTitle, title, 'addDangerous');
+    this.change.next(this.faultData);
+  }
+
+  removeDangerous(faultTitle, title) {
+    this.getFault(faultTitle, title, 'removeDangerous');
     this.change.next(this.faultData);
   }
 
