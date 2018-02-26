@@ -19,6 +19,7 @@ export default [
     {
       hasSections: true,
       title: 'Reverse Park',
+      hasSupplementaryRadioButtons: true,
       radioButtons: [
         'R',
         'C'
@@ -36,6 +37,7 @@ export default [
       hasSections: false,
       title: 'Show me',
       questionText: 'How you’d operate the horn?',
+      hasQuestion: true,
       radioButtons: [
         'Incorrect',
         'Correct'
@@ -241,6 +243,25 @@ export default [
     {
       hasSections: false,
       title: 'Ancilliary controls'
+    },
+    {
+      hasSections: false,
+      title: 'ETA',
+      hasRadioButtons: true,
+      radioButtons: [
+        'Verbal',
+        'Physical'
+      ]
+    },
+    {
+      hasSections: false,
+      title: 'Eco',
+      hasChecboxes: true,
+      checkBoxes: [
+        'Assessed',
+        'Controlled',
+        'Planning'
+      ]
     }
   ]
 ]
