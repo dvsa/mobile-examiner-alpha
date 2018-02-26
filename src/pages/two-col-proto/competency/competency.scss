@@ -84,4 +84,17 @@ page-competency {
     li {
         padding: 5px;
     }
+
+    .fault-type-text {
+        font-size: 1.1em;
+        position: absolute;
+        bottom: 30px;
+        left: 15px;
+        z-index: 1;
+        font-weight: bold;
+        pointer-events: none;
+        &.focused {
+            color: #fff;
+        }
+    }
 }

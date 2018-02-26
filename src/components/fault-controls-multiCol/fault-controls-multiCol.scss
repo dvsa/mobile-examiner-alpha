@@ -19,9 +19,22 @@ fault-controls-multiCol {
         margin: 0 10px;
     }
     .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+        display: none;
         left: 13px;
         top: 6px;
         width: 5px;
         height: 15px;
+    }
+    .fault-type-text {
+        font-size: 1.5em;
+        position: absolute;
+        bottom: 10px;
+        left: 25px;
+        z-index: 1;
+        font-weight: bold;
+        pointer-events: none;
+        &.focused {
+            color: #fff;
+        }
     }
 }

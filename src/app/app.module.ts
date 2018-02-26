@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ManoeuvrePage } from '../pages/two-col-proto/manoeuvre/manoeuvre';
 import { CompetencyPage } from '../pages/two-col-proto/competency/competency';
+import { LegalPage } from '../pages/two-col-proto/legal/legal';
 import { TwoColPage } from '../pages/two-col-proto/two-column/two-col';
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
@@ -26,6 +27,7 @@ import { FaultControlsMultiColComponent } from '../components/fault-controls-mul
     TwoColPage,
     ManoeuvrePage,
     CompetencyPage,
+    LegalPage,
     ComponentLibraryPage,
     HeaderComponent,
     BackLinkComponent,
@@ -46,6 +48,7 @@ import { FaultControlsMultiColComponent } from '../components/fault-controls-mul
     TwoColPage,
     ManoeuvrePage,
     CompetencyPage,
+    LegalPage,
     ComponentLibraryPage
   ],
   providers: [
