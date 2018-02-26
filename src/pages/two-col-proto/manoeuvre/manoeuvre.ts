@@ -9,6 +9,9 @@ import { FaultsScorecardProvider } from '../../../providers/faults-scorecard/fau
 })
 export class ManoeuvrePage {
 
+  serious: boolean;
+  dangerous: boolean;
+
   public data = [{
     "name" : "Controlled Stop"
   }, {

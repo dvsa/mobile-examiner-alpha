@@ -19,10 +19,10 @@
           </ion-row>
         </ion-col>
         <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox color="dark" checked="false" name="{{test.name}}" (ionChange)="updateSerious()"></ion-checkbox>
+            <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
         </ion-col>
         <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox color="dark" checked="false" name="{{test.name}}" (ionChange)="updateDangerous()"></ion-checkbox>
+            <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
         </ion-col>
       </ion-row>
       <div class="testContent">
@@ -44,10 +44,10 @@
                 </ion-row>
               </ion-col>
               <ion-col col-1 class="buttons">
-                  <ion-checkbox color="dark" checked="false" name="{{marks}}" (ionChange)="updateSerious()"></ion-checkbox>
+                  <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
               </ion-col>
               <ion-col col-1 class="buttons">
-                  <ion-checkbox color="dark" checked="false" name="{{marks}}" (ionChange)="updateDangerous()"></ion-checkbox>
+                  <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
               </ion-col>
             </ion-row>
           </li>
