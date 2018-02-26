@@ -1,0 +1,21 @@
+<ion-col col-3 right>
+  <button ion-button icon-only outline round large="true" color="dark" (click)="removeDrivingFault()">
+    <ion-icon name="remove"></ion-icon>
+  </button>
+</ion-col>
+<ion-col col-4>
+  <span text-center class="fault-total bold-medium">{{numDrivingFaults}}</span>
+</ion-col>
+<ion-col col-3 class="faults">
+  <button ion-button icon-only outline round large="true" color="dark" (click)="addDrivingFault()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-col>
+<ion-col col-1 class="nonFaults">
+    <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
+  <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
+</ion-col>
+<ion-col col-1 class="nonFaults">
+    <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
+  <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
+</ion-col>

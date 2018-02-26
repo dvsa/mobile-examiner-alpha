@@ -1,0 +1,61 @@
+  
+  <ion-content padding>
+    <ion-row>
+      <ion-col col-6>
+          <ul>
+              <li class="lines" *ngFor="let test of data1">
+                <ion-row>
+                  <ion-col col-6><h2 class="titles">{{test.name}}</h2></ion-col>
+                  <ion-col *ngIf="!test.marks" col-6 class="buttons">
+                    <ion-row>
+                        <fault-controls-multiTab></fault-controls-multiTab>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+                <div class="testContent">
+                  <ul *ngIf="test.marks">
+                    <li class="nestedList" *ngFor="let marks_1 of test.marks">
+                        <ion-row>
+                            <ion-col col-6><h2 class="titles">{{marks_1}}</h2></ion-col>
+                            <ion-col col-6 class="buttons">
+                                <ion-row>
+                                    <fault-controls-multiTab></fault-controls-multiTab>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+      </ion-col>
+      <ion-col col-6>
+          <ul>
+              <li class="lines" *ngFor="let test_2 of data2">
+                  <ion-row>
+                    <ion-col col-6><h2 class="titles">{{test_2.name}}</h2></ion-col>
+                    <ion-col *ngIf="!test_2.marks" col-6 class="buttons">
+                        <ion-row>
+                            <fault-controls-multiTab></fault-controls-multiTab>
+                        </ion-row>
+                    </ion-col>
+                  </ion-row>
+                  <div class="testContent">
+                    <ul *ngIf="test_2.marks">
+                      <li class="nestedList" *ngFor="let marks_2 of test_2.marks">
+                          <ion-row>
+                          <ion-col col-6><h2 class="titles">{{marks_2}}</h2></ion-col>
+                          <ion-col col-6 class="buttons">
+                            <ion-row>
+                                <fault-controls-multiTab></fault-controls-multiTab>
+                            </ion-row>
+                          </ion-col>
+                        </ion-row>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+            </ul>
+      </ion-col>
+    </ion-row>
+  </ion-content>
