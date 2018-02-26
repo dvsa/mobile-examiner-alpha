@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ManoeuvrePage } from "../manoeuvre/manoeuvre";
 import { CompetencyPage } from '../competency/competency';
-import { LegalPage } from '../legal/legal';
+import { MultiTabLegalPage } from '../mt-legal/mt-legal';
 
 /**
  * Generated class for the ManoeuvrePage page.
@@ -20,7 +20,7 @@ export class TabsPage {
 
   tab1 = ManoeuvrePage;
   tab2 = CompetencyPage;
-  tab3 = LegalPage;
+  tab3 = MultiTabLegalPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

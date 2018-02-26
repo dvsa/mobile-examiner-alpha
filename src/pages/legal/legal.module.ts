@@ -10,4 +10,4 @@ import { LegalPage } from './legal';
     IonicPageModule.forChild(LegalPage),
   ],
 })
-export class NotesPageModule {}
+export class LegalPageModule {}

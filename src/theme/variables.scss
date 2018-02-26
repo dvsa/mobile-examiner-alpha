@@ -89,5 +89,13 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
+$split-pane-side-max-width: 230px;
+$split-pane-side-min-width: 100px;
+
+input{
+  width: 30px;
+  height: 30px;
+}
+
 $checkbox-ios-icon-size: 32px;
 $button-ios-font-size: 12px;

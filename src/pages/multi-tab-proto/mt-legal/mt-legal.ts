@@ -3,10 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-legal',
-  templateUrl: 'legal.html',
+  selector: 'page-multiTablegal',
+  templateUrl: 'mt-legal.html',
 })
-export class LegalPage {
+export class MultiTabLegalPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

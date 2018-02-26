@@ -1,3 +1,4 @@
+import { SidebarPrototypePage } from './../sidebar-prototype/sidebar-prototype';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -13,7 +14,10 @@ export class HomePage {
   multiTabPage = TabsPage;
 
   constructor(public navCtrl: NavController) {
+  }
 
+  goToSidebarPrototype() {
+    this.navCtrl.push(SidebarPrototypePage);
   }
 
   goToComponentLibrary() {

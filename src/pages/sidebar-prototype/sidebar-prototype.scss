@@ -1,0 +1,14 @@
+page-sidebar-prototype {
+ ion-split-pane {
+    margin-top: 92px; // push split pane down to prevent overlaping with ion-header (46px) + raport-header (56px) (black DVSA one)
+ }
+
+ .scroll-content {
+    margin-top: 16px;
+    overflow-y: hidden;
+ }
+
+ .list {
+    margin-top: 0px !important;
+ }
+}
