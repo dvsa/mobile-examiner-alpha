@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { TwoColPage } from "../two-col-proto/two-column/two-col";
+import { TabsPage } from "../multi-tab-proto/tabs/tabs";
 import { ComponentLibraryPage } from '../component-library/component-library';
 
 @Component({
@@ -10,7 +10,7 @@ import { ComponentLibraryPage } from '../component-library/component-library';
 })
 export class HomePage {
 
-  twoColPage = TwoColPage;
+  multiTabPage = TabsPage;
 
   constructor(public navCtrl: NavController) {
 

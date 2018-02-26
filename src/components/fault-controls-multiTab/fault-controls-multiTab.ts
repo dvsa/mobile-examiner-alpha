@@ -8,10 +8,10 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
  * Components.
  */
 @Component({
-  selector: 'fault-controls-multiCol',
-  templateUrl: 'fault-controls-multiCol.html'
+  selector: 'fault-controls-multiTab',
+  templateUrl: 'fault-controls-multiTab.html'
 })
-export class FaultControlsMultiColComponent {
+export class FaultControlsMultiTabComponent {
 
   serious: boolean;
   dangerous: boolean;

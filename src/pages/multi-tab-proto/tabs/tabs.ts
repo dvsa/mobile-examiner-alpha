@@ -13,10 +13,10 @@ import { LegalPage } from '../legal/legal';
 
 @IonicPage()
 @Component({
-  selector: 'page-twoCol',
-  templateUrl: 'two-col.html',
+  selector: 'page-tabs',
+  templateUrl: 'tabs.html',
 })
-export class TwoColPage {
+export class TabsPage {
 
   tab1 = ManoeuvrePage;
   tab2 = CompetencyPage;

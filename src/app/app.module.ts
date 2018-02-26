@@ -6,10 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ManoeuvrePage } from '../pages/two-col-proto/manoeuvre/manoeuvre';
-import { CompetencyPage } from '../pages/two-col-proto/competency/competency';
-import { LegalPage } from '../pages/two-col-proto/legal/legal';
-import { TwoColPage } from '../pages/two-col-proto/two-column/two-col';
+import { ManoeuvrePage } from '../pages/multi-tab-proto/manoeuvre/manoeuvre';
+import { CompetencyPage } from '../pages/multi-tab-proto/competency/competency';
+import { LegalPage } from '../pages/multi-tab-proto/legal/legal';
+import { TabsPage } from '../pages/multi-tab-proto/tabs/tabs';
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
@@ -18,13 +18,13 @@ import { TimerComponent } from '../components/timer/timer';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
-import { FaultControlsMultiColComponent } from '../components/fault-controls-multiCol/fault-controls-multiCol';
+import { FaultControlsMultiTabComponent } from '../components/fault-controls-multiTab/fault-controls-multiTab';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    TwoColPage,
+    TabsPage,
     ManoeuvrePage,
     CompetencyPage,
     LegalPage,
@@ -35,7 +35,7 @@ import { FaultControlsMultiColComponent } from '../components/fault-controls-mul
     TimerComponent,
     FaultsScorecardComponent,
     FaultControlsComponent,
-    FaultControlsMultiColComponent
+    FaultControlsMultiTabComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ import { FaultControlsMultiColComponent } from '../components/fault-controls-mul
   entryComponents: [
     MyApp,
     HomePage,
-    TwoColPage,
+    TabsPage,
     ManoeuvrePage,
     CompetencyPage,
     LegalPage,
