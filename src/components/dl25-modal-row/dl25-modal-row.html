@@ -4,6 +4,31 @@
       <h3 no-margin class="heading-small" *ngIf="!!section">{{section}}</h3>
       <h3 no-margin class="heading-small" *ngIf="!section">{{faultTitle}}</h3>
     </ion-col>
-    <fault-controls></fault-controls>
+    <!-- <fault-controls></fault-controls> -->
+    <div class="fault-controls">
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="removeDrivingFault()">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <span text-center class="fault-total bold-medium">{{numDrivingFaults}}</span>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="addDrivingFault()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
+        </ion-col>
+        <ion-col>
+          <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+    </div>
   </ion-row>
 </div>
