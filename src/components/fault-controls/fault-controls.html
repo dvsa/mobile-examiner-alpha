@@ -1,0 +1,21 @@
+<ion-row>
+  <ion-col>
+    <button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-col>
+  <ion-col>
+    <span text-center class="fault-total bold-medium">3</span>
+  </ion-col>
+  <ion-col>
+    <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
+      <ion-icon name="remove"></ion-icon>
+    </button>
+  </ion-col>
+  <ion-col>
+    <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
+  </ion-col>
+  <ion-col>
+    <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
+  </ion-col>
+</ion-row>

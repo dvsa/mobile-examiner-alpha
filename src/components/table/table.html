@@ -19,7 +19,7 @@
       </div>
     </ion-list-header>
     <ion-item *ngFor="let item of section.items">
-      <fail-counter [name]="item.name" [counter]="item.counter" [isSerious]="item.isSerious" [isDangerous]="item.isDangerous"></fail-counter>
+      <fail-counter [name]="item.name" [(counter)]="item.counter" [(isSerious)]="item.isSerious" [(isDangerous)]="item.isDangerous"></fail-counter>
     </ion-item>
   </ion-list>
 </ion-content>

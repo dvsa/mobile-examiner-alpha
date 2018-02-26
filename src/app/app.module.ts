@@ -12,11 +12,14 @@ import { ComponentLibraryPage } from '../pages/component-library/component-libra
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
 import { TimerComponent } from '../components/timer/timer';
+
 import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
 import { TablePage } from '../components/table/table';
 import { FailCounter } from '../components/fail-counter/fail-counter';
 import { LegalPage } from '../pages/legal/legal';
-
+import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
+import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
+import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { LegalPage } from '../pages/legal/legal';
     ReportHeaderComponent,
     TimerComponent,
     SidebarPrototypePage,
+    FaultsScorecardComponent,
+    FaultControlsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ import { LegalPage } from '../pages/legal/legal';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FaultsScorecardProvider
   ]
 })
 export class AppModule { }
