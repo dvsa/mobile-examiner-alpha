@@ -6,16 +6,23 @@
         <ion-col col-8><h2 class="titles">{{test.name}}</h2></ion-col>
         <ion-col *ngIf="!test.marks" col-2 class="buttons">
           <ion-row>
-            <ion-col col-3 right><button ion-button >-</button></ion-col>
-            <ion-col col-4 center><ion-input type="number" placeholder="0"></ion-input></ion-col>
-            <ion-col col-3 center><button ion-button >+</button></ion-col>
+            <ion-col col-3 right>
+              <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+            <ion-col col-4 center><span text-center class="fault-total bold-medium">3</span></ion-col>
+            <ion-col col-3 center>
+              <button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
+                <ion-icon name="add"></ion-icon>
+              </button></ion-col> 
+            </ion-col>
           </ion-row>
         </ion-col>
         <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox></ion-checkbox>
+            <ion-checkbox color="dark" checked="false" name="{{test.name}}" (ionChange)="updateSerious()"></ion-checkbox>
         </ion-col>
         <ion-col *ngIf="!test.marks" col-1 class="buttons">
-            <ion-checkbox></ion-checkbox>
+            <ion-checkbox color="dark" checked="false" name="{{test.name}}" (ionChange)="updateDangerous()"></ion-checkbox>
         </ion-col>
       </ion-row>
       <div class="testContent">
@@ -25,16 +32,22 @@
               <ion-col col-8><h2 class="titles">{{marks}}</h2></ion-col>
               <ion-col col-2 class="buttons">
                 <ion-row>
-                    <ion-col col-3 right><button ion-button >-</button></ion-col>
-                    <ion-col col-4 center><ion-input type="number" placeholder="0"></ion-input></ion-col>
-                    <ion-col col-3 center><button ion-button >+</button></ion-col>
+                    <ion-col col-3 right>
+                      <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                    </ion-col>
+                    <ion-col col-4 center><span text-center class="fault-total bold-medium">3</span></ion-col>
+                    <ion-col col-3 center><button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
+                        <ion-icon name="add"></ion-icon>
+                      </button></ion-col>
                 </ion-row>
               </ion-col>
               <ion-col col-1 class="buttons">
-                  <ion-checkbox></ion-checkbox>
+                  <ion-checkbox color="dark" checked="false" name="{{marks}}" (ionChange)="updateSerious()"></ion-checkbox>
               </ion-col>
               <ion-col col-1 class="buttons">
-                  <ion-checkbox></ion-checkbox>
+                  <ion-checkbox color="dark" checked="false" name="{{marks}}" (ionChange)="updateDangerous()"></ion-checkbox>
               </ion-col>
             </ion-row>
           </li>

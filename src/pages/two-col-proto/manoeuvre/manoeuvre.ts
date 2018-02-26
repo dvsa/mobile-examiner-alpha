@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ManoeuvrePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FaultsScorecardProvider } from '../../../providers/faults-scorecard/faults-scorecard';
 
 @IonicPage()
 @Component({
@@ -32,23 +26,25 @@ export class ManoeuvrePage {
   }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private faultsService: FaultsScorecardProvider ) {
   }
 
-  addFault(type) {
-    console.log('recording a fault');
+  addDrivingFault() {
+    this.faultsService.addDrivingFault();
   }
 
-  removeFault(type) {
-    console.log('removing a fault');
+  removeDrivingFault() {
+    this.faultsService.removeDrivingFault();
   }
 
-  addSerious(type) {
-    console.log('recording a serious fault');
+  updateSerious() {
+    if (!this.serious) return this.faultsService.removeSerious();
+    return this.faultsService.addSerious();
   }
 
-  addDangerous(type) {
-    console.log('recording a dangerous fault');
+  updateDangerous() {
+    if (!this.dangerous) return this.faultsService.removeDangerous();
+    return this.faultsService.addDangerous();
   }
 
 }
