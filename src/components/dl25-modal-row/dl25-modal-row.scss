@@ -6,6 +6,10 @@ dl25-modal-row {
         padding-top: 8px;
     }
     .fault-controls {
+        .checkbox-ios .checkbox-icon {
+            width: 42px;
+            height: 42px;
+        }
         .button-df-control {
             transform: scale(1.2);
             font-size: 13px;
