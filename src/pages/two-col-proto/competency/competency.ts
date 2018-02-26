@@ -23,7 +23,7 @@ export class CompetencyPage {
     "marks": ["necessary", "correctly", "timed"]
   },
   {
-    "name": "clearance/obstructions"
+    "name": "clearance/obs"
   },{
     "name": "Response to signs",
     "marks": ["traffic signals", "road markings", "traffic lights", "traffic controls", "other road users"]

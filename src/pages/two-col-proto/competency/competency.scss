@@ -2,12 +2,12 @@ page-competency {
 
     fault-controls-multiCol {
 
-        height: 25px;
+        height: 20px;
 
         .button[icon-only] {
             height: 0.9em;
             width: 0.9em;
-            bottom: 17px;        
+            bottom: 22px;
 
             ion-icon {
                 font-size: 0.9em;
@@ -17,7 +17,7 @@ page-competency {
         ion-checkbox {
             transform: scale(0.8);
             margin: 0;
-            bottom: 10px;
+            bottom: 15px;
         }
 
         .faults {
@@ -32,7 +32,7 @@ page-competency {
         .fault-total {
             font-size: 1em;
             position: relative;
-            bottom: 12px;
+            bottom: 17px;
         }
 
     }
@@ -44,6 +44,9 @@ page-competency {
     .lines {
         border: 1px solid #ddd;
         margin: 10px 0;
+        .row > ion-col {
+            padding: 2px;
+        }
     }
 
     .testContent {
@@ -59,8 +62,12 @@ page-competency {
     .nestedList {
         padding: 5px 0px;
 
-        .row > ion-col h2 {
-            padding-left: 10px;
+        .row > ion-col {
+            padding: 2px;
+
+            h2 {
+                padding-left: 10px;
+            }
         }
     }
 
