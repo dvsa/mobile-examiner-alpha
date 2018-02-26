@@ -38,4 +38,18 @@ export class Dl25ButtonsModalsPage {
       .reduce((acc, prev) => acc + prev);
   }
 
+  hasSeriousFault(fault) {
+    if (!fault.hasSections) return fault.faults.s;
+    return _(fault.sections)
+      .map(subSection => subSection.faults.s)
+      .reduce((acc, prev) => acc + prev) > 0;
+  }
+
+  hasDangerousFault(fault) {
+    if (!fault.hasSections) return fault.faults.d;
+    return _(fault.sections)
+      .map(subSection => subSection.faults.d)
+      .reduce((acc, prev) => acc + prev) > 0;
+  }
+
 }

@@ -6,14 +6,22 @@ page-dl25-buttons-modals {
         margin: 10px 5px;
         border-radius: 10px;
     }
-    .fault-badge-df {
+    .fault-badge {
         position: absolute;
         top: 5px;
-        right: 5px;
         background-color: map-get($colors, dark);
         color: white;
         padding: 4px 6px;
         border-radius: 8px;
         font-size: 14px;
+        &.df {
+            right: 5px;
+        }
+        &.serious {
+            right: 30px;
+        }
+        &.dangerous {
+            right: 55px;
+        }
     }
 }
