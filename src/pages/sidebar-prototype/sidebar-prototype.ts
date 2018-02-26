@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IFormPage, IFormItem } from '../../sheared/interfaces';
-import { TablePage } from '../table/table';
 import { LegalPage } from '../legal/legal';
+import { TablePage } from '../../components/table/table';
 
 @Component({
   selector: 'page-sidebar-prototype',

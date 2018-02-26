@@ -7,16 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { TablePage } from '../pages/table/table';
-import { FailCounter } from '../pages/fail-counter/fail-counter';
-import { LegalPage } from '../pages/legal/legal';
-
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
 import { TimerComponent } from '../components/timer/timer';
 import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
+import { TablePage } from '../components/table/table';
+import { FailCounter } from '../components/fail-counter/fail-counter';
+import { LegalPage } from '../pages/legal/legal';
 
 
 @NgModule({

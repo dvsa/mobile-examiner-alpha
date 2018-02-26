@@ -1,4 +1,3 @@
-import { LegalPage } from './../pages/legal/legal';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
 
@@ -6,10 +5,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { TablePage } from '../pages/table/table';
-import { IFormPage, IFormItem } from '../sheared/interfaces';
-import { FailCounter } from '../pages/fail-counter/fail-counter';
-
 
 @Component({
   templateUrl: 'app.html'
