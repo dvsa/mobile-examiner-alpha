@@ -1,12 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { FaultDataProvider } from '../../providers/fault-data/fault-data';
 
-/**
- * Generated class for the Dl25ModalRowComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'dl25-modal-row',
   templateUrl: 'dl25-modal-row.html'
@@ -19,29 +14,48 @@ export class Dl25ModalRowComponent {
 
   serious: boolean;
   dangerous: boolean;
-  numDrivingFaults: number = 0;
+  numDrivingFaults: number;
 
-  constructor(private faultsService: FaultsScorecardProvider) {
+  constructor(
+    private faultsScoreCardProvider: FaultsScorecardProvider, 
+    private faultDataProvider: FaultDataProvider) {
   }
 
-  addDrivingFault() {
-    this.numDrivingFaults++;
-    this.faultsService.addDrivingFault();
+  ngOnInit() {
+    this.numDrivingFaults = this.faultDataProvider.getFault(this.faultTitle, this.section, null).faults.df;
   }
 
-  removeDrivingFault() {
-    if (this.numDrivingFaults > 0) this.numDrivingFaults--;
-    this.faultsService.removeDrivingFault();
+  addDrivingFault(faultTitle, section) {
+    this.faultsScoreCardProvider.addDrivingFault();
+    this.faultDataProvider.addDrivingFault(faultTitle, section);
+    const fault = this.faultDataProvider.getFault(this.faultTitle, this.section, null);
+    this.numDrivingFaults = fault.faults.df;
   }
 
-  updateSerious() {
-    if (!this.serious) return this.faultsService.removeSerious();
-    return this.faultsService.addSerious();
+  removeDrivingFault(faultTitle, section) {
+    if (this.numDrivingFaults > 0) {
+      this.faultsScoreCardProvider.removeDrivingFault();
+      this.faultDataProvider.removeDrivingFault(faultTitle, section);
+      this.numDrivingFaults = this.faultDataProvider.getFault(this.faultTitle, this.section, null).faults.df;
+    }
   }
 
-  updateDangerous() {
-    if (!this.dangerous) return this.faultsService.removeDangerous();
-    return this.faultsService.addDangerous();
+  updateSerious(faultTitle, section) {
+    if (!this.serious) {
+      this.faultsScoreCardProvider.removeSerious();
+    }
+    this.faultsScoreCardProvider.addSerious();
+    this.faultDataProvider.toggleSerious(faultTitle, section);
+    this.serious = this.faultDataProvider.getFault(this.faultTitle, this.section, null).faults.serious;
+  }
+
+  updateDangerous(faultTitle, section) {
+    if (!this.dangerous) {
+      this.faultsScoreCardProvider.removeDangerous();
+    }
+    this.faultsScoreCardProvider.addDangerous();
+    this.faultDataProvider.toggleDangerous(faultTitle, section);
+    this.dangerous = this.faultDataProvider.getFault(this.faultTitle, this.section, null).faults.dangerous;
   }
 
 }

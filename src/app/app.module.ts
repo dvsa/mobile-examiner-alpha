@@ -17,6 +17,7 @@ import { FaultControlsComponent } from '../components/fault-controls/fault-contr
 import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons-modals';
 import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
 import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-row';
+import { FaultDataProvider } from '../providers/fault-data/fault-data';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-r
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FaultsScorecardProvider
+    FaultsScorecardProvider,
+    FaultDataProvider
   ]
 })
 export class AppModule {}

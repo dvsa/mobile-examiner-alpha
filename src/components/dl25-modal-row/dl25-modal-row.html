@@ -8,7 +8,7 @@
     <div class="fault-controls">
       <ion-row>
         <ion-col>
-          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="removeDrivingFault()">
+          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="removeDrivingFault(faultTitle, section)">
             <ion-icon name="remove"></ion-icon>
           </button>
         </ion-col>
@@ -16,17 +16,17 @@
           <span text-center class="fault-total bold-medium">{{numDrivingFaults}}</span>
         </ion-col>
         <ion-col>
-          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="addDrivingFault()">
+          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="addDrivingFault(faultTitle, section)">
             <ion-icon name="add"></ion-icon>
           </button>
         </ion-col>
         <ion-col>
           <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
-          <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious(faultTitle, section)"></ion-checkbox>
         </ion-col>
         <ion-col>
           <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
-          <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous(faultTitle, section)"></ion-checkbox>
         </ion-col>
       </ion-row>
     </div>
