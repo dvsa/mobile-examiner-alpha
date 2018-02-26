@@ -256,8 +256,8 @@ export default [
     {
       hasSections: false,
       title: 'Eco',
-      hasChecboxes: true,
-      checkBoxes: [
+      hasCheckboxes: true,
+      checkboxes: [
         'Assessed',
         'Controlled',
         'Planning'

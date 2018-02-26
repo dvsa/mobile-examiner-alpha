@@ -12,6 +12,35 @@
         </ion-item>
       </ion-list>
     </div>
+    <!-- CHECKBOXES -->
+    <div *ngIf="faultData.hasCheckboxes">
+      <ion-item *ngFor="let checkbox of faultData.checkboxes">
+        <ion-label>{{checkbox}}</ion-label>
+        <ion-checkbox color="dark"></ion-checkbox>
+      </ion-item>
+    </div>
+    <!-- QUESTION -->
+    <div *ngIf="faultData.hasQuestion">
+      <h4 class="heading-small" margin-left>{{faultData.questionText}}</h4>
+      <ion-list radio-group>
+        <ion-item *ngFor="let radio of faultData.radioButtons">
+          <ion-label>{{radio}}</ion-label>
+          <ion-radio [value]="radio"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- SUPPLEMENTARY RADIO BUTTONS -->
+    <div *ngIf="faultData.hasSupplementaryRadioButtons">
+      <dl25-modal-row [hasSections]="faultData.hasSections" [faultTitle]="faultData.title" *ngFor="let section of faultData.sections"
+      [section]="section.title"></dl25-modal-row>
+      <dl25-modal-row [faultTitle]="faultData.title" *ngIf="!faultData.hasSections"></dl25-modal-row>
+      <ion-list radio-group>
+        <ion-item *ngFor="let radio of faultData.radioButtons">
+          <ion-label>{{radio}}</ion-label>
+          <ion-radio [value]="radio"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
     <!-- NORMAL ROW -->
     <div *ngIf="isNormalRow(faultData)">
       <dl25-modal-row [hasSections]="faultData.hasSections" [faultTitle]="faultData.title" *ngFor="let section of faultData.sections"

@@ -18,7 +18,7 @@ export class Dl25ModalComponent {
   }
 
   isNormalRow(faultData) {
-    return !faultData.hasRadioButtons && !faultData.hasCheckBoxes && !faultData.hasQuestion && !faultData.hasSupplementaryRadioButtons;
+    return !faultData.hasRadioButtons && !faultData.hasCheckboxes && !faultData.hasQuestion && !faultData.hasSupplementaryRadioButtons;
   }
 
 }
