@@ -25,14 +25,25 @@ export class FaultsScorecardProvider {
   constructor() {
   }
 
+  reset() {
+    this.reportState = {
+      drivingFaults: 0,
+      serious: 0,
+      dangerous: 0
+    };
+    this.change.next(this.reportState);
+  }
+
   addDrivingFault() {
     this.reportState.drivingFaults++;
     this.change.next(this.reportState);
   }
 
   removeDrivingFault() {
-    if (this.reportState.drivingFaults > 0) this.reportState.drivingFaults--;
-    this.change.next(this.reportState);
+    if (this.reportState.drivingFaults > 0) {
+      this.reportState.drivingFaults--;
+      this.change.next(this.reportState);
+    }
   }
 
   addSerious() {
