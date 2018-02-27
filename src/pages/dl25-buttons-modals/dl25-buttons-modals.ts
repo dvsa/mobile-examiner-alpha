@@ -4,6 +4,7 @@ import { Dl25ModalComponent } from '../../components/dl25-modal/dl25-modal';
 import { FaultDataProvider } from '../../providers/fault-data/fault-data';
 import { Subscription } from 'rxjs/Subscription';
 import _ from 'lodash';
+import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 
 @Component({
   selector: 'page-dl25-buttons-modals',
@@ -23,11 +24,18 @@ export class Dl25ButtonsModalsPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public actionSheetCtrl: ActionSheetController,
-    public faultDataProvider: FaultDataProvider) {
+    public faultDataProvider: FaultDataProvider,
+    public faultsService: FaultsScorecardProvider) {
       this.columns = faultDataProvider.getFaultData();
       this._subscription = faultDataProvider.change.subscribe((value) => { 
         this.columns = value; 
       });
+  }
+
+  ionViewDidEnter() {
+    this.faultsService.reset();
+    this.faultDataProvider.reset();
+    this.columns = this.faultDataProvider.getFaultData();
   }
 
   createModal(faultData) {
