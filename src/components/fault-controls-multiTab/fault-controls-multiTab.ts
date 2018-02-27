@@ -26,8 +26,10 @@ export class FaultControlsMultiTabComponent {
   }
 
   removeDrivingFault() {
-    if (this.numDrivingFaults > 0) this.numDrivingFaults--;
-    this.faultsService.removeDrivingFault();
+    if (this.numDrivingFaults > 0) {
+      this.numDrivingFaults--;
+      this.faultsService.removeDrivingFault();
+    }
   }
 
   updateSerious() {
