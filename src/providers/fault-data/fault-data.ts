@@ -17,6 +17,10 @@ export class FaultDataProvider {
     return this.faultData;
   }
 
+  reset() {
+    this.addFaultMaps();
+  }
+
   addFaultMaps() {
     _(this.faultData) 
       .each(column => {

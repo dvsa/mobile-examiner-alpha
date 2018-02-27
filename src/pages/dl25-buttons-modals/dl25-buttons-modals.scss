@@ -25,4 +25,13 @@ page-dl25-buttons-modals {
             right: 55px;
         }
     }
+    ion-footer {
+        .legal-req-button {
+            font-size: 14px;
+        }
+        .legal-req {
+            border-right: 1px solid map-get($colors, dark);
+            border-left: 1px solid map-get($colors, dark);
+        }
+    }
 }
