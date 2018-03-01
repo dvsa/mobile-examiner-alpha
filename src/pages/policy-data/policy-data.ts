@@ -2,18 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  selector: 'page-policy-data',
+  templateUrl: 'policy-data.html',
 })
-export class DashboardPage {
-
-  title: string = 'Dashboard';
+export class PolicyDataPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    console.log('ionViewDidLoad PolicyDataPage');
   }
 
 }

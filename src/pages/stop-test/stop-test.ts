@@ -2,18 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  selector: 'page-stop-test',
+  templateUrl: 'stop-test.html',
 })
-export class DashboardPage {
-
-  title: string = 'Dashboard';
+export class StopTestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
+    console.log('ionViewDidLoad StopTestPage');
   }
 
 }

@@ -4,7 +4,8 @@
     "no-unused-variable": [
       true
     ],
-    "trailing-comma": false
+    "trailing-comma": false,
+    "max-line-length": false
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

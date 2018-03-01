@@ -8,6 +8,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 })
 export class LoginPage {
 
+  title: string = 'Login';
+
   constructor(public navCtrl: NavController) {
 
   }

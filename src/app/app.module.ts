@@ -7,12 +7,44 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { CandidateInfoPage } from '../pages/candidate-info/candidate-info';
+import { CollectLicenseSignaturePage } from '../pages/collect-license-signature/collect-license-signature';
+import { DeclarationConsentPage } from '../pages/declaration-consent/declaration-consent';
+import { EndTestReasonPage } from '../pages/end-test-reason/end-test-reason';
+import { InitiateDrivingPeriodPage } from '../pages/initiate-driving-period/initiate-driving-period';
+import { InitiateSwapPage } from '../pages/initiate-swap/initiate-swap';
+import { JournalPage } from '../pages/journal/journal';
+import { LdtmModePage } from '../pages/ldtm-mode/ldtm-mode';
+import { MangeDeviceDebriefStoragePage } from '../pages/mange-device-debrief-storage/mange-device-debrief-storage';
+import { PolicyDataPage } from '../pages/policy-data/policy-data';
+import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
+import { RecordDebriefPage } from '../pages/record-debrief/record-debrief';
+import { StopTestPage } from '../pages/stop-test/stop-test';
+import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
+import { TestResultPage } from '../pages/test-result/test-result';
+import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
-    DashboardPage
+    DashboardPage,
+    CandidateInfoPage,
+    CollectLicenseSignaturePage,
+    DeclarationConsentPage,
+    EndTestReasonPage,
+    InitiateDrivingPeriodPage,
+    InitiateSwapPage,
+    JournalPage,
+    LdtmModePage,
+    MangeDeviceDebriefStoragePage,
+    PolicyDataPage,
+    PretestChecksPage,
+    RecordDebriefPage,
+    StopTestPage,
+    TestEvaluationPage,
+    TestResultPage,
+    TrainerModePage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +54,23 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
   entryComponents: [
     MyApp,
     LoginPage,
-    DashboardPage
+    DashboardPage,
+    CandidateInfoPage,
+    CollectLicenseSignaturePage,
+    DeclarationConsentPage,
+    EndTestReasonPage,
+    InitiateDrivingPeriodPage,
+    InitiateSwapPage,
+    JournalPage,
+    LdtmModePage,
+    MangeDeviceDebriefStoragePage,
+    PolicyDataPage,
+    PretestChecksPage,
+    RecordDebriefPage,
+    StopTestPage,
+    TestEvaluationPage,
+    TestResultPage,
+    TrainerModePage
   ],
   providers: [
     StatusBar,
