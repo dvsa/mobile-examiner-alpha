@@ -4,11 +4,11 @@ import { DashboardPage } from '../dashboard/dashboard';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController){
+  constructor(public navCtrl: NavController) {
 
   }
 
