@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the WeatherPhysicalDescriptionPage page.
@@ -19,6 +20,10 @@ export class WeatherPhysicalDescriptionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WeatherPhysicalDescriptionPage');
+  }
+
+  goToDashboard() {
+    this.navCtrl.push(DashboardPage);
   }
 
 }
