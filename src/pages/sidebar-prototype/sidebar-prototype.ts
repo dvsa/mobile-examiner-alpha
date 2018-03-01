@@ -25,154 +25,148 @@ export class SidebarPrototypePage {
 
   formSections: any[] = [
     {
-      pageName: "Legal requirements",
-      page: LegalPage,
-      pageOptions: {
-      },
-    },
-    {
-      pageName: "Manoeuvres",
+      pageName: 'Manoeuvres',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: "Controlled Stop",
+            header: 'Controlled Stop',
             items: [
-              createFailCounter("Promptness"),
-              createFailCounter("Control")
+              createFailCounter('Promptness'),
+              createFailCounter('Control')
             ]
           },
           {
-            header: "Reverse Right",
+            header: 'Reverse Right',
             items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
+              createFailCounter('Control'),
+              createFailCounter('Observations')
             ]
           },
           {
-            header: "Reverse Left",
+            header: 'Reverse Left',
             items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
+              createFailCounter('Control'),
+              createFailCounter('Observations')
             ]
           },
           {
-            header: "Turn in Road",
+            header: 'Turn in Road',
             items: [
-              createFailCounter("Control"),
-              createFailCounter("Observations")
+              createFailCounter('Control'),
+              createFailCounter('Observations')
             ]
           }
         ]
       },
     },
     {
-      pageName: "Control",
+      pageName: 'Control',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Accelerator"),
-              createFailCounter("Clutch"),
-              createFailCounter("Gears"),
-              createFailCounter("Footbrake"),
-              createFailCounter("Parking Brake"),
-              createFailCounter("Steering")
+              createFailCounter('Accelerator'),
+              createFailCounter('Clutch'),
+              createFailCounter('Gears'),
+              createFailCounter('Footbrake'),
+              createFailCounter('Parking Brake'),
+              createFailCounter('Steering')
             ]
           }
         ]
       },
     },
     {
-      pageName: "Speed",
+      pageName: 'Speed',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Use of speed"),
-              createFailCounter("Following Distance"),
-              createFailCounter("Appropriate Speed"),
-              createFailCounter("Undue hesitation")
+              createFailCounter('Use of speed'),
+              createFailCounter('Following Distance'),
+              createFailCounter('Appropriate Speed'),
+              createFailCounter('Undue hesitation')
             ]
           }
         ]
       },
     },
     {
-      pageName: "Response to signs",
+      pageName: 'Response to signs',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Traffic signs"),
-              createFailCounter("Road markings"),
-              createFailCounter("Traffic lights"),
-              createFailCounter("Traffic controllers"),
-              createFailCounter("Other road users"),
+              createFailCounter('Traffic signs'),
+              createFailCounter('Road markings'),
+              createFailCounter('Traffic lights'),
+              createFailCounter('Traffic controllers'),
+              createFailCounter('Other road users'),
             ]
           }
         ]
       },
     },
     {
-      pageName: "Junctions",
+      pageName: 'Junctions',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Approach speed"),
-              createFailCounter("Observation"),
-              createFailCounter("Turning right"),
-              createFailCounter("Turning left"),
-              createFailCounter("Cutting corners"),
+              createFailCounter('Approach speed'),
+              createFailCounter('Observation'),
+              createFailCounter('Turning right'),
+              createFailCounter('Turning left'),
+              createFailCounter('Cutting corners'),
             ]
           }
         ]
       },
     },
     {
-      pageName: "Judgement",
+      pageName: 'Judgement',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Overtaking"),
-              createFailCounter("Meeting"),
-              createFailCounter("Crossing"),
+              createFailCounter('Overtaking'),
+              createFailCounter('Meeting'),
+              createFailCounter('Crossing'),
             ]
           }
         ]
       },
     },
     {
-      pageName: "Positioning",
+      pageName: 'Positioning',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: " ",
+            header: ' ',
             items: [
-              createFailCounter("Normal driving"),
-              createFailCounter("Lane discipline"),
-              createFailCounter("Predestian crossings"),
-              createFailCounter("Position/normal stops"),
+              createFailCounter('Normal driving'),
+              createFailCounter('Lane discipline'),
+              createFailCounter('Predestian crossings'),
+              createFailCounter('Position/normal stops'),
             ]
           }
         ]
       },
     },
     {
-      pageName: "Notes",
+      pageName: 'Notes',
       page: NotesPage,
       pageOptions: {
         sections: [
