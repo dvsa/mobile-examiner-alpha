@@ -15,7 +15,7 @@ import { InitiateDrivingPeriodPage } from '../pages/initiate-driving-period/init
 import { InitiateSwapPage } from '../pages/initiate-swap/initiate-swap';
 import { JournalPage } from '../pages/journal/journal';
 import { LdtmModePage } from '../pages/ldtm-mode/ldtm-mode';
-import { MangeDeviceDebriefStoragePage } from '../pages/mange-device-debrief-storage/mange-device-debrief-storage';
+import { ManageDeviceDebriefStoragePage } from '../pages/manage-device-debrief-storage/manage-device-debrief-storage';
 import { PolicyDataPage } from '../pages/policy-data/policy-data';
 import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
 import { RecordDebriefPage } from '../pages/record-debrief/record-debrief';
@@ -37,7 +37,7 @@ import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
     InitiateSwapPage,
     JournalPage,
     LdtmModePage,
-    MangeDeviceDebriefStoragePage,
+    ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
     RecordDebriefPage,
@@ -63,7 +63,7 @@ import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
     InitiateSwapPage,
     JournalPage,
     LdtmModePage,
-    MangeDeviceDebriefStoragePage,
+    ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
     RecordDebriefPage,
