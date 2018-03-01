@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { InitiateSwapPage } from '../initiate-swap/initiate-swap';
+import { CandidateInfoPage } from '../candidate-info/candidate-info';
 
 @Component({
   selector: 'page-journal',
@@ -12,6 +14,14 @@ export class JournalPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JournalPage');
+  }
+
+  goToCandidateInfo() {
+    this.navCtrl.push(CandidateInfoPage);
+  }
+
+  goToInitiateSwap() {
+    this.navCtrl.push(InitiateSwapPage);
   }
 
 }

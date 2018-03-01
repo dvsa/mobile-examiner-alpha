@@ -13,9 +13,19 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button>Journal</button>
-  <button ion-button>Policy data</button>
-  <button ion-button>Manage device debrief storage</button>
-  <button ion-button>LDTM mode</button>
-  <button ion-button>Trainer mode</button>
+  <div>
+    <button ion-button (click)="goToPage('JournalPage')">Journal</button>
+  </div>
+  <div>
+    <button ion-button (click)="goToPage('PolicyDataPage')">Policy data</button>
+  </div>
+  <div>
+    <button ion-button (click)="goToPage('ManageDeviceDebriefStoragePage')">Manage device debrief storage</button>
+  </div>
+  <div>
+    <button ion-button (click)="goToPage('LdtmModePage')">LDTM mode</button>
+  </div>
+  <div>
+    <button ion-button (click)="goToPage('TrainerModePage')">Trainer mode</button>
+  </div>
 </ion-content>

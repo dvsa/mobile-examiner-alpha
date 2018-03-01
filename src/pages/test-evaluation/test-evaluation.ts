@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
+import { StopTestPage } from '../stop-test/stop-test';
 
 @Component({
   selector: 'page-test-evaluation',
@@ -12,6 +14,14 @@ export class TestEvaluationPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestEvaluationPage');
+  }
+
+  goToStopTest() {
+    this.navCtrl.push(StopTestPage);
+  }
+
+  goToEndTestReason() {
+    this.navCtrl.push(EndTestReasonPage);
   }
 
 }

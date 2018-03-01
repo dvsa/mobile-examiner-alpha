@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DeclarationConsentPage } from '../declaration-consent/declaration-consent';
+import { PolicyDataPage } from '../policy-data/policy-data';
 
 @Component({
   selector: 'page-candidate-info',
@@ -12,6 +14,14 @@ export class CandidateInfoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CandidateInfoPage');
+  }
+
+  goToDeclaration() {
+    this.navCtrl.push(DeclarationConsentPage);
+  }
+
+  goToPolicyData() {
+    this.navCtrl.push(PolicyDataPage);
   }
 
 }

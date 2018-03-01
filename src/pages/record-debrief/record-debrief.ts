@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CollectLicenseSignaturePage } from '../collect-license-signature/collect-license-signature';
 
 @Component({
   selector: 'page-record-debrief',
@@ -12,6 +13,10 @@ export class RecordDebriefPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecordDebriefPage');
+  }
+
+  goToCollectLicense() {
+    this.navCtrl.push(CollectLicenseSignaturePage);
   }
 
 }

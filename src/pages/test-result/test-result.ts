@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { RecordDebriefPage } from '../record-debrief/record-debrief';
 
 @Component({
   selector: 'page-test-result',
@@ -12,6 +13,10 @@ export class TestResultPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestResultPage');
+  }
+
+  goToRecordDebrief() {
+    this.navCtrl.push(RecordDebriefPage);
   }
 
 }

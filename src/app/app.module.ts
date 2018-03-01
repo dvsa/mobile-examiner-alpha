@@ -23,6 +23,7 @@ import { StopTestPage } from '../pages/stop-test/stop-test';
 import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
+import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
     StopTestPage,
     TestEvaluationPage,
     TestResultPage,
-    TrainerModePage
+    TrainerModePage,
+    WeatherPhysicalDescriptionPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
     StopTestPage,
     TestEvaluationPage,
     TestResultPage,
-    TrainerModePage
+    TrainerModePage,
+    WeatherPhysicalDescriptionPage
   ],
   providers: [
     StatusBar,

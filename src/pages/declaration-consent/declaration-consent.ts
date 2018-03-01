@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PolicyDataPage } from '../policy-data/policy-data';
+import { PretestChecksPage } from '../pretest-checks/pretest-checks';
+import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 
 /**
  * Generated class for the DeclarationConsentPage page.
@@ -19,6 +22,18 @@ export class DeclarationConsentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DeclarationConsentPage');
+  }
+
+  goToPretestChecks() {
+    this.navCtrl.push(PretestChecksPage);
+  }
+
+  goToPolicyData() {
+    this.navCtrl.push(PolicyDataPage);
+  }
+
+  goToEndTestReason() {
+    this.navCtrl.push(EndTestReasonPage);
   }
 
 }
