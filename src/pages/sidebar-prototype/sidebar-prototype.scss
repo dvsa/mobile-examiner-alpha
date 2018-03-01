@@ -3,9 +3,17 @@ page-sidebar-prototype {
     margin-top: 92px; // push split pane down to prevent overlaping with ion-header (46px) + raport-header (56px) (black DVSA one)
  }
 
- .scroll-content {
-    margin-top: 16px;
-    overflow-y: hidden;
+ ion-menu {
+
+    .scroll-content {
+        margin-top: 16px;
+        overflow-y: hidden;
+        background: map-get($colors, dark);
+     }
+    .menu-item {
+        background: map-get($colors, dark);
+        color: map-get($colors, light);
+    }
  }
 
  .list {

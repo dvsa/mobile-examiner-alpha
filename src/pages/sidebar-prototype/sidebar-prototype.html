@@ -12,7 +12,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}</button>
+        <button class="menu-item" ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}</button>
       </ion-list>
     </ion-content>
   </ion-menu>
