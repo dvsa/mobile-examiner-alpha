@@ -24,17 +24,24 @@ export class SidebarPrototypePage {
 
   formSections: any[] = [
     {
-      pageName: 'Manoeuvres',
+      pageName: 'Controlled stop',
       page: TablePage,
       pageOptions: {
         sections: [
           {
-            header: 'Controlled Stop',
+            header: ' ',
             items: [
-              createFailCounter('Promptness'),
-              createFailCounter('Control')
+              createFailCounter('Controlled stop')
             ]
-          },
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Manoeuvres',
+      page: TablePage,
+      pageOptions: {
+        sections: [
           {
             header: 'Reverse Right',
             items: [
@@ -50,10 +57,38 @@ export class SidebarPrototypePage {
             ]
           },
           {
-            header: 'Turn in Road',
+            header: 'Forward Park',
             items: [
               createFailCounter('Control'),
               createFailCounter('Observations')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Show me',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Show me')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Precautions',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Precautions')
             ]
           }
         ]
@@ -79,17 +114,61 @@ export class SidebarPrototypePage {
       },
     },
     {
-      pageName: 'Speed',
+      pageName: 'Move off',
       page: TablePage,
       pageOptions: {
         sections: [
           {
             header: ' ',
             items: [
-              createFailCounter('Use of speed'),
-              createFailCounter('Following Distance'),
-              createFailCounter('Appropriate Speed'),
-              createFailCounter('Undue hesitation')
+              createFailCounter('Safety'),
+              createFailCounter('Control')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Use of mirrors',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Signalling'),
+              createFailCounter('Change direction'),
+              createFailCounter('Change speed')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Signals',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Necessary'),
+              createFailCounter('Correctly'),
+              createFailCounter('Timed')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Clearance/obstructions',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Clearance/obstructions')
             ]
           }
         ]
@@ -108,6 +187,51 @@ export class SidebarPrototypePage {
               createFailCounter('Traffic lights'),
               createFailCounter('Traffic controllers'),
               createFailCounter('Other road users'),
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Use of speed',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Use of speed'),
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Following distance',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Following distance'),
+              createFailCounter('Appropriate Speed'),
+              createFailCounter('Undue hesitation')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Progress',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Appropriate Speed'),
+              createFailCounter('Undue hesitation')
             ]
           }
         ]
@@ -159,6 +283,62 @@ export class SidebarPrototypePage {
               createFailCounter('Lane discipline'),
               createFailCounter('Predestian crossings'),
               createFailCounter('Position/normal stops'),
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Pedestrian crossings',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Pedestrian crossings')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Position / normal stops',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Precautions')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Awareness/Planning',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Awareness/Planning')
+            ]
+          }
+        ]
+      },
+    },
+    {
+      pageName: 'Ancillary controls',
+      page: TablePage,
+      pageOptions: {
+        sections: [
+          {
+            header: ' ',
+            items: [
+              createFailCounter('Ancillary controls')
             ]
           }
         ]
