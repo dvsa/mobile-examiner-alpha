@@ -1,0 +1,31 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <button ion-button (click)="goToPage('JournalPage')">Journal</button>
+  </div>
+  <div>
+    <button ion-button color="dark" outline small (click)="goToPage('PolicyDataPage')">Policy data</button>
+  </div>
+  <div>
+    <button ion-button color="dark" outline small (click)="goToPage('ManageDeviceDebriefStoragePage')">Manage device debrief storage</button>
+  </div>
+  <div>
+    <button ion-button color="dark" outline small (click)="goToPage('LdtmModePage')">LDTM mode</button>
+  </div>
+  <div>
+    <button ion-button color="dark" outline small (click)="goToPage('TrainerModePage')">Trainer mode</button>
+  </div>
+</ion-content>
