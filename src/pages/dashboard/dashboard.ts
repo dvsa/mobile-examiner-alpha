@@ -15,6 +15,7 @@ export class DashboardPage {
   title: string = 'Dashboard';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    navCtrl.remove(0);
   }
 
   ionViewDidLoad() {
