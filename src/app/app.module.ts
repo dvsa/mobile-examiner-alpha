@@ -34,6 +34,7 @@ import { NotesPage } from '../pages/notes/notes';
 
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
 import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
+import { SidebarGridComponent } from '../components/sidebar-grid/sidebar-grid';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
     Dl25ButtonsModalsPage,
     Dl25ModalComponent,
     Dl25ModalRowComponent,
-    FaultControlsMultiTabComponent
+    FaultControlsMultiTabComponent,
+    SidebarGridComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +88,7 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
     LegalPage,
     ComponentLibraryPage,
     SidebarPrototypePage,
+    SidebarGridComponent,
     NotesPage
   ],
   providers: [

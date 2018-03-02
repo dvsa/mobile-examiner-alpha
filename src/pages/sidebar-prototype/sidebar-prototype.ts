@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IFormPage, IFormItem } from '../../sheared/interfaces';
-import { TablePage } from '../../components/table/table';
 import { NotesPage } from '../notes/notes';
+import { SidebarGridComponent } from '../../components/sidebar-grid/sidebar-grid';
 
 @Component({
   selector: 'page-sidebar-prototype',
@@ -13,18 +13,20 @@ export class SidebarPrototypePage {
   @ViewChild('content') _NAV: NavController
 
   activeSection: string;
+  testStarted: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.activeSection = 'Controlled stop';
-    this.sectionToLoad(this.formSections[0]);
+    this.activeSection = 'Precautions';
+    this.sectionToLoad(this.formSections[3]);
   }
 
   sectionToLoad(formPage: IFormPage) {
-    this.activeSection = formPage.pageName;
+    this.testStarted = true;
     this._NAV.setRoot(formPage.page, { options: formPage });
+    setTimeout(() => this.activeSection = formPage.pageName, 150);
   }
 
   isActive(pageName: string) {
@@ -34,7 +36,7 @@ export class SidebarPrototypePage {
   formSections: any[] = [
     {
       pageName: 'Controlled stop',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -48,7 +50,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Manoeuvres',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -77,7 +79,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Show me',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -91,7 +93,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Precautions',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -105,7 +107,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Control',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -124,7 +126,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Move off',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -139,7 +141,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Use of mirrors',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -155,7 +157,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Signals',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -170,8 +172,8 @@ export class SidebarPrototypePage {
       },
     },
     {
-      pageName: 'Clearance/obstructions',
-      page: TablePage,
+      pageName: 'Clearance',
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -185,7 +187,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Response to signs',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -203,7 +205,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Use of speed',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -217,7 +219,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Following distance',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -233,7 +235,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Progress',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -248,7 +250,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Junctions',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -266,7 +268,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Judgement',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -282,7 +284,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Positioning',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -299,7 +301,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Pedestrian crossings',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -313,7 +315,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Position / normal stops',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -327,7 +329,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Awareness/Planning',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
@@ -341,7 +343,7 @@ export class SidebarPrototypePage {
     },
     {
       pageName: 'Ancillary controls',
-      page: TablePage,
+      page: SidebarGridComponent,
       pageOptions: {
         sections: [
           {
