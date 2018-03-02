@@ -6,13 +6,12 @@ page-sidebar-prototype {
  ion-menu {
 
     .scroll-content {
-        margin-top: 16px;
         overflow-y: hidden;
-        background: map-get($colors, dark);
+        background: darken(map-get($colors, light), 5);
      }
     .menu-item {
-        background: map-get($colors, dark);
-        color: map-get($colors, light);
+        background: darken(map-get($colors, light), 5);
+        color: map-get($colors, dark);
     }
  }
 

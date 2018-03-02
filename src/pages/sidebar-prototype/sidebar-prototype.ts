@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { IFormPage, IFormItem } from '../../sheared/interfaces';
-import { LegalPage } from '../legal/legal';
 import { TablePage } from '../../components/table/table';
 import { NotesPage } from '../notes/notes';
 

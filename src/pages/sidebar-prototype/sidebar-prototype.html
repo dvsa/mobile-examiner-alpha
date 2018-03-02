@@ -5,14 +5,15 @@
 
 <ion-split-pane>
   <ion-menu [content]="content">
-    <ion-header>
+    <!-- <ion-header>
       <ion-toolbar>
         <ion-title>Menu</ion-title>
       </ion-toolbar>
-    </ion-header>
+    </ion-header> -->
     <ion-content>
       <ion-list>
-        <button class="menu-item" ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}</button>
+        <button class="menu-item" ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}
+        </button>
       </ion-list>
     </ion-content>
   </ion-menu>
