@@ -9,17 +9,26 @@ import { NotesPage } from '../notes/notes';
   templateUrl: 'sidebar-prototype.html',
 })
 export class SidebarPrototypePage {
+
   @ViewChild('content') _NAV: NavController
+
+  activeSection: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+    this.activeSection = 'Controlled stop';
     this.sectionToLoad(this.formSections[0]);
   }
 
   sectionToLoad(formPage: IFormPage) {
+    this.activeSection = formPage.pageName;
     this._NAV.setRoot(formPage.page, { options: formPage });
+  }
+
+  isActive(pageName: string) {
+    return pageName === this.activeSection ? 'active menu-item' : 'menu-item';
   }
 
   formSections: any[] = [

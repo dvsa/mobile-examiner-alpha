@@ -12,8 +12,17 @@
     </ion-header> -->
     <ion-content>
       <ion-list>
-        <button class="menu-item" ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}
-        </button>
+        <ion-item 
+          *ngFor="let section of formSections" 
+          [class]="isActive(section.pageName)"
+          (click)="sectionToLoad(section)"
+          no-padding
+        >
+          <div class="sidebar-item" icon-end margin-left>
+            {{section.pageName}}
+            <ion-icon float-right name="arrow-forward"></ion-icon>
+          </div>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

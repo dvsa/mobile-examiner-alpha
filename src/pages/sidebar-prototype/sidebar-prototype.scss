@@ -10,8 +10,32 @@ page-sidebar-prototype {
         background: darken(map-get($colors, light), 5);
      }
     .menu-item {
-        background: darken(map-get($colors, light), 5);
         color: map-get($colors, dark);
+        &.active {
+            background: map-get($colors, dark);
+            .sidebar-item {
+                color: map-get($colors, light);
+                font-weight: bold;
+            }
+            .item-inner {
+                background: map-get($colors, dark);
+            }
+        }
+        .item-inner {
+            border-top: 0.5px solid darken(map-get($colors, light), 10);
+            border-bottom: 0.5px solid darken(map-get($colors, light), 10);
+        }
+        .sidebar-item {
+            padding: 1.5px 0;
+            font-size: 16px;
+            border: none;
+            .icon {
+                line-height: 0.87;
+            }
+        }
+        :active {
+            background: map-get($colors, light);
+        }
     }
  }
 
