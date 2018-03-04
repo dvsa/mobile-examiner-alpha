@@ -15,7 +15,10 @@
         >
           <div class="sidebar-item" icon-end margin-left>
             {{section.pageName}}
-            <span class="section-fault-badge">{{sumSectionFaults(section.pageName)}}</span>
+            <span 
+              class="section-fault-badge"
+              *ngIf="sumSectionFaults(section.pageName) > 0"
+            >{{sumSectionFaults(section.pageName)}}</span>
             <ion-icon float-right name="arrow-forward"></ion-icon>
           </div>
         </ion-item>

@@ -11,6 +11,15 @@ page-sidebar-prototype {
      }
     .menu-item {
         color: map-get($colors, dark);
+        .section-fault-badge {
+            position: absolute;
+            right: 25px;
+            margin-top: -6px;
+            background-color: map-get($colors, dark);
+            padding: 3px 5px;
+            color: map-get($colors, light);
+            border-radius: 10px;
+        }
         &.active {
             background: map-get($colors, dark);
             .sidebar-item {
@@ -19,6 +28,10 @@ page-sidebar-prototype {
             }
             .item-inner {
                 background: map-get($colors, dark);
+            }
+            .section-fault-badge {
+                background-color: map-get($colors, light);
+                color: map-get($colors, dark);
             }
         }
         .item-inner {
