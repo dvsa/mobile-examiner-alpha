@@ -1,0 +1,21 @@
+fault-controls-v2 {
+    .fault-button {
+        padding: 44px 0;
+        border-radius: 9px;
+        .add-icon {
+            position: absolute;
+            right: 30px;
+            top: 22px;
+            font-size: 40px;
+        }
+        .fault-badge {
+            position: absolute;
+            top: 18px;
+            left: 15px;
+            background-color: map-get($colors, dark);
+            padding: 15px;
+            border-radius: 12px;
+            color: map-get($colors, light);
+        }
+    }
+}

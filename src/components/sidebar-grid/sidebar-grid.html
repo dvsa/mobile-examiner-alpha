@@ -1,15 +1,15 @@
 <ion-content>
-  <ion-row *ngFor="let section of formPage.pageOptions.sections; let i = index;">
-    <div>
-      <span>{{section.header}}</span>
+  <div *ngFor="let section of formPage.pageOptions.sections; let i = index;">
+    <div margin-left margin-right>
+      <h3 margin-top class="heading-small">{{section.header}}</h3>
+      <fault-controls-v2 *ngFor="let item of section.items" [item]="item"></fault-controls-v2>
     </div>
-  </ion-row>
+  </div>
   <!-- <ion-list *ngFor="let section of formPage.pageOptions.sections; let i = index;">
     <ion-list-header style="overflow:auto;">
       <span class="float-left">
           {{section.header}}
       </span>
-      
       <div *ngIf="i==0" class="right-input-margin float-right">
         <span>S</span>
         <span style="margin-left: 40px;">D</span>
