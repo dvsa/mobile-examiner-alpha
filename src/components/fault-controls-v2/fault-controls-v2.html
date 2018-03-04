@@ -1,5 +1,13 @@
 <ion-row>
-  <button ion-button color="grey" large full class="fault-button" (click)="addDrivingFault()">
+  <button 
+    ion-button 
+    color="grey" 
+    large 
+    full 
+    class="fault-button" 
+    (tap)="addDrivingFault()"
+    (press)="faultHold()"
+  >
     <span class="fault-badge">{{item.counter}}</span>
     {{item.name}}
     <ion-icon name="ios-add-circle-outline" class="add-icon"></ion-icon>

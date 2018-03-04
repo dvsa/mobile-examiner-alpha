@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the FaultControlsV2Component component.
@@ -15,7 +16,7 @@ export class FaultControlsV2Component {
 
   @Input() item;
 
-  constructor(private faultsService: FaultsScorecardProvider) {
+  constructor(private faultsService: FaultsScorecardProvider, public alertCtrl: AlertController) {
   }
 
   addDrivingFault() {
@@ -26,6 +27,15 @@ export class FaultControlsV2Component {
   removeDrivingFault() {
     if (this.item.counter > 0) this.item.counter--;
     this.faultsService.removeDrivingFault();
+  }
+
+  faultHold() {
+    const alert = this.alertCtrl.create({
+      title: 'Fault held!',
+      subTitle: 'Add serious/dangerous and remove driving faults',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   // updateSerious() {
