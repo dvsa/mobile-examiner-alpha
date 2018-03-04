@@ -4,7 +4,7 @@ page-sidebar-prototype {
  }
 
  ion-menu {
-
+    max-width: 33% !important;
     .scroll-content {
         overflow-y: hidden;
         background: darken(map-get($colors, light), 5);

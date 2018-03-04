@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { IFormPage, IFormItem } from '../../sheared/interfaces';
 import { NotesPage } from '../notes/notes';
 import { SidebarGridComponent } from '../../components/sidebar-grid/sidebar-grid';
+import _ from 'lodash';
 
 @Component({
   selector: 'page-sidebar-prototype',
@@ -31,6 +32,15 @@ export class SidebarPrototypePage {
 
   isActive(pageName: string) {
     return pageName === this.activeSection ? 'active menu-item' : 'menu-item';
+  }
+
+  sumSectionFaults(sectionName: string): number {
+    const section: Object = _(this.formSections).find(section => section.pageName === sectionName);
+    const sectionFaults = _(section).get('pageOptions.sections');
+    const items = _(sectionFaults).flatMap('items');
+    return items
+      .map('counter')
+      .reduce((acc, prev) => acc + prev);
   }
 
   formSections: any[] = [
