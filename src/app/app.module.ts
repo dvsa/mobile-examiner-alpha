@@ -34,15 +34,10 @@ import { NotesPage } from '../pages/notes/notes';
 
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
 import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
-<<<<<<< HEAD
 import { SidebarGridComponent } from '../components/sidebar-grid/sidebar-grid';
 import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
 import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
-=======
-import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
-import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
 import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sidebar-fault-data';
->>>>>>> 94bad0f486bad9269763f46503088d56d0f2f8f1
 
 
 @NgModule({
@@ -72,10 +67,7 @@ import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sideba
     Dl25ModalComponent,
     Dl25ModalRowComponent,
     FaultControlsMultiTabComponent,
-<<<<<<< HEAD
     SidebarGridComponent,
-=======
->>>>>>> 94bad0f486bad9269763f46503088d56d0f2f8f1
     FaultControlsV2Component,
     PressedFaultModalComponent
   ],
@@ -101,10 +93,7 @@ import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sideba
     LegalPage,
     ComponentLibraryPage,
     SidebarPrototypePage,
-<<<<<<< HEAD
     SidebarGridComponent,
-=======
->>>>>>> 94bad0f486bad9269763f46503088d56d0f2f8f1
     NotesPage,
     FaultControlsV2Component,
     PressedFaultModalComponent
