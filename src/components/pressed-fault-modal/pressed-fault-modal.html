@@ -6,12 +6,12 @@
     <div>
       <ion-item>
         <ion-label>Serious</ion-label>
-        <ion-checkbox color="dark" (tap)="closeModal()"></ion-checkbox>
+        <ion-checkbox color="dark" [(ngModel)]="serious" (ionChange)="updateSerious()" (tap)="closeModal()"></ion-checkbox>
       </ion-item>
 
       <ion-item>
         <ion-label>Dangerous</ion-label>
-        <ion-checkbox color="dark" (tap)="closeModal()"></ion-checkbox>
+        <ion-checkbox color="dark" [(ngModel)]="dangerous" (ionChange)="updateDangerous()" (tap)="closeModal()"></ion-checkbox>
       </ion-item>
       <div text-center>
         <button margin-top ion-button icon-right outline round color="dark" (click)="removeDrivingFault()">

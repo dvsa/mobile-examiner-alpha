@@ -36,6 +36,7 @@ import { AllOnOneFormElementComponent } from '../components/all-on-one-form-elem
 import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
 import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
 import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
+import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sidebar-fault-data';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pr
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FaultsScorecardProvider,
-    FaultDataProvider
+    FaultDataProvider,
+    SidebarFaultDataProvider
   ]
 })
 export class AppModule { }

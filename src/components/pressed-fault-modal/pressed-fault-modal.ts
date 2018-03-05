@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
-import { FaultDataProvider } from '../../providers/fault-data/fault-data';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 
 /**
@@ -16,12 +15,14 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
 export class PressedFaultModalComponent {
 
   item: any;
+  serious: boolean;
+  dangerous: boolean;
 
   constructor(
     public params: NavParams, 
     public viewCtrl: ViewController, 
-    public faultsService: FaultDataProvider,
-    private faultsScorecardService: FaultsScorecardProvider) {
+    // public faultsService: FaultDataProvider,
+    private faultsService: FaultsScorecardProvider) {
     this.item = params.get('item');
   }
 
@@ -31,7 +32,17 @@ export class PressedFaultModalComponent {
 
   removeDrivingFault() {
     if (this.item.counter > 0) this.item.counter--;
-    this.faultsScorecardService.removeDrivingFault();
+    this.faultsService.removeDrivingFault();
+  }
+
+  updateSerious() {
+    if (!this.serious) return this.faultsService.removeSerious();
+    return this.faultsService.addSerious();
+  }
+
+  updateDangerous() {
+    if (!this.dangerous) return this.faultsService.removeDangerous();
+    return this.faultsService.addDangerous();
   }
 
 }
