@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { NotesPage } from '../../pages/notes/notes';
 import { SidebarGridComponent } from '../../components/sidebar-grid/sidebar-grid';
+import _ from 'lodash';
 
 /*
   Generated class for the SidebarFaultDataProvider provider.
@@ -14,6 +15,26 @@ export class SidebarFaultDataProvider {
 
   change: Subject<any> = new Subject<any>();
 
+  constructor() {
+    console.log(_);
+    console.log(this.formSections);
+  }
+
+  removeDrivingFault(sectionName, subSectionName, faultName) {
+    const section = _.find(this.formSections, section => section.pageName === sectionName);
+    const subSections = _.get(section, 'pageOptions.sections');
+    if (subSections.length > 1) {
+      console.log(subSectionName);
+      let subSection = _.find(subSections, subSection => subSection.header === subSectionName);
+      console.log(subSection)
+      const item = _.find(subSection.items, item => item.name === faultName);
+      return item.counter--;
+    } else {
+      const item = _.find(subSections[0].items, item => item.name === faultName);
+      return item.counter--;
+    }
+  }
+
   formSections: any[] = [
     {
       pageName: 'Controlled stop',
@@ -21,7 +42,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Controlled stop')
             ]
@@ -64,7 +85,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Show me')
             ]
@@ -78,7 +99,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Precautions')
             ]
@@ -92,7 +113,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Accelerator'),
               createFailCounter('Clutch'),
@@ -111,7 +132,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Safety'),
               createFailCounter('Control')
@@ -126,7 +147,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Signalling'),
               createFailCounter('Change direction'),
@@ -142,7 +163,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Necessary'),
               createFailCounter('Correctly'),
@@ -158,7 +179,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Clearance/obstructions')
             ]
@@ -172,7 +193,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Traffic signs'),
               createFailCounter('Road markings'),
@@ -190,7 +211,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Use of speed'),
             ]
@@ -204,7 +225,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Following distance'),
               createFailCounter('Appropriate Speed'),
@@ -220,7 +241,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Appropriate Speed'),
               createFailCounter('Undue hesitation')
@@ -235,7 +256,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Approach speed'),
               createFailCounter('Observation'),
@@ -253,7 +274,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Overtaking'),
               createFailCounter('Meeting'),
@@ -269,7 +290,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Normal driving'),
               createFailCounter('Lane discipline'),
@@ -286,7 +307,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Pedestrian crossings')
             ]
@@ -300,7 +321,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Precautions')
             ]
@@ -314,7 +335,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Awareness/Planning')
             ]
@@ -328,7 +349,7 @@ export class SidebarFaultDataProvider {
       pageOptions: {
         sections: [
           {
-            header: ' ',
+            header: '',
             items: [
               createFailCounter('Ancillary controls')
             ]

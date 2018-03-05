@@ -17,6 +17,8 @@ import { SidebarFaultDataProvider } from '../../providers/sidebar-fault-data/sid
 export class FaultControlsV2Component {
 
   @Input() item;
+  @Input() section;
+  @Input() pageName;
 
   constructor(
     private faultsService: FaultsScorecardProvider, 
@@ -29,16 +31,11 @@ export class FaultControlsV2Component {
     this.faultsService.addDrivingFault();
   }
 
-  removeDrivingFault() {
-    if (this.item.counter > 0) this.item.counter--;
-    this.faultsService.removeDrivingFault();
-  }
-
   faultHold(name) {
     this.modalCtrl.create(PressedFaultModalComponent, {
-      item: {
-        name
-      },
+      item: this.item,
+      section: this.section,
+      pageName: this.pageName
     }).present();  
   }
 
