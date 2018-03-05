@@ -14,6 +14,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ComponentLibraryPage {
 
+  item = {
+    counter: 0,
+    name: 'Control'
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   
