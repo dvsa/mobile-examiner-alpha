@@ -3,19 +3,22 @@ import { AllOnOneFormElementComponent } from './all-on-one-form-element/all-on-o
 import { AllOnOneFormSubElementComponent } from './all-on-one-form-sub-element/all-on-one-form-sub-element';
 import { SidebarGridComponent } from './sidebar-grid/sidebar-grid';
 import { FaultControlsV2Component } from './fault-controls-v2/fault-controls-v2';
+import { PressedFaultModalComponent } from './pressed-fault-modal/pressed-fault-modal';
 @NgModule({
 	declarations: [
 		AllOnOneFormElementComponent,
 		AllOnOneFormSubElementComponent,
     SidebarGridComponent,
-    FaultControlsV2Component
+    FaultControlsV2Component,
+    PressedFaultModalComponent
 	],
 	imports: [],
 	exports: [
 		AllOnOneFormElementComponent,
 		AllOnOneFormSubElementComponent,
     SidebarGridComponent,
-    FaultControlsV2Component
+    FaultControlsV2Component,
+    PressedFaultModalComponent
 	]
 })
 export class ComponentsModule {}
