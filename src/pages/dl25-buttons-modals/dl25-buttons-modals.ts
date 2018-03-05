@@ -43,7 +43,7 @@ export class Dl25ButtonsModalsPage {
       faultData
     }).present();
   }
-
+  /* tslint:disable */
   getNumberOfFaults(fault) {
     if (!fault.hasSections) return fault.faults.df;
     return _(fault.sections)
@@ -64,7 +64,7 @@ export class Dl25ButtonsModalsPage {
       .map(subSection => subSection.faults.d)
       .reduce((acc, prev) => acc + prev) > 0;
   }
-
+  /* tslint:enable */
   manouevreClick() {
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Manouevres',
