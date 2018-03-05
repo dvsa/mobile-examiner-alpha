@@ -14,9 +14,9 @@ page-sidebar-prototype {
         .section-fault-badge {
             position: absolute;
             right: 25px;
-            margin-top: -6px;
+            margin-top: -5px;
             background-color: map-get($colors, dark);
-            padding: 3px 5px;
+            padding: 3px 8px;
             color: map-get($colors, light);
             border-radius: 10px;
         }
