@@ -1,19 +1,24 @@
 <div>
   <div class="modal-heading">
-    <h3 class="heading-medium">{{faultData.name}}</h3>
+    <h3 class="heading-medium">{{item.name}}</h3>
   </div>
   <div class="modal-content">
     <div>
+      <ion-item>
+        <ion-label>Serious</ion-label>
+        <ion-checkbox color="dark" (tap)="closeModal()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dangerous</ion-label>
+        <ion-checkbox color="dark" (tap)="closeModal()"></ion-checkbox>
+      </ion-item>
+      <div text-center>
+        <button margin-top ion-button icon-right outline round color="dark" (click)="removeDrivingFault()">
+          Remove driving fault
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="modal-footer" text-center margin-left margin-right>
-    <ion-row>
-      <ion-col>
-        <button ion-button block color="dark" outline (click)="closeModal()">Cancel</button>
-      </ion-col>
-      <ion-col>
-        <button ion-button block color="dark" (click)="closeModal()">Confirm</button>
-      </ion-col>
-    </ion-row>
   </div>
 </div>

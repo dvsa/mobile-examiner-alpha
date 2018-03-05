@@ -1,10 +1,13 @@
 pressed-fault-modal.ion-page {
     left: 15%;
-    top: 20%;
+    top: 30%;
     background-color: map-get($colors, light);
     width: 75%;
-    height: 50%;
+    height: 40%;
     border-radius: 10px;
+    ion-item.item {
+        background-color: map-get($colors, light);
+    }
     ion-modal {
         background-color: rgba(0, 0, 0, 0.5);
     }

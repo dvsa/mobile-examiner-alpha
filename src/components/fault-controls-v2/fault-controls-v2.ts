@@ -32,9 +32,9 @@ export class FaultControlsV2Component {
 
   faultHold(name) {
     this.modalCtrl.create(PressedFaultModalComponent, {
-      faultData: {
+      item: {
         name
-      }
+      },
     }).present();  
   }
 
