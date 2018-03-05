@@ -9,6 +9,12 @@ fault-controls-v2 {
             font-size: 40px;
         }
         .fault-badge {
+            &.serious {
+                left: 47px
+            }
+            &.dangerous {
+                left: 80px;
+            }
             position: absolute;
             top: 8px;
             left: 15px;

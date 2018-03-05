@@ -45,6 +45,33 @@ export class SidebarPrototypePage {
       .reduce((acc, prev) => acc + prev);
   }
 
+  sumSerious(sectionName: string): number {
+    const section: Object = _(this.formSections).find(section => section.pageName === sectionName);
+    const sectionFaults = _(section).get('pageOptions.sections');
+    const items = _(sectionFaults).flatMap('items');
+    console.log(items
+      .map('isSerious')
+      .filter(isSerious => isSerious)
+      .value()
+      .length);
+    return items
+      .map('isSerious')
+      .filter(isSerious => isSerious)
+      .value()
+      .length;
+  }
+
+  sumDangerous(sectionName: string): number {
+    const section: Object = _(this.formSections).find(section => section.pageName === sectionName);
+    const sectionFaults = _(section).get('pageOptions.sections');
+    const items = _(sectionFaults).flatMap('items');
+    return items
+      .map('counter')
+      .filter(isDangerous => isDangerous)
+      .value()
+      .length;
+  }
+
   formSections: any[] = this.faultsService.formSections;
 
 }

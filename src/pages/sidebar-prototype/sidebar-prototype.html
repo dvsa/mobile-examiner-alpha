@@ -15,6 +15,14 @@
         >
           <div class="sidebar-item" icon-end margin-left>
             {{section.pageName}}
+            <!-- <span 
+              class="section-fault-badge serious"
+              *ngIf="sumSerious(section.pageName) > 0"
+            >S</span>
+            <span 
+              class="section-fault-badge dangerous"
+              *ngIf="sumDangerous(section.pageName) > 0"
+            >D</span> -->
             <span 
               class="section-fault-badge"
               *ngIf="sumSectionFaults(section.pageName) > 0"

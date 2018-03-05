@@ -16,8 +16,6 @@ export class SidebarFaultDataProvider {
   change: Subject<any> = new Subject<any>();
 
   constructor() {
-    console.log(_);
-    console.log(this.formSections);
   }
 
   removeDrivingFault(sectionName, subSectionName, faultName) {

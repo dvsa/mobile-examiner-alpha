@@ -12,6 +12,12 @@ page-sidebar-prototype {
     .menu-item {
         color: map-get($colors, dark);
         .section-fault-badge {
+            &.serious {
+                right: 50px;
+            }
+            &.dangerous {
+                right: 75px;
+            }
             position: absolute;
             right: 25px;
             margin-top: -5px;
