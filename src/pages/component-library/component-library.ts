@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { PressedFaultModalComponent } from '../../components/pressed-fault-modal/pressed-fault-modal';
 
 /**
  * Generated class for the ComponentLibraryPage page.
@@ -14,7 +15,18 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ComponentLibraryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  item = {
+    counter: 0,
+    name: 'Control'
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  }
+
+  createModal(name) {
+    this.modalCtrl.create(PressedFaultModalComponent, {
+      name
+    }).present();
   }
   
 }
