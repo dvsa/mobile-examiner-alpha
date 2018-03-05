@@ -29,6 +29,8 @@ export class PressedFaultModalComponent {
     this.item = params.get('item');
     this.section = params.get('section');
     this.pageName = params.get('pageName');
+    this.serious = this.item.isSerious;
+    this.dangerous = this.item.isDangerous;
   }
 
   closeModal() {
@@ -46,11 +48,15 @@ export class PressedFaultModalComponent {
 
   updateSerious() {
     if (!this.serious) return this.faultsService.removeSerious();
+    const subSectionName = !!this.section.header ? this.section.header : null;
+    this.faultDataService.updateSerious(this.pageName, subSectionName, this.item.name);
     return this.faultsService.addSerious();
   }
 
   updateDangerous() {
     if (!this.dangerous) return this.faultsService.removeDangerous();
+    const subSectionName = !!this.section.header ? this.section.header : null;
+    this.faultDataService.updateDangerous(this.pageName, subSectionName, this.item.name);
     return this.faultsService.addDangerous();
   }
 

@@ -24,14 +24,38 @@ export class SidebarFaultDataProvider {
     const section = _.find(this.formSections, section => section.pageName === sectionName);
     const subSections = _.get(section, 'pageOptions.sections');
     if (subSections.length > 1) {
-      console.log(subSectionName);
       let subSection = _.find(subSections, subSection => subSection.header === subSectionName);
-      console.log(subSection)
       const item = _.find(subSection.items, item => item.name === faultName);
       return item.counter--;
     } else {
       const item = _.find(subSections[0].items, item => item.name === faultName);
       return item.counter--;
+    }
+  }
+
+  updateSerious(sectionName, subSectionName, faultName) {
+    const section = _.find(this.formSections, section => section.pageName === sectionName);
+    const subSections = _.get(section, 'pageOptions.sections');
+    if (subSections.length > 1) {
+      let subSection = _.find(subSections, subSection => subSection.header === subSectionName);
+      const item = _.find(subSection.items, item => item.name === faultName);
+      return item.isSerious = !item.isSerious;
+    } else {
+      const item = _.find(subSections[0].items, item => item.name === faultName);
+      return item.isSerious = !item.isSerious;
+    }
+  }
+
+  updateDangerous(sectionName, subSectionName, faultName) {
+    const section = _.find(this.formSections, section => section.pageName === sectionName);
+    const subSections = _.get(section, 'pageOptions.sections');
+    if (subSections.length > 1) {
+      let subSection = _.find(subSections, subSection => subSection.header === subSectionName);
+      const item = _.find(subSection.items, item => item.name === faultName);
+      return item.isDangerous = !item.isDangerous;
+    } else {
+      const item = _.find(subSections[0].items, item => item.name === faultName);
+      return item.isDangerous = !item.isDangerous;
     }
   }
 
