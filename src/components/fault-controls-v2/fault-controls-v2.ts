@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
-import { AlertController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { PressedFaultModalComponent } from '../pressed-fault-modal/pressed-fault-modal';
 
 /**
  * Generated class for the FaultControlsV2Component component.
@@ -16,7 +17,7 @@ export class FaultControlsV2Component {
 
   @Input() item;
 
-  constructor(private faultsService: FaultsScorecardProvider, public alertCtrl: AlertController) {
+  constructor(private faultsService: FaultsScorecardProvider, public modalCtrl: ModalController) {
   }
 
   addDrivingFault() {
@@ -29,13 +30,12 @@ export class FaultControlsV2Component {
     this.faultsService.removeDrivingFault();
   }
 
-  faultHold() {
-    const alert = this.alertCtrl.create({
-      title: 'Fault held!',
-      subTitle: 'Add serious/dangerous and remove driving faults',
-      buttons: ['OK']
-    });
-    alert.present();
+  faultHold(name) {
+    this.modalCtrl.create(PressedFaultModalComponent, {
+      faultData: {
+        name
+      }
+    }).present();  
   }
 
   // updateSerious() {

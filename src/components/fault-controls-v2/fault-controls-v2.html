@@ -6,7 +6,7 @@
     full 
     class="fault-button" 
     (click)="addDrivingFault()"
-    (press)="faultHold()"
+    (press)="faultHold(item.name)"
   >
     <span class="fault-badge">{{item.counter}}</span>
     {{item.name}}

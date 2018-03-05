@@ -35,6 +35,7 @@ import { NotesPage } from '../pages/notes/notes';
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
 import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
 import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
+import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-
     Dl25ModalComponent,
     Dl25ModalRowComponent,
     FaultControlsMultiTabComponent,
-    FaultControlsV2Component
+    FaultControlsV2Component,
+    PressedFaultModalComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-
     ComponentLibraryPage,
     SidebarPrototypePage,
     NotesPage,
-    FaultControlsV2Component
+    FaultControlsV2Component,
+    PressedFaultModalComponent
   ],
   providers: [
     StatusBar,
