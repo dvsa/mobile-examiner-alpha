@@ -1,18 +1,48 @@
 page-all-on-one {
-    .form-section {
-        background-color: #eeeeee;
-        border: 2px;
-        border-color: #dddddd;
-        border-style: solid;
-        padding: 0;
-        margin: 0;
+  .form-section {
+    // background-color: #eeeeee;
+    // border: 2px;
+    // border-color: #dddddd;
+    // border-style: solid;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+  ion-content .button-ios {
+    color: #000;
+    background-color: #fff;
+    border: 2px;
+    border-style: solid;
+    border-color: #000;
+    :active {
+      background-color: #000;
+      color: #fff;
     }
-
-    .main-content ion-col {
-        background-color: #eeeeee;
+  }
+  .activated {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  ion-content {
+    background-color: #f8f8f8 !important;
+    button {
+      height: 44px !important;
+      width: 98%;
+      background-color: #fff;
+      color: #000000;
+      border: 1px solid rgba(0, 0, 0, 0.35) !important; // border-style: solid !important;
+      // border-color: #00003b !important;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-size: 16px;
     }
-
-    .legals {
-        background-color: #eeeeee;
-    }
+  }
+  p {
+    font-weight: bold;
+    margin: 0px 0px 1px;
+    font-size: 14px;
+  }
+  .bottom-border {
+    border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+  }
 }
