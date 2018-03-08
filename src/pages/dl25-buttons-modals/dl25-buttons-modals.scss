@@ -3,8 +3,8 @@ page-dl25-buttons-modals {
         font-size: 18px;
         font-weight: bold;
         padding: 36px 15px;
-        margin: 10px 5px;
-        border-radius: 10px;
+        //margin: 10px 5px;
+        //border-radius: 10px;
     }
     .fault-badge {
         position: absolute;
@@ -33,5 +33,11 @@ page-dl25-buttons-modals {
             border-right: 1px solid map-get($colors, dark);
             border-left: 1px solid map-get($colors, dark);
         }
+    }
+    .reduced-padding {
+        padding: 2px;
+    }
+    .main-content {
+        background-color: #eeeeee;
     }
 }

@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultDataProvider } from '../../providers/fault-data/fault-data';
+import { ModalController } from 'ionic-angular';
+import { ButtonsModalsPressedFaultModalComponent } from '../buttons-modals-pressed-fault-modal/buttons-modals-pressed-fault-modal';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'dl25-modal-row',
@@ -12,13 +15,18 @@ export class Dl25ModalRowComponent {
   @Input() section: string;
   @Input() faultTitle: string;
 
+  _subscription: Subscription;
   serious: boolean;
   dangerous: boolean;
   numDrivingFaults: number;
 
   constructor(
     private faultsScoreCardProvider: FaultsScorecardProvider, 
-    private faultDataProvider: FaultDataProvider) {
+    private faultDataProvider: FaultDataProvider,
+    private modalCtrl: ModalController) {
+      this._subscription = faultDataProvider.change.subscribe(() => { 
+        this.recalculateFaults();
+      });
   }
 
   ngOnInit() {
@@ -26,6 +34,23 @@ export class Dl25ModalRowComponent {
     this.numDrivingFaults = fault.faults.df;
     this.serious = fault.faults.s;
     this.dangerous = fault.faults.d;
+  }
+
+  recalculateFaults() {
+    const fault = this.faultDataProvider.getFault(this.faultTitle, this.section, null);
+    this.numDrivingFaults = fault.faults.df;
+    this.serious = fault.faults.s;
+    this.dangerous = fault.faults.d;
+  }
+
+  faultHold(section) {
+    this.modalCtrl.create(ButtonsModalsPressedFaultModalComponent, {
+      item: {
+        name: section,
+        faultTitle: this.faultTitle,
+        counter: this.numDrivingFaults
+      },
+    }).present();
   }
 
   addDrivingFault(faultTitle, section) {

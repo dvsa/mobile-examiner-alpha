@@ -1,33 +1,25 @@
 <div class="modal-row">
-  <ion-row>
-    <ion-col>
-      <h3 no-margin class="heading-small" *ngIf="!!section">{{section}}</h3>
-      <h3 no-margin class="heading-small" *ngIf="!section">{{faultTitle}}</h3>
-    </ion-col>
     <div class="fault-controls">
+      <!-- V2 -->
       <ion-row>
-        <ion-col>
-          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="removeDrivingFault(faultTitle, section)">
-            <ion-icon name="remove"></ion-icon>
+          <button 
+            ion-button 
+            color="dark" 
+            large 
+            full
+            outline
+            margin-left
+            margin-right
+            class="fault-button" 
+            (click)="addDrivingFault(faultTitle, section)"
+            (press)="faultHold(section)"
+          >
+            <span class="fault-badge">{{numDrivingFaults}}</span>
+            <span class="fault-badge serious" *ngIf="serious">S</span>
+            <span class="fault-badge dangerous" *ngIf="dangerous">D</span>
+            {{!!section ? section : faultTitle}}
+            <ion-icon name="ios-add-circle-outline" class="add-icon"></ion-icon>
           </button>
-        </ion-col>
-        <ion-col>
-          <span text-center class="fault-total bold-medium">{{numDrivingFaults}}</span>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-only outline round color="dark" class="button-df-control" (click)="addDrivingFault(faultTitle, section)">
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col>
-          <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
-          <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious(faultTitle, section)"></ion-checkbox>
-        </ion-col>
-        <ion-col>
-          <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
-          <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous(faultTitle, section)"></ion-checkbox>
-        </ion-col>
-      </ion-row>
+        </ion-row>
     </div>
-  </ion-row>
 </div>

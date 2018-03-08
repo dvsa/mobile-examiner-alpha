@@ -41,6 +41,9 @@ export class Dl25ButtonsModalsPage {
   createModal(faultData) {
     this.modalCtrl.create(Dl25ModalComponent, {
       faultData
+    }, {
+      enterAnimation: 'modal-enter',
+      leaveAnimation: 'modal-leave'
     }).present();
   }
 
