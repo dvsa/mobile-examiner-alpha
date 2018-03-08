@@ -8,8 +8,8 @@ public init() {
     const contentWrapper = new Animation(this.plt, ele.querySelector('.wrapper'));
     const backdrop = new Animation(this.plt, ele.querySelector('ion-backdrop'));
 
-    wrapper.beforeStyles({ 'transform': 'scale(0)', 'opacity': 1 });
-    wrapper.fromTo('transform', 'scale(1)', 'scale(1.0)');
+    wrapper.beforeStyles({ 'transform': 'scale(1.0)', 'opacity': 1 });
+    wrapper.fromTo('transform', 'scale(1.0)', 'scale(0.9)');
     wrapper.fromTo('opacity', 1, 0);
     contentWrapper.fromTo('opacity', 1, 0);
     backdrop.fromTo('opacity', 0.5, 0);
