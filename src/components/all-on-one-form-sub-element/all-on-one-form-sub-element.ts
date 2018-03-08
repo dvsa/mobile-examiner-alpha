@@ -9,13 +9,17 @@ import { PressedFaultModalComponentAOOP } from '../pressed-fault-modal-aoop/pres
 })
 export class AllOnOneFormSubElementComponent {
 
-  @Input()
-  text: string;
+  @Input() text: string;
+  @Input() faultMode: string;
   serious: boolean = false;
   dangerous: boolean = false;
   counter: number = 0;
 
   constructor(private faultsService: FaultsScorecardProvider, public modalCtrl: ModalController, ) {
+  }
+
+  isDisabled() {
+    return this.faultMode === 'view-only';
   }
 
   faultHold() {

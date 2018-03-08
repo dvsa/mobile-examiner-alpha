@@ -1,11 +1,28 @@
 all-on-one-form-sub-element {
+  &.driving-faults {
+    .fault-button {
+      border: 1px dashed map-get($colors, dark) !important;
+    }
+  }
+  &.serious {
+    .fault-button {
+      border: 1px dashed map-get($colors, warn) !important;
+      background-color: lighten(map-get($colors, warn), 30);
+    }
+  }
+  &.dangerous {
+    .fault-button {
+      border: 1px dashed map-get($colors, danger) !important;
+      background-color: lighten(map-get($colors, danger), 35);
+    }
+  }
   ion-icon {
     font-size: 32px;
   }
   .fault-total {
     //line-height: 1.75;
     position: absolute;
-    top: 7px;
+    top: -6px;
     left: 12px;
   }
   ion-checkbox {
@@ -20,13 +37,25 @@ all-on-one-form-sub-element {
   }
   .fault-type-text {
     position: absolute;
-    top: 7px;
+    top: -6px;
     left: 12px;
     z-index: 1;
     font-weight: bold;
     pointer-events: none;
     &.focused {
       color: #fff;
+    }
+  }
+  .fault-button {
+    .dangerous {
+      position: absolute;
+      top: -6px;
+      right: 11px;
+    }
+    .serious {
+      position: absolute;
+      top: -6px;
+      right: 30px;
     }
   }
   .shrink {
@@ -37,15 +66,5 @@ all-on-one-form-sub-element {
   }
   .pad-more {
     margin-left: 5px;
-  }
-  .dangerous {
-    position: absolute;
-    top: 7px;
-    right: 11px;
-  }
-  .serious {
-    position: absolute;
-    top: 7px;
-    right: 30px;
   }
 }
