@@ -12,11 +12,12 @@ dl25-modal-row {
             border-radius: 9px;
             border-right-width: 1px;
             border-left-width: 1px;
+            font-size: 18px;
             .add-icon {
                 position: absolute;
                 right: 30px;
-                top: 8px;
-                font-size: 40px;
+                top: 6px;
+                font-size: 34px;
             }
             .fault-badge {
                 &.serious {
