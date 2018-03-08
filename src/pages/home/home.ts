@@ -14,24 +14,12 @@ import { AllOnOnePage } from '../all-on-one/all-on-one';
 export class HomePage {
 
   multiTabPage = TabsPage;
+  sidebar = SidebarPrototypePage;
+  componentLibrary = ComponentLibraryPage;
+  buttonsModals = Dl25ButtonsModalsPage;
+  allOnOnePage = AllOnOnePage;
 
   constructor(public navCtrl: NavController) {
-  }
-
-  goToSidebarPrototype() {
-    this.navCtrl.push(SidebarPrototypePage);
-  }
-
-  goToComponentLibrary() {
-    this.navCtrl.push(ComponentLibraryPage);
-  }
-
-  goToButtonsModals() {
-    this.navCtrl.push(Dl25ButtonsModalsPage);
-  }
-  
-  goToAllOnOnePagePrototype() {
-    this.navCtrl.push(AllOnOnePage);
   }
 
 }
