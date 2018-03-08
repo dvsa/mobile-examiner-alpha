@@ -42,6 +42,7 @@ import { ButtonsModalsPressedFaultModalComponent } from '../components/buttons-m
 import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-modal-aoop/pressed-fault-modal-aoop';
 import { ModalEnterTransition } from '../transitions/modal-enter.transition';
 import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
+import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
 
 
 @NgModule({
@@ -112,7 +113,8 @@ import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FaultsScorecardProvider,
     FaultDataProvider,
-    SidebarFaultDataProvider
+    SidebarFaultDataProvider,
+    FaultModeProvider
   ]
 })
 export class AppModule { 

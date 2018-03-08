@@ -16,6 +16,8 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
 })
 export class AllOnOnePage {
 
+  faultMode = 'view-only';
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
