@@ -1,34 +1,9 @@
-<!-- <ion-grid> -->
-  <ion-row align-items-center no-padding>
-    <ion-col col-5 no-padding>
-      <div class="name">{{ text }}</div>
-    </ion-col>
-
-    <!-- <div class="blah"> -->
-    <ion-col class="shrink" col-1>
-      <button ion-button icon-only outline round color="dark" (click)="removeDrivingFault()">
-        <ion-icon name="remove"></ion-icon>
-      </button>
-    </ion-col>
-    <ion-col class="shrink pad-more" col-1>
-      <span class="fault-total bold-medium">{{numDrivingFaults}}</span>
-    </ion-col>
-    <ion-col class="shrink" col-1>
-      <button ion-button icon-only outline round color="dark" (click)="addDrivingFault()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-col>
-    <ion-col class="shrink pad-more" col-auto></ion-col>
-    <ion-col class="shrink" col-1>
-      <span class="fault-type-text" [ngClass]="{'focused': serious}">S</span>
-      <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious()"></ion-checkbox>
-    </ion-col>
-    <ion-col class="shrink endpad" col-1>
-      <span class="fault-type-text" [ngClass]="{'focused': dangerous}">D</span>
-      <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous()"></ion-checkbox>
-    </ion-col>
-
-    <!-- </div> -->
-  </ion-row>
-
-<!-- </ion-grid> -->
+<ion-row align-items-center no-padding>
+  <ion-col no-padding>
+    <button (click)="addDrivingFault();" (press)="faultHold()">
+      <span *ngIf="counter !== 0" class="fault-total bold-medium">{{counter}}</span> {{ text }}
+      <span *ngIf="serious" class="serious bold-medium">S</span>
+      <span *ngIf="dangerous" class="dangerous bold-medium">D</span>
+    </button>
+  </ion-col>
+</ion-row>
