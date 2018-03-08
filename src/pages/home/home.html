@@ -7,18 +7,15 @@
     Digital DL25 Prototypes
   </h1>
   <div margin-bottom>
-    <a class="gds-button" role="button" (click)="goToSidebarPrototype();">Sidebar</a>
+    <a class="gds-button" role="button" [navPush]="sidebar">Sidebar</a>
   </div>
   <div margin-bottom>
-    <a class="gds-button" href="#" role="button" (click)="goToAllOnOnePagePrototype();">All on one page</a>
+    <a class="gds-button" href="#" role="button" [navPush]="allOnOnePage">All on one page</a>
   </div>
   <div margin-bottom>
-    <button class="gds-button" [navPush]="multiTabPage">Multiple tabs</button>
-  </div>
-  <div margin-bottom>
-    <a class="gds-button" href="#" role="button" (click)="goToButtonsModals()">Buttons with modals</a>
+    <a class="gds-button" href="#" role="button" [navPush]="buttonsModals">Buttons with modals</a>
   </div>
   <div margin-top float-right>
-    <a class="mes-bottom-link" (click)="goToComponentLibrary()">Component library</a>
+    <a class="mes-bottom-link" [navPush]="componentLibrary">Component library</a>
   </div>
 </ion-content>

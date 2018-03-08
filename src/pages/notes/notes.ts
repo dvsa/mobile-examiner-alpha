@@ -7,7 +7,7 @@ import { NavParams, Platform } from 'ionic-angular';
 })
 export class NotesPage {
   public text: string
-  public selectedMode: string = 'textarea';
+  public selectedMode: string = 'handwriting';
   @ViewChild('myCanvas') canvas: any;
 
   canvasElement: any;

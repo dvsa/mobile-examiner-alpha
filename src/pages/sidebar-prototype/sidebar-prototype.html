@@ -5,14 +5,31 @@
 
 <ion-split-pane>
   <ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item *ngFor="let section of formSections" (click)="sectionToLoad(section)">{{section.pageName}}</button>
+        <ion-item 
+          *ngFor="let section of formSections" 
+          [class]="isActive(section.pageName)"
+          (click)="sectionToLoad(section)"
+          no-padding
+        >
+          <div class="sidebar-item" icon-end margin-left>
+            {{section.pageName}}
+            <!-- <span 
+              class="section-fault-badge serious"
+              *ngIf="sumSerious(section.pageName) > 0"
+            >S</span>
+            <span 
+              class="section-fault-badge dangerous"
+              *ngIf="sumDangerous(section.pageName) > 0"
+            >D</span> -->
+            <span 
+              class="section-fault-badge"
+              *ngIf="sumSectionFaults(section.pageName) > 0"
+            >{{sumSectionFaults(section.pageName)}}</span>
+            <ion-icon float-right name="arrow-forward"></ion-icon>
+          </div>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
