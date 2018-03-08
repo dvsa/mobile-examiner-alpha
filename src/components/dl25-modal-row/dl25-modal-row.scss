@@ -6,30 +6,34 @@ dl25-modal-row {
         padding-top: 8px;
     }
     .fault-controls {
-        .checkbox-ios .checkbox-icon {
-            width: 42px;
-            height: 42px;
-        }
-        .button-df-control {
-            transform: scale(1.2);
-            font-size: 13px;
-        }
-        .fault-total {
-            line-height: 1.75;
-        }
-        .checkbox-ios-dark .checkbox-checked .checkbox-inner {
-            display: none;
-        }
-        .fault-type-text {
-            position: absolute;
-            top: 17px;
-            left: 21px;
-            z-index: 1;
-            font-weight: bold;
-            pointer-events: none;
-            &.focused {
-                color: #fff;
+        width: 100%;
+        .fault-button {
+            padding: 24px 0;
+            border-radius: 9px;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            .add-icon {
+                position: absolute;
+                right: 30px;
+                top: 8px;
+                font-size: 40px;
+            }
+            .fault-badge {
+                &.serious {
+                    left: 47px
+                }
+                &.dangerous {
+                    left: 80px;
+                }    
+                position: absolute;
+                top: 8px;
+                left: 15px;
+                background-color: map-get($colors, dark);
+                padding: 8px;
+                border-radius: 12px;
+                color: map-get($colors, light);
             }
         }
     }
 }
+

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Config } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -37,7 +37,10 @@ import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-s
 import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
 import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
 import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sidebar-fault-data';
+import { ButtonsModalsPressedFaultModalComponent } from '../components/buttons-modals-pressed-fault-modal/buttons-modals-pressed-fault-modal';
 import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-modal-aoop/pressed-fault-modal-aoop';
+import { ModalEnterTransition } from '../transitions/modal-enter.transition';
+import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
 
 
 @NgModule({
@@ -69,6 +72,7 @@ import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-mo
     FaultControlsMultiTabComponent,
     FaultControlsV2Component,
     PressedFaultModalComponent,
+    ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
   ],
   imports: [
@@ -96,6 +100,7 @@ import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-mo
     NotesPage,
     FaultControlsV2Component,
     PressedFaultModalComponent,
+    ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
   ],
   providers: [
@@ -107,4 +112,13 @@ import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-mo
     SidebarFaultDataProvider
   ]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private config: Config) {
+    this.setCustomTransitions();
+  }
+
+  private setCustomTransitions() {
+    this.config.setTransition('modal-leave', ModalLeaveTransition);
+    this.config.setTransition('modal-enter', ModalEnterTransition);
+}
+}
