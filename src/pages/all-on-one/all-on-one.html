@@ -9,26 +9,6 @@
 <ion-content no-bounce>
   <ion-grid padding style="padding-top: 0px; padding-bottom: 0px; overflow: hidden;
   position: fixed;" no-bounce>
-  <ion-row>
-    <ion-segment color="dark" [(ngModel)]="faultMode">
-      <ion-segment-button value="view-only">
-        <!-- <ion-icon name="eye"></ion-icon> -->
-        <span text-center class="segment-text">View</span>
-      </ion-segment-button>
-      <ion-segment-button value="driving-faults">
-        <!-- <ion-icon name="car"></ion-icon> -->
-        <span text-center class="segment-text">Driving</span>
-      </ion-segment-button>
-      <ion-segment-button value="serious">
-        <!-- <ion-icon name="flag"></ion-icon> -->
-        <span text-center class="segment-text">Serious</span>
-      </ion-segment-button>
-      <ion-segment-button value="dangerous">
-        <!-- <ion-icon name="warning"></ion-icon> -->
-        <span text-center class="segment-text">Dangerous</span>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-row>
     <ion-row class="main-content">
       <ion-col col-4>
         <div class="form-section">
@@ -160,6 +140,26 @@
         </div>
       </ion-col>
     </ion-row>
+    <ion-row>
+        <ion-segment color="dark" [(ngModel)]="faultMode">
+          <ion-segment-button value="view-only">
+            <!-- <ion-icon name="eye"></ion-icon> -->
+            <span text-center class="segment-text">View</span>
+          </ion-segment-button>
+          <ion-segment-button value="driving-faults">
+            <!-- <ion-icon name="car"></ion-icon> -->
+            <span text-center class="segment-text">Driving</span>
+          </ion-segment-button>
+          <ion-segment-button value="serious">
+            <!-- <ion-icon name="flag"></ion-icon> -->
+            <span text-center class="segment-text">Serious</span>
+          </ion-segment-button>
+          <ion-segment-button value="dangerous">
+            <!-- <ion-icon name="warning"></ion-icon> -->
+            <span text-center class="segment-text">Dangerous</span>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-row>
 
     <!-- <ion-row>
       <ion-col col-12>

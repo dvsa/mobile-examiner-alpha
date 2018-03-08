@@ -7,6 +7,9 @@ page-all-on-one {
     padding: 0;
     margin-bottom: 5px;
   }
+  ion-col.col {
+    padding-bottom: 0;
+  }
   ion-content .button-ios {
     color: #000;
     background-color: #fff;
@@ -25,7 +28,7 @@ page-all-on-one {
   ion-content {
     background-color: #f8f8f8 !important;
     button {
-      height: 43px !important;
+      height: 42px !important;
       width: 98%;
       background-color: #fff;
       color: #000000;
