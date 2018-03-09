@@ -1,11 +1,11 @@
 dl25-modal-row {
     .modal-row {
-        margin: 10px;
+       // margin: 10px;
     }
     .heading-small {
         padding-top: 8px;
     }
-    .fault-controls {
+    .fault-controls-v3 {
         width: 100%;
         .fault-button {
             padding: 24px 0;
@@ -35,6 +35,44 @@ dl25-modal-row {
                 color: map-get($colors, light);
             }
         }
+    }
+    .circle {
+        border-radius: 50%;
+    }
+    ion-checkbox {
+        padding-top: 15px;
+    }
+    .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+        display: none;
+        left: 13px;
+        top: 6px;
+        width: 5px;
+        height: 15px;
+    }
+    .serious-text {
+        position: absolute;
+        top: 22px;
+        left: 12px;
+        z-index: 1;
+        font-weight: bold;
+        pointer-events: none;
+        &.focused {
+            color: #fff;
+        }
+    }
+    .dangerous-text {
+        position: absolute;
+        top: 22px;
+        left: 47px;
+        z-index: 1;
+        font-weight: bold;
+        pointer-events: none;
+        &.focused {
+            color: #fff;
+        }
+    }
+    .no-padding {
+        padding: 0px !important;
     }
 }
 

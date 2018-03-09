@@ -90,7 +90,6 @@ import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
     SidebarPrototypePage,
     SidebarGridComponent,
     NotesPage,
-    FaultControlsV2Component,
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,

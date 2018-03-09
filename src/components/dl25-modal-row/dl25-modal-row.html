@@ -1,25 +1,28 @@
 <div class="modal-row">
-    <div class="fault-controls">
-      <!-- V2 -->
+    <div class="fault-controls-v3">
+      <!-- V3-->
       <ion-row>
+
+        <ion-col col-10>
           <button 
-            ion-button 
-            color="dark" 
-            medium 
+            ion-button
             full
             outline
-            margin-left
-            margin-right
             class="fault-button" 
-            (click)="addDrivingFault(faultTitle, section)"
-            (press)="faultHold(section)"
-          >
-            <span class="fault-badge">{{numDrivingFaults}}</span>
-            <span class="fault-badge serious" *ngIf="serious">S</span>
-            <span class="fault-badge dangerous" *ngIf="dangerous">D</span>
+            (click)="addDrivingFault(faultTitle, section)">
             {{!!section ? section : faultTitle}}
-            <ion-icon name="ios-add-circle-outline" class="add-icon"></ion-icon>
+            <span class="fault-badge">{{numDrivingFaults}}</span> 
+            
           </button>
-        </ion-row>
+        </ion-col>
+
+        <ion-col class="no-padding">
+            <span class="serious-text" [ngClass]="{'focused': serious}">S</span>
+            <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious(faultTitle, section)"></ion-checkbox>
+          <span class="dangerous-text" [ngClass]="{'focused': dangerous}">D</span>
+          <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous(faultTitle, section)"></ion-checkbox>
+        </ion-col>
+        
+      </ion-row>
     </div>
 </div>
