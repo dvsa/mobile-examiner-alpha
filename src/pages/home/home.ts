@@ -1,11 +1,10 @@
-import { SidebarPrototypePage } from './../sidebar-prototype/sidebar-prototype';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { TabsPage } from "../multi-tab-proto/tabs/tabs";
 import { ComponentLibraryPage } from '../component-library/component-library';
 import { Dl25ButtonsModalsPage } from '../dl25-buttons-modals/dl25-buttons-modals';
 import { AllOnOnePage } from '../all-on-one/all-on-one';
+import { AllOnOnePage3 } from '../all-on-one-3/all-on-one-3';
 
 @Component({
   selector: 'page-home',
@@ -13,11 +12,10 @@ import { AllOnOnePage } from '../all-on-one/all-on-one';
 })
 export class HomePage {
 
-  multiTabPage = TabsPage;
-  sidebar = SidebarPrototypePage;
   componentLibrary = ComponentLibraryPage;
   buttonsModals = Dl25ButtonsModalsPage;
   allOnOnePage = AllOnOnePage;
+  allOnOnePage3 = AllOnOnePage3;
 
   constructor(public navCtrl: NavController) {
   }

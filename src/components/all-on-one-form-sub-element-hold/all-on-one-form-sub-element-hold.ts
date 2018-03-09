@@ -4,10 +4,10 @@ import { ModalController } from 'ionic-angular';
 import { PressedFaultModalComponentAOOP } from '../pressed-fault-modal-aoop/pressed-fault-modal-aoop';
 
 @Component({
-  selector: 'all-on-one-form-sub-element',
-  templateUrl: 'all-on-one-form-sub-element.html'
+  selector: 'all-on-one-form-sub-element-hold',
+  templateUrl: 'all-on-one-form-sub-element-hold.html'
 })
-export class AllOnOneFormSubElementComponent {
+export class AllOnOneFormSubElementHoldComponent {
 
   @Input()
   text: string;

@@ -1,6 +1,6 @@
 <ion-row align-items-center no-padding>
   <ion-col no-padding>
-    <button (press)="openFaultModal()" (click)="addDrivingFault()">
+    <button (click)="openFaultModal()" (press)="addDrivingFault()">
       <span *ngIf="counter !== 0" class="fault-total bold-medium">{{counter}}</span> {{ text }}
       <span *ngIf="serious" class="serious bold-medium">S</span>
       <span *ngIf="dangerous" class="dangerous bold-medium">D</span>

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ManoeuvrePage } from './manoeuvre';
+import { AllOnOnePage3 } from './all-on-one-3';
 
 @NgModule({
   declarations: [
-    ManoeuvrePage,
+    AllOnOnePage3,
   ],
   imports: [
-    IonicPageModule.forChild(ManoeuvrePage),
+    IonicPageModule.forChild(AllOnOnePage3),
   ],
 })
-export class ManoeuvrePageModule {}
+export class AllOnOnePage3Module {}
