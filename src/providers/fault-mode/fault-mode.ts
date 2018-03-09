@@ -11,7 +11,7 @@ import { Subject } from 'rxjs/Subject';
 export class FaultModeProvider {
 
   faultMode: string = 'view-only';
-  resetDelay: number = 1500;
+  resetDelay: number = 2000;
   faultModeTimeout;
   change: Subject<any> = new Subject<any>();
 
