@@ -13,19 +13,24 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-range min="0" max="10000" step="100" [(ngModel)]="delay" (ngModelChange)="onChange($event)">
-      <ion-icon small range-left name="timer"></ion-icon>
-      <ion-icon range-right name="timer"></ion-icon>
-    </ion-range>
-  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      <ion-badge item-end color="dark">{{delayInSeconds}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+        <ion-range min="0" max="10000" step="100" [(ngModel)]="delay" (ngModelChange)="onChange($event)">
+          <ion-icon small range-left name="timer"></ion-icon>
+          <ion-icon range-right name="timer"></ion-icon>
+        </ion-range>
+      </ion-item>
+  </ion-list>
   <ion-footer>
     <ion-row>
       <ion-col>
-        <button ion-button block color="dark" outline (click)="closeModal()">Cancel</button>
+        <button ion-button block color="dark" outline (click)="cancel()">Cancel</button>
       </ion-col>
       <ion-col>
-        <button ion-button block color="dark" (click)="closeModal()">Confirm</button>
+        <button ion-button block color="dark" (click)="confirm()">Confirm</button>
       </ion-col>
     </ion-row>
   </ion-footer>

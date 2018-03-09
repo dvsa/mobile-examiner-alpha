@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 
 /**
  * Generated class for the AllOnOnePageFaultModalsTimerOptionsPage page.
@@ -15,12 +16,35 @@ import { NavController, NavParams } from 'ionic-angular';
 export class AllOnOnePageFaultModalsTimerOptionsPage {
 
   delay: number;
+  delayInSeconds: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public faultModeService: FaultModeProvider,
+    public viewCtrl: ViewController) {
   }
 
-  onChange() {
-    console.log(this.delay);
+  onChange($event) {
+    this.getDelayInSeconds(this.delay);
+  }
+  
+  confirm() {
+    this.faultModeService.setResetDelay(this.delay);
+    this.closeModal();
+  }
+
+  cancel() {
+    this.closeModal();
+  }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
+   }
+
+  getDelayInSeconds(ms: number) {
+    const s = ms / 1000;
+    this.delayInSeconds = +s.toFixed(2);
   }
 
   ionViewDidLoad() {
