@@ -13,10 +13,10 @@ import { Subscription } from 'rxjs/Subscription';
 
 @IonicPage()
 @Component({
-  selector: 'page-all-on-one',
-  templateUrl: 'all-on-one.html',
+  selector: 'page-all-on-one-fault-modes',
+  templateUrl: 'all-on-one-fault-modes.html',
 })
-export class AllOnOnePage {
+export class AllOnOnePageFaultModes {
 
   faultMode: string;
   _faultModeSubscription: Subscription;

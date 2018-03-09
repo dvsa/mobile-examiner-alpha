@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { AllOnOnePage } from './all-on-one';
+import { AllOnOnePageFaultModes } from './all-on-one-fault-modes';
 
 @NgModule({
   declarations: [
-    AllOnOnePage,
+    AllOnOnePageFaultModes,
   ],
   imports: [
-    IonicPageModule.forChild(AllOnOnePage),
+    IonicPageModule.forChild(AllOnOnePageFaultModes),
   ],
 })
 export class AllOnOnePageModule {}

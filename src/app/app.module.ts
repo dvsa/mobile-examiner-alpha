@@ -15,7 +15,7 @@ import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
-import { AllOnOnePage } from '../pages/all-on-one/all-on-one';
+import { AllOnOnePageFaultModes } from '../pages/all-on-one-fault-modes/all-on-one-fault-modes';
 import { TimerComponent } from '../components/timer/timer';
 
 import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
@@ -61,7 +61,7 @@ import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
     HeaderComponent,
     BackLinkComponent,
     ReportHeaderComponent,
-    AllOnOnePage,
+    AllOnOnePageFaultModes,
     TimerComponent,
     AllOnOneFormElementComponent,
     AllOnOneFormSubElementComponent,
@@ -96,7 +96,7 @@ import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
     ComponentLibraryPage,
     TablePage,
     FailCounter,
-    AllOnOnePage,
+    AllOnOnePageFaultModes,
     LegalPage,
     ComponentLibraryPage,
     SidebarPrototypePage,

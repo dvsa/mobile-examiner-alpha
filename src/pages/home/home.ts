@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
 import { TabsPage } from "../multi-tab-proto/tabs/tabs";
 import { ComponentLibraryPage } from '../component-library/component-library';
 import { Dl25ButtonsModalsPage } from '../dl25-buttons-modals/dl25-buttons-modals';
-import { AllOnOnePage } from '../all-on-one/all-on-one';
+import { AllOnOnePageFaultModes } from '../all-on-one-fault-modes/all-on-one-fault-modes';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +17,7 @@ export class HomePage {
   sidebar = SidebarPrototypePage;
   componentLibrary = ComponentLibraryPage;
   buttonsModals = Dl25ButtonsModalsPage;
-  allOnOnePage = AllOnOnePage;
+  allOnOnePageFaultModes = AllOnOnePageFaultModes;
 
   constructor(public navCtrl: NavController) {
   }
