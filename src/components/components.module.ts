@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { AllOnOneFormElementComponent } from './all-on-one-form-element/all-on-one-form-element';
-import { AllOnOneFormSubElementComponent } from './all-on-one-form-sub-element/all-on-one-form-sub-element';
+import { AllOnOneFormFaultModesSubElementComponent } from './all-on-one-form-fault-modes-sub-element/all-on-one-form-fault-modes-sub-element';
 import { SidebarGridComponent } from './sidebar-grid/sidebar-grid';
 import { FaultControlsV2Component } from './fault-controls-v2/fault-controls-v2';
 import { PressedFaultModalComponent } from './pressed-fault-modal/pressed-fault-modal';
 @NgModule({
 	declarations: [
 		AllOnOneFormElementComponent,
-		AllOnOneFormSubElementComponent,
+		AllOnOneFormFaultModesSubElementComponent,
     SidebarGridComponent,
     FaultControlsV2Component,
     PressedFaultModalComponent
@@ -15,7 +15,7 @@ import { PressedFaultModalComponent } from './pressed-fault-modal/pressed-fault-
 	imports: [],
 	exports: [
 		AllOnOneFormElementComponent,
-		AllOnOneFormSubElementComponent,
+		AllOnOneFormFaultModesSubElementComponent,
     SidebarGridComponent,
     FaultControlsV2Component,
     PressedFaultModalComponent
