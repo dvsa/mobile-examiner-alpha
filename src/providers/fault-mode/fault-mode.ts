@@ -24,7 +24,12 @@ export class FaultModeProvider {
 
   public set(faultMode: string): void {
     this.faultMode = faultMode;
+    this.resetTimeout();
     this.change.next(this.faultMode);
+  }
+
+  public resetTimeout() {
+    clearTimeout(this.faultModeTimeout);
   }
 
   public reset() {

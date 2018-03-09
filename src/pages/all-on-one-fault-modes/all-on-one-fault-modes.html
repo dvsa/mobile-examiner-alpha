@@ -140,7 +140,7 @@
         </div>
       </ion-col>
     </ion-row>
-      <ion-segment color="dark" [(ngModel)]="faultMode">
+      <ion-segment color="dark" [(ngModel)]="faultMode" (ngModelChange)="onChange($event)">
         <ion-segment-button value="view-only">
           <ion-icon name="eye"></ion-icon>
           <!-- <span text-center class="segment-text">View</span> -->

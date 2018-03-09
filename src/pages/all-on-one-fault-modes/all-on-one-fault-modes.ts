@@ -30,6 +30,10 @@ export class AllOnOnePageFaultModes {
       this._faultModeSubscription = faultModeService.change.subscribe((faultMode: string) => this.faultMode = faultMode);
   }
 
+  onChange() {
+    this.faultModeService.resetTimeout();
+  }
+
   ionViewDidEnter() {
     this.faultsService.reset();
   }
