@@ -23,6 +23,8 @@ export class AllOnOnePageFaultModalsTimerOptionsPage {
     public navParams: NavParams, 
     public faultModeService: FaultModeProvider,
     public viewCtrl: ViewController) {
+      this.delay = this.faultModeService.resetDelay;
+      this.getDelayInSeconds(this.delay);
   }
 
   onChange($event) {

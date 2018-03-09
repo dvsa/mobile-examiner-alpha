@@ -15,14 +15,14 @@
 <ion-content padding>
   <ion-list>
     <ion-list-header>
-      <ion-badge item-end color="dark">{{delayInSeconds}}</ion-badge>
+      <ion-badge item-end color="dark">{{delayInSeconds}} seconds</ion-badge>
     </ion-list-header>
     <ion-item>
-        <ion-range min="0" max="10000" step="100" [(ngModel)]="delay" (ngModelChange)="onChange($event)">
-          <ion-icon small range-left name="timer"></ion-icon>
-          <ion-icon range-right name="timer"></ion-icon>
-        </ion-range>
-      </ion-item>
+      <ion-range min="0" max="10000" step="100" [(ngModel)]="delay" (ngModelChange)="onChange($event)">
+        <ion-icon small range-left name="timer"></ion-icon>
+        <ion-icon range-right name="timer"></ion-icon>
+      </ion-range>
+    </ion-item>
   </ion-list>
   <ion-footer>
     <ion-row>
