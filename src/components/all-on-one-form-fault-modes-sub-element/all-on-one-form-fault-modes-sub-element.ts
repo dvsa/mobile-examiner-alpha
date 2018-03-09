@@ -39,13 +39,23 @@ export class AllOnOneFormFaultModesSubElementComponent {
   }
 
   updateSerious() {
-    if (!this.serious) return this.faultsService.removeSerious();
-    return this.faultsService.addSerious();
+    if (!this.serious) {
+      this.faultsService.addSerious();
+      this.serious = true;
+    } else {
+      this.faultsService.removeSerious();
+      this.serious = false;
+    }
   }
 
   updateDangerous() {
-    if (!this.dangerous) return this.faultsService.removeDangerous();
-    return this.faultsService.addDangerous();
+    if (!this.dangerous) {
+      this.faultsService.addDangerous();
+      this.dangerous = true;
+    } else {
+      this.faultsService.removeDangerous();
+      this.dangerous = false;
+    }  
   }
 
 }
