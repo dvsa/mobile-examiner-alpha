@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultDataProvider } from '../../providers/fault-data/fault-data';
-import { ModalController, NavController } from 'ionic-angular';
-import { ButtonsModalsPressedFaultModalComponent } from '../buttons-modals-pressed-fault-modal/buttons-modals-pressed-fault-modal';
+import { NavController } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -23,7 +22,6 @@ export class Dl25ModalRowComponent {
   constructor(
     private faultsScoreCardProvider: FaultsScorecardProvider, 
     private faultDataProvider: FaultDataProvider,
-    private modalCtrl: ModalController,
     private navCtrl: NavController) {
       this._subscription = faultDataProvider.change.subscribe(() => { 
         this.recalculateFaults();
