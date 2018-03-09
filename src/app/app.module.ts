@@ -43,6 +43,7 @@ import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-mo
 import { ModalEnterTransition } from '../transitions/modal-enter.transition';
 import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
 import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
+import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
+    AllOnOnePageFaultModalsTimerOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -106,7 +108,8 @@ import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
-    AllOnOneFormFaultModesSubElementComponent
+    AllOnOneFormFaultModesSubElementComponent,
+    AllOnOnePageFaultModalsTimerOptionsPage
   ],
   providers: [
     StatusBar,

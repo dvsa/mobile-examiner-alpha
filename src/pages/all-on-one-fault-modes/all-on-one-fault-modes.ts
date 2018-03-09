@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 import { Subscription } from 'rxjs/Subscription';
+import { AllOnOnePageFaultModalsTimerOptionsPage } from '../all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
 
 /**
  * Generated class for the AllOnOnePage page.
@@ -25,9 +26,15 @@ export class AllOnOnePageFaultModes {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private faultsService: FaultsScorecardProvider,
-    public faultModeService: FaultModeProvider) {
+    public faultModeService: FaultModeProvider,
+    public modalCtrl: ModalController) {
       this.faultMode = faultModeService.get();
       this._faultModeSubscription = faultModeService.change.subscribe((faultMode: string) => this.faultMode = faultMode);
+  }
+
+  openTimerOptions() {
+      const modal = this.modalCtrl.create(AllOnOnePageFaultModalsTimerOptionsPage);
+      modal.present();
   }
 
   onChange() {

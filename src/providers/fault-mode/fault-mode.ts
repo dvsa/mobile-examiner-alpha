@@ -32,6 +32,10 @@ export class FaultModeProvider {
     clearTimeout(this.faultModeTimeout);
   }
 
+  setResetDelay(delay: number) {
+    this.resetDelay = delay;
+  }
+
   public reset() {
     clearTimeout(this.faultModeTimeout);
     this.faultModeTimeout = setTimeout(() => {
