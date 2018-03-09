@@ -12,7 +12,10 @@ export class FaultModeProvider {
 
   faultMode: string = 'view-only';
   resetDelay: number = 2000;
-  faultModeTimeout;
+  resetFaultModeDelay: number = 5000;
+  faultRecordingTimeout;
+  faultModeIdleTimeout;
+
   change: Subject<any> = new Subject<any>();
 
   constructor() {
@@ -22,23 +25,30 @@ export class FaultModeProvider {
     return this.faultMode;
   }
 
-  public set(faultMode: string): void {
-    this.faultMode = faultMode;
+  public onFaultModeChange() {
     this.resetTimeout();
-    this.change.next(this.faultMode);
+    this.faultModeIdleTimeout = setTimeout(() => {
+      this.faultMode = 'view-only';
+      this.change.next(this.faultMode);
+    }, this.resetFaultModeDelay);
+  }
+
+  public setFaultModeResetDelay(delay: number) {
+    this.resetFaultModeDelay = delay;
   }
 
   public resetTimeout() {
-    clearTimeout(this.faultModeTimeout);
+    clearTimeout(this.faultRecordingTimeout);
+    clearTimeout(this.faultModeIdleTimeout);
   }
 
-  setResetDelay(delay: number) {
+  public setResetDelay(delay: number) {
     this.resetDelay = delay;
   }
 
   public reset() {
-    clearTimeout(this.faultModeTimeout);
-    this.faultModeTimeout = setTimeout(() => {
+    clearTimeout(this.faultRecordingTimeout);
+    this.faultRecordingTimeout = setTimeout(() => {
       this.faultMode = 'view-only';
       this.change.next(this.faultMode);
     }, this.resetDelay);

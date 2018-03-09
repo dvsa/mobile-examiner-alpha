@@ -15,6 +15,7 @@
 <ion-content padding>
   <ion-list>
     <ion-list-header>
+      Customise automatic lock delay for recording faults
       <ion-badge item-end color="dark">{{delayInSeconds}} seconds</ion-badge>
     </ion-list-header>
     <ion-item>
@@ -24,6 +25,18 @@
       </ion-range>
     </ion-item>
   </ion-list>
+  <ion-list>
+      <ion-list-header>
+        Customise automatic lock delay for fault mode idle time
+        <ion-badge item-end color="dark">{{faultModeDelayInSeconds}} seconds</ion-badge>
+      </ion-list-header>
+      <ion-item>
+        <ion-range min="0" max="10000" step="100" [(ngModel)]="faultModeDelay" (ngModelChange)="onFaultModeDelayChange($event)">
+          <ion-icon small range-left name="timer"></ion-icon>
+          <ion-icon range-right name="timer"></ion-icon>
+        </ion-range>
+      </ion-item>
+    </ion-list>
   <ion-footer>
     <ion-row>
       <ion-col>

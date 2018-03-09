@@ -140,7 +140,7 @@
         </div>
       </ion-col>
     </ion-row>
-      <ion-segment color="dark" [(ngModel)]="faultMode" (ngModelChange)="onChange($event)">
+      <ion-segment color="dark" [(ngModel)]="faultMode" (ngModelChange)="onFaultModeChange($event)">
         <ion-segment-button value="view-only" (press)="openTimerOptions()">
           <ion-icon *ngIf="faultMode === 'view-only'" name="lock"></ion-icon>
           <ion-icon *ngIf="faultMode !== 'view-only'" name="unlock"></ion-icon>

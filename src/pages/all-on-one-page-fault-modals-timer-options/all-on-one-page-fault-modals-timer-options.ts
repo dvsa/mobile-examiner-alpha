@@ -15,7 +15,9 @@ import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 })
 export class AllOnOnePageFaultModalsTimerOptionsPage {
 
+  faultModeDelayInSeconds: number;
   delay: number;
+  faultModeDelay: number;
   delayInSeconds: number;
 
   constructor(
@@ -24,15 +26,23 @@ export class AllOnOnePageFaultModalsTimerOptionsPage {
     public faultModeService: FaultModeProvider,
     public viewCtrl: ViewController) {
       this.delay = this.faultModeService.resetDelay;
+      this.faultModeDelay = this.faultModeService.resetFaultModeDelay;
       this.getDelayInSeconds(this.delay);
+      this.getFaultModeDelayInSeconds(this.faultModeDelay);
+
   }
 
   onChange($event) {
     this.getDelayInSeconds(this.delay);
   }
+
+  onFaultModeDelayChange($event) {
+    this.getFaultModeDelayInSeconds(this.faultModeDelay);
+  }
   
   confirm() {
     this.faultModeService.setResetDelay(this.delay);
+    this.faultModeService.setFaultModeResetDelay(this.faultModeDelay);
     this.closeModal();
   }
 
@@ -42,6 +52,11 @@ export class AllOnOnePageFaultModalsTimerOptionsPage {
 
   closeModal() {
     this.viewCtrl.dismiss();
+   }
+
+   getFaultModeDelayInSeconds(ms: number) {
+    const s = ms / 1000;
+    this.faultModeDelayInSeconds = s;
    }
 
   getDelayInSeconds(ms: number) {

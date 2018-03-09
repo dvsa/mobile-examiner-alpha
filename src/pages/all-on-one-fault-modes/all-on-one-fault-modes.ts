@@ -29,16 +29,16 @@ export class AllOnOnePageFaultModes {
     public faultModeService: FaultModeProvider,
     public modalCtrl: ModalController) {
       this.faultMode = faultModeService.get();
-      this._faultModeSubscription = faultModeService.change.subscribe((faultMode: string) => this.faultMode = faultMode);
+      this._faultModeSubscription = faultModeService.change.subscribe(faultMode => this.faultMode = faultMode);
   }
 
   openTimerOptions() {
-      const modal = this.modalCtrl.create(AllOnOnePageFaultModalsTimerOptionsPage);
-      modal.present();
+    const modal = this.modalCtrl.create(AllOnOnePageFaultModalsTimerOptionsPage);
+    modal.present();
   }
 
-  onChange() {
-    this.faultModeService.resetTimeout();
+  onFaultModeChange() {
+    this.faultModeService.onFaultModeChange();
   }
 
   ionViewDidEnter() {
