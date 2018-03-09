@@ -48,6 +48,7 @@ export class FaultModeProvider {
 
   public reset() {
     clearTimeout(this.faultRecordingTimeout);
+    clearTimeout(this.faultModeIdleTimeout);
     this.faultRecordingTimeout = setTimeout(() => {
       this.faultMode = 'view-only';
       this.change.next(this.faultMode);
