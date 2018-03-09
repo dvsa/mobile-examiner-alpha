@@ -1,18 +1,18 @@
 all-on-one-form-fault-modes-sub-element {
   &.driving-faults {
     .fault-button {
-      border: 1px dashed map-get($colors, dark) !important;
+      border: 1px solid map-get($colors, dark) !important;
     }
   }
   &.serious {
     .fault-button {
-      border: 1px dashed map-get($colors, warn) !important;
+      border: 1px solid map-get($colors, warn) !important;
       background-color: lighten(map-get($colors, warn), 30);
     }
   }
   &.dangerous {
     .fault-button {
-      border: 1px dashed map-get($colors, danger) !important;
+      border: 1px solid map-get($colors, danger) !important;
       background-color: lighten(map-get($colors, danger), 35);
     }
   }

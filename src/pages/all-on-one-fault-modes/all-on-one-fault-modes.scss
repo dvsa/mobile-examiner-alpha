@@ -7,6 +7,15 @@ page-all-on-one-fault-modes {
     padding: 0;
     margin-bottom: 6px;
   }
+  ion-segment {
+    .segment-button {
+      height: 3.8rem !important;
+      font-size: 2rem !important;
+      .icon, span {
+        line-height: 3.5rem;
+      }
+    }
+  }
   ion-col.col {
     padding-bottom: 0;
   }

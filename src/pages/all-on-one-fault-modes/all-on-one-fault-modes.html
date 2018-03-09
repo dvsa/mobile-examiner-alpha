@@ -142,20 +142,21 @@
     </ion-row>
       <ion-segment color="dark" [(ngModel)]="faultMode" (ngModelChange)="onChange($event)">
         <ion-segment-button value="view-only">
-          <ion-icon name="eye"></ion-icon>
+          <ion-icon *ngIf="faultMode === 'view-only'" name="lock"></ion-icon>
+          <ion-icon *ngIf="faultMode !== 'view-only'" name="unlock"></ion-icon>
           <!-- <span text-center class="segment-text">View</span> -->
         </ion-segment-button>
         <ion-segment-button value="driving-faults">
-          <ion-icon name="car"></ion-icon>
-          <!-- <span text-center class="segment-text">Driving</span> -->
+          <!-- <ion-icon name="car"></ion-icon> -->
+          <span text-center class="segment-text">D/F</span>
         </ion-segment-button>
         <ion-segment-button value="serious">
-          <ion-icon name="flag"></ion-icon>
-          <!-- <span text-center class="segment-text">Serious</span> -->
+          <!-- <ion-icon name="flag"></ion-icon> -->
+          <span text-center class="segment-text">S</span>
         </ion-segment-button>
         <ion-segment-button value="dangerous">
-          <ion-icon name="warning"></ion-icon>
-          <!-- <span text-center class="segment-text">Dangerous</span> -->
+          <!-- <ion-icon name="warning"></ion-icon> -->
+          <span text-center class="segment-text">D</span>
         </ion-segment-button>
       </ion-segment>
     <!-- <ion-row>
