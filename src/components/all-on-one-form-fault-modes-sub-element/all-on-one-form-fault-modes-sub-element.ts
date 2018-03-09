@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 
 @Component({
   selector: 'all-on-one-form-fault-modes-sub-element',
@@ -13,7 +14,7 @@ export class AllOnOneFormFaultModesSubElementComponent {
   dangerous: boolean = false;
   counter: number = 0;
 
-  constructor(private faultsService: FaultsScorecardProvider) {
+  constructor(private faultsService: FaultsScorecardProvider, private faultModeService: FaultModeProvider) {
   }
 
   isDisabled() {
@@ -24,6 +25,7 @@ export class AllOnOneFormFaultModesSubElementComponent {
     if (faultMode === 'driving-faults') this.addDrivingFault();
     if (faultMode === 'serious') this.updateSerious();
     if (faultMode === 'dangerous') this.updateDangerous();
+    this.faultModeService.reset();
   }
 
   addDrivingFault() {
