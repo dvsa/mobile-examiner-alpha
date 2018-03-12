@@ -6,16 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ManoeuvrePage } from '../pages/multi-tab-proto/manoeuvre/manoeuvre';
-import { CompetencyPage } from '../pages/multi-tab-proto/competency/competency';
-import { MultiTabLegalPage } from '../pages/multi-tab-proto/mt-legal/mt-legal';
-import { TabsPage } from '../pages/multi-tab-proto/tabs/tabs';
 
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
 import { AllOnOnePageFaultModes } from '../pages/all-on-one-fault-modes/all-on-one-fault-modes';
+import { AllOnOnePage } from '../pages/all-on-one/all-on-one';
+import { AllOnOnePage3 } from '../pages/all-on-one-3/all-on-one-3';
 import { TimerComponent } from '../components/timer/timer';
 
 import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
@@ -29,11 +27,12 @@ import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons
 import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
 import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-row';
 import { FaultDataProvider } from '../providers/fault-data/fault-data';
-import { FaultControlsMultiTabComponent } from '../components/fault-controls-multiTab/fault-controls-multiTab';
 import { NotesPage } from '../pages/notes/notes';
 
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
 import { AllOnOneFormFaultModesSubElementComponent } from '../components/all-on-one-form-fault-modes-sub-element/all-on-one-form-fault-modes-sub-element';
+import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
+import { AllOnOneFormSubElementHoldComponent } from '../components/all-on-one-form-sub-element-hold/all-on-one-form-sub-element-hold';
 import { SidebarGridComponent } from '../components/sidebar-grid/sidebar-grid';
 import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
 import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
@@ -50,10 +49,6 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
   declarations: [
     MyApp,
     HomePage,
-    TabsPage,
-    ManoeuvrePage,
-    CompetencyPage,
-    MultiTabLegalPage,
     TablePage,
     FailCounter,
     LegalPage,
@@ -66,13 +61,18 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     TimerComponent,
     AllOnOneFormElementComponent,
     AllOnOneFormFaultModesSubElementComponent,
+    AllOnOnePage,
+    AllOnOnePage3,
+    TimerComponent,
+    AllOnOneFormElementComponent,
+    AllOnOneFormSubElementComponent,
+    AllOnOneFormSubElementHoldComponent,
     SidebarPrototypePage,
     FaultsScorecardComponent,
     FaultControlsComponent,
     Dl25ButtonsModalsPage,
     Dl25ModalComponent,
     Dl25ModalRowComponent,
-    FaultControlsMultiTabComponent,
     SidebarGridComponent,
     FaultControlsV2Component,
     PressedFaultModalComponent,
@@ -91,16 +91,12 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     ComponentLibraryPage,
     Dl25ButtonsModalsPage,
     Dl25ModalComponent,
-    TabsPage,
-    ManoeuvrePage,
-    CompetencyPage,
-    MultiTabLegalPage,
-    ComponentLibraryPage,
     TablePage,
     FailCounter,
     AllOnOnePageFaultModes,
+    AllOnOnePage,
+    AllOnOnePage3,
     LegalPage,
-    ComponentLibraryPage,
     SidebarPrototypePage,
     SidebarGridComponent,
     NotesPage,
