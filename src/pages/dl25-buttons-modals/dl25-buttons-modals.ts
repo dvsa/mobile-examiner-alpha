@@ -18,6 +18,8 @@ export class Dl25ButtonsModalsPage {
   normalStop1Complete: boolean = false;
   normalStop2Complete: boolean = false;
   drivingTimeComplete: boolean = false;
+  angledStartComplete: boolean = false;
+  hillStartComplete: boolean = false;
 
   constructor(
     public navCtrl: NavController, 
@@ -105,6 +107,14 @@ export class Dl25ButtonsModalsPage {
 
   normalStop2Click() {
     this.normalStop2Complete = !this.normalStop2Complete;
+  }
+
+  angledStartClick() {
+    this.angledStartComplete = !this.angledStartComplete;
+  }
+
+  hillStartClick() {
+    this.hillStartComplete = !this.hillStartComplete;
   }
 
 }
