@@ -119,7 +119,6 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     SidebarPrototypePage,
     SidebarGridComponent,
     NotesPage,
-    FaultControlsV2Component,
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,

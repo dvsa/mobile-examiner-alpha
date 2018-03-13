@@ -1,37 +1,8 @@
 export default [
   [
     {
-      hasSections: false,
-      title: 'Controlled Stop'
-    },
-    {
       hasSections: true,
-      title: 'Reverse/Right',
-      sections: [
-        {
-          title: 'Control'
-        },
-        {
-          title: 'Observation'
-        }
-      ]
-    },
-    {
-      hasSections: true,
-      title: 'Reverse Park',
-      hasSupplementaryRadioButtons: true,
-      radioButtons: [
-        'R',
-        'C'
-      ],
-      sections: [
-        {
-          title: 'Control'
-        },
-        {
-          title: 'Observation'
-        }
-      ]
+      title: 'Manoeuvres (TODO)'
     },
     {
       hasSections: false,
@@ -41,18 +12,6 @@ export default [
       radioButtons: [
         'Incorrect',
         'Correct'
-      ]
-    },
-    {
-      hasSections: true,
-      title: 'Forward Park',
-      sections: [
-        {
-          title: 'Control'
-        },
-        {
-          title: 'Observation'
-        }
       ]
     },
     {

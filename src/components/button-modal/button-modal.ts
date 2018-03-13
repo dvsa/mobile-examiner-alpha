@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { NavParams, ViewController } from 'ionic-angular';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 

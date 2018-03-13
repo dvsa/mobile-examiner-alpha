@@ -23,9 +23,19 @@
   </ion-row>
 </ion-content>
 
-<!-- <ion-footer>
+<ion-footer>
   <ion-toolbar>
       <ion-row margin-right margin-left>
+          <ion-col>
+            <button (click)="angledStartClick()" class="legal-req-button" outline icon-end block ion-button color="dark">Angled Start
+              <ion-icon *ngIf="angledStartComplete" name="checkmark-circle-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button (click)="hillStartClick()" class="legal-req-button" outline icon-end block ion-button color="dark">Hill Start
+              <ion-icon *ngIf="hillStartComplete" name="checkmark-circle-outline"></ion-icon>
+            </button>
+          </ion-col>
           <ion-col>
             <button (click)="manouevreClick()" class="legal-req-button" outline icon-end block ion-button color="dark">Manouevre
               <ion-icon *ngIf="manouevreComplete" name="checkmark-circle-outline"></ion-icon>
@@ -41,11 +51,11 @@
               <ion-icon *ngIf="normalStop2Complete" name="checkmark-circle-outline"></ion-icon>
             </button>
           </ion-col>
-          <ion-col>
+          <!-- <ion-col>
             <button class="legal-req-button" outline icon-end block ion-button color="dark">30 mins driving
               <ion-icon *ngIf="drivingTimeComplete" name="checkmark-circle-outline"></ion-icon>
             </button>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
   </ion-toolbar>
-</ion-footer> -->
+</ion-footer>

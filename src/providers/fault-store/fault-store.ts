@@ -48,7 +48,9 @@ export class FaultStoreProvider {
     }
 
     undoFault(lastFault) {
-      this.faultActions.undoLastFault(lastFault);
+      if(lastFault) {
+        this.faultActions.undoLastFault(lastFault);        
+      }  
     }
 
 }

@@ -13,7 +13,6 @@ export class HazardRecorderProvider {
   isDangerousRecordingEnabled = false
 
   constructor() {
-    console.log('Hello HazardRecorderProvider Provider');
   }
 
   completionClosure:()=>void
