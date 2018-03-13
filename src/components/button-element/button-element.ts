@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { NgRedux } from '@angular-redux/store';
 
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
