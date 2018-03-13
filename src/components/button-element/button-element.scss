@@ -11,6 +11,11 @@ button-element {
       ion-checkbox {
         padding-top: 5px;
       }
+
+      .highlight {
+        text-decoration: underline;
+      }
+
       .checkbox-ios-dark .checkbox-checked .checkbox-inner {
         display: none;
         left: 13px;

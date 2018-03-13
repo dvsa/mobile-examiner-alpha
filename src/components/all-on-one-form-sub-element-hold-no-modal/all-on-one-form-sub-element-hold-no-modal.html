@@ -1,7 +1,7 @@
 <ion-row align-items-center no-padding>
   <ion-col no-padding>
-    <button (press)="addDrivingFault()" (click)="recordHazard()" >
-      <span *ngIf="counter !== 0" class="fault-total bold-medium">{{counter}}</span> {{ text }}
+    <button (press)="addDrivingFault()" (click)="recordHazard()" [ngClass]="{'highlight' : isLastFault}">
+      <span *ngIf="faultCounter > 0" class="fault-total bold-medium">{{faultCounter}}</span> {{ text }}
       <span *ngIf="serious" class="serious bold-medium">S</span>
       <span *ngIf="dangerous" class="dangerous bold-medium">D</span>
     </button>

@@ -1,7 +1,7 @@
 <!-- Generated template for the MarksComponent component -->
 <ion-row align-items-center no-padding>
   <ion-col no-padding>
-    <button (click)="openFaultModal()" (press)="addFault()">
+    <button (click)="openFaultModal()" (press)="addFault()" [ngClass]="{'highlight' : isLastFault}">
       <span *ngIf="faultCounter > 0" class="fault-total bold-medium">{{faultCounter}}</span> {{ text }}
       <span *ngIf="hasSerious" class="serious bold-medium">S</span>
       <span *ngIf="hasDangerous" class="dangerous bold-medium">D</span>
