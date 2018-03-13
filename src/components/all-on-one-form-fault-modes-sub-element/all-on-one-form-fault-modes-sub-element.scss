@@ -21,21 +21,21 @@ all-on-one-form-fault-modes-sub-element {
   }
   .fault-badge {
     &.serious {
-      left: 168px;
+      left: 180px;
       background-color: lighten(map-get($colors, warn), 15);
       color: map-get($colors, dark);
     }
     &.dangerous {
-      left: 198px;
+      left: 204px;
       background-color: lighten(map-get($colors, danger), 15);
       color: map-get($colors, dark);
     }
     font-size: 12px;
     position: absolute;
-    top: -8px;
+    top: -4px;
     left: 6px;
     background-color: map-get($colors, dark);
-    padding: 8px;
+    padding: 6px;
     border-radius: 12px;
     color: map-get($colors, light);
   }
