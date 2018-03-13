@@ -9,6 +9,7 @@
             full
             outline
             class="fault-button" 
+            [disabled]="!canSelectDrivingFaults()"
             (click)="addOrRemoveDrivingFault(faultTitle, section)">
             {{!!section ? section : faultTitle}}
             <span class="fault-badge">{{numDrivingFaults}}</span> 
@@ -18,7 +19,7 @@
 
         <ion-col class="no-padding">
             <span class="serious-text" [ngClass]="{'focused': serious}">S</span>
-            <ion-checkbox color="dark" checked="false" [(ngModel)]="serious" (ionChange)="updateSerious(faultTitle, section)"></ion-checkbox>
+            <ion-checkbox color="dark" checked="false" [disabled]="!canSelectSeriousFaults()" [(ngModel)]="serious" (ionChange)="updateSerious(faultTitle, section)"></ion-checkbox>
           <span class="dangerous-text" [ngClass]="{'focused': dangerous}">D</span>
           <ion-checkbox color="dark" checked="false" [(ngModel)]="dangerous" (ionChange)="updateDangerous(faultTitle, section)"></ion-checkbox>
         </ion-col>

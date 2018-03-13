@@ -120,4 +120,11 @@ export class Dl25ModalRowComponent {
     }, 200); 
   }
 
+  canSelectDrivingFaults() {
+    return !(this.serious || this.dangerous);
+  }
+
+  canSelectSeriousFaults() {
+    return !(this.dangerous);    
+  }
 }
