@@ -4,6 +4,7 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
 import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 import { Subscription } from 'rxjs/Subscription';
 import { AllOnOnePageFaultModalsTimerOptionsPage } from '../all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 /**
  * Generated class for the AllOnOnePage page.
@@ -27,7 +28,8 @@ export class AllOnOnePageFaultModes {
     public navParams: NavParams,
     private faultsService: FaultsScorecardProvider,
     public faultModeService: FaultModeProvider,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private faultStore: FaultStoreProvider) {
       this.faultMode = faultModeService.get();
       this._faultModeSubscription = faultModeService.change.subscribe(faultMode => this.faultMode = faultMode);
   }
@@ -42,6 +44,7 @@ export class AllOnOnePageFaultModes {
   }
 
   ionViewDidEnter() {
+    this.faultStore.reset();
     this.faultsService.reset();
   }
 
