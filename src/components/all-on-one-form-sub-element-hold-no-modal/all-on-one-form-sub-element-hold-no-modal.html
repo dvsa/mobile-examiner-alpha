@@ -1,9 +1,9 @@
 <ion-row align-items-center no-padding>
   <ion-col no-padding>
     <button (press)="addDrivingFault()" (click)="recordHazard()" >
-      <span *ngIf="counter !== 0" class="fault-total bold-medium">{{counter}}</span> {{ text }}
-      <span *ngIf="serious" class="serious bold-medium">S</span>
-      <span *ngIf="dangerous" class="dangerous bold-medium">D</span>
+      <span *ngIf="counter !== 0" class="fault-badge">{{counter}}</span> {{ text }}
+      <span *ngIf="serious" class="serious fault-badge">S</span>
+      <span *ngIf="dangerous" class="dangerous fault-badge">D</span>
     </button>
   </ion-col>
 </ion-row>
