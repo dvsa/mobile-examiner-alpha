@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+
 
 /**
  * Generated class for the AllOnOnePage page.
@@ -17,13 +18,14 @@ import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults
 export class AllOnOnePage3 {
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private faultsService: FaultsScorecardProvider) {
+    private faultStore: FaultStoreProvider) {
   }
 
   ionViewDidEnter() {
-    this.faultsService.reset();
+    this.faultStore.reset();
+
   }
 
 }

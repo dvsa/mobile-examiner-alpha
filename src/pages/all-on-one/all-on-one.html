@@ -11,132 +11,129 @@
   position: fixed;" no-bounce>
     <ion-row class="main-content">
       <ion-col col-4>
-        <div class="form-section">
+        <div class="form-section bottom-border sd-buttons-wrapper">
           <p>&nbsp;</p>
-          <all-on-one-form-sub-element text="controlled stop"></all-on-one-form-sub-element>
+          <button class="s-button" [disabled]="isDButtonPressed" [ngClass]="{'active': isSButtonPressed}" (click)="hazardButtonClicked(false)">S</button>
+          <button class="d-button" [disabled]="isSButtonPressed" [ngClass]="{'active': isDButtonPressed}" (click)="hazardButtonClicked(true)">D</button>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-sub-element-hold-no-modal text="maneuvers"></all-on-one-form-sub-element-hold-no-modal>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-sub-element-hold-no-modal text="vehicle checks"></all-on-one-form-sub-element-hold-no-modal>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-sub-element-hold-no-modal text="precautions"></all-on-one-form-sub-element-hold-no-modal>
+        </div>
+
+        <div class="form-section bottom-border">
+            <all-on-one-form-sub-element-hold-no-modal text="ECO"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
-          <p>Reverse Right</p>
-          <all-on-one-form-sub-element text="control"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="observation"></all-on-one-form-sub-element>
-        </div>
-
-        <div class="form-section bottom-border">
-          <p>Reverse Park</p>
-          <all-on-one-form-sub-element text="control"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="observation"></all-on-one-form-sub-element>
-        </div>
-
-        <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="vehicle checks"></all-on-one-form-sub-element>
-        </div>
-
-        <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="forward park"></all-on-one-form-sub-element>
-        </div>
-
-        <div class="form-section">
-          <all-on-one-form-sub-element text="precautions"></all-on-one-form-sub-element>
+            <all-on-one-form-sub-element-hold-no-modal text="ETA"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
           <p>Control</p>
-          <all-on-one-form-sub-element text="accelerator"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="clutch"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="gears"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="footbrake"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="parking brake"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="steering"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="accelerator"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="clutch"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="gears"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="footbrake"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="parking brake"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="steering"></all-on-one-form-sub-element-hold-no-modal>
         </div>
       </ion-col>
 
       <ion-col col-4>
         <div class="form-section">
           <p>Move off</p>
-          <all-on-one-form-sub-element text="safety"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="control"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="safety"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="control"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
           <p>Use of mirrors</p>
-          <all-on-one-form-sub-element text="signalling"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="change direction"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="change speed"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="signalling"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="change direction"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="change speed"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
           <p>Signals</p>
-          <all-on-one-form-sub-element text="necessary"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="correctly"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="timed"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="necessary"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="correctly"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="timed"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element text="clearance"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="clearance"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
           <p>Response to signs / signals</p>
-          <all-on-one-form-sub-element text="traffic signs"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="road markings"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="traffic lights"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="traffic controllers"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="other road users"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="traffic signs"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="road markings"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="traffic lights"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="traffic controllers"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="other road users"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="use of speed"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="use of speed"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element text="following distance"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="following distance"></all-on-one-form-sub-element-hold-no-modal>
         </div>
       </ion-col>
 
       <ion-col col-4>
         <div class="form-section">
           <p>Progress</p>
-          <all-on-one-form-sub-element text="appropriate speed"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="undue hesitation"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="appropriate speed"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="undue hesitation"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
           <p>Junctions</p>
-          <all-on-one-form-sub-element text="approach speed"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="observation"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="turning right"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="turning left"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="cutting corners"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="approach speed"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="observation"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="turning right"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="turning left"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="cutting corners"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
           <p>Judgement</p>
-          <all-on-one-form-sub-element text="overtaking"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="meeting"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="crossing"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="overtaking"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="meeting"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="crossing"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
           <p>Positioning</p>
-          <all-on-one-form-sub-element text="normal driving"></all-on-one-form-sub-element>
-          <all-on-one-form-sub-element text="lane discipline"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="normal driving"></all-on-one-form-sub-element-hold-no-modal>
+          <all-on-one-form-sub-element-hold-no-modal text="lane discipline"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="pedestrian crossings"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="pedestrian crossings"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="position / normal stops"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="position / normal stops"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element text="awareness planning"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="awareness planning"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element text="ancillary controls"></all-on-one-form-sub-element>
+          <all-on-one-form-sub-element-hold-no-modal text="ancillary controls"></all-on-one-form-sub-element-hold-no-modal>
         </div>
       </ion-col>
     </ion-row>
@@ -217,12 +214,12 @@
               <ion-segment-button>No</ion-segment-button>
             </ion-segment> -->
 
-    <!-- <all-on-one-form-sub-element text="accelerator"></all-on-one-form-sub-element>
-            <all-on-one-form-sub-element text="clutch"></all-on-one-form-sub-element>
-            <all-on-one-form-sub-element text="gears"></all-on-one-form-sub-element>
-            <all-on-one-form-sub-element text="footbrake"></all-on-one-form-sub-element>
-            <all-on-one-form-sub-element text="parking brake"></all-on-one-form-sub-element>
-            <all-on-one-form-sub-element text="steering"></all-on-one-form-sub-element> -->
+    <!-- <all-on-one-form-sub-element-hold-no-modal text="accelerator"></all-on-one-form-sub-element-hold-no-modal>
+            <all-on-one-form-sub-element-hold-no-modal text="clutch"></all-on-one-form-sub-element-hold-no-modal>
+            <all-on-one-form-sub-element-hold-no-modal text="gears"></all-on-one-form-sub-element-hold-no-modal>
+            <all-on-one-form-sub-element-hold-no-modal text="footbrake"></all-on-one-form-sub-element-hold-no-modal>
+            <all-on-one-form-sub-element-hold-no-modal text="parking brake"></all-on-one-form-sub-element-hold-no-modal>
+            <all-on-one-form-sub-element-hold-no-modal text="steering"></all-on-one-form-sub-element-hold-no-modal> -->
     <!-- </div> -->
     <!-- </ion-col> -->
     <!-- </ion-row> -->

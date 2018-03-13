@@ -45,4 +45,37 @@ page-all-on-one {
   .bottom-border {
     border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
   }
+  .sd-buttons-wrapper {
+    button {
+      width: 48%;
+    }
+
+    .s-button.activated {
+      background-color: lighten(map-get($colors, warn), 30) !important;
+      color: black !important;
+    }
+
+    .s-button.active {
+      border: 2px solid map-get($colors, warn) !important;
+      color: map-get($colors, warn) !important;
+      background-color: lighten(map-get($colors, warn), 30);
+      font-weight: bold;
+    }
+
+    .d-button.activated {
+      background-color: lighten(map-get($colors, danger), 35) !important;
+      color: black !important;
+    }
+
+    .d-button.active {
+      border: 2px solid map-get($colors, danger) !important;
+      color: map-get($colors, danger) !important;
+      background-color: lighten(map-get($colors, danger), 35);
+      font-weight: bold;
+    }
+  }
 }
+
+// red
+// button activated #E81403
+// background #FF8379
