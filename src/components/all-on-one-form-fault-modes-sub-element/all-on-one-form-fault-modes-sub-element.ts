@@ -35,7 +35,7 @@ export class AllOnOneFormFaultModesSubElementComponent {
       })).subscribe(data => {
         if (data.length > 0) {
           this.faultCounter = data[0].fault;
-          this.srious = !!data[0].serious;
+          this.serious = !!data[0].serious;
           this.hasDangerous = !!data[0].dangerous;
         }
       });
