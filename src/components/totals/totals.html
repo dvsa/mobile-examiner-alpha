@@ -1,0 +1,7 @@
+<!-- Generated template for the TotalsComponent component -->
+<span class="faults-container">
+  <span class="report-header-text scorecard-item">D/F: {{faultMarks$ | async}}</span>
+  <span class="report-header-text scorecard-item">S: {{seriousMarks$ | async}}</span>
+  <span class="report-header-text scorecard-item">D: {{dangerousMarks$ | async}}</span>
+  <button ion-button (click)="undoMark()" color='dark'>UNDO</button>
+</span>

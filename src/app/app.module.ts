@@ -39,10 +39,23 @@ import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pr
 import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sidebar-fault-data';
 import { ButtonsModalsPressedFaultModalComponent } from '../components/buttons-modals-pressed-fault-modal/buttons-modals-pressed-fault-modal';
 import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-modal-aoop/pressed-fault-modal-aoop';
+import { ButtonModalComponent } from './../components/button-modal/button-modal';
 import { ModalEnterTransition } from '../transitions/modal-enter.transition';
 import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
 import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
 import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
+import { AllOnOneFormSubElementHoldNoModalComponent } from '../components/all-on-one-form-sub-element-hold-no-modal/all-on-one-form-sub-element-hold-no-modal';
+import { HazardRecorderProvider } from '../providers/hazard-recorder/hazard-recorder';
+import { ScreenOrientation } from '@ionic-native/screen-orientation'
+import { Insomnia } from '@ionic-native/insomnia';
+
+import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
+import { FaultStoreProvider } from '../providers/fault-store/fault-store';
+import { ButtonElementComponent } from '../components/button-element/button-element';
+import { TotalsComponent } from '../components/totals/totals';
+import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+
+import { ReportHeaderV2Component } from '../components/report-header-v2/report-header-v2';
 
 
 @NgModule({
@@ -61,6 +74,7 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     TimerComponent,
     AllOnOneFormElementComponent,
     AllOnOneFormFaultModesSubElementComponent,
+    ReportHeaderV2Component,
     AllOnOnePage,
     AllOnOnePage3,
     TimerComponent,
@@ -78,11 +92,16 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
-    AllOnOnePageFaultModalsTimerOptionsPage
+    AllOnOnePageFaultModalsTimerOptionsPage,
+    ButtonElementComponent,
+    ButtonModalComponent,
+    TotalsComponent,
+    AllOnOneFormSubElementHoldNoModalComponent,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    NgReduxModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -105,7 +124,9 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
     AllOnOneFormFaultModesSubElementComponent,
-    AllOnOnePageFaultModalsTimerOptionsPage
+    AllOnOnePageFaultModalsTimerOptionsPage,
+    ButtonModalComponent,
+    AllOnOneFormSubElementHoldNoModalComponent,
   ],
   providers: [
     StatusBar,
@@ -114,7 +135,13 @@ import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-pag
     FaultsScorecardProvider,
     FaultDataProvider,
     SidebarFaultDataProvider,
-    FaultModeProvider
+    FaultModeProvider,
+    FaultStoreActions,
+    DevToolsExtension,
+    FaultStoreProvider,
+    HazardRecorderProvider,
+    ScreenOrientation,
+    Insomnia,
   ]
 })
 export class AppModule { 

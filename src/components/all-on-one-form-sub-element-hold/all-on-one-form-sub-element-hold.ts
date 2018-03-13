@@ -15,7 +15,7 @@ export class AllOnOneFormSubElementHoldComponent {
   dangerous: boolean = false;
   counter: number = 0;
 
-  constructor(private faultsService: FaultsScorecardProvider, public modalCtrl: ModalController, ) {
+  constructor(private faultsService: FaultsScorecardProvider, public modalCtrl: ModalController ) {
   }
 
   openFaultModal() {

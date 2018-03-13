@@ -1,0 +1,18 @@
+<div>
+  <div class="modal-heading">
+    <h3 class="heading-medium">{{item.text}}</h3>
+  </div>
+  <div class="modal-content">
+    <div>
+      <ion-item>
+        <ion-label>Serious</ion-label>
+        <ion-checkbox checked={{item.hasSerious}} disabled={{item.hasSerious}} color="dark" (ionChange)="updateSerious()" (tap)="closeModal()"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dangerous</ion-label>
+        <ion-checkbox checked={{item.hasDangerous}} disabled={{item.hasDangerous}} color="dark"  (ionChange)="updateDangerous()" (tap)="closeModal()"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+</div>
