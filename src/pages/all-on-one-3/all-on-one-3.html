@@ -1,7 +1,7 @@
 <ion-header>
 
   <mes-header></mes-header>
-  <report-header></report-header>
+  <report-header-v2></report-header-v2>
 
 </ion-header>
 
@@ -11,132 +11,124 @@
   position: fixed;" no-bounce>
     <ion-row class="main-content">
       <ion-col col-4>
-        <div class="form-section">
+        <div class="form-section bottom-border">
           <p>&nbsp;</p>
-          <all-on-one-form-sub-element-hold text="controlled stop"></all-on-one-form-sub-element-hold>
-        </div>
-
-        <div class="form-section">
-          <p>Reverse Right</p>
-          <all-on-one-form-sub-element-hold text="control"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="observation"></all-on-one-form-sub-element-hold>
+          <button-element section="maneuvers" text="maneuvers"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <p>Reverse Park</p>
-          <all-on-one-form-sub-element-hold text="control"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="observation"></all-on-one-form-sub-element-hold>
+          <button-element section="vehicleCheck" text="vehicle checks"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="vehicle checks"></all-on-one-form-sub-element-hold>
+          <button-element section="prec" text="precautions"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="forward park"></all-on-one-form-sub-element-hold>
+          <button-element section="ECO" text="ECO"></button-element>
         </div>
 
-        <div class="form-section">
-          <all-on-one-form-sub-element-hold text="precautions"></all-on-one-form-sub-element-hold>
+        <div class="form-section ">
+          <button-element section="ETA" text="ETA"></button-element>
         </div>
 
         <div class="form-section">
           <p>Control</p>
-          <all-on-one-form-sub-element-hold text="accelerator"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="clutch"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="gears"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="footbrake"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="parking brake"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="steering"></all-on-one-form-sub-element-hold>
+          <button-element section="controlAcc" text="accelerator"></button-element>
+          <button-element section="controlClutch" text="clutch"></button-element>
+          <button-element section="controlGears" text="gears"></button-element>
+          <button-element section="controlFBrake" text="footbrake"></button-element>
+          <button-element section="controlPBrake" text="parking brake"></button-element>
+          <button-element section="controlSteering" text="steering"></button-element>
         </div>
       </ion-col>
 
       <ion-col col-4>
         <div class="form-section">
           <p>Move off</p>
-          <all-on-one-form-sub-element-hold text="safety"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="control"></all-on-one-form-sub-element-hold>
+          <button-element section="moSafety" text="safety"></button-element>
+          <button-element section="moControl" text="control"></button-element>
         </div>
 
         <div class="form-section">
           <p>Use of mirrors</p>
-          <all-on-one-form-sub-element-hold text="signalling"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="change direction"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="change speed"></all-on-one-form-sub-element-hold>
+          <button-element section="mirrorSignal" text="signalling"></button-element>
+          <button-element section="mirrorDirection" text="change direction"></button-element>
+          <button-element section="mirrorSpeed" text="change speed"></button-element>
         </div>
 
         <div class="form-section bottom-border">
           <p>Signals</p>
-          <all-on-one-form-sub-element-hold text="necessary"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="correctly"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="timed"></all-on-one-form-sub-element-hold>
+          <button-element section="signalNecessary" text="necessary"></button-element>
+          <button-element section="signalCorrect" text="correctly"></button-element>
+          <button-element section="signalTimed" text="timed"></button-element>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element-hold text="clearance"></all-on-one-form-sub-element-hold>
+          <button-element section="clearance" text="clearance"></button-element>
         </div>
 
         <div class="form-section bottom-border">
           <p>Response to signs / signals</p>
-          <all-on-one-form-sub-element-hold text="traffic signs"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="road markings"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="traffic lights"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="traffic controllers"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="other road users"></all-on-one-form-sub-element-hold>
+          <button-element section="" text="traffic signs"></button-element>
+          <button-element section="" text="road markings"></button-element>
+          <button-element section="" text="traffic lights"></button-element>
+          <button-element section="" text="traffic controllers"></button-element>
+          <button-element section="" text="other road users"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="use of speed"></all-on-one-form-sub-element-hold>
+          <button-element section="speed" text="use of speed"></button-element>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element-hold text="following distance"></all-on-one-form-sub-element-hold>
+          <button-element section="following" text="following distance"></button-element>
         </div>
       </ion-col>
 
       <ion-col col-4>
         <div class="form-section">
           <p>Progress</p>
-          <all-on-one-form-sub-element-hold text="appropriate speed"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="undue hesitation"></all-on-one-form-sub-element-hold>
+          <button-element section="progSpeed" text="appropriate speed"></button-element>
+          <button-element section="progHesitate" text="undue hesitation"></button-element>
         </div>
 
         <div class="form-section">
           <p>Junctions</p>
-          <all-on-one-form-sub-element-hold text="approach speed"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="observation"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="turning right"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="turning left"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="cutting corners"></all-on-one-form-sub-element-hold>
+          <button-element section="juncSpeed" text="approach speed"></button-element>
+          <button-element section="juncObs" text="observation"></button-element>
+          <button-element section="juncTRight" text="turning right"></button-element>
+          <button-element section="juncTLeft" text="turning left"></button-element>
+          <button-element section="juncCutting" text="cutting corners"></button-element>
         </div>
 
         <div class="form-section">
           <p>Judgement</p>
-          <all-on-one-form-sub-element-hold text="overtaking"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="meeting"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="crossing"></all-on-one-form-sub-element-hold>
+          <button-element section="judgeOvertake" text="overtaking"></button-element>
+          <button-element section="judgeMeet" text="meeting"></button-element>
+          <button-element section="judgeCross" text="crossing"></button-element>
         </div>
 
         <div class="form-section bottom-border">
           <p>Positioning</p>
-          <all-on-one-form-sub-element-hold text="normal driving"></all-on-one-form-sub-element-hold>
-          <all-on-one-form-sub-element-hold text="lane discipline"></all-on-one-form-sub-element-hold>
+          <button-element section="posDriving" text="normal driving"></button-element>
+          <button-element section="posLane" text="lane discipline"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="pedestrian crossings"></all-on-one-form-sub-element-hold>
+          <button-element section="pedCrossing" text="pedestrian crossings"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="position / normal stops"></all-on-one-form-sub-element-hold>
+          <button-element section="position" text="position / normal stops"></button-element>
         </div>
 
         <div class="form-section bottom-border">
-          <all-on-one-form-sub-element-hold text="awareness planning"></all-on-one-form-sub-element-hold>
+          <button-element section="awareness" text="awareness planning"></button-element>
         </div>
 
         <div class="form-section">
-          <all-on-one-form-sub-element-hold text="ancillary controls"></all-on-one-form-sub-element-hold>
+          <button-element section="ancillary" text="ancillary controls"></button-element>
         </div>
       </ion-col>
     </ion-row>
@@ -217,12 +209,12 @@
               <ion-segment-button>No</ion-segment-button>
             </ion-segment> -->
 
-    <!-- <all-on-one-form-sub-element-hold text="accelerator"></all-on-one-form-sub-element-hold>
-            <all-on-one-form-sub-element-hold text="clutch"></all-on-one-form-sub-element-hold>
-            <all-on-one-form-sub-element-hold text="gears"></all-on-one-form-sub-element-hold>
-            <all-on-one-form-sub-element-hold text="footbrake"></all-on-one-form-sub-element-hold>
-            <all-on-one-form-sub-element-hold text="parking brake"></all-on-one-form-sub-element-hold>
-            <all-on-one-form-sub-element-hold text="steering"></all-on-one-form-sub-element-hold> -->
+    <!-- <button-element text="accelerator"></button-element>
+            <button-element text="clutch"></button-element>
+            <button-element text="gears"></button-element>
+            <button-element text="footbrake"></button-element>
+            <button-element text="parking brake"></button-element>
+            <button-element text="steering"></button-element> -->
     <!-- </div> -->
     <!-- </ion-col> -->
     <!-- </ion-row> -->
