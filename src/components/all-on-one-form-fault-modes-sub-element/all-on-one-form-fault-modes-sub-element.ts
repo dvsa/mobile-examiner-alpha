@@ -16,6 +16,7 @@ export class AllOnOneFormFaultModesSubElementComponent {
   @Input() section: string;
   serious: boolean = false;
   dangerous: boolean = false;
+  counter: number = 0;
   faultCounter: number;
   hasSerious: boolean = false;
   hasDangerous: boolean = false;
@@ -34,8 +35,8 @@ export class AllOnOneFormFaultModesSubElementComponent {
       })).subscribe(data => {
         if (data.length > 0) {
           this.faultCounter = data[0].fault;
-          this.serious = !!data[0].serious;
-          this.dangerous = !!data[0].dangerous;
+          this.srious = !!data[0].serious;
+          this.hasDangerous = !!data[0].dangerous;
         }
       });
 
@@ -55,10 +56,18 @@ export class AllOnOneFormFaultModesSubElementComponent {
   }
 
   addDrivingFault() {
+    this.counter++;
     this.faultsService.addDrivingFault();
     // prevent fault marking
     if (this.hasDangerous || this.hasSerious) return;
     this.faultStore.addFault(this.section, 'fault');
+  }
+
+  removeDrivingFault() {
+    if (this.counter > 0) {
+      this.counter--;
+      this.faultsService.removeDrivingFault();
+    }
   }
 
   updateSerious() {
