@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 import { NgRedux } from '@angular-redux/store';
@@ -23,7 +22,6 @@ export class AllOnOneFormFaultModesSubElementComponent {
   isLastFault: boolean
 
   constructor(
-    private faultsService: FaultsScorecardProvider, 
     private faultModeService: FaultModeProvider,
     private faultStore: FaultStoreProvider,
     private ngRedux: NgRedux<IFaultCounter>) {
@@ -57,27 +55,17 @@ export class AllOnOneFormFaultModesSubElementComponent {
 
   addDrivingFault() {
     this.counter++;
-    this.faultsService.addDrivingFault();
     // prevent fault marking
     if (this.hasDangerous || this.hasSerious) return;
     this.faultStore.addFault(this.section, 'fault');
   }
 
-  removeDrivingFault() {
-    if (this.counter > 0) {
-      this.counter--;
-      this.faultsService.removeDrivingFault();
-    }
-  }
-
   updateSerious() {
     if (!this.serious) {
       this.faultStore.addFault(this.section, 'serious');  
-      this.faultsService.addSerious();
       this.serious = true;
     } else {
       this.faultStore.removeFault(this.section, 'serious');
-      this.faultsService.removeSerious();
       this.serious = false;
     }
   }
@@ -85,11 +73,9 @@ export class AllOnOneFormFaultModesSubElementComponent {
   updateDangerous() {
     if (!this.dangerous) {
       this.faultStore.addFault(this.section, 'dangerous');
-      this.faultsService.addDangerous();
       this.dangerous = true;
     } else {
       this.faultStore.removeFault(this.section, 'dangerous')
-      this.faultsService.removeDangerous();
       this.dangerous = false;
     }  
   }

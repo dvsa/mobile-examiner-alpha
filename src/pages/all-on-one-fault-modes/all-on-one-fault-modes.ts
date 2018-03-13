@@ -45,7 +45,6 @@ export class AllOnOnePageFaultModes {
 
   ionViewDidEnter() {
     this.faultStore.reset();
-    this.faultsService.reset();
   }
 
 }
