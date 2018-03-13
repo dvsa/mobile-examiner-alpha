@@ -19,6 +19,26 @@ all-on-one-form-fault-modes-sub-element {
   ion-icon {
     font-size: 32px;
   }
+  .fault-badge {
+    &.serious {
+      left: 168px;
+      background-color: lighten(map-get($colors, warn), 15);
+      color: map-get($colors, dark);
+    }
+    &.dangerous {
+      left: 198px;
+      background-color: lighten(map-get($colors, danger), 15);
+      color: map-get($colors, dark);
+    }
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    left: 6px;
+    background-color: map-get($colors, dark);
+    padding: 8px;
+    border-radius: 12px;
+    color: map-get($colors, light);
+  }
   .fault-total {
     //line-height: 1.75;
     position: absolute;
@@ -46,18 +66,18 @@ all-on-one-form-fault-modes-sub-element {
       color: #fff;
     }
   }
-  .fault-button {
-    .dangerous {
-      position: absolute;
-      top: -6px;
-      right: 11px;
-    }
-    .serious {
-      position: absolute;
-      top: -6px;
-      right: 30px;
-    }
-  }
+  // .fault-button {
+  //   .dangerous {
+  //     position: absolute;
+  //     top: -6px;
+  //     right: 11px;
+  //   }
+  //   .serious {
+  //     position: absolute;
+  //     top: -6px;
+  //     right: 30px;
+  //   }
+  // }
   .shrink {
     transform: scale(0.55);
   }
