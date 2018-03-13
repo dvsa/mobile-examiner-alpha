@@ -8,7 +8,7 @@ import { IFaultState, IFaultElementState } from '../../providers/fault-store/fau
 import { ModalController } from 'ionic-angular';
 import { ButtonModalComponent } from '../button-modal/button-modal';
 
-interface IFaultCounter {
+export interface IFaultCounter {
   faults: IFaultElementState,
   totals: IFaultState
 }
@@ -32,9 +32,10 @@ export class ButtonElementComponent {
 
   //public fault$: Observable<any>;
 
-  faultCounter : number;
+  faultCounter: number;
   hasSerious: boolean = false;
   hasDangerous: boolean = false;
+  isLastFault: boolean
 
   constructor(private faultStore: FaultStoreProvider,
     private ngRedux: NgRedux<IFaultCounter>,
@@ -54,6 +55,9 @@ export class ButtonElementComponent {
         }
       });
 
+      this.ngRedux.select(state => state.faults.lastFault)
+      .subscribe(data => this.isLastFault = (data && data.id === this.section));
+
   }
 
   openFaultModal() {
@@ -63,12 +67,10 @@ export class ButtonElementComponent {
   }
 
   addFault() {
+    // prevent fault marking
+    if (this.hasDangerous || this.hasSerious) return;
+
     this.faultStore.addFault(this.section, 'fault');
   }
-
-  removeFault(faultType) {
-    this.faultStore.removeFault(this.section, faultType);
-  }
-
 
 }

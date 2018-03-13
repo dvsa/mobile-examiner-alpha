@@ -77,6 +77,8 @@ export function faultReducer(state: IFaultElementState = INITIAL_STATE,
                 console.log('current fault: ', currFaults[faultType])
                 if (currFaults[faultType] > 0) {
                     newFault = { [faultType]: --currFaults[faultType] };
+                } else {
+                    newFault = { [faultType]: ++currFaults[faultType] };
                 }
                 //newFault = currFaults[faultType] > 0 ? { [faultType]: --currFaults[faultType] } : {}
 

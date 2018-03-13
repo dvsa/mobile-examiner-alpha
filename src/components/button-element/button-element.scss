@@ -8,16 +8,6 @@ button-element {
     top: 7px;
     left: 12px;
   }
-  ion-checkbox {
-    padding-top: 5px;
-  }
-  .checkbox-ios-dark .checkbox-checked .checkbox-inner {
-    display: none;
-    left: 13px;
-    top: 6px;
-    width: 5px;
-    height: 15px;
-  }
   .fault-badge {
     &.serious {
       left: 190px;
@@ -37,6 +27,19 @@ button-element {
     padding: 6px;
     border-radius: 12px;
     color: map-get($colors, light);
+  }
+  ion-checkbox {
+    padding-top: 5px;
+  }
+  .highlight {
+    text-decoration: underline;
+  }
+  .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+    display: none;
+    left: 13px;
+    top: 6px;
+    width: 5px;
+    height: 15px;
   }
   .fault-type-text {
     position: absolute;
