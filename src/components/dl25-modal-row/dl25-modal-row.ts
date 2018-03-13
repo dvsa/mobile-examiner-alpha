@@ -19,6 +19,7 @@ export class Dl25ModalRowComponent {
   serious: boolean;
   dangerous: boolean;
   numDrivingFaults: number;
+  closing: boolean = false;
 
   constructor(
     private faultsScoreCardProvider: FaultsScorecardProvider, 
@@ -106,11 +107,17 @@ export class Dl25ModalRowComponent {
   }
 
   closeModal() {
-      setTimeout(() => {
-        if (this.navCtrl.isActive(this.viewCtrl)) {
-          this.navCtrl.pop();
-        }
-      }, 200); 
+    if (this.closing) {
+      return;
+    }
+
+    this.closing = true;
+    
+    setTimeout(() => {
+      if (this.navCtrl.isActive(this.viewCtrl)) {
+        this.navCtrl.pop();
+      }
+    }, 2000); 
   }
 
 }
