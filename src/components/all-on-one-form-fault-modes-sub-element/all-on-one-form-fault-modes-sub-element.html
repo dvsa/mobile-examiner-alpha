@@ -1,0 +1,9 @@
+<ion-row align-items-center no-padding [class]="faultMode">
+  <ion-col no-padding>
+    <button class="fault-button" [disabled]="isDisabled()" (click)="addFault(faultMode);">
+      <span *ngIf="counter !== 0" class="fault-badge">{{faultCounter}}</span> {{ text }}
+      <span *ngIf="serious" class="serious fault-badge">S</span>
+      <span *ngIf="dangerous" class="dangerous fault-badge">D</span>
+    </button>
+  </ion-col>
+</ion-row>

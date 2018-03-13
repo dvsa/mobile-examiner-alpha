@@ -1,0 +1,262 @@
+<ion-header>
+
+  <mes-header></mes-header>
+  <report-header-v2></report-header-v2>
+
+</ion-header>
+
+
+<ion-content no-bounce>
+  <ion-grid padding style="padding-top: 0px; padding-bottom: 0px; overflow: hidden;
+  position: fixed;" no-bounce>
+    <ion-row class="main-content" margin-top>
+      <ion-col col-4>
+        <!-- <div class="form-section">
+          <p>&nbsp;</p>
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="controlled stop"></all-on-one-form-fault-modes-sub-element>
+        </div> -->
+
+        <div class="form-section bottom-border">
+          <p>&nbsp;</p>
+          <all-on-one-form-fault-modes-sub-element section="manoeuvres" [class]="faultMode" [faultMode]="faultMode" text="manoeuvres*"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <!-- <div class="form-section">
+          <p>Reverse Right</p>
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="control"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="observation"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <p>Reverse Park</p>
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="control"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="observation"></all-on-one-form-fault-modes-sub-element>
+        </div> -->
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element section="vehicleCheck" [class]="faultMode" [faultMode]="faultMode" text="vehicle checks"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <!-- <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element [class]="faultMode" [faultMode]="faultMode" text="forward park"></all-on-one-form-fault-modes-sub-element>
+        </div> -->
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="prec" [class]="faultMode" [faultMode]="faultMode" text="precautions"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="ETA" [class]="faultMode" [faultMode]="faultMode" text="ETA"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="ETA" [class]="faultMode" [faultMode]="faultMode" text="ECO"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <p>Control</p>
+          <all-on-one-form-fault-modes-sub-element section="controlAcc" [class]="faultMode" [faultMode]="faultMode" text="accelerator"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="controlClutch" [class]="faultMode" [faultMode]="faultMode" text="clutch"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="controlGears" [class]="faultMode" [faultMode]="faultMode" text="gears"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="controlFBrake" [class]="faultMode" [faultMode]="faultMode" text="footbrake"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="controlPBrake" [class]="faultMode" [faultMode]="faultMode" text="parking brake"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="controlSteering" [class]="faultMode" [faultMode]="faultMode" text="steering"></all-on-one-form-fault-modes-sub-element>
+        </div>
+      </ion-col>
+
+      <ion-col col-4>
+        <div class="form-section">
+          <p>Move off</p>
+          <all-on-one-form-fault-modes-sub-element section="moSafety" [class]="faultMode" [faultMode]="faultMode" text="safety"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="moControl" [class]="faultMode" [faultMode]="faultMode" text="control"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <p>Use of mirrors</p>
+          <all-on-one-form-fault-modes-sub-element section="mirrorSignal" [class]="faultMode" [faultMode]="faultMode" text="signalling"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="mirrorDirection" [class]="faultMode" [faultMode]="faultMode" text="change direction"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="mirrorSpeed" [class]="faultMode" [faultMode]="faultMode" text="change speed"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <p>Signals</p>
+          <all-on-one-form-fault-modes-sub-element section="signalNecessary" [class]="faultMode" [faultMode]="faultMode" text="necessary"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="signalCorrect" [class]="faultMode" [faultMode]="faultMode" text="correctly"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="signalTimed" [class]="faultMode" [faultMode]="faultMode" text="timed"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="clearance" [class]="faultMode" [faultMode]="faultMode" text="clearance"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <p>Response to signs / signals</p>
+          <all-on-one-form-fault-modes-sub-element section="respTS" [class]="faultMode" [faultMode]="faultMode" text="traffic signs"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="respRM" [class]="faultMode" [faultMode]="faultMode" text="road markings"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="respTL" [class]="faultMode" [faultMode]="faultMode" text="traffic lights"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="respTC" [class]="faultMode" [faultMode]="faultMode" text="traffic controllers"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="respRU" [class]="faultMode" [faultMode]="faultMode" text="other road users"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element section="speed" [class]="faultMode" [faultMode]="faultMode" text="use of speed"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="following" [class]="faultMode" [faultMode]="faultMode" text="following distance"></all-on-one-form-fault-modes-sub-element>
+        </div>
+      </ion-col>
+
+      <ion-col col-4>
+        <div class="form-section">
+          <p>Progress</p>
+          <all-on-one-form-fault-modes-sub-element section="progSpeed" [class]="faultMode" [faultMode]="faultMode" text="appropriate speed"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="progHesitate" [class]="faultMode" [faultMode]="faultMode" text="undue hesitation"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <p>Junctions</p>
+          <all-on-one-form-fault-modes-sub-element section="juncSpeed" [class]="faultMode" [faultMode]="faultMode" text="approach speed"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="juncObs" [class]="faultMode" [faultMode]="faultMode" text="observation"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="juncTRight" [class]="faultMode" [faultMode]="faultMode" text="turning right"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="juncTLeft" [class]="faultMode" [faultMode]="faultMode" text="turning left"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="juncCutting" [class]="faultMode" [faultMode]="faultMode" text="cutting corners"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <p>Judgement</p>
+          <all-on-one-form-fault-modes-sub-element section="judgeOvertake" [class]="faultMode" [faultMode]="faultMode" text="overtaking"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="judgeMeet" [class]="faultMode" [faultMode]="faultMode" text="meeting"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="judgeCross" [class]="faultMode" [faultMode]="faultMode" text="crossing"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <p>Positioning</p>
+          <all-on-one-form-fault-modes-sub-element section="posDriving" [class]="faultMode" [faultMode]="faultMode" text="normal driving"></all-on-one-form-fault-modes-sub-element>
+          <all-on-one-form-fault-modes-sub-element section="posLane" [class]="faultMode" [faultMode]="faultMode" text="lane discipline"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element section="pedCrossing" [class]="faultMode" [faultMode]="faultMode" text="pedestrian crossings"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element section="position" [class]="faultMode" [faultMode]="faultMode" text="position / normal stops"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section bottom-border">
+          <all-on-one-form-fault-modes-sub-element section="awareness" [class]="faultMode" [faultMode]="faultMode" text="awareness planning"></all-on-one-form-fault-modes-sub-element>
+        </div>
+
+        <div class="form-section">
+          <all-on-one-form-fault-modes-sub-element section="ancillary" [class]="faultMode" [faultMode]="faultMode" text="ancillary controls"></all-on-one-form-fault-modes-sub-element>
+        </div>
+      </ion-col>
+    </ion-row>
+      <ion-segment color="dark" [(ngModel)]="faultMode" (ngModelChange)="onFaultModeChange($event)">
+        <ion-segment-button value="view-only" (press)="openTimerOptions()">
+          <ion-icon *ngIf="faultMode === 'view-only'" name="lock"></ion-icon>
+          <ion-icon *ngIf="faultMode !== 'view-only'" name="unlock"></ion-icon>
+          <!-- <span text-center class="segment-text">View</span> -->
+        </ion-segment-button>
+        <ion-segment-button value="driving-faults">
+          <!-- <ion-icon name="car"></ion-icon> -->
+          <span text-center class="segment-text">D/F</span>
+        </ion-segment-button>
+        <ion-segment-button value="serious">
+          <!-- <ion-icon name="flag"></ion-icon> -->
+          <span text-center class="segment-text">S</span>
+        </ion-segment-button>
+        <ion-segment-button value="dangerous">
+          <!-- <ion-icon name="warning"></ion-icon> -->
+          <span text-center class="segment-text">D</span>
+        </ion-segment-button>
+      </ion-segment>
+    <!-- <ion-row>
+      <ion-col col-12>
+        <div class="form-section">
+          <all-on-one-form-element header="Legal"></all-on-one-form-element>
+
+          <ion-row align-items-center>
+            <ion-col col-1>
+              Show
+            </ion-col>
+            <ion-col>
+              <ion-segment>
+                <ion-segment-button value="s1">1</ion-segment-button>
+                <ion-segment-button value="s2">2</ion-segment-button>
+                <ion-segment-button value="s3">3</ion-segment-button>
+                <ion-segment-button value="s4">4</ion-segment-button>
+                <ion-segment-button value="s5">5</ion-segment-button>
+              </ion-segment>
+            </ion-col>
+
+            <ion-col col-1>
+              Tell
+            </ion-col>
+            <ion-col>
+              <ion-segment>
+                <ion-segment-button value="t1">1</ion-segment-button>
+                <ion-segment-button value="t2">2</ion-segment-button>
+                <ion-segment-button value="t3">3</ion-segment-button>
+                <ion-segment-button value="t4">4</ion-segment-button>
+                <ion-segment-button value="t5">5</ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-4>
+              <ion-item class="legals">
+                <ion-label>Angled Start</ion-label>
+                <ion-checkbox></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-3>
+              <ion-item class="legals">
+                <ion-label>Physical</ion-label>
+                <ion-checkbox></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-3>
+              <ion-item class="legals">
+                <ion-label>Verbal</ion-label>
+                <ion-checkbox></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-2>
+              <ion-item class="legals">
+                <ion-label>Eco</ion-label>
+                <ion-checkbox></ion-checkbox>
+              </ion-item>
+            </ion-col>
+          </ion-row> -->
+
+    <!-- <ion-segment>
+            Maneuver
+              <ion-segment-button>1</ion-segment-button>
+              <ion-segment-button>2</ion-segment-button>
+              <ion-segment-button>3</ion-segment-button>
+            </ion-segment>
+
+            <ion-segment>
+            Emergency Stop
+              <ion-segment-button>Yes</ion-segment-button>
+              <ion-segment-button>No</ion-segment-button>
+            </ion-segment> -->
+
+    <!-- <all-on-one-form-fault-modes-sub-element section="" [class]="faultMode" [faultMode]="faultMode" text="accelerator"></all-on-one-form-fault-modes-sub-element>
+            <all-on-one-form-fault-modes-sub-element section="" text="clutch"></all-on-one-form-fault-modes-sub-element>
+            <all-on-one-form-fault-modes-sub-element text="gears"></all-on-one-form-fault-modes-sub-element>
+            <all-on-one-form-fault-modes-sub-element text="footbrake"></all-on-one-form-fault-modes-sub-element>
+            <all-on-one-form-fault-modes-sub-element text="parking brake"></all-on-one-form-fault-modes-sub-element>
+            <all-on-one-form-fault-modes-sub-element text="steering"></all-on-one-form-fault-modes-sub-element> -->
+    <!-- </div> -->
+    <!-- </ion-col> -->
+    <!-- </ion-row> -->
+
+  </ion-grid>
+</ion-content>

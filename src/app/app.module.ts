@@ -11,6 +11,7 @@ import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
 import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
+import { AllOnOnePageFaultModes } from '../pages/all-on-one-fault-modes/all-on-one-fault-modes';
 import { AllOnOnePage } from '../pages/all-on-one/all-on-one';
 import { AllOnOnePage3 } from '../pages/all-on-one-3/all-on-one-3';
 import { TimerComponent } from '../components/timer/timer';
@@ -29,6 +30,7 @@ import { FaultDataProvider } from '../providers/fault-data/fault-data';
 import { NotesPage } from '../pages/notes/notes';
 
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
+import { AllOnOneFormFaultModesSubElementComponent } from '../components/all-on-one-form-fault-modes-sub-element/all-on-one-form-fault-modes-sub-element';
 import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
 import { AllOnOneFormSubElementHoldComponent } from '../components/all-on-one-form-sub-element-hold/all-on-one-form-sub-element-hold';
 import { SidebarGridComponent } from '../components/sidebar-grid/sidebar-grid';
@@ -40,6 +42,8 @@ import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-mo
 import { ButtonModalComponent } from './../components/button-modal/button-modal';
 import { ModalEnterTransition } from '../transitions/modal-enter.transition';
 import { ModalLeaveTransition } from '../transitions/modal-leave.transition';
+import { FaultModeProvider } from '../providers/fault-mode/fault-mode';
+import { AllOnOnePageFaultModalsTimerOptionsPage } from '../pages/all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
 import { AllOnOneFormSubElementHoldNoModalComponent } from '../components/all-on-one-form-sub-element-hold-no-modal/all-on-one-form-sub-element-hold-no-modal';
 import { HazardRecorderProvider } from '../providers/hazard-recorder/hazard-recorder';
 import { ScreenOrientation } from '@ionic-native/screen-orientation'
@@ -66,6 +70,10 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     HeaderComponent,
     BackLinkComponent,
     ReportHeaderComponent,
+    AllOnOnePageFaultModes,
+    TimerComponent,
+    AllOnOneFormElementComponent,
+    AllOnOneFormFaultModesSubElementComponent,
     ReportHeaderV2Component,
     AllOnOnePage,
     AllOnOnePage3,
@@ -84,6 +92,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
+    AllOnOnePageFaultModalsTimerOptionsPage,
     ButtonElementComponent,
     ButtonModalComponent,
     TotalsComponent,
@@ -103,6 +112,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     Dl25ModalComponent,
     TablePage,
     FailCounter,
+    AllOnOnePageFaultModes,
     AllOnOnePage,
     AllOnOnePage3,
     LegalPage,
@@ -112,6 +122,8 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     PressedFaultModalComponent,
     ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
+    AllOnOneFormFaultModesSubElementComponent,
+    AllOnOnePageFaultModalsTimerOptionsPage,
     ButtonModalComponent,
     AllOnOneFormSubElementHoldNoModalComponent,
   ],
@@ -122,6 +134,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     FaultsScorecardProvider,
     FaultDataProvider,
     SidebarFaultDataProvider,
+    FaultModeProvider,
     FaultStoreActions,
     DevToolsExtension,
     FaultStoreProvider,
