@@ -45,7 +45,7 @@
     <div *ngIf="isNormalRow(faultData)">
       <dl25-modal-row [hasSections]="faultData.hasSections" [faultTitle]="faultData.title" *ngFor="let section of faultData.sections"
         [section]="section.title" [isRemoveMode]="isRemoveMode"></dl25-modal-row>
-      <dl25-modal-row [faultTitle]="faultData.title" *ngIf="!faultData.hasSections"></dl25-modal-row>
+      <dl25-modal-row [faultTitle]="faultData.title" *ngIf="!faultData.hasSections" [isRemoveMode]="isRemoveMode"></dl25-modal-row>
     </div>
   </div>
   <div class="modal-footer" text-center margin-left margin-right>
