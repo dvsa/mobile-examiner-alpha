@@ -13,6 +13,7 @@ export class Dl25ModalRowComponent {
   @Input() hasSections: boolean;
   @Input() section: string;
   @Input() faultTitle: string;
+  @Input() isRemoveMode: boolean;
 
   _subscription: Subscription;
   serious: boolean;
@@ -53,6 +54,14 @@ export class Dl25ModalRowComponent {
   //   }).present();
   // }
 
+  addOrRemoveDrivingFault(faultTitle, section) {
+    if (this.isRemoveMode) {
+      this.removeDrivingFault(faultTitle, section);
+    } else {
+      this.addDrivingFault(faultTitle, section);
+    }
+  }
+
   addDrivingFault(faultTitle, section) {
     this.faultsScoreCardProvider.addDrivingFault();
     this.faultDataProvider.addDrivingFault(faultTitle, section);
@@ -66,6 +75,7 @@ export class Dl25ModalRowComponent {
       this.faultsScoreCardProvider.removeDrivingFault();
       this.faultDataProvider.removeDrivingFault(faultTitle, section);
       this.numDrivingFaults = this.faultDataProvider.getFault(this.faultTitle, this.section, null).faults.df;
+      this.closeModal();    
     }
   }
 

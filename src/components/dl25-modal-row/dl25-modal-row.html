@@ -9,7 +9,7 @@
             full
             outline
             class="fault-button" 
-            (click)="addDrivingFault(faultTitle, section)">
+            (click)="addOrRemoveDrivingFault(faultTitle, section)">
             {{!!section ? section : faultTitle}}
             <span class="fault-badge">{{numDrivingFaults}}</span> 
             
