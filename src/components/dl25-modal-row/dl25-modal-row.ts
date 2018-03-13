@@ -112,12 +112,12 @@ export class Dl25ModalRowComponent {
     }
 
     this.closing = true;
-    
+
     setTimeout(() => {
       if (this.navCtrl.isActive(this.viewCtrl)) {
         this.navCtrl.pop();
       }
-    }, 2000); 
+    }, 200); 
   }
 
 }
