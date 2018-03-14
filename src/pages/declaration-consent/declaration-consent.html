@@ -15,12 +15,12 @@
 
 <ion-content padding>
   <div>
-    <button ion-button (click)="goToPretestChecks()">Pre-test checks</button>
+    <button ion-button [navPush]="pretestChecksPage">Pre-test checks</button>
   </div>
   <div>
-    <button color="dark" outline small ion-button (click)="goToEndTestReason()">End test reason</button>
+    <button color="dark" outline small ion-button [navPush]="policyDataPage">End test reason</button>
   </div>
   <div>
-    <button color="dark" outline small ion-button (click)="goToPolicyData()">Policy data</button>
+    <button color="dark" outline small ion-button [navPush]="endTestReasonPage">Policy data</button>
   </div>
 </ion-content>

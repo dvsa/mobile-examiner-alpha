@@ -15,9 +15,9 @@
 
 <ion-content padding>
   <div>
-    <button ion-button (click)="goToDeclaration()">Declaration &amp; consent</button>
+    <button ion-button [navPush]="declarationConsentPage">Declaration &amp; consent</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToPolicyData()">Policy data</button>
+    <button ion-button color="dark" outline small [navPush]="policyDataPage">Policy data</button>
   </div>
 </ion-content>

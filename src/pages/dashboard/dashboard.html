@@ -14,18 +14,18 @@
 
 <ion-content padding>
   <div>
-    <button ion-button (click)="goToPage('JournalPage')">Journal</button>
+    <button ion-button [navPush]="journalPage">Journal</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToPage('PolicyDataPage')">Policy data</button>
+    <button ion-button color="dark" outline small [navPush]="policyDataPage">Policy data</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToPage('ManageDeviceDebriefStoragePage')">Manage device debrief storage</button>
+    <button ion-button color="dark" outline small [navPush]="manageDeviceDebriefStoragePage">Manage device debrief storage</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToPage('LdtmModePage')">LDTM mode</button>
+    <button ion-button color="dark" outline small [navPush]="ldtmPage">LDTM mode</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToPage('TrainerModePage')">Trainer mode</button>
+    <button ion-button color="dark" outline small [navPush]="trainerModePage">Trainer mode</button>
   </div>
 </ion-content>

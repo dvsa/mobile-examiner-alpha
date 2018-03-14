@@ -6,6 +6,7 @@ import { PolicyDataPage } from '../policy-data/policy-data';
 import { ManageDeviceDebriefStoragePage } from '../manage-device-debrief-storage/manage-device-debrief-storage';
 import { TrainerModePage } from '../trainer-mode/trainer-mode';
 import { DashboardComponentLinks } from './enums/dashboard-component-links';
+import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-dashboard',
@@ -14,6 +15,11 @@ import { DashboardComponentLinks } from './enums/dashboard-component-links';
 export class DashboardPage {
 
   title: string = 'Dashboard';
+  journalPage: Page = JournalPage;
+  ldtmPage: Page = LdtmModePage;
+  policyDataPage: Page = PolicyDataPage;
+  manageDeviceDebriefStoragePage: Page = ManageDeviceDebriefStoragePage;
+  trainerModePage: Page = TrainerModePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     navCtrl.remove(0);
@@ -21,14 +27,6 @@ export class DashboardPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
-  }
-
-  goToPage(page: string) {
-    if (page === DashboardComponentLinks.JournalPage) return this.navCtrl.push(JournalPage);
-    if (page === DashboardComponentLinks.LdtmModePage) return this.navCtrl.push(LdtmModePage);
-    if (page === DashboardComponentLinks.PolicyDataPage) return this.navCtrl.push(PolicyDataPage);
-    if (page === DashboardComponentLinks.ManageDeviceDebriefStoragePage) return this.navCtrl.push(ManageDeviceDebriefStoragePage);
-    if (page === DashboardComponentLinks.TrainerModePage) return this.navCtrl.push(TrainerModePage);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { WeatherPhysicalDescriptionPage } from '../weather-physical-description/weather-physical-description';
+import { Page } from 'ionic-angular/navigation/nav-util';
 
 /**
  * Generated class for the CollectLicenseSignaturePage page.
@@ -15,15 +16,13 @@ import { WeatherPhysicalDescriptionPage } from '../weather-physical-description/
 })
 export class CollectLicenseSignaturePage {
 
+  weatherPhysicalDescriptionPage: Page = WeatherPhysicalDescriptionPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CollectLicenseSignaturePage');
-  }
-
-  goToWeatherPhysicalDescription() {
-    this.navCtrl.push(WeatherPhysicalDescriptionPage);
   }
 
 }
