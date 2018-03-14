@@ -15,9 +15,9 @@
 
 <ion-content padding>
   <div>
-    <button ion-button (click)="goToCandidateInfo()">Candidate info</button>
+    <button ion-button [navPush]="candidateInfoPage">Candidate info</button>
   </div>
   <div>
-    <button ion-button color="dark" outline small (click)="goToInitiateSwap()">Initiate swap</button>
+    <button ion-button color="dark" outline small [navPush]="initiateSwapPage">Initiate swap</button>
   </div>
 </ion-content>

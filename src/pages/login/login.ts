@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
+import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-login',
@@ -9,13 +10,9 @@ import { DashboardPage } from '../dashboard/dashboard';
 export class LoginPage {
 
   title: string = 'Login';
+  dashboardPage: Page = DashboardPage;
 
   constructor(public navCtrl: NavController) {
-
-  }
-
-  goToDashboard() {
-    this.navCtrl.push(DashboardPage);
   }
 
 }

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { PretestChecksPage } from '../pretest-checks/pretest-checks';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
+import { Page } from 'ionic-angular/navigation/nav-util';
 
 /**
  * Generated class for the DeclarationConsentPage page.
@@ -17,23 +18,15 @@ import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 })
 export class DeclarationConsentPage {
 
+  pretestChecksPage: Page = PretestChecksPage;
+  policyDataPage: Page = PolicyDataPage;
+  endTestReasonPage: Page = EndTestReasonPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DeclarationConsentPage');
-  }
-
-  goToPretestChecks() {
-    this.navCtrl.push(PretestChecksPage);
-  }
-
-  goToPolicyData() {
-    this.navCtrl.push(PolicyDataPage);
-  }
-
-  goToEndTestReason() {
-    this.navCtrl.push(EndTestReasonPage);
   }
 
 }

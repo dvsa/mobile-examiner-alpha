@@ -15,9 +15,9 @@
 
 <ion-content padding>
   <div>
-    <button ion-button (click)="goToStopTest()">Stop test</button>
+    <button ion-button [navPush]="stopTestPage">Stop test</button>
   </div>
   <div>
-    <button color="dark" outline small ion-button (click)="goToEndTestReason()">End test reason</button>
+    <button color="dark" outline small ion-button [navPush]="endTestReasonPage">End test reason</button>
   </div>
 </ion-content>
