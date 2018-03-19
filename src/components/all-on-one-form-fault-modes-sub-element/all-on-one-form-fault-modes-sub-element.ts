@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
-import { NgRedux } from '@angular-redux/store';
-import { IFaultCounter } from '../button-element/button-element';
 
 @Component({
   selector: 'all-on-one-form-fault-modes-sub-element',
@@ -23,23 +21,17 @@ export class AllOnOneFormFaultModesSubElementComponent {
 
   constructor(
     private faultModeService: FaultModeProvider,
-    private faultStore: FaultStoreProvider,
-    private ngRedux: NgRedux<IFaultCounter>) {
-    // as it checks all the sections
-    this.ngRedux.select(state => Object.keys(state.faults)
-      .filter(key => key === this.section)
-      .map(sectionName => {
-        return state.faults[sectionName];
-      })).subscribe(data => {
-        if (data.length > 0) {
-          this.faultCounter = data[0].fault;
-          this.serious = !!data[0].serious;
-          this.hasDangerous = !!data[0].dangerous;
-        }
-      });
+    private faultStore: FaultStoreProvider) {
 
-      this.ngRedux.select(state => state.faults.lastFault)
+    this.faultStore.lastFault$
       .subscribe(data => this.isLastFault = (data && data.id === this.section));
+
+    this.faultStore.currentfaults$
+      .subscribe(data => {
+          this.faultCounter = data[this.section] ? data[this.section].fault : 0;
+          this.serious = data[this.section] ? !!data[this.section].serious : false;
+          this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
+      });
   }
 
   isDisabled() {
@@ -77,7 +69,7 @@ export class AllOnOneFormFaultModesSubElementComponent {
     } else {
       this.faultStore.removeFault(this.section, 'dangerous')
       this.dangerous = false;
-    }  
+    }
   }
 
 }

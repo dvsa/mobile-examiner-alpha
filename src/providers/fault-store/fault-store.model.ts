@@ -1,3 +1,8 @@
+export interface IState {
+    totals: IFaultState,
+    faults: IFaultElementState
+}
+
 export interface IFaultState {
     fault?: number,
     dangerous?: number,
@@ -5,9 +10,9 @@ export interface IFaultState {
 }
 
 export interface ILastFaultState {
-    id?: string,
-    faultType?: string,
-    action?: string
+    id: string,
+    faultType: string,
+    action: string
 }
 
 export interface IFaultElementState {

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { combineReducers } from 'redux';
-import { IFaultState } from './fault-store.model'
-import { INITIAL_STATE, totalsReducer as totals } from './totals.reducer';
+
+import { Observable } from 'rxjs/observable';
+import { IState, ILastFaultState, IFaultElementState } from './fault-store.model'
+import { totalsReducer as totals } from './totals.reducer';
 import { faultReducer as faults } from './fault.reducer';
 import { FaultStoreActions } from './fault-store.action';
 
@@ -19,20 +21,29 @@ var reduxLogger = require('redux-logger');
 @Injectable()
 export class FaultStoreProvider {
 
-  constructor(public store: NgRedux<IFaultState>,
+  lastFault$: Observable<ILastFaultState>
+  currentfaults$: Observable<IFaultElementState>
+
+  INITIAL_STATE: IState = {
+    faults: {},
+    totals: {}
+  }
+
+  constructor(public store: NgRedux<IState>,
     public faultActions: FaultStoreActions,
     public devTools: DevToolsExtension) {
 
-      const reducers = combineReducers<IFaultState>({totals, faults});
+      const reducers = combineReducers<IState>({totals, faults});
 
       store.configureStore(
         reducers,
-        INITIAL_STATE,
+        this.INITIAL_STATE,
         [reduxLogger.createLogger()],
         devTools.isEnabled() ? [devTools.enhancer()] : []);
 
       this.faultActions.loadFaults();
-
+      this.lastFault$ = this.store.select(state => state.faults.lastFault);
+      this.currentfaults$ = this.store.select(state => state.faults);
   }
 
     reset() {
@@ -47,10 +58,8 @@ export class FaultStoreProvider {
       this.faultActions.removeFault(id, faultType);
     }
 
-    undoFault(lastFault) {
-      if(lastFault) {
-        this.faultActions.undoLastFault(lastFault);        
-      }  
+    undoFault() {
+      const currState = this.store.getState();
+      this.faultActions.undoLastFault(currState.faults.lastFault);
     }
-
 }

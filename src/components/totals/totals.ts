@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { select, NgRedux } from '@angular-redux/store';
+import { select } from '@angular-redux/store';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
-import { IFaultState, IFaultElementState } from '../../providers/fault-store/fault-store.model';
-
-interface IFaultCounter {
-  faults: IFaultElementState,
-  totals: IFaultState
-}
 
 /**
  * Generated class for the TotalsComponent component.
@@ -25,14 +19,11 @@ export class TotalsComponent {
   @select(['totals', 'dangerous']) readonly dangerousMarks$: Observable<number>;
   @select(['totals', 'serious']) readonly seriousMarks$: Observable<number>;
 
-  constructor(private faultStore: FaultStoreProvider,
-    private ngRedux: NgRedux<IFaultCounter>) {
-
+  constructor(private faultStore: FaultStoreProvider) {
   }
 
   undoMark() {
-    const currentState = this.ngRedux.getState();
-    this.faultStore.undoFault(currentState.faults.lastFault);
+    this.faultStore.undoFault();
   }
 
 }

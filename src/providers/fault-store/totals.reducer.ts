@@ -11,58 +11,53 @@ export const INITIAL_STATE: IFaultState = {
 export function totalsReducer(state: IFaultState = INITIAL_STATE,
      action: Action): IFaultState {
 
-    let faultType;
-    let currValue;
-
     switch(action.type) {
         case FaultStoreActions.RESET_FAULTS:
-            state = INITIAL_STATE;
-            return {
-                ...state
-            };
+            return INITIAL_STATE;
         case FaultStoreActions.LOAD_FAULTS:
-            return {
-                ...state
-            };
+            return state;
         case FaultStoreActions.ADD_FAULTS:
-            const faultAddAction = action as FaultAddAction;
-            faultType = faultAddAction.payload.faultType;
-            currValue = state[faultType] || 0;
-            const add = {
-                [faultType]: ++currValue,
-            }
-
-            return {
-                ...state,
-                ...add
-            };
+            return addFault(state, action);
         case FaultStoreActions.DELETE_FAULTS:
-            const faultDeleteAction = action as FaultDeleteAction;
-            faultType = faultDeleteAction.payload.faultType;
-            currValue = state[faultType] || 0;
-            const minus = {
-                [faultType]: --currValue,
-            };
+            return deleteFault(state, action);
+        case FaultStoreActions.UNDO_FAULTS:
+            return undoFault(state, action);
+    }
 
-            return {
-                ...state,
-                ...minus
-            };
+    return state;
+}
 
-            case FaultStoreActions.UNDO_FAULTS:
-                const faultUndoAction = action as FaultUndoAction;
-                if (faultUndoAction.payload.id && faultUndoAction.payload.action === 'ADD') {
-                    ({ faultType } = faultUndoAction.payload)
+const addFault = (state, action) => {
+    const faultAddAction = action as FaultAddAction;
+    const { faultType } = faultAddAction.payload;
+    let currValue = state[faultType] || 0;
 
-                    return {
-                        ...state,
-                        [faultType]: --state[faultType]
-                    }
-                }
+    return {
+        ...state,
+        [faultType]: ++currValue,
+    };
+}
 
-                return {
-                    ...state
-                };
+const deleteFault = (state, action) => {
+    const faultDeleteAction = action as FaultDeleteAction;
+    const { faultType } = faultDeleteAction.payload;
+    let currValue = state[faultType] || 0;
+
+    return {
+        ...state,
+        [faultType]: --currValue,
+    };
+}
+
+const undoFault = (state, action) => {
+    const faultUndoAction = action as FaultUndoAction;
+    if (faultUndoAction.payload.id && faultUndoAction.payload.action === 'ADD') {
+        const { faultType } = faultUndoAction.payload;
+
+        return {
+            ...state,
+            [faultType]: --state[faultType]
+        }
     }
 
     return state;

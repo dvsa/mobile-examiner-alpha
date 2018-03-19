@@ -1,9 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
-import { NgRedux } from '@angular-redux/store';
-import { IFaultCounter } from '../button-element/button-element';
-import { Observable } from 'rxjs/Observable';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 @Component({
@@ -21,26 +18,18 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
   faultCounter: number;
   isLastFault: boolean
 
-  constructor(private faultsService: FaultsScorecardProvider,
-              private hazardRecorderProvider: HazardRecorderProvider,
-              private ngRedux: NgRedux<IFaultCounter>,
+  constructor(private hazardRecorderProvider: HazardRecorderProvider,
               private faultStore: FaultStoreProvider) {
-        // this might not be the most performant way to do things,
-    // as it checks all the sections
-    this.ngRedux.select(state => Object.keys(state.faults)
-      .filter(key => key === this.section)
-      .map(sectionName => {
-        return state.faults[sectionName];
-      })).subscribe(data => {
-        if (data.length > 0) {
-          this.faultCounter = data[0].fault;
-          this.serious = !!data[0].serious;
-          this.dangerous = !!data[0].dangerous;
-        }
-      });
+    
+    this.faultStore.lastFault$
+    .subscribe(data => this.isLastFault = (data && data.id === this.section));
 
-      this.ngRedux.select(state => state.faults.lastFault)
-      .subscribe(data => this.isLastFault = (data && data.id === this.section));
+    this.faultStore.currentfaults$
+    .subscribe(data => {
+        this.faultCounter = data[this.section] ? data[this.section].fault : 0;
+        this.serious = data[this.section] ? !!data[this.section].serious : false;
+        this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
+    });
   }
 
   addDrivingFault() {
@@ -48,7 +37,6 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     if (this.dangerous || this.serious) return;
 
     this.faultStore.addFault(this.section, 'fault');
-    this.faultsService.addDrivingFault();
   }
 
   recordHazard() {
@@ -65,22 +53,18 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     this.serious = !this.serious;
     if (!this.serious) {
       this.faultStore.removeFault(this.section, 'serious');
-      return this.faultsService.removeSerious();
     }
    
-    this.faultStore.addFault(this.section, 'serious');  
-    return this.faultsService.addSerious();
+    this.faultStore.addFault(this.section, 'serious');
   }
 
   updateDangerous() {
     this.dangerous = !this.dangerous;
     if (!this.dangerous) {
       this.faultStore.removeFault(this.section, 'dangerous')
-      return this.faultsService.removeDangerous();
     }
 
     this.faultStore.addFault(this.section, 'dangerous');
-    return this.faultsService.addDangerous();
   }
 
 }
