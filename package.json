@@ -10,7 +10,10 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "ionic:deploy": "git push ionic master"
+    "ionic:deploy": "git push ionic master",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -34,6 +37,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "jest": "^22.4.2",
+    "jest-preset-angular": "^5.2.1",
     "typescript": "2.4.2"
   },
   "description": "DVSA Mobile Examiner Services (GDS Alpha phase)"

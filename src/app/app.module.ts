@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
+import { App } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { CandidateInfoPage } from '../pages/candidate-info/candidate-info';
@@ -27,7 +27,7 @@ import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-descri
 
 @NgModule({
   declarations: [
-    MyApp,
+    App,
     LoginPage,
     DashboardPage,
     CandidateInfoPage,
@@ -50,11 +50,11 @@ import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-descri
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(App)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    App,
     LoginPage,
     DashboardPage,
     CandidateInfoPage,
