@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
+
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 @Component({
@@ -20,7 +21,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
 
   constructor(private hazardRecorderProvider: HazardRecorderProvider,
               private faultStore: FaultStoreProvider) {
-    
+
     this.faultStore.lastFault$
     .subscribe(data => this.isLastFault = (data && data.id === this.section));
 

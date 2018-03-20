@@ -1,8 +1,0 @@
-<ion-content>
-  <div *ngFor="let section of formPage.pageOptions.sections; let i = index;">
-    <div margin-left margin-right>
-      <h3 margin-top class="heading-small">{{section.header}}</h3>
-      <fault-controls-v2 *ngFor="let item of section.items" [item]="item" [section]="section" [pageName]="formPage.pageName"></fault-controls-v2>
-    </div>
-  </div>
-</ion-content>

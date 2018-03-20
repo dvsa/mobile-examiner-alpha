@@ -9,17 +9,12 @@ import { HomePage } from '../pages/home/home';
 
 import { HeaderComponent } from '../components/header/header';
 import { ComponentLibraryPage } from '../pages/component-library/component-library';
-import { BackLinkComponent } from '../components/back-link/back-link';
 import { ReportHeaderComponent } from '../components/report-header/report-header';
 import { AllOnOnePageFaultModes } from '../pages/all-on-one-fault-modes/all-on-one-fault-modes';
 import { AllOnOnePage } from '../pages/all-on-one/all-on-one';
 import { AllOnOnePage3 } from '../pages/all-on-one-3/all-on-one-3';
 import { TimerComponent } from '../components/timer/timer';
 
-import { SidebarPrototypePage } from '../pages/sidebar-prototype/sidebar-prototype';
-import { TablePage } from '../components/table/table';
-import { FailCounter } from '../components/fail-counter/fail-counter';
-import { LegalPage } from '../pages/legal/legal';
 import { FaultsScorecardComponent } from '../components/faults-scorecard/faults-scorecard';
 import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { FaultControlsComponent } from '../components/fault-controls/fault-controls';
@@ -27,17 +22,10 @@ import { Dl25ButtonsModalsPage } from '../pages/dl25-buttons-modals/dl25-buttons
 import { Dl25ModalComponent } from '../components/dl25-modal/dl25-modal';
 import { Dl25ModalRowComponent } from '../components/dl25-modal-row/dl25-modal-row';
 import { FaultDataProvider } from '../providers/fault-data/fault-data';
-import { NotesPage } from '../pages/notes/notes';
 
 import { AllOnOneFormElementComponent } from '../components/all-on-one-form-element/all-on-one-form-element';
 import { AllOnOneFormFaultModesSubElementComponent } from '../components/all-on-one-form-fault-modes-sub-element/all-on-one-form-fault-modes-sub-element';
-import { AllOnOneFormSubElementComponent } from '../components/all-on-one-form-sub-element/all-on-one-form-sub-element';
 import { AllOnOneFormSubElementHoldComponent } from '../components/all-on-one-form-sub-element-hold/all-on-one-form-sub-element-hold';
-import { SidebarGridComponent } from '../components/sidebar-grid/sidebar-grid';
-import { FaultControlsV2Component } from '../components/fault-controls-v2/fault-controls-v2';
-import { PressedFaultModalComponent } from '../components/pressed-fault-modal/pressed-fault-modal';
-import { SidebarFaultDataProvider } from '../providers/sidebar-fault-data/sidebar-fault-data';
-import { ButtonsModalsPressedFaultModalComponent } from '../components/buttons-modals-pressed-fault-modal/buttons-modals-pressed-fault-modal';
 import { PressedFaultModalComponentAOOP } from './../components/pressed-fault-modal-aoop/pressed-fault-modal-aoop';
 import { ButtonModalComponent } from './../components/button-modal/button-modal';
 import { ModalEnterTransition } from '../transitions/modal-enter.transition';
@@ -62,13 +50,9 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
   declarations: [
     MyApp,
     HomePage,
-    TablePage,
-    FailCounter,
-    LegalPage,
-    NotesPage,
     ComponentLibraryPage,
     HeaderComponent,
-    BackLinkComponent,
+    ButtonModalComponent,
     ReportHeaderComponent,
     AllOnOnePageFaultModes,
     TimerComponent,
@@ -79,18 +63,12 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     AllOnOnePage3,
     TimerComponent,
     AllOnOneFormElementComponent,
-    AllOnOneFormSubElementComponent,
     AllOnOneFormSubElementHoldComponent,
-    SidebarPrototypePage,
     FaultsScorecardComponent,
     FaultControlsComponent,
     Dl25ButtonsModalsPage,
     Dl25ModalComponent,
     Dl25ModalRowComponent,
-    SidebarGridComponent,
-    FaultControlsV2Component,
-    PressedFaultModalComponent,
-    ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
     AllOnOnePageFaultModalsTimerOptionsPage,
     ButtonElementComponent,
@@ -110,17 +88,9 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     ComponentLibraryPage,
     Dl25ButtonsModalsPage,
     Dl25ModalComponent,
-    TablePage,
-    FailCounter,
     AllOnOnePageFaultModes,
     AllOnOnePage,
     AllOnOnePage3,
-    LegalPage,
-    SidebarPrototypePage,
-    SidebarGridComponent,
-    NotesPage,
-    PressedFaultModalComponent,
-    ButtonsModalsPressedFaultModalComponent,
     PressedFaultModalComponentAOOP,
     AllOnOneFormFaultModesSubElementComponent,
     AllOnOnePageFaultModalsTimerOptionsPage,
@@ -133,7 +103,6 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FaultsScorecardProvider,
     FaultDataProvider,
-    SidebarFaultDataProvider,
     FaultModeProvider,
     FaultStoreActions,
     DevToolsExtension,
@@ -151,5 +120,5 @@ export class AppModule {
   private setCustomTransitions() {
     this.config.setTransition('modal-leave', ModalLeaveTransition);
     this.config.setTransition('modal-enter', ModalEnterTransition);
-}
+  }
 }

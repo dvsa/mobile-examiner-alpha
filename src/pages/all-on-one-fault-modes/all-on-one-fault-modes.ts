@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultModeProvider } from '../../providers/fault-mode/fault-mode';
 import { Subscription } from 'rxjs/Subscription';
 import { AllOnOnePageFaultModalsTimerOptionsPage } from '../all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
@@ -26,7 +25,6 @@ export class AllOnOnePageFaultModes {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private faultsService: FaultsScorecardProvider,
     public faultModeService: FaultModeProvider,
     public modalCtrl: ModalController,
     private faultStore: FaultStoreProvider) {

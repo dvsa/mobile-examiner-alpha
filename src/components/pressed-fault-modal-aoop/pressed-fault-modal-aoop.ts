@@ -19,7 +19,6 @@ export class PressedFaultModalComponentAOOP {
   constructor(
     public params: NavParams, 
     public viewCtrl: ViewController, 
-    // public faultsService: FaultDataProvider,
     private faultsService: FaultsScorecardProvider) {
     this.item = params.get('item');
   }
