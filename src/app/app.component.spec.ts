@@ -40,9 +40,6 @@ describe('App', () => {
     fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
 
-    jest.spyOn(platformStub, 'ready');
-    jest.spyOn(statusBarStub, 'styleDefault');
-    jest.spyOn(splashScreenStub, 'hide');
   });
 
   it('should create the App component', () => {
