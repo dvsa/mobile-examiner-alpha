@@ -41,15 +41,5 @@
     "jest-preset-angular": "^5.2.1",
     "typescript": "2.4.2"
   },
-  "description": "DVSA Mobile Examiner Services (GDS Alpha phase)",
-  "jest": {
-    "preset": "jest-preset-angular",
-    "roots": [
-      "src"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
-    "transformIgnorePatterns": [
-      "node_modules/(?!@ngrx|@ionic-native|@ionic)"
-    ]
-  }
+  "description": "DVSA Mobile Examiner Services (GDS Alpha phase)"
 }
