@@ -1,0 +1,9 @@
+.mes-button-primary {
+  border-radius: 22px;
+  min-width: 105px;
+  background-color: map-get($colors, mesPrimary);
+  padding: 15px;
+  color: map-get($colors, white);
+  font-weight: bold;
+  font-size: 17px;
+}

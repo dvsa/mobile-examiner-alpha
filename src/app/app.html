@@ -1,1 +1,24 @@
-<ion-nav [root]="rootPage"></ion-nav>
+
+<ion-split-pane class="mes-split">
+    <!--  our side menu  -->
+    <ion-menu [content]="content" class="mes-sideMenu" [class.min]="navOpen === false">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            <img src="../assets/imgs/dvsa-logo-white.png" alt="">
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content no-bounce>
+          <ion-list inset class="mes-sideMenu-list">
+              <button *ngFor="let p of pages" [class.active]="isActivePage(p)" (click)="loadPage(p)">
+                  <ion-icon name="{{p.icon}}"></ion-icon>
+                  <span>{{p.title}}</span>
+              </button>
+            </ion-list>
+      </ion-content>
+      <ion-footer (click)="setNavState()"><span>Close</span></ion-footer>
+    </ion-menu>
+    <!-- the main content -->
+    <ion-nav [root]="rootPage" main #content></ion-nav>
+  </ion-split-pane>

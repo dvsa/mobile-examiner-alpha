@@ -4,20 +4,79 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>candidate-info</ion-title>
-  </ion-navbar>
-
+  <page-header></page-header>
 </ion-header>
 
-
-<ion-content padding>
-  <div>
-    <button ion-button [navPush]="declarationConsentPage">Declaration &amp; consent</button>
-  </div>
-  <div>
-    <button ion-button color="dark" outline small [navPush]="policyDataPage">Policy data</button>
-  </div>
+<ion-content padding class="mes-main-content">
+  <ion-card class="mes-card">
+    <ion-card-header class="mes-main-card-header mes-breadcrumbs">
+      <span class="mes-header-md mes-breadcrumb-link" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+        Your Journal /
+      </span>
+      <span>View Candidate</span>
+      <span float-right>
+        <ion-icon padding-right name="refresh"></ion-icon>
+        <span class="mes-text-sm">Last synced: 8:06</span>
+      </span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4 text-center padding-right>
+          <ion-icon class="mes-candidate-img" name="person"></ion-icon>
+          <div class="mes-p-sm">
+            <span class="mes-header-md">Florence Pearson</span>
+          </div>
+          <div class="mes-p-sm">
+            <ion-icon name="clock"></ion-icon>
+            <span class="mes-bold mes-text-sm">12:23</span>
+          </div>
+          <span class="mes-p-sm mes-bold mes-text-sm mes-grey">Category B</span>
+        </ion-col>
+        <ion-col col-8 padding-left>
+          <ion-row margin-bottom>
+            <ion-col no-padding>
+              <span class="mes-header-sm">Address:</span>
+              <div class="mes-divider mes-one-third-divider"></div>
+              <span class="mes-text-sm">
+                18 Bridge St,
+                <br>Horncastle,
+                <br>Linconshire
+                <br>LN9 5JA
+              </span>
+            </ion-col>
+            <ion-col no-padding>
+              <span class="mes-header-sm">Driving number:</span>
+              <div class="mes-divider mes-one-third-divider"></div>
+              <span class="mes-text-sm">
+                PHIL6767655777BN
+              </span>
+            </ion-col>
+          </ion-row>
+          <div margin-bottom>
+            <span class="mes-text-sm">florencepearson@gmail.com</span>
+          </div>
+          <span class="mes-text-sm">07988674536</span>
+        </ion-col>
+      </ion-row>
+      <!-- <div>
+        <button ion-button [navPush]="declarationConsentPage">Declaration &amp; consent</button>
+      </div>
+      <div>
+        <button ion-button color="dark" outline small [navPush]="policyDataPage">Policy data</button>
+      </div> -->
+      <div text-center class="mes-box-grey">
+        <div margin-bottom>
+          <ion-icon name="alert"></ion-icon>
+          <span class="mes-header-md">Theory test certificate check required</span>
+        </div>
+        <button class="mes-button-primary">OK</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="mes-bottom-card" text-center>
+      <button padding-horizontal class="mes-button-primary">Take candidate forward</button>
+  </ion-card>
 </ion-content>

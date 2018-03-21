@@ -14,3 +14,13 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@import '../theme/sass-partials/_main_content.scss';
+@import '../theme/sass-partials/_card.scss';
+@import '../theme/sass-partials/_typography.scss';
+@import '../theme/sass-partials/_dividers.scss';
+@import '../theme/sass-partials/_spacing.scss';
+@import '../theme/sass-partials/_colours.scss';
+@import '../theme/sass-partials/_breadcrumbs.scss';
+@import '../theme/sass-partials/_buttons.scss';
+@import '../theme/sass-partials/_box.scss';
+@import '../theme/sass-partials/_sidebar.scss';

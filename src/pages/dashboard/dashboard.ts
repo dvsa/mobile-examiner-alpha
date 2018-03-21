@@ -5,6 +5,7 @@ import { LdtmModePage } from '../ldtm-mode/ldtm-mode';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { ManageDeviceDebriefStoragePage } from '../manage-device-debrief-storage/manage-device-debrief-storage';
 import { TrainerModePage } from '../trainer-mode/trainer-mode';
+
 import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({

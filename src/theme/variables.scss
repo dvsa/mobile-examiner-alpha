@@ -38,7 +38,18 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  lighterDark: #25292a,
+  darkerGrey: #383e3e,
+  lighterGrey: #5a5a5a,
+  divider:    #d8d4d4,
+  white:    #ffffff,
+  pageBg:     #ecf4f6,
+  textGrey:   #c9c7c7,
+  breadcrumbLinkBg: #f7f7f7,
+  mesPrimary: #3b7b00,
+  mesBoxGrey: #f6f6f6,
+  orange:  #bf7a10,
 );
 
 
@@ -86,3 +97,8 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+$split-pane-ios-side-min-width: 202px;
+$split-pane-ios-side-max-width: 202px;
+$split-pane-md-side-min-width: 202px;
+$split-pane-md-side-max-width: 202px;

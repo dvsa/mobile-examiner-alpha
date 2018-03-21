@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+
 <widget id="uk.gov.dvsa.mobile-examiner" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>App</name>
     <description>An awesome Ionic/Cordova app.</description>
@@ -81,4 +82,11 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-ionic" spec="~4.1.0">
+        <variable name="APP_ID" value="2833cf7c" />
+        <variable name="CHANNEL_NAME" value="Production" />
+        <variable name="UPDATE_METHOD" value="background" />
+    </plugin>
+    <engine name="ios" spec="^4.5.4" />
 </widget>

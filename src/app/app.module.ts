@@ -1,8 +1,9 @@
 import { ErrorHandler, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { App } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -24,6 +25,7 @@ import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -46,9 +48,10 @@ import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-descri
     TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    WeatherPhysicalDescriptionPage,
+    ComponentsModule
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule, IonicModule.forRoot(App)],
   bootstrap: [IonicApp],
   entryComponents: [
     App,
@@ -70,7 +73,8 @@ import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-descri
     TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    WeatherPhysicalDescriptionPage,
+    ComponentsModule
   ],
   providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
