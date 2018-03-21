@@ -48,10 +48,9 @@ import { ComponentsModule } from '../components/components.module';
     TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage,
-    ComponentsModule
+    WeatherPhysicalDescriptionPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(App)],
+  imports: [BrowserModule, IonicModule.forRoot(App), ComponentsModule],
   bootstrap: [IonicApp],
   entryComponents: [
     App,
@@ -73,8 +72,7 @@ import { ComponentsModule } from '../components/components.module';
     TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage,
-    ComponentsModule
+    WeatherPhysicalDescriptionPage
   ],
   providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
