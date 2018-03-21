@@ -8,7 +8,6 @@ import { App } from './app.component';
 import { LoginPage } from '../pages/login/login';
 
 describe('App', () => {
-
   let fixture: ComponentFixture<App>;
   let component: App;
 
@@ -24,12 +23,8 @@ describe('App', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      schemas: [
-        NO_ERRORS_SCHEMA
-      ],
-      declarations: [
-        App
-      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [App],
       providers: [
         { provide: Platform, useValue: platformStub },
         { provide: StatusBar, useValue: statusBarStub },
@@ -39,7 +34,6 @@ describe('App', () => {
 
     fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
-
   });
 
   it('should create the App component', () => {
@@ -58,5 +52,4 @@ describe('App', () => {
   it('should call the hide method on splashScreen', () => {
     expect(splashScreenStub.hide).toBeCalled();
   });
-
 });

@@ -1,15 +1,8 @@
 module.exports = {
   preset: 'jest-preset-angular',
-  roots: [
-    'src'
-  ],
+  roots: ['src'],
   setupTestFrameworkScriptFile: '<rootDir>/src/setupJest.ts',
-  transformIgnorePatterns: [
-    'node_modules/(?!@ngrx|@ionic-native|@ionic)'
-  ],
+  transformIgnorePatterns: ['node_modules/(?!@ngrx|@ionic-native|@ionic)'],
   collectCoverage: true,
-  collectCoverageFrom: [
-    '**/*.{ts}',
-    '!**/node_modules/**'
-  ]
-}
+  collectCoverageFrom: ['**/*.{ts}', '!**/node_modules/**']
+};

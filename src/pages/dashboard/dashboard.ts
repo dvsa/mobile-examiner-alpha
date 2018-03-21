@@ -9,10 +9,9 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+  templateUrl: 'dashboard.html'
 })
 export class DashboardPage {
-
   title: string = 'Dashboard';
   journalPage: Page = JournalPage;
   ldtmPage: Page = LdtmModePage;
@@ -27,5 +26,4 @@ export class DashboardPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
   }
-
 }

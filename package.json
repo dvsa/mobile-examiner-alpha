@@ -11,6 +11,10 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:deploy": "git push ionic master",
+    "format:fix": "pretty-quick --staged",
+    "precommit": "run-s format:fix lint",
+    "format:check":
+      "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand"
@@ -32,11 +36,15 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
-    "tslint-config-airbnb": "^5.7.0",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
+    "husky": "^0.14.3",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
+    "tslint-config-airbnb": "^5.7.0",
     "jest": "^22.4.2",
     "jest-preset-angular": "^5.2.1",
     "typescript": "2.4.2"
