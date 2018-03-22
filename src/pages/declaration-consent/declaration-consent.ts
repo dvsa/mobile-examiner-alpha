@@ -27,7 +27,7 @@ export class DeclarationConsentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  private signaturePadOptions: Object = {
+  signaturePadOptions: Object = {
     minWidth: 5,
     canvasWidth: 500,
     canvasHeight: 300,
