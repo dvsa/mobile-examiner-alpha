@@ -56,6 +56,8 @@ export class App {
   }
 
   setNavState() {
+    const event = new CustomEvent('navExpand');
+    window.dispatchEvent(event);
     this.navOpen = !this.navOpen;
   }
 
