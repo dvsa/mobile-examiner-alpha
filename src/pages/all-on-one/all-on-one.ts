@@ -38,7 +38,7 @@ export class AllOnOnePage {
     if (enabledFaultRecordingType !== null) {
       return faultRecordingType === enabledFaultRecordingType ? false : true;
     }
-    return false;
+    return false; 
   }
 
   hazardButtonClicked(isDangerous: boolean) {
@@ -49,7 +49,6 @@ export class AllOnOnePage {
       this.isSButtonPressed = !this.isSButtonPressed;
       this.hazardRecorderProvider.enableSeriousRecording(()=> this.isSButtonPressed = false)
     }
-
   }
 
 }

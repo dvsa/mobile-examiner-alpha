@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { Component, Input, ElementRef } from '@angular/core';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
 
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
+declare const Hammer: any;
 @Component({
   selector: 'all-on-one-form-sub-element-hold-no-modal',
   templateUrl: 'all-on-one-form-sub-element-hold-no-modal.html'
@@ -19,18 +19,34 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
   faultCounter: number;
   isLastFault: boolean
 
-  constructor(private hazardRecorderProvider: HazardRecorderProvider,
-              private faultStore: FaultStoreProvider) {
+  constructor(
+    private hazardRecorderProvider: HazardRecorderProvider,
+    private faultStore: FaultStoreProvider,
+    public el: ElementRef) {
 
     this.faultStore.lastFault$
-    .subscribe(data => this.isLastFault = (data && data.id === this.section));
+      .subscribe(data => this.isLastFault = (data && data.id === this.section));
 
     this.faultStore.currentfaults$
-    .subscribe(data => {
+      .subscribe(data => {
         this.faultCounter = data[this.section] ? data[this.section].fault : 0;
         this.serious = data[this.section] ? !!data[this.section].serious : false;
         this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
-    });
+      });
+  }
+
+  ngAfterViewInit() {
+    const button = this.el.nativeElement;
+    const mc = new Hammer.Manager(button);
+    mc.add(new Hammer.Press({
+      event: 'press',
+      time: 600
+    }));
+
+    mc.on('press', (e) => {
+      this.addDrivingFault();
+    })
+
   }
 
   addDrivingFault() {
@@ -58,7 +74,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     if (!this.serious) {
       this.faultStore.removeFault(this.section, 'serious');
     }
-   
+
     this.faultStore.addFault(this.section, 'serious');
   }
 
