@@ -50,7 +50,7 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
     'press': { 
-      time: 1000
+      time: 750
     }
   }
 }
