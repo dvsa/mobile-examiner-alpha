@@ -45,6 +45,15 @@ import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 
 import { ReportHeaderV2Component } from '../components/report-header-v2/report-header-v2';
 
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    'press': { 
+      time: 1000
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -100,7 +109,8 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
     FaultsScorecardProvider,
     FaultDataProvider,
     FaultModeProvider,
@@ -112,7 +122,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     Insomnia,
   ]
 })
-export class AppModule { 
+export class AppModule {
   constructor(private config: Config) {
     this.setCustomTransitions();
   }
