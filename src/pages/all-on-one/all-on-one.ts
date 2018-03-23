@@ -33,13 +33,21 @@ export class AllOnOnePage {
     this.faultStore.reset();
   }
 
+  isDisabled(faultRecordingType: string): boolean {
+    const enabledFaultRecordingType = this.hazardRecorderProvider.getEnabled();
+    if (enabledFaultRecordingType !== null) {
+      return faultRecordingType === enabledFaultRecordingType ? false : true;
+    }
+    return false;
+  }
+
   hazardButtonClicked(isDangerous: boolean) {
     if(isDangerous) {
       this.isDButtonPressed = !this.isDButtonPressed;
-      this.hazardRecorderProvider.enableDangerousRecording(()=> {this.isDButtonPressed = false;})
+      this.hazardRecorderProvider.enableDangerousRecording(()=> this.isDButtonPressed = false)
     } else {
       this.isSButtonPressed = !this.isSButtonPressed;
-      this.hazardRecorderProvider.enableSeriousRecording(()=> {this.isSButtonPressed = false;})
+      this.hazardRecorderProvider.enableSeriousRecording(()=> this.isSButtonPressed = false)
     }
 
   }

@@ -3,7 +3,7 @@
   <span class="report-header-text scorecard-item">D/F: {{faultMarks$ | async}}</span>
   <span class="report-header-text scorecard-item">S: {{seriousMarks$ | async}}</span>
   <span class="report-header-text scorecard-item">D: {{dangerousMarks$ | async}}</span>
-  <button class="report-header-text scorecard-item remove-fault-button" [ngClass]="{ 'active': isRemoveButtonPressed }">
+  <button [disabled]="isRemoveDisabled" class="report-header-text scorecard-item remove-fault-button" [ngClass]="{ 'active': isRemoveButtonPressed }">
     <ion-icon (click)="enableRemovingFaults()" name="undo"></ion-icon>
   </button>
 </span>
