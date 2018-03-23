@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
 
 /**
  * Generated class for the AllOnOnePage page.
@@ -25,7 +26,8 @@ export class AllOnOnePage {
     public navParams: NavParams,
     private faultsService: FaultsScorecardProvider,
     private hazardRecorderProvider: HazardRecorderProvider,
-    private faultStore: FaultStoreProvider) {
+    private faultStore: FaultStoreProvider,
+    private hammerConfigService: CustomHammerConfigProvider) {
   }
 
   ionViewDidEnter() {
