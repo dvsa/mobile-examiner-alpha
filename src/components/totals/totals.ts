@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { select } from '@angular-redux/store';
-import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
 
 /**
  * Generated class for the TotalsComponent component.
@@ -19,11 +19,14 @@ export class TotalsComponent {
   @select(['totals', 'dangerous']) readonly dangerousMarks$: Observable<number>;
   @select(['totals', 'serious']) readonly seriousMarks$: Observable<number>;
 
-  constructor(private faultStore: FaultStoreProvider) {
+  isRemoveButtonPressed = false;
+
+  constructor(private hazardProvider: HazardRecorderProvider) {
   }
 
-  undoMark() {
-    this.faultStore.undoFault();
+  enableRemovingFaults() {
+    this.isRemoveButtonPressed = !this.isRemoveButtonPressed;
+    this.hazardProvider.enableRemovingFaults(() => this.isRemoveButtonPressed = false);
   }
 
 }

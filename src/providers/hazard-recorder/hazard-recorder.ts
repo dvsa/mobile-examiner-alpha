@@ -11,6 +11,7 @@ export class HazardRecorderProvider {
 
   isSeriousRecordingEnabled = false
   isDangerousRecordingEnabled = false
+  isRemovingFaultsEnabled = false
 
   constructor() {
   }
@@ -25,6 +26,11 @@ export class HazardRecorderProvider {
   enableDangerousRecording(completionClosure:()=>void) {
     this.isDangerousRecordingEnabled = true;
     this.completionClosure = completionClosure
+  }
+
+  enableRemovingFaults(callback) {
+    this.isRemovingFaultsEnabled = true;
+    this.completionClosure = callback
   }
 
   disableRecording() {

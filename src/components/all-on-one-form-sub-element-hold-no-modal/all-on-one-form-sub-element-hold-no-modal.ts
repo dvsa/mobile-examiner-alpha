@@ -47,6 +47,9 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     } else if (this.hazardRecorderProvider.isSeriousRecordingEnabled) {
       this.updateSerious();
       this.hazardRecorderProvider.disableRecording();
+    } else if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
+      this.faultStore.removeFault(this.section, 'fault');
+      this.hazardRecorderProvider.disableRecording();
     }
   }
 
