@@ -46,6 +46,7 @@ import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 import { ReportHeaderV2Component } from '../components/report-header-v2/report-header-v2';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
 
 class CustomHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -118,6 +119,7 @@ class CustomHammerConfig extends HammerGestureConfig {
     DevToolsExtension,
     FaultStoreProvider,
     HazardRecorderProvider,
+    CustomHammerConfigProvider,
     ScreenOrientation,
     Insomnia,
   ]
