@@ -16,4 +16,11 @@ totals {
         line-height: 15px !important;
         font-size: 13px;
     }
+
+    .remove-fault-button {
+        &.active {
+            background-color: map-get($colors, dark);
+            color: map-get($colors, light); 
+        }
+    }
 }

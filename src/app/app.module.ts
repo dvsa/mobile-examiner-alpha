@@ -45,6 +45,8 @@ import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 
 import { ReportHeaderV2Component } from '../components/report-header-v2/report-header-v2';
 
+import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
+import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     ReportHeaderV2Component,
     AllOnOnePage,
     AllOnOnePage3,
+    AoopCustomHammerConfigPage,
     TimerComponent,
     AllOnOneFormElementComponent,
     AllOnOneFormSubElementHoldComponent,
@@ -92,6 +95,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     AllOnOnePage,
     AllOnOnePage3,
     PressedFaultModalComponentAOOP,
+    AoopCustomHammerConfigPage,
     AllOnOneFormFaultModesSubElementComponent,
     AllOnOnePageFaultModalsTimerOptionsPage,
     ButtonModalComponent,
@@ -100,7 +104,7 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     FaultsScorecardProvider,
     FaultDataProvider,
     FaultModeProvider,
@@ -108,11 +112,12 @@ import { ReportHeaderV2Component } from '../components/report-header-v2/report-h
     DevToolsExtension,
     FaultStoreProvider,
     HazardRecorderProvider,
+    CustomHammerConfigProvider,
     ScreenOrientation,
     Insomnia,
   ]
 })
-export class AppModule { 
+export class AppModule {
   constructor(private config: Config) {
     this.setCustomTransitions();
   }

@@ -22,7 +22,8 @@ export interface IFaultElementState {
 
 export interface IFaultPayload {
     id: string,
-    faultType: string
+    faultType: string,
+    faultCounter?: number
 };
 
 export interface ILastFaultPayload {

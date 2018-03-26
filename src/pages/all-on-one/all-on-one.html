@@ -13,8 +13,8 @@
       <ion-col col-4>
         <div class="form-section bottom-border sd-buttons-wrapper">
           <p>&nbsp;</p>
-          <button class="s-button" [disabled]="isDButtonPressed" [ngClass]="{'active': isSButtonPressed}" (click)="hazardButtonClicked(false)">S</button>
-          <button class="d-button" [disabled]="isSButtonPressed" [ngClass]="{'active': isDButtonPressed}" (click)="hazardButtonClicked(true)">D</button>
+          <button class="s-button" [disabled]="isDisabled('serious')" [ngClass]="{'active': isSButtonPressed}" (click)="hazardButtonClicked(false)">S</button>
+          <button class="d-button" [disabled]="isDisabled('dangerous')" [ngClass]="{'active': isDButtonPressed}" (click)="hazardButtonClicked(true)">D</button>
         </div>
 
         <div class="form-section bottom-border">

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { combineReducers } from 'redux';
 
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import { IState, ILastFaultState, IFaultElementState } from './fault-store.model'
 import { totalsReducer as totals } from './totals.reducer';
 import { faultReducer as faults } from './fault.reducer';
@@ -54,8 +54,8 @@ export class FaultStoreProvider {
       this.faultActions.addFault(id, faultType);
     }
 
-    removeFault(id, faultType) {
-      this.faultActions.removeFault(id, faultType);
+    removeFault(id, faultType, faultCounter?) {
+      this.faultActions.removeFault(id, faultType, faultCounter);
     }
 
     undoFault() {

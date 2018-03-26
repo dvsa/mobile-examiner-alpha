@@ -2,6 +2,8 @@ import { HazardRecorderProvider } from './../../providers/hazard-recorder/hazard
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
 
 /**
  * Generated class for the AllOnOnePage page.
@@ -23,22 +25,32 @@ export class AllOnOnePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private faultsService: FaultsScorecardProvider,
-    private hazardRecorderProvider: HazardRecorderProvider) {
+    private hazardRecorderProvider: HazardRecorderProvider,
+    private faultStore: FaultStoreProvider,
+    private hammerConfigService: CustomHammerConfigProvider) {
   }
 
   ionViewDidEnter() {
     this.faultsService.reset();
+    this.faultStore.reset();
+  }
+
+  isDisabled(faultRecordingType: string): boolean {
+    const enabledFaultRecordingType = this.hazardRecorderProvider.getEnabled();
+    if (enabledFaultRecordingType !== null) {
+      return faultRecordingType === enabledFaultRecordingType ? false : true;
+    }
+    return false; 
   }
 
   hazardButtonClicked(isDangerous: boolean) {
     if(isDangerous) {
       this.isDButtonPressed = !this.isDButtonPressed;
-      this.hazardRecorderProvider.enableDangerousRecording(()=> {this.isDButtonPressed = false;})
+      this.hazardRecorderProvider.enableDangerousRecording(()=> this.isDButtonPressed = false)
     } else {
       this.isSButtonPressed = !this.isSButtonPressed;
-      this.hazardRecorderProvider.enableSeriousRecording(()=> {this.isSButtonPressed = false;})
+      this.hazardRecorderProvider.enableSeriousRecording(()=> this.isSButtonPressed = false)
     }
-
   }
 
 }

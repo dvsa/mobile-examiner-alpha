@@ -50,8 +50,7 @@ const deleteFault = (state, action) => {
     let { id, faultType } = faultDeleteAction.payload;
     const currFaults = state[id] || {};
     const lastFault = { id, faultType, action: 'DELETE' };
-
-    if(currFaults[faultType] > 1) {
+    if(currFaults[faultType] > 0) {
         newFaultState = { [faultType]: --currFaults[faultType] };
     } else {
         ({ faultType, ...newFaultState } = currFaults);
