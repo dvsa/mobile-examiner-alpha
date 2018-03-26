@@ -40,13 +40,17 @@ const addFault = (state, action) => {
 
 const deleteFault = (state, action) => {
     const faultDeleteAction = action as FaultDeleteAction;
-    const { faultType } = faultDeleteAction.payload;
-    let currValue = state[faultType] || 0;
+    const { faultType, faultCounter } = faultDeleteAction.payload;
 
-    return {
-        ...state,
-        [faultType]: --currValue,
-    };
+    let currValue = state[faultType] || 0;
+    if (faultCounter > 0) {
+        return {
+            ...state,
+            [faultType]: --currValue,
+        };
+    } else {
+        return state;
+    }
 }
 
 const undoFault = (state, action) => {

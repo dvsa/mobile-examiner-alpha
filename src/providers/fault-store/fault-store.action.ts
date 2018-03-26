@@ -37,10 +37,10 @@ export class FaultStoreActions {
     })
 
     @dispatch()
-    removeFault = ( id: string, faultType: string ): FaultDeleteAction => ({
+    removeFault = ( id: string, faultType: string, faultCounter?: number ): FaultDeleteAction => ({
         type: FaultStoreActions.DELETE_FAULTS,
         meta: null,
-        payload: { id, faultType }
+        payload: { id, faultType, faultCounter }
     })
 
     @dispatch()

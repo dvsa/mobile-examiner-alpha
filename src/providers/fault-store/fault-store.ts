@@ -54,8 +54,8 @@ export class FaultStoreProvider {
       this.faultActions.addFault(id, faultType);
     }
 
-    removeFault(id, faultType) {
-      this.faultActions.removeFault(id, faultType);
+    removeFault(id, faultType, faultCounter?) {
+      this.faultActions.removeFault(id, faultType, faultCounter);
     }
 
     undoFault() {

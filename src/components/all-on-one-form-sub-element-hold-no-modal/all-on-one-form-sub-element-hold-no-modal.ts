@@ -90,7 +90,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       this.updateSerious();
       this.hazardRecorderProvider.disableRecording();
     } else if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
-      this.faultStore.removeFault(this.section, 'fault');
+      this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
       this.hazardRecorderProvider.disableRecording();
     }
   }
