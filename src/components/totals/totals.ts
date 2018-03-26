@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { select } from '@angular-redux/store';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
@@ -23,6 +23,8 @@ export class TotalsComponent {
   @select(['totals', 'fault']) readonly faultMarks$: Observable<number>;
   @select(['totals', 'dangerous']) readonly dangerousMarks$: Observable<number>;
   @select(['totals', 'serious']) readonly seriousMarks$: Observable<number>;
+
+  @Input() options;
 
   isRemoveButtonPressed = false;
 

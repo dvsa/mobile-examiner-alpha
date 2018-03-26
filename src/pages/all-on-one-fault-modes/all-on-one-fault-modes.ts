@@ -21,6 +21,9 @@ export class AllOnOnePageFaultModes {
 
   faultMode: string;
   _faultModeSubscription: Subscription;
+  reportHeaderOptions: any = {
+    undo: false
+  }
 
   constructor(
     public navCtrl: NavController, 
