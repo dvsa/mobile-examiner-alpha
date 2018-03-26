@@ -35,13 +35,14 @@ export class AllOnOneFormFaultModesSubElementComponent {
   }
 
   isDisabled() {
-    return this.faultMode === 'view-only';
+    return this.faultMode === 'view-only' || (this.faultMode === 'remove-mode' && this.faultCounter === 0) ;
   }
 
   addFault(faultMode: string) {
     if (faultMode === 'driving-faults') this.addDrivingFault();
     if (faultMode === 'serious') this.updateSerious();
     if (faultMode === 'dangerous') this.updateDangerous();
+    if (faultMode === 'remove-mode') this.removeFault();
     this.faultModeService.reset();
   }
 
@@ -69,6 +70,12 @@ export class AllOnOneFormFaultModesSubElementComponent {
     } else {
       this.faultStore.removeFault(this.section, 'dangerous')
       this.dangerous = false;
+    }
+  }
+
+  removeFault() {
+    if (this.faultCounter > 0) {
+      this.faultStore.removeFault(this.section, 'fault')
     }
   }
 
