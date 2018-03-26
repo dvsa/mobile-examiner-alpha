@@ -19,7 +19,7 @@
       <ion-badge item-end color="dark">{{durationInSeconds}} seconds</ion-badge>
     </ion-list-header>
     <ion-item>
-      <ion-range min="0" max="10000" step="100" [(ngModel)]="duration" (ngModelChange)="onChange($event)">
+      <ion-range min="0" max="3000" step="50" [(ngModel)]="duration" (ngModelChange)="onChange($event)">
         <ion-icon small range-left name="timer"></ion-icon>
         <ion-icon range-right name="timer"></ion-icon>
       </ion-range>
