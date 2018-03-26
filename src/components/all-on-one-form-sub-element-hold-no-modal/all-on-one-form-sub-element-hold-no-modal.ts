@@ -2,6 +2,10 @@ import { Component, Input, ElementRef } from '@angular/core';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
 
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { AllOnOnePageFaultModalsTimerOptionsPage } from '../../pages/all-on-one-page-fault-modals-timer-options/all-on-one-page-fault-modals-timer-options';
+import { ModalController } from 'ionic-angular';
+import { AoopCustomHammerConfigPage } from '../../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
+import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
 
 declare const Hammer: any;
 @Component({
@@ -19,34 +23,56 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
   faultCounter: number;
   isLastFault: boolean
 
+  mc: any;
+
   constructor(
     private hazardRecorderProvider: HazardRecorderProvider,
     private faultStore: FaultStoreProvider,
+    public modalCtrl: ModalController,
+    public customHammerConfig: CustomHammerConfigProvider,
     public el: ElementRef) {
 
-    this.faultStore.lastFault$
+    faultStore.lastFault$
       .subscribe(data => this.isLastFault = (data && data.id === this.section));
 
-    this.faultStore.currentfaults$
+    faultStore.currentfaults$
       .subscribe(data => {
         this.faultCounter = data[this.section] ? data[this.section].fault : 0;
         this.serious = data[this.section] ? !!data[this.section].serious : false;
         this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
       });
+
+    customHammerConfig.change.subscribe(newDuration => {
+      this.resetHammer(newDuration);
+    });
   }
 
   ngAfterViewInit() {
     const button = this.el.nativeElement;
-    const mc = new Hammer.Manager(button);
-    mc.add(new Hammer.Press({
+    this.mc = new Hammer.Manager(button);
+    const hammerPress = new Hammer.Press({
       event: 'press',
-      time: 600
-    }));
-
-    mc.on('press', (e) => {
+      time: this.customHammerConfig.pressDuration
+    });
+    this.mc.add(hammerPress);
+    
+    this.mc.on('press', (e) => {
       this.addDrivingFault();
-    })
+    });
+  }
 
+  resetHammer(newDuration: number) {
+    this.mc.remove('press');
+    const hammerPress = new Hammer.Press({
+      event: 'press',
+      time: newDuration
+    });
+    this.mc.add(hammerPress);
+  }
+
+  openCustomerHammgerConfig() {
+    const modal = this.modalCtrl.create(AoopCustomHammerConfigPage);
+    modal.present();
   }
 
   addDrivingFault() {
