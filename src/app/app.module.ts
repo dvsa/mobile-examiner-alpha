@@ -45,17 +45,8 @@ import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 
 import { ReportHeaderV2Component } from '../components/report-header-v2/report-header-v2';
 
-import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
 import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
-
-class CustomHammerConfig extends HammerGestureConfig {
-  overrides = {
-    'press': { 
-      time: 600
-    }
-  }
-}
 
 @NgModule({
   declarations: [
@@ -114,7 +105,6 @@ class CustomHammerConfig extends HammerGestureConfig {
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
     FaultsScorecardProvider,
     FaultDataProvider,
     FaultModeProvider,
