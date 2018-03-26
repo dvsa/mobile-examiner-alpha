@@ -1,4 +1,4 @@
-<ion-row align-items-center no-padding (swipe)="openCustomerHammgerConfig()">
+<ion-row align-items-center no-padding (pinch)="openCustomerHammgerConfig()">
   <ion-col no-padding>
     <button class="all-on-one-form-fault-button" (click)="recordHazard(section)" [ngClass]="{'highlight' : isLastFault}">
       <span *ngIf="faultCounter" class="fault-badge">{{faultCounter}}</span> {{ text }}
