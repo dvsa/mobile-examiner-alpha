@@ -20,12 +20,14 @@ import { ManageDeviceDebriefStoragePage } from '../pages/manage-device-debrief-s
 import { PolicyDataPage } from '../pages/policy-data/policy-data';
 import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
 import { RecordDebriefPage } from '../pages/record-debrief/record-debrief';
+import { SignaturePadModule } from 'angular2-signaturepad';
 import { StopTestPage } from '../pages/stop-test/stop-test';
 import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
 import { ComponentsModule } from '../components/components.module';
+import { AppConfigProvider } from '../providers/app-config/app-config';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { ComponentsModule } from '../components/components.module';
     TrainerModePage,
     WeatherPhysicalDescriptionPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(App), ComponentsModule],
+  imports: [BrowserModule, IonicModule.forRoot(App), ComponentsModule, SignaturePadModule],
   bootstrap: [IonicApp],
   entryComponents: [
     App,
@@ -74,6 +76,7 @@ import { ComponentsModule } from '../components/components.module';
     TrainerModePage,
     WeatherPhysicalDescriptionPage
   ],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AppConfigProvider]
 })
 export class AppModule {}
