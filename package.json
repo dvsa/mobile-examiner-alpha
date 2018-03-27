@@ -17,7 +17,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
-    "test:e2e": "protractor e2e.conf.js"
+    "test:e2e": "protractor e2e-simulator.conf.js"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
