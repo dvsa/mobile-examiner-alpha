@@ -40,10 +40,10 @@ const addFault = (state, action) => {
 
 const deleteFault = (state, action) => {
     const faultDeleteAction = action as FaultDeleteAction;
-    const { faultType, faultCounter } = faultDeleteAction.payload;
+    const { faultType } = faultDeleteAction.payload;
 
     let currValue = state[faultType] || 0;
-    if (faultCounter > 0) {
+    if (currValue > 0) {
         return {
             ...state,
             [faultType]: --currValue,

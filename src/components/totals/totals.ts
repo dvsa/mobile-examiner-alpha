@@ -18,7 +18,9 @@ export class TotalsComponent {
 
   isRemoveDisabled: boolean = false;
   subscription: Subscription;
-  numFaults: number;
+  numFaults: number = 0;
+  numDangerous: number = 0;
+  numSerious: number = 0;
 
   @select(['totals', 'fault']) readonly faultMarks$: Observable<number>;
   @select(['totals', 'dangerous']) readonly dangerousMarks$: Observable<number>;
@@ -29,17 +31,30 @@ export class TotalsComponent {
   isRemoveButtonPressed = false;
 
   constructor(private hazardProvider: HazardRecorderProvider) {
-    this.subscription = hazardProvider.change.subscribe(hazardProviderClass => {
-      this.toggleRemoveButtonState(hazardProviderClass);
-    });
     this.faultMarks$.subscribe(numFaults => {
       this.numFaults = numFaults;
-      if (this.numFaults < 1) {
-        this.isRemoveDisabled = true;
-      } else {
-        this.isRemoveDisabled = false;
-      }
+      this.toggleRemoveDisabledButton()
     });
+
+    this.dangerousMarks$.subscribe(numDangerousMarks => {
+      this.numDangerous = numDangerousMarks;
+      this.toggleRemoveDisabledButton()
+    })
+
+    this.seriousMarks$.subscribe(numSerious => {
+      this.numSerious = numSerious
+      this.toggleRemoveDisabledButton()
+    })
+
+    this.toggleRemoveDisabledButton()
+  }
+
+  toggleRemoveDisabledButton() {
+    if (this.numDangerous > 0 || this.numFaults > 0 || this.numSerious > 0) {
+      this.isRemoveDisabled = false;
+    } else {
+      this.isRemoveDisabled = true;
+    }
   }
 
   toggleRemoveButtonState(hazardProviderClass: HazardRecorderProvider) {
