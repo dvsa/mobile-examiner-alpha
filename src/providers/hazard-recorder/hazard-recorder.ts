@@ -77,4 +77,15 @@ export class HazardRecorderProvider {
     this.isDangerousRecordingEnabled = false;
   }
 
+  isRecordingEnabled(): boolean {
+    return this.isSeriousRecordingEnabled || this.isDangerousRecordingEnabled;
+  }
+
+  isRecordingOrRemoving(): boolean {
+    return this.isRecordingEnabled() || 
+    this.isSeriousRemovingEnabled || 
+    this.isDangerousRemovingEnabled ||
+    this.isRemovingFaultsEnabled
+  }
+
 }

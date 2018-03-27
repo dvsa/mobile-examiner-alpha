@@ -77,25 +77,26 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
 
   addDrivingFault() {
     // prevent fault marking
-    if (this.dangerous || this.serious) return;
+    if (this.hazardRecorderProvider.isRecordingOrRemoving() || this.dangerous || this.serious) return;
 
     this.faultStore.addFault(this.section, 'fault');
   }
 
   recordHazard() {
-    if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
-      this.addDangerousFault();
-    } else if (this.hazardRecorderProvider.isSeriousRecordingEnabled) {
-      this.addSeriousFault();
-    } else if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
-      if (this.hazardRecorderProvider.isDangerousRemovingEnabled) {
+    // in case DE first tap on S or D button and then on remove DF
+    if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
+      if (this.hazardRecorderProvider.isDangerousRemovingEnabled || this.hazardRecorderProvider.isDangerousRecordingEnabled) {
         this.removeDangerousFault()
-      } else if (this.hazardRecorderProvider.isSeriousRemovingEnabled) {
+      } else if (this.hazardRecorderProvider.isSeriousRemovingEnabled || this.hazardRecorderProvider.isSeriousRecordingEnabled) {
         this.removeSeriousFault()
       } else {
         this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
       }
-    }
+    } else if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
+      this.addDangerousFault();
+    } else if (this.hazardRecorderProvider.isSeriousRecordingEnabled) {
+      this.addSeriousFault();
+    } 
 
     this.hazardRecorderProvider.disableRecording();    
   }
