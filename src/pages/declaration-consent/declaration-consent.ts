@@ -1,5 +1,7 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { PretestChecksPage } from '../pretest-checks/pretest-checks';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
@@ -22,26 +24,25 @@ export class DeclarationConsentPage {
   pretestChecksPage: Page = PretestChecksPage;
   policyDataPage: Page = PolicyDataPage;
   endTestReasonPage: Page = EndTestReasonPage;
+  signaturePadOptions: any;
+  navAnimationDelay: number;
   signature;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  signaturePadOptions: Object = {
-    minWidth: 5,
-    canvasWidth: 500,
-    canvasHeight: 300,
-    throttle: 0,
-    backgroundColor: '#ffffff'
-  };
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public configService: AppConfigProvider) {
+    this.signaturePadOptions = configService.getSignaturePadOptions();
+    this.navAnimationDelay = configService.getNavAnimationDelay();
+  }
 
   @HostListener('window:navExpand')
   onNavExpand(event) {
     setTimeout(() => {
       this.signaturePad.resizeCanvas();
       this.signaturePad.fromData(this.signature);
-    }, 700);
-    console.log('resize');
+    }, this.navAnimationDelay);
   }
 
   ngAfterViewInit() {
@@ -56,16 +57,13 @@ export class DeclarationConsentPage {
 
   clearSignaturePad() {
     this.signaturePad.clear();
-    console.log('cleared pad');
   }
 
   drawStart() {
     // will be notified of szimek/signature_pad's onBegin event
-    console.log('begin drawing');
   }
 
   ionViewDidLoad() {
     this.signaturePad.resizeCanvas();
-    console.log('ionViewDidLoad DeclarationConsentPage');
   }
 }

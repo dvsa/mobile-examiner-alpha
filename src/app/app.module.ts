@@ -27,6 +27,7 @@ import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
 import { ComponentsModule } from '../components/components.module';
+import { AppConfigProvider } from '../providers/app-config/app-config';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ComponentsModule } from '../components/components.module';
     TrainerModePage,
     WeatherPhysicalDescriptionPage
   ],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AppConfigProvider]
 })
 export class AppModule {}
