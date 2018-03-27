@@ -6,6 +6,10 @@ import { Injectable } from '@angular/core';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+enum GlobalEvents {
+  navAnimation = 'nav:animation'
+}
+
 @Injectable()
 export class AppConfigProvider {
 
@@ -27,6 +31,10 @@ export class AppConfigProvider {
 
   getNavAnimationDelay() {
     return this.navAnimationDelay;
+  }
+
+  getGlobalEvents() {
+    return GlobalEvents;
   }
 
 }
