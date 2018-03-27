@@ -1,19 +1,10 @@
 var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
-var appPath = __dirname + '/platforms/ios/build/emulator/App.app';
-
 exports.config = {
-    seleniumAddress: 'http://localhost:4723/wd/hub',
+    seleniumAddress: 'http://localhost:4444/wd/hub/',
     allScriptsTimeout: 11000,
     capabilities: {
-        platformName: 'iOS',
-        platformVersion: '11.2',
-        deviceName: 'iPad Pro (10.5-inch)',
-        browserName: "",
-        autoWebview: true,
-        //fullReset: true,
-        app: appPath,
-        automationName: "XCUITest"
+        'browserName': 'chrome'
     },
     framework: 'jasmine',
     jasmineNodeOpts: {
@@ -22,7 +13,8 @@ exports.config = {
         print: function () { }
     },
     specs: ['./src/e2e/**/*.e2e-spec.ts'],
-    baseUrl: '',
+    baseUrl: 'http://localhost:8101/',
+
     useAllAngular2AppRoots: true,
     beforeLaunch: function () {
         require('ts-node').register({
@@ -31,5 +23,9 @@ exports.config = {
     },
     onPrepare: function () {
         jasmine.getEnv().addReporter(new SpecReporter());
+
+        browser.getCapabilities().then(function (capabilities) {
+            browser.browserName = capabilities.get('browserName');
+        });
     }
 }
