@@ -22,7 +22,7 @@ export class AllOnOnePage {
   isSButtonPressed = false;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private faultsService: FaultsScorecardProvider,
     private hazardRecorderProvider: HazardRecorderProvider,
@@ -35,21 +35,37 @@ export class AllOnOnePage {
     this.faultStore.reset();
   }
 
-  isDisabled(faultRecordingType: string): boolean {
-    const enabledFaultRecordingType = this.hazardRecorderProvider.getEnabled();
-    if (enabledFaultRecordingType !== null) {
-      return faultRecordingType === enabledFaultRecordingType ? false : true;
+  dButtonClicked() {
+    this.hazardRecorderProvider.resetHazardRecording()
+    if (this.isDButtonPressed) {
+      this.isDButtonPressed = false;
+      return
     }
-    return false; 
+
+    this.isDButtonPressed = true;
+    this.isSButtonPressed = false;
+
+    if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
+      this.hazardRecorderProvider.enableDangerousRemoving(() => this.isDButtonPressed = false)
+    } else {
+      this.hazardRecorderProvider.enableDangerousRecording(() => this.isDButtonPressed = false)
+    }
   }
 
-  hazardButtonClicked(isDangerous: boolean) {
-    if(isDangerous) {
-      this.isDButtonPressed = !this.isDButtonPressed;
-      this.hazardRecorderProvider.enableDangerousRecording(()=> this.isDButtonPressed = false)
+  sButtonClicked() {
+    this.hazardRecorderProvider.resetHazardRecording()
+    if (this.isSButtonPressed) {
+      this.isSButtonPressed = false;
+      return
+    }
+
+    this.isDButtonPressed = false;
+    this.isSButtonPressed = true;
+
+    if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
+      this.hazardRecorderProvider.enableSeriousRemoving(() => this.isSButtonPressed = false)
     } else {
-      this.isSButtonPressed = !this.isSButtonPressed;
-      this.hazardRecorderProvider.enableSeriousRecording(()=> this.isSButtonPressed = false)
+      this.hazardRecorderProvider.enableSeriousRecording(() => this.isSButtonPressed = false)
     }
   }
 

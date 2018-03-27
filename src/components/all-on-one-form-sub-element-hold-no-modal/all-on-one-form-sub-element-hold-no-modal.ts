@@ -84,33 +84,44 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
 
   recordHazard() {
     if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
-      this.updateDangerous();
-      this.hazardRecorderProvider.disableRecording();
+      this.addDangerousFault();
     } else if (this.hazardRecorderProvider.isSeriousRecordingEnabled) {
-      this.updateSerious();
-      this.hazardRecorderProvider.disableRecording();
+      this.addSeriousFault();
     } else if (this.hazardRecorderProvider.isRemovingFaultsEnabled) {
-      this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
-      this.hazardRecorderProvider.disableRecording();
+      if (this.hazardRecorderProvider.isDangerousRemovingEnabled) {
+        this.removeDangerousFault()
+      } else if (this.hazardRecorderProvider.isSeriousRemovingEnabled) {
+        this.removeSeriousFault()
+      } else {
+        this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
+      }
     }
+
+    this.hazardRecorderProvider.disableRecording();    
   }
 
-  updateSerious() {
-    this.serious = !this.serious;
-    if (!this.serious) {
-      this.faultStore.removeFault(this.section, 'serious');
-    }
-
+  addSeriousFault() {
+    if (this.serious || this.dangerous) return
+    this.serious = true
     this.faultStore.addFault(this.section, 'serious');
   }
 
-  updateDangerous() {
-    this.dangerous = !this.dangerous;
-    if (!this.dangerous) {
-      this.faultStore.removeFault(this.section, 'dangerous')
-    }
+  removeSeriousFault() {
+    if (!this.serious) return
+    this.serious = false
+    this.faultStore.removeFault(this.section, 'serious');
+  }
 
-    this.faultStore.addFault(this.section, 'dangerous');
+  addDangerousFault() {
+    if (this.dangerous) return
+    this.dangerous = true;
+    this.faultStore.addFault(this.section, 'dangerous');    
+  }
+
+  removeDangerousFault() {
+    if (!this.dangerous) return    
+    this.dangerous = false;
+    this.faultStore.removeFault(this.section, 'dangerous')    
   }
 
 }
