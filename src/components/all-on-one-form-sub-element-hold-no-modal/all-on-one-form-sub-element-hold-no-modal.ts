@@ -89,7 +89,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
         this.removeDangerousFault()
       } else if (this.hazardRecorderProvider.isSeriousRemovingEnabled || this.hazardRecorderProvider.isSeriousRecordingEnabled) {
         this.removeSeriousFault()
-      } else {
+      } else if (this.faultCounter > 0) {
         this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
       }
     } else if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
