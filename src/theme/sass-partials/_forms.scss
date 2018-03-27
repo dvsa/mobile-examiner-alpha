@@ -17,7 +17,7 @@ input[type='checkbox'] {
   button#continue {
     float: right;
   }
-  background-color: #fafafa;
+  background-color: map-get($colors, mesBoxGrey);
   position: relative;
   padding: 40px;
   span {
