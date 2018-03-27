@@ -6,18 +6,11 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-candidate-info',
-  templateUrl: 'candidate-info.html',
+  templateUrl: 'candidate-info.html'
 })
 export class CandidateInfoPage {
-
   declarationConsentPage: Page = DeclarationConsentPage;
   policyDataPage: Page = PolicyDataPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CandidateInfoPage');
-  }
-
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 }

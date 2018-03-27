@@ -6,13 +6,9 @@ import { Injectable } from '@angular/core';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-enum GlobalEvents {
-  navAnimation = 'nav:animation'
-}
 
 @Injectable()
 export class AppConfigProvider {
-
   signaturePadOptions: any = {
     minWidth: 5,
     canvasWidth: 500,
@@ -20,21 +16,10 @@ export class AppConfigProvider {
     throttle: 0,
     backgroundColor: '#ffffff'
   };
-  navAnimationDelay: number = 700;
 
-  constructor() {
-  }
+  constructor() {}
 
   getSignaturePadOptions() {
     return this.signaturePadOptions;
   }
-
-  getNavAnimationDelay() {
-    return this.navAnimationDelay;
-  }
-
-  getGlobalEvents() {
-    return GlobalEvents;
-  }
-
 }

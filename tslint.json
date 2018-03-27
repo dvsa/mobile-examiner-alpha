@@ -4,8 +4,9 @@
     "no-duplicate-variable": true,
     "no-unused-variable": [true],
     "trailing-comma": false,
-    "align": [true, "parameters"]    
+    "ter-arrow-parens": [true, "as-needed"],
+    "align": [true, "parameters"]
   },
   "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"],
-  "extends": "tslint-config-airbnb"
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"]
 }

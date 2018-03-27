@@ -1,5 +1,5 @@
-import { Component, ViewChild, HostListener } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PolicyDataPage } from '../policy-data/policy-data';
@@ -25,27 +25,15 @@ export class DeclarationConsentPage {
   policyDataPage: Page = PolicyDataPage;
   endTestReasonPage: Page = EndTestReasonPage;
   signaturePadOptions: any;
-  navAnimationDelay: number;
-  globalNavAnimationEventKey: string;
   signature: any;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public configService: AppConfigProvider,
-    public events: Events) {
+    public configService: AppConfigProvider
+  ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
-    this.navAnimationDelay = configService.getNavAnimationDelay();
-    this.globalNavAnimationEventKey = configService.getGlobalEvents().navAnimation;
-    events.subscribe(this.globalNavAnimationEventKey, () => this.onNavExpand());
-  }
-
-  onNavExpand() {
-    setTimeout(() => {
-      this.signaturePad.resizeCanvas();
-      this.signaturePad.fromData(this.signature);
-    }, this.navAnimationDelay);
   }
 
   ngAfterViewInit() {

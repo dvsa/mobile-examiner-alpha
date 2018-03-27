@@ -5,19 +5,61 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>journal</ion-title>
-  </ion-navbar>
-
+  <page-header></page-header>
 </ion-header>
 
-
-<ion-content padding>
+<ion-content padding class="mes-main-content">
+  <ion-card class="mes-card">
+    <ion-card-header class="mes-main-card-header mes-breadcrumbs">
+      <span class="mes-header-md">Your Journal</span>
+      <span float-right>
+        <ion-icon padding-right name="refresh"></ion-icon>
+        <span class="mes-text-sm">Last synced: 8:06</span>
+      </span>
+    </ion-card-header>
+    <journal-header></journal-header>
+    <ion-list>
+      <ion-item class="slot" *ngFor="let s of journalSlots" [ngClass]="{'slot__fail': hasFailed(s), 'slot__pass': hasPassed(s), 'slot__check': requiresCheck(s)}">
+        <ion-row>
+          <ion-col col-2>
+            <div class="slot__time">{{s.startTime}}</div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="slot__candidate">
+              <span>{{s.candidateName.firstName}} {{s.candidateName.lastName}}</span>
+              <span>App ref: {{s.appId}}</span>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="s.details" col-4>
+            <div class="slot__details">
+              <span>
+                Route {{s.details.route}}
+              </span>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="s.details" col-2>
+            <div class="slot__details">
+              <span>
+                S-{{s.details.showMe}} | T-{{s.details.tellMe}}
+              </span>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="!s.details" col-4>
+            <div class="slot__testCentre">
+              <ion-icon name="pin"></ion-icon>
+              {{s.testCentreName}}
+            </div>
+          </ion-col>
+          <ion-col *ngIf="!s.details" col-2>
+            <div>
+              <button ion-button [navPush]="candidateInfoPage" color="secondary">View Test</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </ion-card>
   <div>
-    <button ion-button [navPush]="candidateInfoPage">Candidate info</button>
-  </div>
-  <div>
-    <button ion-button color="dark" outline small [navPush]="initiateSwapPage">Initiate swap</button>
+    <button ion-button color="primary" outline small [navPush]="initiateSwapPage">Initiate swap</button>
   </div>
 </ion-content>

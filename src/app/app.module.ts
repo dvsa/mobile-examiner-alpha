@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { App } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -27,6 +28,8 @@ import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
 import { ComponentsModule } from '../components/components.module';
+import { JournalProvider } from '../providers/journal/journal';
+import { DateTimeUtility } from '../shared/utils/datetime';
 import { AppConfigProvider } from '../providers/app-config/app-config';
 
 @NgModule({
@@ -52,7 +55,13 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     TrainerModePage,
     WeatherPhysicalDescriptionPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(App), ComponentsModule, SignaturePadModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(App),
+    ComponentsModule,
+    HttpClientModule,
+    SignaturePadModule
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     App,
@@ -76,7 +85,13 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     TrainerModePage,
     WeatherPhysicalDescriptionPage
   ],
-  providers: [StatusBar, SplashScreen, { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AppConfigProvider]
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AppConfigProvider,
+    JournalProvider,
+    DateTimeUtility
+  ]
 })
 export class AppModule {}
