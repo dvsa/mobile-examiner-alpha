@@ -88,5 +88,5 @@
         <variable name="CHANNEL_NAME" value="Production" />
         <variable name="UPDATE_METHOD" value="background" />
     </plugin>
-    <engine name="ios" spec="^4.5.4" />
+    <engine name="ios" spec="4.5.4" />
 </widget>
