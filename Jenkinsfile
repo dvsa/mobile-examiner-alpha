@@ -32,21 +32,23 @@ node (Globals.NONPROD_BUILDER_TAG) {
       CommonFunctions.log("info", "STAGE: Tests")
     }
     stage("build") {
-      CommonFunctions.log("info", "STAGE: Build")
-      // install ionic
-      MobileFunctions.ionic_cli_install(nodejs_installation)
-      // get current commit hash of the ios_app branch
-      String commit_hash = GitFunctions.git_get_commit_hash(Globals.MOBILE_NAME)
-      // build
-      dir(Globals.MOBILE_NAME) {
-        MobileFunctions.ionic_pro_push(nodejs_installation, Globals.MOBILE_DEPLOYER_KEY, branch_name, commit_hash, ionic_app_id)
-      }
-      CommonFunctions.log("info", "It takes a couple of minutes to build and publish the app to the IonicPro service.")
-    }
+      if(branch_name == "develop" || branch_name == "origin/develop"){
+          CommonFunctions.log("info", "STAGE: Build")
+          // install ionic
+          MobileFunctions.ionic_cli_install(nodejs_installation)
+          // get current commit hash of the ios_app branch
+          String commit_hash = GitFunctions.git_get_commit_hash(Globals.MOBILE_NAME)
+          // build
+          dir(Globals.MOBILE_NAME) {
+            MobileFunctions.ionic_pro_push(nodejs_installation, Globals.MOBILE_DEPLOYER_KEY, branch_name, commit_hash, ionic_app_id)
+          }
+          CommonFunctions.log("info", "It takes a couple of minutes to build and publish the app to the IonicPro service.")
+        }
 
-    // IONIC APP info for Ionic View
-    CommonFunctions.shout(ionic_app_id, "35m", Globals.MOBILE_NAME.toUpperCase()+" ID", 26)
-  }}} //ansiColor //BuildUser //timestamps
+
+        // IONIC APP info for Ionic View
+        CommonFunctions.shout(ionic_app_id, "35m", Globals.MOBILE_NAME.toUpperCase()+" ID", 26)
+  }}}} //ansiColor //BuildUser //timestamps
   // clear workspace
   deleteDir()
 }
