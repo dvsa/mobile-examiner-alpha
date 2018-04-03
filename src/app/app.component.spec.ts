@@ -47,7 +47,7 @@ describe('App', () => {
 
   it('should call the styleDefault method on statusBar', () => {
     expect(platformStub.ready).toBeCalled();
-    // expect(statusBarStub.styleDefault).toBeCalled();
+    expect(statusBarStub.overlaysWebView).toBeCalledWith(false);
   });
 
   it('should call the hide method on splashScreen', () => {

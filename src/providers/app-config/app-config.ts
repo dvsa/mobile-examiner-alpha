@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the AppConfigProvider provider.
+declare var process: any;
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+enum EnvVarKeys {
+  JOURNAL_API_URL = 'JOURNAL_API_URL'
+}
 
 @Injectable()
 export class AppConfigProvider {
+
+  // Environment variables
+  public journalApiUrl: string;
+
+  // Client variables
   signaturePadOptions: any = {
     minWidth: 5,
     canvasWidth: 500,
@@ -17,9 +21,21 @@ export class AppConfigProvider {
     backgroundColor: '#ffffff'
   };
 
-  constructor() {}
+  constructor() {
+    this.journalApiUrl = this.readString(EnvVarKeys.JOURNAL_API_URL, 'assets/data/journal-data.json');
+  }
+
+  getJournalApiUrl(): string {
+    return this.journalApiUrl;
+  }
 
   getSignaturePadOptions() {
     return this.signaturePadOptions;
   }
+
+  private readString(key: string, defaultValue?: string): string {
+    const v = process.env[key];
+    return typeof v === 'undefined' ? defaultValue : String(v);
+  }
+
 }

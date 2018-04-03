@@ -22,7 +22,7 @@ export class JournalPage {
   ) {}
 
   ionViewDidLoad() {
-    this.journalProvider.getData('email').subscribe(data => {
+    this.journalProvider.getData('test@test.com').subscribe(data => {
       this.journalSlots = data;
     });
   }
