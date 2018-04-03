@@ -3,8 +3,10 @@
     "max-line-length": [true, { "limit": 100, "ignore-pattern": "^import |^export {(.*?)}" }],
     "no-duplicate-variable": true,
     "no-unused-variable": [true],
-    "trailing-comma": false
+    "trailing-comma": false,
+    "ter-arrow-parens": [true, "as-needed"],
+    "align": [true, "parameters"]
   },
   "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"],
-  "extends": "tslint-config-airbnb"
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"]
 }

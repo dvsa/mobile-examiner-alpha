@@ -15,7 +15,8 @@ describe('App', () => {
     ready: jest.fn().mockResolvedValue('ready')
   };
   const statusBarStub = {
-    styleDefault: jest.fn()
+    styleDefault: jest.fn((): void => undefined),
+    overlaysWebView: jest.fn()
   };
   const splashScreenStub = {
     hide: jest.fn()
