@@ -14,7 +14,7 @@ String ionic_app_id         = Globals.MOBILE_APP_ID
 String nodejs_installation  = Globals.MOBILE_NODE_JS
 String mobile_config_branch = "master"
 //----------------------------------------------------
-node (Globals.NONPROD_BUILDER_TAG) {
+node ('dvsa-mes-mgmt') {
   currentBuild.description = "BRANCH: ${branch_name}"
   // clear workspace
   deleteDir()
