@@ -1,4 +1,4 @@
-@Library('MesSharedLibrary@Jenkins')
+@Library('MesSharedLibrary@master')
 import aws.dvsa.mes.Globals
 import aws.dvsa.mes.CommonFunctions
 import aws.dvsa.mes.GitFunctions
