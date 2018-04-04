@@ -26,7 +26,7 @@ node (Globals.NONPROD_BUILDER_TAG) {
   wrap([$class: "BuildUser"]) {
     stage("checkout") {
       CommonFunctions.log("info", "STAGE: Checkout")
-      GitFunctions.git_check_out(Globals.MOBILE_REPO, branch_name, Globals.MOBILE_NAME, Globals.GITHUB_MOBILE_CREDS, shallow: false)
+      GitFunctions.git_check_out(Globals.MOBILE_REPO, branch_name, Globals.MOBILE_NAME, Globals.GITHUB_MOBILE_CREDS, false, false)
     }
     stage("tests") {
       CommonFunctions.log("info", "STAGE: Tests")
