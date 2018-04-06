@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
-import { TestEvaluationPage } from '../test-evaluation/test-evaluation';
 import { Page } from 'ionic-angular/navigation/nav-util';
+import { TestResultPage } from '../test-result/test-result';
 
 @Component({
   selector: 'page-initiate-driving-period',
@@ -11,7 +11,7 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 export class InitiateDrivingPeriodPage {
 
   endTestReasonPage: Page = EndTestReasonPage;
-  testEvaluationPage: Page = TestEvaluationPage;
+  testResultPage: Page = TestResultPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

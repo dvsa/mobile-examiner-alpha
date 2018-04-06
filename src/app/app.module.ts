@@ -20,10 +20,7 @@ import { LdtmModePage } from '../pages/ldtm-mode/ldtm-mode';
 import { ManageDeviceDebriefStoragePage } from '../pages/manage-device-debrief-storage/manage-device-debrief-storage';
 import { PolicyDataPage } from '../pages/policy-data/policy-data';
 import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
-import { RecordDebriefPage } from '../pages/record-debrief/record-debrief';
 import { SignaturePadModule } from 'angular2-signaturepad';
-import { StopTestPage } from '../pages/stop-test/stop-test';
-import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
 import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
@@ -48,9 +45,6 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
-    RecordDebriefPage,
-    StopTestPage,
-    TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
     WeatherPhysicalDescriptionPage
@@ -78,9 +72,6 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
-    RecordDebriefPage,
-    StopTestPage,
-    TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
     WeatherPhysicalDescriptionPage

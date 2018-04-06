@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { RecordDebriefPage } from '../record-debrief/record-debrief';
 import { Page } from 'ionic-angular/navigation/nav-util';
+import { CollectLicenseSignaturePage } from '../collect-license-signature/collect-license-signature';
 
 @Component({
   selector: 'page-test-result',
@@ -9,7 +9,7 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 })
 export class TestResultPage {
 
-  recordDebriefPage: Page = RecordDebriefPage;
+  collectLicenseSignaturePage: Page = CollectLicenseSignaturePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

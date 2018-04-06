@@ -14,6 +14,7 @@ DVSA Mobile Examiner Services (GDS Alpha phase)
 
 ### Get started
 
+* Set up your environment variables - https://wiki.i-env.net/display/MES/Application+environment+variables
 * `npm install`
 * `ionic serve`
 

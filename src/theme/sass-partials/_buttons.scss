@@ -8,6 +8,14 @@
   font-size: 17px;
 }
 
+.mes-bottom-card {
+  margin-top: 0;
+  .mes-button-primary {
+    padding: 30px 80px;
+    margin: 30px 0;
+  }
+}
+
 .mes-button-danger {
   border-radius: 22px;
   min-width: 105px;
