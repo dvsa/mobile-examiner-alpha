@@ -26,3 +26,7 @@ To run the app in the simulator with live code reload, run the following:
 ### Manual Deployments
 
 * `npm run ionic:deploy`
+
+### Cordova plugins in browser
+Some cordova plugis has special code that should handle *browser* platform. Unfortunatly *ionic serve* do not use them. In order to use cordova plugin dedicated for browsers run
+`ionic cordova run browser`
