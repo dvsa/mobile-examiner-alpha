@@ -1,9 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DeclarationConsentPage } from '../declaration-consent/declaration-consent';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { Page } from 'ionic-angular/navigation/nav-util';
-import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PretestChecksPage } from '../pretest-checks/pretest-checks';
 
