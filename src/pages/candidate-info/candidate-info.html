@@ -11,16 +11,16 @@
 
 <ion-content padding class="mes-main-content">
 
-  <ion-card class="mes-card">
-    <ion-card-header class="mes-main-card-header--border-bottom mes-breadcrumbs">
-      <span class="mes-header-md mes-breadcrumb-link" navPop>
-        <ion-icon name="arrow-back"></ion-icon>
-        Your Journal /
-      </span>
-      <span padding-left class="mes-header-md">View Candidate</span>
+    <ion-card class="mes-card">
+        <ion-card-header class="mes-main-card-header--border-bottom mes-breadcrumbs">
+            <span class="mes-header-md mes-breadcrumb-link" navPop>
+                <ion-icon name="arrow-back"></ion-icon>
+                Your Journal /
+            </span>
+            <span padding-left class="mes-header-md">View Candidate</span>
             <span float-right>
-        <ion-icon padding-right name="refresh"></ion-icon>
-        <span class="mes-text-sm">Last synced: 8:06</span>
+                <ion-icon padding-right name="refresh"></ion-icon>
+                <span class="mes-text-sm">Last synced: 8:06</span>
             </span>
         </ion-card-header>
         <ion-card-content>
@@ -42,24 +42,27 @@
                             <span class="mes-header-sm">Address:</span>
                             <div class="mes-divider mes-one-third-divider"></div>
                             <span class="mes-text-sm">
-                18 Bridge St,
-                <br>Horncastle,
-                <br>Linconshire
-                <br>LN9 5JA
-              </span>
+                                18 Bridge St,
+                                <br>Horncastle,
+                                <br>Linconshire
+                                <br>LN9 5JA
+                            </span>
                         </ion-col>
                         <ion-col no-padding>
                             <span class="mes-header-sm">Driving number:</span>
                             <div class="mes-divider mes-one-third-divider"></div>
                             <span class="mes-text-sm">
-                PHIL6767655777BN
-              </span>
+                                PHIL6767655777BN
+                            </span>
                         </ion-col>
                     </ion-row>
                     <div margin-bottom>
                         <span class="mes-text-sm">florencepearson@gmail.com</span>
                     </div>
                     <span class="mes-text-sm">07988674536</span>
+                    <div class="sig" *ngIf="signature">
+                        <ion-img [src]="signature"></ion-img>
+                    </div>
                 </ion-col>
             </ion-row>
             <div text-center class="mes-box-grey">
@@ -71,5 +74,11 @@
             </div>
         </ion-card-content>
     </ion-card>
-    <button-card text="Take candidate forward" [page]="declarationConsentPage"></button-card>
+    <button-card text="Take candidate forward" [page]="declarationConsentPage" *ngIf="!signature"></button-card>
+    <div class="confirm-identity-box" *ngIf="signature">
+        <div class="inner" (click)="confirmIdentity()">
+            <ion-checkbox></ion-checkbox>
+            <h2>Confirm Candidates Identity</h2>
+        </div>
+    </div>
 </ion-content>

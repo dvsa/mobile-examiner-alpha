@@ -6,6 +6,12 @@
 -->
 <ion-header>
   <page-header></page-header>
+  <div class="device-locked">
+    <div class="inner">
+      <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+      <span class="mes-text-sm">Device Locked</span>
+    </div>
+  </div>
 </ion-header>
 <ion-content padding class="mes-main-content">
   <ion-card class="mes-card">
@@ -36,6 +42,14 @@
         <label for="check-residence">I confirm</label>
       </div>
       <div class="mes-divider"></div>
+      <br>
+      <span class="mes-text-md">Debrief audio recording Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae ipsum libero odit totam.
+        Fugiat, tempora cumque nostrum quas facere temporibus.</span>
+      <div>
+        <input type="checkbox" name="debrief" id="check-debrief">
+        <label for="check-insurance">I confirm</label>
+      </div>
+      <div class="mes-divider"></div>
     </ion-card-content>
   </ion-card>
   <ion-card text-center>
@@ -43,7 +57,7 @@
       <span class="mes-text-sm">Sign here:</span>
       <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
       <button (click)="clearSignaturePad()" class="mes-button-danger" id="retry">Retry</button>
-      <button [navPush]="pretestChecksPage" class="mes-button-primary" id="continue">Continue</button>
+      <button (click)="continue()" class="mes-button-primary" id="continue">Continue</button>
       <div class="clearfix"></div>
     </div>
   </ion-card>
