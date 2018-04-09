@@ -8,7 +8,6 @@ enum EnvVarKeys {
 
 @Injectable()
 export class AppConfigProvider {
-
   // Environment variables
   public journalApiUrl: string;
 
@@ -22,7 +21,10 @@ export class AppConfigProvider {
   };
 
   constructor() {
-    this.journalApiUrl = this.readString(EnvVarKeys.JOURNAL_API_URL, 'assets/data/journal-data.json');
+    this.journalApiUrl = this.readString(
+      EnvVarKeys.JOURNAL_API_URL,
+      'assets/data/journalResp.json'
+    );
   }
 
   getJournalApiUrl(): string {
@@ -37,5 +39,4 @@ export class AppConfigProvider {
     const v = process.env[key];
     return typeof v === 'undefined' ? defaultValue : String(v);
   }
-
 }

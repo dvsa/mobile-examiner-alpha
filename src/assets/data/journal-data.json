@@ -15,7 +15,7 @@
           "duration": 57,
           "vehicleSlotType": "B57mins",
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Cardington"
         },
         "booking": {
           "candidate": {
@@ -88,7 +88,7 @@
           "start": "2018-03-05T09:07:00+00:00",
           "duration": 30,
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Cardington"
         },
         "booking": {
           "candidate": {
@@ -135,7 +135,7 @@
           "duration": 90,
           "vehicleSlotType": "Voc90mins",
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Cardington"
         },
         "booking": {
           "candidate": {
@@ -182,7 +182,7 @@
           "duration": 57,
           "vehicleSlotType": "B57mins",
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Cardington"
         },
         "booking": {
           "candidate": {
@@ -318,7 +318,7 @@
           "duration": 57,
           "vehicleSlotType": "B57mins",
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Garrets Green"
         },
         "booking": {
           "candidate": {
@@ -386,7 +386,7 @@
           "duration": 57,
           "vehicleSlotType": "B57mins",
           "_testCentreId": 54321,
-          "testCentreName": "Example Test Centre"
+          "testCentreName": "Garrets Green"
         },
         "booking": {
           "candidate": {
