@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DashboardPage } from '../dashboard/dashboard';
+import { JournalPage } from '../journal/journal';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
@@ -10,7 +10,7 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 export class LoginPage {
 
   title: string = 'Login';
-  dashboardPage: Page = DashboardPage;
+  journalPage: Page = JournalPage;
 
   constructor(public navCtrl: NavController) {
   }
