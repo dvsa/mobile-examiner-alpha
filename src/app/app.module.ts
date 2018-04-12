@@ -29,6 +29,9 @@ import { WeatherSelectorComponent } from '../components/weather-selector/weather
 import { JournalProvider } from '../providers/journal/journal';
 import { DateTimeUtility } from '../shared/utils/datetime';
 import { AppConfigProvider } from '../providers/app-config/app-config';
+import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
+import { SelectButtonComponent } from '../components/select-button/select-button';
+import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     PretestChecksPage,
     TestResultPage,
     TrainerModePage,
+    EyesightFaultRecordingModalPage,
     PostTestSummaryPage
   ],
   imports: [
@@ -75,6 +79,9 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     PretestChecksPage,
     TestResultPage,
     TrainerModePage,
+    TellMeModalComponent,
+    SelectButtonComponent,
+    EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
     WeatherSelectorComponent
   ],

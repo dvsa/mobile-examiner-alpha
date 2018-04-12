@@ -6,6 +6,8 @@ import { TestSummaryComponent } from './test-summary/test-summary';
 import { ButtonCardComponent } from './button-card/button-card';
 import { HeaderComponent } from './header/header';
 import { TestSummarySectionComponent } from './test-summary/test-summary-section/test-summary-section';
+import { TellMeModalComponent } from './tell-me-modal/tell-me-modal';
+import { SelectButtonComponent } from './select-button/select-button';
 import { WeatherSelectorComponent } from './weather-selector/weather-selector';
 
 @NgModule({
@@ -16,6 +18,8 @@ import { WeatherSelectorComponent } from './weather-selector/weather-selector';
     TestSummaryComponent,
     ButtonCardComponent,
     TestSummarySectionComponent,
+    TellMeModalComponent,
+    SelectButtonComponent,
     WeatherSelectorComponent
   ],
   imports: [IonicModule.forRoot(PageHeaderComponent)],
@@ -26,6 +30,8 @@ import { WeatherSelectorComponent } from './weather-selector/weather-selector';
     TestSummaryComponent,
     ButtonCardComponent,
     TestSummarySectionComponent,
+    TellMeModalComponent,
+    SelectButtonComponent,
     WeatherSelectorComponent
   ]
 })

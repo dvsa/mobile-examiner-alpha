@@ -29,7 +29,6 @@ import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
 })
 @Injectable()
 export class ASAM extends IonicNativePlugin {
-
   /**
    * Tries to toggle ASAM.
    * @param flag {boolean} true enables ASAM, false disable ASAM
@@ -39,5 +38,4 @@ export class ASAM extends IonicNativePlugin {
   toggle(flag: boolean): Promise<boolean> {
     return;
   }
-
 }

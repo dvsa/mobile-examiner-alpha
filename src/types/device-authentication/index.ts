@@ -31,7 +31,6 @@ import { Plugin, Cordova, IonicNativePlugin } from '@ionic-native/core';
 })
 @Injectable()
 export class DeviceAuthentication extends IonicNativePlugin {
-
   /**
    * Run device authentication prompt. If FaceId/TouchId is set it shows prompt to use either one of them. If none of them are set it show passcode screen.
    * @param message {string} Message that is show in authentication prompt
@@ -42,5 +41,4 @@ export class DeviceAuthentication extends IonicNativePlugin {
   runAuthentication(message: string): Promise<boolean> {
     return;
   }
-
 }

@@ -2,7 +2,7 @@
   border-radius: 22px;
   min-width: 105px;
   background-color: map-get($colors, mesPrimary);
-  padding: 15px;
+  padding: 15px 40px;
   color: map-get($colors, white);
   font-weight: bold;
   font-size: 17px;
@@ -20,7 +20,7 @@
   border-radius: 22px;
   min-width: 105px;
   background-color: map-get($colors, danger);
-  padding: 15px;
+  padding: 15px 40px;
   color: map-get($colors, white);
   font-weight: bold;
   font-size: 17px;

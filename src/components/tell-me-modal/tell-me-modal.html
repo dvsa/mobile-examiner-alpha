@@ -1,0 +1,33 @@
+<ion-content padding>
+  <span class="mes-header-md">Select tell me question</span>
+  <div class="mes-divider"></div>
+  <ion-row>
+    <ion-col offset-2 col-3 class="mes-header-md center-text">
+      Today
+    </ion-col>
+    <ion-col col-3 class="mes-header-md center-text">
+      Last 7 days
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let question of tellMeQuestions" class="center-text mes-text-md align-items-center mes-bottom-border">
+    <ion-col col-2 class="mes-grey">
+      {{question.id}}
+    </ion-col>
+    <ion-col col-3>
+      {{question.today}}
+    </ion-col>
+    <ion-col col-3>
+      {{question.last7days}}
+    </ion-col>
+    <ion-col col-4>
+      <button ion-button 
+        [ngClass]="selectedTellMeQuestionId===question.id ? 'mes-button-danger' : 'mes-button-primary'" 
+        (click)="select(selectedTellMeQuestionId===question.id ? null : question.id)">
+        {{selectedTellMeQuestionId===question.id ? 'Unselect' : 'Select'}}
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <button ion-button class="mes-button-danger margin-top" (click)="dismiss()">Cancel</button>
+</ion-content>
