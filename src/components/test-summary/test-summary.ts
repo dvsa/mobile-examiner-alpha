@@ -6,13 +6,12 @@ import { IFaultSummary, FaultTitle } from './interfaces/IFaultSummary';
   templateUrl: 'test-summary.html'
 })
 export class TestSummaryComponent {
-
   faultSummaries: IFaultSummary[] = [
     {
       title: FaultTitle.Dangerous,
-      total: 4,
+      total: 2,
       faults: [
-        { name: 'Positioning - Lane Discipline', total: 3 },
+        { name: 'Positioning - Lane Discipline', total: 1 },
         { name: 'Response to signs - Other Road Users', total: 1 }
       ]
     },
@@ -20,7 +19,7 @@ export class TestSummaryComponent {
       title: FaultTitle.Serious,
       total: 3,
       faults: [
-        { name: 'Judgement - Cutting Corners', total: 2 },
+        { name: 'Judgement - Cutting Corners', total: 1 },
         { name: 'Awareness / Planning', total: 1 },
         { name: 'Overtaking', total: 1 }
       ]
@@ -38,7 +37,5 @@ export class TestSummaryComponent {
     }
   ];
 
-  constructor() {
-  }
-
+  constructor() {}
 }

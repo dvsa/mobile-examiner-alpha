@@ -5,14 +5,11 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
 })
 export class LoginPage {
-
   title: string = 'Login';
   journalPage: Page = JournalPage;
 
-  constructor(public navCtrl: NavController) {
-  }
-
+  constructor(public navCtrl: NavController) {}
 }

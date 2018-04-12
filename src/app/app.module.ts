@@ -23,8 +23,9 @@ import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
-import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
+import { PostTestSummaryPage } from '../pages/post-test-summary/post-test-summary';
 import { ComponentsModule } from '../components/components.module';
+import { WeatherSelectorComponent } from '../components/weather-selector/weather-selector';
 import { JournalProvider } from '../providers/journal/journal';
 import { DateTimeUtility } from '../shared/utils/datetime';
 import { AppConfigProvider } from '../providers/app-config/app-config';
@@ -47,7 +48,7 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     PretestChecksPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    PostTestSummaryPage
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,8 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     PretestChecksPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    PostTestSummaryPage,
+    WeatherSelectorComponent
   ],
   providers: [
     StatusBar,

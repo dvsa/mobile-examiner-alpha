@@ -13,4 +13,8 @@
   .mes-main-card-header--border-bottom {
     border-bottom: 1px solid map-get($colors, divider);
   }
+
+  .content-narrow {
+    padding: 0 110px;
+  }
 }

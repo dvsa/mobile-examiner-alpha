@@ -6,11 +6,9 @@ import { App } from 'ionic-angular';
   templateUrl: 'header.html'
 })
 export class HeaderComponent {
-
-  constructor(private app: App) {
-  }
+  constructor(private app: App) {}
 
   goHome() {
-    this.app.getActiveNavs()[0].popToRoot()
+    this.app.getActiveNavs()[0].popToRoot();
   }
 }

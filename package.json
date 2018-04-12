@@ -15,7 +15,6 @@
     "format:fix": "pretty-quick --staged",
     "precommit": "run-s format:fix lint",
     "prepush": "run-p gitSecrets scanRepo test",
-    "format:check": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
@@ -92,8 +91,6 @@
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-insomnia": {}
     },
-    "platforms": [
-      "ios"
-    ]
+    "platforms": ["ios"]
   }
 }

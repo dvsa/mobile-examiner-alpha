@@ -1,13 +1,21 @@
 import { Component, Input } from '@angular/core';
-import { IFaultSummary, FaultTitle } from '../interfaces/IFaultSummary';
-import { find } from 'lodash';
+import { IonicPage, ModalController } from 'ionic-angular';
+import { Page } from 'ionic-angular/navigation/nav-util';
 
+import { IFaultSummary, FaultTitle } from '../../components/test-summary/interfaces/IFaultSummary';
+import { WeatherSelectorComponent } from '../../components/weather-selector/weather-selector';
+import { JournalPage } from '../journal/journal';
+
+@IonicPage()
 @Component({
-  selector: 'test-summary-section',
-  templateUrl: 'test-summary-section.html'
+  selector: 'page-post-test-summary',
+  templateUrl: 'post-test-summary.html'
 })
-export class TestSummarySectionComponent {
+export class PostTestSummaryPage {
   @Input() summary: IFaultSummary;
+  journalPage: Page = JournalPage;
+
+  conditionsList: string;
 
   faultTitleColourMap = [
     { title: FaultTitle.Dangerous, colour: 'failRed' },
@@ -18,9 +26,9 @@ export class TestSummarySectionComponent {
   faultSummaries: IFaultSummary[] = [
     {
       title: FaultTitle.Dangerous,
-      total: 4,
+      total: 2,
       faults: [
-        { name: 'Positioning - Lane Discipline', total: 3 },
+        { name: 'Positioning - Lane Discipline', total: 1 },
         { name: 'Response to signs - Other Road Users', total: 1 }
       ]
     },
@@ -28,7 +36,7 @@ export class TestSummarySectionComponent {
       title: FaultTitle.Serious,
       total: 3,
       faults: [
-        { name: 'Judgement - Cutting Corners', total: 2 },
+        { name: 'Judgement - Cutting Corners', total: 1 },
         { name: 'Awareness / Planning', total: 1 },
         { name: 'Overtaking', total: 1 }
       ]
@@ -46,9 +54,15 @@ export class TestSummarySectionComponent {
     }
   ];
 
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
 
-  getFaultTitleColour(title: FaultTitle) {
-    return find(this.faultTitleColourMap, { title }).colour;
+  openWeatherModal() {
+    const modal = this.modalCtrl.create(WeatherSelectorComponent);
+    modal.onDidDismiss(data => {
+      if (data) {
+        this.conditionsList = data;
+      }
+    });
+    modal.present();
   }
 }

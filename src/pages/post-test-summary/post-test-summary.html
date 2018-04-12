@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>post-test-summary</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="mes-main-content">
+  <ion-card class="mes-card">
+    <ion-card-header class="mes-main-card-header--border-bottom mes-breadcrumbs">
+      <span class="mes-header-md mes-breadcrumb-link" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+        Back
+      </span>
+      <span float-right>
+          <span class="mes-text-sm">App Ref: 392 382 354 33</span>
+        </span>
+    </ion-card-header>
+    <ion-card-content class="content-narrow">
+      <div>
+        <span>Route Number</span>
+        <div float-right>
+          <input type="text">
+          <button ion-button class="mes-button-primary">Route Deviations</button>
+        </div>
+      </div>
+      <div class="mes-divider"></div>
+      <div>
+        <span>Weather</span>
+        <span class="conditions-list">{{conditionsList}}</span>
+        <div float-right>
+          <button float-right ion-button class="mes-button-primary" (click)="openWeatherModal()">Select</button>
+        </div>
+      </div>
+      <div class="mes-divider"></div>
+      <div>
+        Examiner took action
+        <div float-right>
+          <input id="verbal-action" name="verbal" type="checkbox">
+          <label for="verbal-action">Verbal</label>
+          <input id="physical-action" name="physical" type="checkbox">
+          <label for="physical-action">Physical</label>
+        </div>
+      </div>
+      <div class="mes-divider"></div>
+      <div>
+        Physical description of candidate:
+        <textarea rows="5"></textarea>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="mes-card">
+      <ion-card-header class="mes-main-card-header--border-bottom">
+        <span class="mes-header-md">Test Summary</span>
+      </ion-card-header>
+      <ion-card-content class="content-narrow">
+        <test-summary-section *ngFor="let summary of faultSummaries" [summary]="summary"></test-summary-section>
+      </ion-card-content>
+  </ion-card>
+  <ion-card class="mes-bottom-card" text-center>
+    <button [navPush]="journalPage" ion-button class="mes-button-primary">Submit</button>
+  </ion-card>
+</ion-content>

@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
 
-declare var process: any;
-
-enum EnvVarKeys {
-  JOURNAL_API_URL = 'JOURNAL_API_URL'
-}
-
 @Injectable()
 export class AppConfigProvider {
   // Environment variables
@@ -21,10 +15,7 @@ export class AppConfigProvider {
   };
 
   constructor() {
-    this.journalApiUrl = this.readString(
-      EnvVarKeys.JOURNAL_API_URL,
-      'assets/data/journalResp.json'
-    );
+    this.journalApiUrl = 'assets/data/journalResp.json';
   }
 
   getJournalApiUrl(): string {
@@ -33,10 +24,5 @@ export class AppConfigProvider {
 
   getSignaturePadOptions() {
     return this.signaturePadOptions;
-  }
-
-  private readString(key: string, defaultValue?: string): string {
-    const v = process.env[key];
-    return typeof v === 'undefined' ? defaultValue : String(v);
   }
 }
