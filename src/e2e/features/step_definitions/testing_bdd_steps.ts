@@ -8,7 +8,11 @@ const expect = chai.expect;
  
 setDefaultTimeout(10 * 1000); 
 
-Given('I load the app', function () {
+Given('I am a mobile app user', function () {
+    // Some sort of authentication setup
+});
+
+When('I launch the mobile app', function () {
     return browser.get( '' );
 });
 

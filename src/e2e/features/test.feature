@@ -4,7 +4,8 @@ Feature: Testing BDD
   To be able to use it in beta
 
   Scenario: Starting the app
-    Given I load the app
+    Given I am a mobile app user 
+    When I launch the mobile app
     Then I should see the login screen
 
   Scenario: Clicking a button
