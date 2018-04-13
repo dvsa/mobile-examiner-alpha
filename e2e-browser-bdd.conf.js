@@ -1,0 +1,26 @@
+exports.config = {
+    seleniumAddress: 'http://localhost:4444/wd/hub/',
+    allScriptsTimeout: 11000,
+    capabilities: {
+        'browserName': 'chrome'
+    },
+    specs: [
+        './src/e2e/features/*.feature'
+    ],
+    framework: 'custom',
+    frameworkPath: require.resolve('protractor-cucumber-framework'),
+    cucumberOpts: {
+        require: ['features/step_definitions/login_page_steps.js', 'features/support/*.js'],
+        //format: ['pretty']
+        //,tags: '@dev'
+    },
+
+    baseUrl: 'http://localhost:8101/',
+
+    useAllAngular2AppRoots: true,
+    beforeLaunch: function () {
+        require('ts-node').register({
+            project: 'e2e'
+        });
+    }
+}

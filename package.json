@@ -19,6 +19,7 @@
     "test:ci": "jest --runInBand",
     "test:e2e": "protractor e2e-simulator.conf.js",
     "test:e2e-browser": "protractor e2e-browser.conf.js",
+    "test:e2e-browser-bdd": "protractor e2e-browser-bdd.conf.js",
     "test:e2e-simulator": "protractor e2e-simulator.conf.js",
     "test:e2e-device": "protractor e2e-device.conf.js"
   },
@@ -57,6 +58,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
     "@types/node": "^9.6.0",
+    "cucumber": "^4.2.1",
     "husky": "^0.14.3",
     "jasmine": "^3.1.0",
     "jasmine-spec-reporter": "^4.2.1",
@@ -65,6 +67,7 @@
     "npm-run-all": "^4.1.2",
     "prettier": "^1.11.1",
     "pretty-quick": "^1.4.1",
+    "protractor-cucumber-framework": "^5.0.0",
     "ts-node": "^5.0.1",
     "tslint-config-airbnb": "^5.7.0",
     "tslint-config-prettier": "^1.10.0",
