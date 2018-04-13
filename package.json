@@ -65,10 +65,11 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
-    "@types/node": "^9.6.0",
     "@types/jest": "^22.2.2",
     "@types/lodash": "^4.14.106",
+    "@types/node": "^9.6.0",
     "cucumber": "^4.2.1",
+    "cucumber-html-reporter": "^4.0.2",
     "dotenv-safe": "^5.0.1",
     "husky": "^0.14.3",
     "jasmine": "^3.1.0",

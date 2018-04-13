@@ -1,0 +1,119 @@
+[
+  {
+    "description": "  As an alpha dev\n  I want to find out how cucumber BDD works\n  To be able to use it in beta",
+    "keyword": "Feature",
+    "name": "Testing BDD",
+    "line": 1,
+    "id": "testing-bdd",
+    "tags": [],
+    "uri": "src/e2e/features/test.feature",
+    "elements": [
+      {
+        "id": "testing-bdd;starting-the-app",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Starting the app",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I load the app",
+            "match": {
+              "location": "src/e2e/features/step_definitions/testing_bdd_steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1553000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I should see the login screen",
+            "match": {
+              "location": "src/e2e/features/step_definitions/testing_bdd_steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "testing-bdd;clicking-a-button",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Clicking a button",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I am on the login page",
+            "match": {
+              "location": "src/e2e/features/step_definitions/testing_bdd_steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1328000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I click a login button",
+            "match": {
+              "location": "src/e2e/features/step_definitions/testing_bdd_steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I successfully log in and see the journal page",
+            "match": {
+              "location": "src/e2e/features/step_definitions/testing_bdd_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 93000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
