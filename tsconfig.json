@@ -13,7 +13,7 @@
     "noUnusedParameters": false
   },
   "include": ["src/**/*.ts", "typings.d.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/e2e/**/*.ts"],
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false

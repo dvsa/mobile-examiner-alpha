@@ -10,9 +10,8 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['features/step_definitions/login_page_steps.js', 'features/support/*.js'],
-        //format: ['pretty']
-        //,tags: '@dev'
+        compiler: "ts:ts-node/register",
+        require: ['./src/e2e/features/step_definitions/*.ts'],
     },
 
     baseUrl: 'http://localhost:8101/',

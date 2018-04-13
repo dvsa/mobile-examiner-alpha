@@ -5,9 +5,9 @@ Feature: Testing BDD
 
   Scenario: Starting the app
     Given I load the app
-    Then I should see the welcome screen
+    Then I should see the login screen
 
   Scenario: Clicking a button
-    Given I am on the welcome page
-    When I click a button
-    Then I successfully log in and see the home page
+    Given I am on the login page
+    When I click a login button
+    Then I successfully log in and see the journal page
