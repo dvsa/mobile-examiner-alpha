@@ -44,6 +44,9 @@ journal-header {
           left: 7%;
           top: 33%;
         }
+        span {
+          padding-left: 10px;
+        }
       }
     }
     &.today {
@@ -63,6 +66,9 @@ journal-header {
           border-bottom: 15px solid transparent;
           left: 88%;
           top: 34%;
+        }
+        span {
+          padding-right: 10px;
         }
       }
     }

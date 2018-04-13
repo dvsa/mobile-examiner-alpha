@@ -20,17 +20,18 @@ import { LdtmModePage } from '../pages/ldtm-mode/ldtm-mode';
 import { ManageDeviceDebriefStoragePage } from '../pages/manage-device-debrief-storage/manage-device-debrief-storage';
 import { PolicyDataPage } from '../pages/policy-data/policy-data';
 import { PretestChecksPage } from '../pages/pretest-checks/pretest-checks';
-import { RecordDebriefPage } from '../pages/record-debrief/record-debrief';
 import { SignaturePadModule } from 'angular2-signaturepad';
-import { StopTestPage } from '../pages/stop-test/stop-test';
-import { TestEvaluationPage } from '../pages/test-evaluation/test-evaluation';
 import { TestResultPage } from '../pages/test-result/test-result';
 import { TrainerModePage } from '../pages/trainer-mode/trainer-mode';
-import { WeatherPhysicalDescriptionPage } from '../pages/weather-physical-description/weather-physical-description';
+import { PostTestSummaryPage } from '../pages/post-test-summary/post-test-summary';
 import { ComponentsModule } from '../components/components.module';
+import { WeatherSelectorComponent } from '../components/weather-selector/weather-selector';
 import { JournalProvider } from '../providers/journal/journal';
 import { DateTimeUtility } from '../shared/utils/datetime';
 import { AppConfigProvider } from '../providers/app-config/app-config';
+import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
+import { SelectButtonComponent } from '../components/select-button/select-button';
+import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 
 @NgModule({
   declarations: [
@@ -48,12 +49,10 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
-    RecordDebriefPage,
-    StopTestPage,
-    TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    EyesightFaultRecordingModalPage,
+    PostTestSummaryPage
   ],
   imports: [
     BrowserModule,
@@ -78,12 +77,13 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
     ManageDeviceDebriefStoragePage,
     PolicyDataPage,
     PretestChecksPage,
-    RecordDebriefPage,
-    StopTestPage,
-    TestEvaluationPage,
     TestResultPage,
     TrainerModePage,
-    WeatherPhysicalDescriptionPage
+    TellMeModalComponent,
+    SelectButtonComponent,
+    EyesightFaultRecordingModalPage,
+    PostTestSummaryPage,
+    WeatherSelectorComponent
   ],
   providers: [
     StatusBar,

@@ -36,6 +36,9 @@ page-journal {
       border: 10px solid map-get($map: $colors, $key: passedGreen);
       height: 70px;
     }
+    &.slot__double ion-col div {
+      height: 160px;
+    }
     ion-col {
       &:first-child {
         padding: 5px 5px 5px 0;
@@ -76,6 +79,28 @@ page-journal {
             font-weight: 500;
             border-radius: 13px;
             background-color: #eeeded;
+          }
+        }
+        &.slot__activityCode {
+          font-size: 1.2em;
+          line-height: 2.4em;
+          border-radius: 10px;
+          background: map-get($map: $colors, $key: failRed);
+          color: map-get($map: $colors, $key: white);
+          font-weight: bold;
+          text-align: center;
+        }
+        &.slot__travel {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+        &.slot__travelPoints {
+          line-height: 50px;
+          font-size: 1.1em;
+          text-align: center;
+
+          .ion-ios-arrow-round-forward {
+            padding: 0 15px;
           }
         }
       }

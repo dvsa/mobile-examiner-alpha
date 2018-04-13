@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { WeatherPhysicalDescriptionPage } from '../weather-physical-description/weather-physical-description';
 import { Page } from 'ionic-angular/navigation/nav-util';
+import { PostTestSummaryPage } from '../post-test-summary/post-test-summary';
 
 /**
  * Generated class for the CollectLicenseSignaturePage page.
@@ -12,17 +12,14 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-collect-license-signature',
-  templateUrl: 'collect-license-signature.html',
+  templateUrl: 'collect-license-signature.html'
 })
 export class CollectLicenseSignaturePage {
+  postTestSummaryPage: Page = PostTestSummaryPage;
 
-  weatherPhysicalDescriptionPage: Page = WeatherPhysicalDescriptionPage;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CollectLicenseSignaturePage');
   }
-
 }

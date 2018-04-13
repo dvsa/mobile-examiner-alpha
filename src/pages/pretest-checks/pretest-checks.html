@@ -1,26 +1,114 @@
-<!--
-  Generated template for the PretestChecksPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>pretest-checks</ion-title>
-  </ion-navbar>
-
+  <page-header></page-header>
 </ion-header>
 
+<ion-content padding class="mes-main-content">
+  <ion-card class="mes-card">
+    <ion-card-header class="mes-breadcrumbs">
+      <span class="mes-header-md mes-breadcrumb-link" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+        Declaration /
+      </span>
+      <span padding-left class="mes-header-md">Begin Test</span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4 class="mes-header-md">
+          Eyesight
+        </ion-col>
+        <ion-col col-4 class="mes-header-md center-text">
+          Completed
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+        <ion-col offset-1 col-3 class="center-text">
+          <button class="mes-header-md eyesight-record-serious-fault-button" (click)="showEyesightFaultRecordingModal()">
+            <span>S</span>
+            <div>
+              <input class="checkbox" type="checkbox" [(ngModel)]="eyeSightSeriousFault">
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+      <div class="mes-divider"></div>
+      <ion-row>
+        <ion-col col-4 class="mes-header-md">
+          Tell me question
+        </ion-col>
+        <ion-col offset-3 col-5>
+          <select-button [onClick]="showTellMeOptions.bind(this)" [selectedText]="tellMeQuestionId"></select-button>
+        </ion-col>
+      </ion-row>
+      <div class="mes-divider"></div>
+      <ion-row class="height-auto">
+        <ion-col col-4 class="mes-header-md">
+          Accompanied by
+        </ion-col>
+      </ion-row>
+      <ion-row class="center-text">
+        <ion-col col-4 class="mes-header-md">
+          ADI
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+        <ion-col col-4 class="mes-header-md">
+          Sup
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+        <ion-col col-4 class="mes-header-md">
+          Other
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
-<ion-content padding>
-  <div>
-    <button ion-button [navPush]="initiateDrivingPeriodPage">Initiate driving period of test</button>
-  </div>
-  <div>
-    <button ion-button color="dark" outline small [navPush]="endTestReasonPage">Policy data</button>
-  </div>
-  <div>
-    <button ion-button color="dark" outline small [navPush]="policyDataPage">End test reason</button>
+  <ion-card class="mes-card card-top-separator">
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4 class="mes-header-md">
+          Car registration
+        </ion-col>
+        <ion-col col-8>
+          <input type="text" class="mes-text-input">
+        </ion-col>
+      </ion-row>
+      <div class="mes-divider"></div>
+      <ion-row class="center-text">
+        <ion-col col-4 class="mes-header-md">
+          Automatic
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+        <ion-col col-4 class="mes-header-md">
+          School car
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+        <ion-col col-4 class="mes-header-md">
+          D/C
+          <input type="checkbox" class="mes-checkbox">
+        </ion-col>
+      </ion-row>
+      <div class="mes-divider"></div>
+      <ion-row>
+        <ion-col col-4 class="mes-header-md">
+          Instructor reg.
+        </ion-col>
+        <ion-col col-8>
+          <input type="text" class="mes-text-input">
+        </ion-col>
+      </ion-row>
+      <div class="mes-divider"></div>
+      <ion-row>
+        <ion-col col-4 class="mes-header-md">
+          Instructor cert.
+        </ion-col>
+        <ion-col col-8>
+          <input type="text" class="mes-text-input">
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <div class="action-buttons-wrapper">
+    <button class="mes-button-danger end-test-button" [navPush]="endTestReasonPage">End Test</button>
+    <button class="mes-button-primary confirm-button" [navPush]="initiateDrivingPeriodPage">Confirm</button>
+    <div class="clearfix"></div>
   </div>
 </ion-content>

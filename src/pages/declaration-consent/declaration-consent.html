@@ -5,45 +5,60 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <page-header></page-header>
+  <page-header></page-header>
+  <div class="device-locked">
+    <div class="inner">
+      <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+      <span class="mes-text-sm">Device Locked</span>
+    </div>
+  </div>
 </ion-header>
 <ion-content padding class="mes-main-content">
-    <ion-card class="mes-card">
-        <ion-card-header class="mes-main-card-header mes-breadcrumbs">
-            <span class="mes-header-md mes-breadcrumb-link" navPop>
-    <ion-icon name="arrow-back"></ion-icon>
-    View Candidate /
-  </span>
-            <span>Declaration</span>
-            <span float-right>
-    <ion-icon padding-right name="refresh"></ion-icon>
-    <span class="mes-text-sm">Last synced: 8:06</span>
-            </span>
-        </ion-card-header>
-        <ion-card-content>
-            <span class="mes-header-md">I declare that:</span>
-            <br>
-            <span class="mes-text-md">the use of the test vehicle for the purpose of the test is fully covered by a valid policy of insurance which satisfies the requirements of the legislation.</span>
-            <div>
-                <input type="checkbox" name="insurance" id="check-insurance">
-                <label for="check-insurance">I confirm</label>
-            </div>
-            <div class="mes-divider"></div>
-            <span class=" mes-text-md ">I normally live/have lived in the UK for at least 185 days in the last 12 months (except taxi/private hire).</span>
-            <div>
-                <input type="checkbox" name="residence" id="check-residence">
-                <label for="check-residence">I confirm</label>
-            </div>
-            <div class="mes-divider"></div>
-        </ion-card-content>
-    </ion-card>
-    <ion-card class="mes-bottom-card" text-center>
-        <div class="signature-pad">
-            <span class="mes-text-sm">Sign here:</span>
-            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-            <button (click)="clearSignaturePad()" class="mes-button-danger" id="retry">Retry</button>
-            <button class="mes-button-primary" id="continue">Continue</button>
-            <div class="clearfix"></div>
-        </div>
-    </ion-card>
+  <ion-card class="mes-card">
+    <ion-card-header class="mes-main-card-header mes-breadcrumbs">
+      <span class="mes-header-md mes-breadcrumb-link" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+        View Candidate /
+      </span>
+      <span padding-left class="mes-header-md">Declaration</span>
+      <span float-right>
+        <ion-icon padding-right name="refresh"></ion-icon>
+        <span class="mes-text-sm">Last synced: 8:06</span>
+      </span>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="mes-header-md">I declare that:</div>
+      <br>
+      <span class="mes-text-md">the use of the test vehicle for the purpose of the test is fully covered by a valid policy of insurance which satisfies
+        the requirements of the legislation.</span>
+      <div>
+        <input type="checkbox" name="insurance" id="check-insurance">
+        <label for="check-insurance">I confirm</label>
+      </div>
+      <div class="mes-divider"></div>
+      <span class=" mes-text-md ">I normally live/have lived in the UK for at least 185 days in the last 12 months (except taxi/private hire).</span>
+      <div>
+        <input type="checkbox" name="residence" id="check-residence">
+        <label for="check-residence">I confirm</label>
+      </div>
+      <div class="mes-divider"></div>
+      <br>
+      <span class="mes-text-md">Debrief audio recording Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae ipsum libero odit totam.
+        Fugiat, tempora cumque nostrum quas facere temporibus.</span>
+      <div>
+        <input type="checkbox" name="debrief" id="check-debrief">
+        <label for="check-debrief">I confirm</label>
+      </div>
+      <div class="mes-divider"></div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card text-center>
+    <div class="signature-pad">
+      <span class="mes-text-sm">Sign here:</span>
+      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+      <button (click)="clearSignaturePad()" class="mes-button-danger" id="retry">Retry</button>
+      <button (click)="continue()" class="mes-button-primary" id="continue">Continue</button>
+      <div class="clearfix"></div>
+    </div>
+  </ion-card>
 </ion-content>

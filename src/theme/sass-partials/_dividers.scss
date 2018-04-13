@@ -7,3 +7,7 @@
   border-top: 1px solid map-get($colors, divider);
   margin: 20px 0;
 }
+
+.mes-bottom-border {
+  border-bottom: 1px solid map-get($colors, divider);
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IJournal, IJournalResp } from './journal-model';
 import { DateTimeUtility } from '../../shared/utils/datetime';
+import { AppConfigProvider } from '../app-config/app-config';
 import 'rxjs/Rx';
 
 /*
@@ -14,9 +15,15 @@ import 'rxjs/Rx';
 export class JournalProvider {
   journalResp: IJournalResp;
 
-  private apiUrl: string = 'assets/data/journal-data.json';
+  private apiUrl: string;
 
-  constructor(private httpClient: HttpClient, private dateTimeUtil: DateTimeUtility) {}
+  constructor(
+    private httpClient: HttpClient,
+    private dateTimeUtil: DateTimeUtility,
+    private appConfig: AppConfigProvider
+  ) {
+    this.apiUrl = this.appConfig.getJournalApiUrl();
+  }
 
   transformSlotData(slots) {
     return slots.reduce((curr: IJournal[], next) => {
@@ -47,8 +54,9 @@ export class JournalProvider {
   }
 
   getData(email: string) {
-    return this.httpClient.get<IJournalResp>(this.apiUrl).map(res => {
-      const { testSlots } = res.data;
+    const endpoint = `${this.apiUrl}?email=${email}`;
+    return this.httpClient.get<any>(endpoint).map((res) => {
+      const { testSlots } = JSON.parse(res.body.data).data;
       return this.transformSlotData(testSlots);
     });
   }

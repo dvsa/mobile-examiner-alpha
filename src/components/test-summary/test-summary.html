@@ -1,0 +1,22 @@
+<ion-grid>
+  <ion-row class="mes-test-summary-header">
+    <ion-col col-3>
+      <span class="mes-test-summary-heading">Result</span>
+    </ion-col>
+    <ion-col>
+      <span class="mes-test-summary-heading">Faults</span>
+    </ion-col>
+  </ion-row>
+  <ion-row margin-top>
+    <ion-col col-3>
+      <h1 class="mes-test-summary-result fail">Fail</h1>
+      <ul class="mes-test-summary-details-list">
+        <li>Manoeuvres: Reverse Park</li>
+        <li>Legal Test: <ion-icon name="checkmark-circle"></ion-icon></li>
+      </ul>
+    </ion-col>
+    <ion-col>
+      <test-summary-section *ngFor="let summary of faultSummaries" [summary]="summary"></test-summary-section>
+    </ion-col>
+  </ion-row>
+</ion-grid>

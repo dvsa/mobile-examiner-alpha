@@ -11,10 +11,7 @@ import { Component } from '@angular/core';
   templateUrl: 'page-header.html'
 })
 export class PageHeaderComponent {
-
   examinerName: string = 'Ammar Haider';
 
-  constructor() {
-  }
-
+  constructor() {}
 }

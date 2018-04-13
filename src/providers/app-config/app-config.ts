@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the AppConfigProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-
 @Injectable()
 export class AppConfigProvider {
+  // Environment variables
+  public journalApiUrl: string;
+
+  // Client variables
   signaturePadOptions: any = {
     minWidth: 5,
     canvasWidth: 500,
@@ -17,7 +14,13 @@ export class AppConfigProvider {
     backgroundColor: '#ffffff'
   };
 
-  constructor() {}
+  constructor() {
+    this.journalApiUrl = 'assets/data/journalResp.json';
+  }
+
+  getJournalApiUrl(): string {
+    return this.journalApiUrl;
+  }
 
   getSignaturePadOptions() {
     return this.signaturePadOptions;
