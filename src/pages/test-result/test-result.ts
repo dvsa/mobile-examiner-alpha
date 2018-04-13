@@ -5,17 +5,14 @@ import { CollectLicenseSignaturePage } from '../collect-license-signature/collec
 
 @Component({
   selector: 'page-test-result',
-  templateUrl: 'test-result.html',
+  templateUrl: 'test-result.html'
 })
 export class TestResultPage {
-
   collectLicenseSignaturePage: Page = CollectLicenseSignaturePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestResultPage');
   }
-
 }

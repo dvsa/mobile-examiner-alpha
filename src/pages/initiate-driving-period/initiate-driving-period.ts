@@ -6,18 +6,15 @@ import { TestResultPage } from '../test-result/test-result';
 
 @Component({
   selector: 'page-initiate-driving-period',
-  templateUrl: 'initiate-driving-period.html',
+  templateUrl: 'initiate-driving-period.html'
 })
 export class InitiateDrivingPeriodPage {
-
   endTestReasonPage: Page = EndTestReasonPage;
   testResultPage: Page = TestResultPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InitiateDrivingPeriodPage');
   }
-
 }

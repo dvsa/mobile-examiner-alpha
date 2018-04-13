@@ -13,6 +13,7 @@
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:deploy": "git push ionic master",
     "format:fix": "pretty-quick --staged",
+    "format:all": "npx prettier --write \"src/**/*{.ts,.js,.json,.css,.scss}\"",
     "precommit": "run-s format:fix lint",
     "prepush": "run-p gitSecrets scanRepo test",
     "test": "jest",

@@ -1,4 +1,4 @@
 export interface IFault {
-    name: string,
-    total: number
+  name: string;
+  total: number;
 }

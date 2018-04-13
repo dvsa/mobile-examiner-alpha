@@ -20,9 +20,10 @@ export class JournalProvider {
   constructor(
     private httpClient: HttpClient,
     private dateTimeUtil: DateTimeUtility,
-    private appConfig: AppConfigProvider) {
-      this.apiUrl = this.appConfig.getJournalApiUrl();
-    }
+    private appConfig: AppConfigProvider
+  ) {
+    this.apiUrl = this.appConfig.getJournalApiUrl();
+  }
 
   transformSlotData(slots) {
     return slots.reduce((curr: IJournal[], next) => {
@@ -54,7 +55,7 @@ export class JournalProvider {
 
   getData(email: string) {
     const endpoint = `${this.apiUrl}?email=${email}`;
-    return this.httpClient.get<any>(endpoint).map(res => {
+    return this.httpClient.get<any>(endpoint).map((res) => {
       const { testSlots } = JSON.parse(res.body.data).data;
       return this.transformSlotData(testSlots);
     });

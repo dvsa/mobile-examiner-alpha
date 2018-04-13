@@ -4,7 +4,7 @@
     "no-duplicate-variable": true,
     "no-unused-variable": [true],
     "trailing-comma": false,
-    "ter-arrow-parens": [true, "as-needed"],
+    "ter-arrow-parens": [true, "always"],
     "align": [true, "parameters"]
   },
   "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"],

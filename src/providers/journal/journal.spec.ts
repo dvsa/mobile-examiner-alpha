@@ -23,7 +23,7 @@ describe('PROVIDER: journal - ', () => {
   });
 
   it('should return some journal slots', () => {
-    provider.getData('test@example.org').subscribe(slots => {
+    provider.getData('test@example.org').subscribe((slots) => {
       expect(slots.length).toBe(7);
       expect(slots[0].details.success).toBeFalsy();
       expect(slots[0].candidateName.firstName).toBe('Chris');
@@ -32,7 +32,9 @@ describe('PROVIDER: journal - ', () => {
   });
 
   it('should transform response data', () => {
-    const transformedData = provider.transformSlotData(JSON.parse(journalRespJson.body.data).data.testSlots);
+    const transformedData = provider.transformSlotData(
+      JSON.parse(journalRespJson.body.data).data.testSlots
+    );
 
     expect(transformedData.length).toBe(7);
     expect(transformedData[0]).toEqual(transformedJournalJson[0]);

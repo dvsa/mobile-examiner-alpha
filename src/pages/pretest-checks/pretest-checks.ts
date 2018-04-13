@@ -44,7 +44,7 @@ export class PretestChecksPage {
       this.disableBackdropDismissModalOption
     );
 
-    eyesightFaultRecordingModal.onDidDismiss(flag => {
+    eyesightFaultRecordingModal.onDidDismiss((flag) => {
       this.eyeSightSeriousFault = flag;
     });
 

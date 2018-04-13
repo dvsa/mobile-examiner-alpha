@@ -3,15 +3,12 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-initiate-swap',
-  templateUrl: 'initiate-swap.html',
+  templateUrl: 'initiate-swap.html'
 })
 export class InitiateSwapPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InitiateSwapPage');
   }
-
 }

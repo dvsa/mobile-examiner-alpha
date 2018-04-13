@@ -58,7 +58,7 @@ export class PostTestSummaryPage {
 
   openWeatherModal() {
     const modal = this.modalCtrl.create(WeatherSelectorComponent);
-    modal.onDidDismiss(data => {
+    modal.onDidDismiss((data) => {
       if (data) {
         this.conditionsList = data;
       }

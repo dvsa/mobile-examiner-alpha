@@ -12,11 +12,8 @@ import { Page } from 'ionic-angular/navigation/nav-util';
   templateUrl: 'button-card.html'
 })
 export class ButtonCardComponent {
-
   @Input() text: string;
   @Input() page: Page;
 
-  constructor() {
-  }
-
+  constructor() {}
 }
