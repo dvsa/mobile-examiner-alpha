@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Generated class for the PageHeaderComponent component.
@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
   templateUrl: 'page-header.html'
 })
 export class PageHeaderComponent {
+
+  @Input() deviceLocked: boolean;
   examinerName: string = 'Ammar Haider';
 
   constructor() {}
