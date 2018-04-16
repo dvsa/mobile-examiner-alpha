@@ -10,7 +10,6 @@ import { App } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { CandidateInfoPage } from '../pages/candidate-info/candidate-info';
-import { CollectLicenseSignaturePage } from '../pages/collect-license-signature/collect-license-signature';
 import { DeclarationConsentPage } from '../pages/declaration-consent/declaration-consent';
 import { EndTestReasonPage } from '../pages/end-test-reason/end-test-reason';
 import { InitiateDrivingPeriodPage } from '../pages/initiate-driving-period/initiate-driving-period';
@@ -39,7 +38,6 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     LoginPage,
     DashboardPage,
     CandidateInfoPage,
-    CollectLicenseSignaturePage,
     DeclarationConsentPage,
     EndTestReasonPage,
     InitiateDrivingPeriodPage,
@@ -67,7 +65,6 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     LoginPage,
     DashboardPage,
     CandidateInfoPage,
-    CollectLicenseSignaturePage,
     DeclarationConsentPage,
     EndTestReasonPage,
     InitiateDrivingPeriodPage,
