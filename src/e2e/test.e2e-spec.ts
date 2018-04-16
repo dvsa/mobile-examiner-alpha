@@ -10,7 +10,7 @@ describe('Example E2E Test', () => {
 
     expect(element(by.css('ion-navbar:first-child'))
         .getAttribute('innerHTML'))
-        .toContain('Login'); 
+        .toContain('DVSA'); 
   });
  
   it('the user can click login and go to the next page', () => {
@@ -21,9 +21,9 @@ describe('Example E2E Test', () => {
     browser.sleep(2000);
     
 
-    expect(element.all(by.css('ion-navbar:first-child')).first()
+    expect(element.all(by.css('span.mes-header-md')).first()
         .getAttribute('innerHTML'))
-        .toContain('Dashboard'); 
+        .toContain('Your Journal'); 
   });
  
 });
