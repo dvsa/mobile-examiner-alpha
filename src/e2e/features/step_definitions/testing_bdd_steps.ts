@@ -17,6 +17,8 @@ When('I launch the mobile app', function () {
 });
 
 Then('I should see the login screen', function () {
+    browser.sleep(2000);
+
     return expect(
         element.all(by.css('ion-navbar:first-child')).first().getText())
         .to.eventually.equal('DVSA');
@@ -33,6 +35,8 @@ When('I click a login button', function () {
 });
 
 Then('I successfully log in and see the journal page', function () {
+    browser.sleep(2000);
+    
     return expect(element.all(by.css('span.mes-header-md')).first().getText())
         .to.eventually.equal('Your Journal');
 });

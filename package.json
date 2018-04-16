@@ -24,7 +24,8 @@
     "test:e2e-browser": "protractor e2e-browser.conf.js",
     "test:e2e-browser-bdd": "protractor e2e-browser-bdd.conf.js",
     "test:e2e-simulator": "protractor e2e-simulator.conf.js",
-    "test:e2e-device": "protractor e2e-device.conf.js",   
+    "test:e2e-simulator-bdd": "protractor e2e-simulator-bdd.conf.js",
+    "test:e2e-device": "protractor e2e-device.conf.js",
     "gitSecrets": "git secrets --scan",
     "scanRepo": "git log -p -n 15 | scanrepo"
   },
