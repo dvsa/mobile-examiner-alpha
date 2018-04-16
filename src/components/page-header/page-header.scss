@@ -6,7 +6,7 @@ page-header {
     vertical-align: middle;
   }
   .device-locked {
-    background: #edc628;
+    background: map-get($colors, deviceLockedOrange);
     height: 47px;
     z-index: 99;
     text-align: center;
