@@ -5,13 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <page-header></page-header>
-  <div class="device-locked">
-    <div class="inner">
-      <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-      <span class="mes-text-sm">Device Locked</span>
-    </div>
-  </div>
+  <page-header [deviceLocked]="true"></page-header>
 </ion-header>
 <ion-content padding class="mes-main-content">
   <ion-card class="mes-card">
