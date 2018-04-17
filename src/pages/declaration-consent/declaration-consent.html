@@ -49,6 +49,7 @@
   <ion-card text-center>
     <div class="signature-pad">
       {{errMsg}}
+      {{cordova}}
       <span class="mes-text-sm">Sign here:</span>
       <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
       <button (click)="clearSignaturePad()" class="mes-button-danger" id="retry">Retry</button>
