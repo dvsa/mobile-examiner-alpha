@@ -1,4 +1,4 @@
-// import { DeviceAuthentication } from '../../types/device-authentication';
+import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 
@@ -31,15 +31,20 @@ export class DeclarationConsentPage {
   signaturePadOptions: any;
   signature: any;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
+  isApp;
+  windowHasOwnPropertyCordova;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: AppConfigProvider,
-    // private deviceAuth: DeviceAuthentication,
+    private deviceAuth: DeviceAuthentication,
     private platform: Platform
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
+    this.isApp = !document.URL.startsWith('http');
+    this.windowHasOwnPropertyCordova = window.hasOwnProperty('cordova');
+    console.log(this.deviceAuth);
   }
 
   ngAfterViewInit() {
@@ -71,7 +76,7 @@ export class DeclarationConsentPage {
     //   this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
     //   return;
     // }
-
+    // this.platform.is('cordova')
     // this.deviceAuth
     //   .runAuthentication('Please authenticate yourself to proceed')
     //   .then((isAuthenticated: boolean) => {

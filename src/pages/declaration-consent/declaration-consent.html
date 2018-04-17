@@ -47,7 +47,12 @@
     </ion-card-content>
   </ion-card>
   <ion-card text-center>
-    Platform name: {{platformName}}
+    <p>Platform name: {{platformName}}</p>
+    <p>Is deviceAuth: {{deviceAuth}}</p>
+    <p>Is deviceAuth: {{deviceAuth.runAuthentication}}</p>
+    <p>Is cordova available {{platform.is('cordova')}}</p>
+    <p>Is window has cordova prop: {{windowHasOwnPropertyCordova}}</p>
+    <p>is app {{isApp}}</p>
     <div class="signature-pad">
       <span class="mes-text-sm">Sign here:</span>
       <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
