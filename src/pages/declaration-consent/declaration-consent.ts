@@ -1,6 +1,6 @@
-// import { DeviceAuthentication } from '../../types/device-authentication';
+import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PolicyDataPage } from '../policy-data/policy-data';
@@ -11,14 +11,13 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { CandidateInfoPage } from '../candidate-info/candidate-info';
 
-declare var cordova: any;
-
 /**
  * Generated class for the DeclarationConsentPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 @Component({
   selector: 'page-declaration-consent',
   templateUrl: 'declaration-consent.html'
@@ -36,10 +35,10 @@ export class DeclarationConsentPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public configService: AppConfigProvider
-  ) // private deviceAuth: DeviceAuthentication,
-  // private platform: Platform
-  {
+    public configService: AppConfigProvider,
+    private deviceAuth: DeviceAuthentication,
+    private platform: Platform
+  ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
   }
 
@@ -66,31 +65,23 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    const successCB = (isAuthenticated: boolean) => {
-      console.log('Is Auth? ' + isAuthenticated);
-      if (isAuthenticated) {
-        this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-      }
-    };
-
-    const failureCB = (errorMsg: string) => {
-      this.errMsg = errorMsg;
-      if (errorMsg === 'cordova_not_available') {
-        this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-      } else {
-        console.log(errorMsg);
-      }
-    };
-
-    if (window.hasOwnProperty('cordova')) {
-      cordova.plugins.DeviceAuthentication.runAuthentication(
-        'Please authenticate yourself to proceed',
-        successCB,
-        failureCB
-      );
-    } else {
-      console.log('cordova not available');
-      this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-    }
+    this.platform.ready().then(() => {
+      this.deviceAuth
+        .runAuthentication('Please authenticate yourself to proceed')
+        .then((isAuthenticated: boolean) => {
+          console.log('Is Auth? ' + isAuthenticated);
+          if (isAuthenticated) {
+            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          }
+        })
+        .catch((errorMsg: string) => {
+          this.errMsg = errorMsg;
+          if (errorMsg === 'cordova_not_available') {
+            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          } else {
+            console.log(errorMsg);
+          }
+        });
+    });
   }
 }
