@@ -30,6 +30,7 @@ export class DeclarationConsentPage {
   signaturePadOptions: any;
   signature: any;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
+  errMsg: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -72,6 +73,7 @@ export class DeclarationConsentPage {
         }
       })
       .catch((errorMsg: string) => {
+        this.errMsg = errorMsg;
         if (errorMsg === 'cordova_not_available') {
           this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
         } else {
