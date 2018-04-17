@@ -1,4 +1,4 @@
-import { DeviceAuthentication } from '../../types/device-authentication';
+// import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 
@@ -35,7 +35,7 @@ export class DeclarationConsentPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: AppConfigProvider,
-    private deviceAuth: DeviceAuthentication,
+    // private deviceAuth: DeviceAuthentication,
     private platform: Platform
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
