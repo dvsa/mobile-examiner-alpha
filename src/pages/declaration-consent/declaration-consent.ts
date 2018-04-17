@@ -1,6 +1,6 @@
 import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PolicyDataPage } from '../policy-data/policy-data';
@@ -36,8 +36,7 @@ export class DeclarationConsentPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: AppConfigProvider,
-    private deviceAuth: DeviceAuthentication,
-    private platform: Platform
+    private deviceAuth: DeviceAuthentication
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
   }
@@ -65,23 +64,21 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    this.platform.ready().then(() => {
-      this.deviceAuth
-        .runAuthentication('Please authenticate yourself to proceed')
-        .then((isAuthenticated: boolean) => {
-          console.log('Is Auth? ' + isAuthenticated);
-          if (isAuthenticated) {
-            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-          }
-        })
-        .catch((errorMsg: string) => {
-          this.errMsg = errorMsg;
-          if (errorMsg === 'cordova_not_available') {
-            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-          } else {
-            console.log(errorMsg);
-          }
-        });
-    });
+    this.deviceAuth
+      .runAuthentication('Please authenticate yourself to proceed')
+      .then((isAuthenticated: boolean) => {
+        console.log('Is Auth? ' + isAuthenticated);
+        if (isAuthenticated) {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        }
+      })
+      .catch((errorMsg: string) => {
+        this.errMsg = errorMsg;
+        if (errorMsg === 'cordova_not_available') {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        } else {
+          console.log(errorMsg);
+        }
+      });
   }
 }
