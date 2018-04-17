@@ -64,25 +64,27 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    if (!this.platform.is('cordova')) {
-      this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-      return;
-    }
+    this.platform.ready().then(console.log);
+    return;
+    // if (!this.platform.is('cordova')) {
+    //   this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+    //   return;
+    // }
 
-    this.deviceAuth
-      .runAuthentication('Please authenticate yourself to proceed')
-      .then((isAuthenticated: boolean) => {
-        console.log('Is Auth? ' + isAuthenticated);
-        if (isAuthenticated) {
-          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-        }
-      })
-      .catch((errorMsg: string) => {
-        if (errorMsg === 'cordova_not_available') {
-          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-        } else {
-          console.log(errorMsg);
-        }
-      });
+    // this.deviceAuth
+    //   .runAuthentication('Please authenticate yourself to proceed')
+    //   .then((isAuthenticated: boolean) => {
+    //     console.log('Is Auth? ' + isAuthenticated);
+    //     if (isAuthenticated) {
+    //       this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+    //     }
+    //   })
+    //   .catch((errorMsg: string) => {
+    //     if (errorMsg === 'cordova_not_available') {
+    //       this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+    //     } else {
+    //       console.log(errorMsg);
+    //     }
+    //   });
   }
 }
