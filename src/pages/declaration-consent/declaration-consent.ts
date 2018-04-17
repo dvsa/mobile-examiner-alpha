@@ -23,6 +23,7 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
   templateUrl: 'declaration-consent.html'
 })
 export class DeclarationConsentPage {
+  platformName: string;
   pretestChecksPage: Page = PretestChecksPage;
   policyDataPage: Page = PolicyDataPage;
   candidateInfopage: Page = CandidateInfoPage;
@@ -64,7 +65,7 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    this.platform.ready().then(console.log);
+    this.platform.ready().then((platformName) => (this.platformName = platformName));
     return;
     // if (!this.platform.is('cordova')) {
     //   this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
