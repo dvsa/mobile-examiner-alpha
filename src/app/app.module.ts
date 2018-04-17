@@ -31,6 +31,7 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
 import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
 import { SelectButtonComponent } from '../components/select-button/select-button';
 import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
+import { DeviceAuthentication } from '../types/device-authentication';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AppConfigProvider,
     JournalProvider,
-    DateTimeUtility
+    DateTimeUtility,
+    DeviceAuthentication
   ]
 })
 export class AppModule {}
