@@ -32,13 +32,13 @@ export class DeclarationConsentPage {
   signature: any;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   errMsg: string = '';
+  cordovaVar: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public configService: AppConfigProvider
-  ) // private deviceAuth: DeviceAuthentication,
-  // private platform: Platform
+    public configService: AppConfigProvider // private deviceAuth: DeviceAuthentication,
+  ) // private platform: Platform
   {
     this.signaturePadOptions = configService.getSignaturePadOptions();
   }
@@ -66,6 +66,7 @@ export class DeclarationConsentPage {
   }
 
   continue() {
+    this.cordovaVar = cordova;
     const successCB = (isAuthenticated: boolean) => {
       console.log('Is Auth? ' + isAuthenticated);
       if (isAuthenticated) {
