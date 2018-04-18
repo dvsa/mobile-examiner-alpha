@@ -15,7 +15,7 @@ DVSA Mobile Examiner Services (GDS Alpha phase)
 
 ### Get started
 
-* Set up your environment variables - https://wiki.i-env.net/display/MES/Application+environment+variables
+* Set up your [environment variables](https://wiki.i-env.net/display/MES/Application+environment+variables)
 * `npm install`
 * `ionic serve`
 
@@ -35,19 +35,16 @@ To run the app in the simulator with live code reload, run the following:
 
 After installing git secrets as part of the pre-requisites, run a one-time set up (in each repo) with
 
-```
+```bash
   cd /path/to/my/repo
   git secrets --install
   git secrets --register-aws
 ```
 
-Run with git secrets --scan.
+Run with `git secrets --scan`.
 
-After installing scanRepo as part of the pre-requisites, run with git log -p | scanrepo.
-
-=======
+After installing scanRepo as part of the pre-requisites, run with `git log -p | scanrepo`.
 
 ### Cordova plugins in browser
 
-Some cordova plugis has special code that should handle _browser_ platform. Unfortunatly _ionic serve_ do not use them. In order to use cordova plugin dedicated for browsers run
-`ionic cordova run browser`
+Some Cordova plugins have special code that should handle the `browser` platform. Unfortunately `ionic serve` does not use them. To use them, run `ionic cordova run browser`
