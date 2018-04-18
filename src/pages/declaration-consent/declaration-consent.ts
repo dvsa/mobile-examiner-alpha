@@ -33,6 +33,8 @@ export class DeclarationConsentPage {
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   isApp;
   windowHasOwnPropertyCordova;
+  msg: string;
+  wholeMsg: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -45,6 +47,7 @@ export class DeclarationConsentPage {
     this.isApp = !document.URL.startsWith('http');
     this.windowHasOwnPropertyCordova = window.hasOwnProperty('cordova');
     console.log(this.deviceAuth);
+    console.log(this.platform);
   }
 
   ngAfterViewInit() {
@@ -70,27 +73,36 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    this.platform.ready().then((platformName) => (this.platformName = platformName));
-    return;
+    this.wholeMsg += ' continue clicked; ';
+    // this.platform.ready().then((platformName) => (this.platformName = platformName));
+    // return;
     // if (!this.platform.is('cordova')) {
     //   this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
     //   return;
     // }
     // this.platform.is('cordova')
-    // this.deviceAuth
-    //   .runAuthentication('Please authenticate yourself to proceed')
-    //   .then((isAuthenticated: boolean) => {
-    //     console.log('Is Auth? ' + isAuthenticated);
-    //     if (isAuthenticated) {
-    //       this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-    //     }
-    //   })
-    //   .catch((errorMsg: string) => {
-    //     if (errorMsg === 'cordova_not_available') {
-    //       this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-    //     } else {
-    //       console.log(errorMsg);
-    //     }
-    //   });
+    try {
+      this.deviceAuth
+        .runAuthentication('Please authenticate yourself to proceed')
+        .then((isAuthenticated: boolean) => {
+          this.wholeMsg += ' isAuthenticated = ' + isAuthenticated + ';';
+          // zalogowac isAuth + sprawdzic w ionic view
+          this.msg = 'is auth ' + isAuthenticated;
+          console.log('Is Auth? ' + isAuthenticated);
+          if (isAuthenticated) {
+            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          }
+        })
+        .catch((errorMsg: string) => {
+          this.wholeMsg += ' catch  error msg= ' + errorMsg + ';';
+          if (errorMsg === 'cordova_not_available') {
+            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          } else {
+            console.log(errorMsg);
+          }
+        });
+    } catch (error) {
+      this.wholeMsg += 'TRY catch  error msg= ' + error + ';';
+    }
   }
 }
