@@ -95,7 +95,7 @@ export class DeclarationConsentPage {
         })
         .catch((errorMsg: string) => {
           this.wholeMsg += ' catch  error msg= ' + errorMsg + ';';
-          if (errorMsg === 'cordova_not_available') {
+          if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
             this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
           } else {
             console.log(errorMsg);
