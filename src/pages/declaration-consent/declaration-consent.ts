@@ -1,6 +1,6 @@
 import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PolicyDataPage } from '../policy-data/policy-data';
@@ -23,7 +23,6 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
   templateUrl: 'declaration-consent.html'
 })
 export class DeclarationConsentPage {
-  platformName: string;
   pretestChecksPage: Page = PretestChecksPage;
   policyDataPage: Page = PolicyDataPage;
   candidateInfopage: Page = CandidateInfoPage;
@@ -31,23 +30,14 @@ export class DeclarationConsentPage {
   signaturePadOptions: any;
   signature: any;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
-  isApp;
-  windowHasOwnPropertyCordova;
-  msg: string;
-  wholeMsg: string = '';
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: AppConfigProvider,
-    private deviceAuth: DeviceAuthentication,
-    private platform: Platform
+    private deviceAuth: DeviceAuthentication
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
-    this.isApp = !document.URL.startsWith('http');
-    this.windowHasOwnPropertyCordova = window.hasOwnProperty('cordova');
-    console.log(this.deviceAuth);
-    console.log(this.platform);
   }
 
   ngAfterViewInit() {
@@ -73,36 +63,17 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    this.wholeMsg += ' continue clicked; ';
-    // this.platform.ready().then((platformName) => (this.platformName = platformName));
-    // return;
-    // if (!this.platform.is('cordova')) {
-    //   this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-    //   return;
-    // }
-    // this.platform.is('cordova')
-    try {
-      this.deviceAuth
-        .runAuthentication('Please authenticate yourself to proceed')
-        .then((isAuthenticated: boolean) => {
-          this.wholeMsg += ' isAuthenticated = ' + isAuthenticated + ';';
-          // zalogowac isAuth + sprawdzic w ionic view
-          this.msg = 'is auth ' + isAuthenticated;
-          console.log('Is Auth? ' + isAuthenticated);
-          if (isAuthenticated) {
-            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-          }
-        })
-        .catch((errorMsg: string) => {
-          this.wholeMsg += ' catch  error msg= ' + errorMsg + ';';
-          if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
-            this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
-          } else {
-            console.log(errorMsg);
-          }
-        });
-    } catch (error) {
-      this.wholeMsg += 'TRY catch  error msg= ' + error + ';';
-    }
+    this.deviceAuth
+      .runAuthentication('Please authenticate yourself to proceed')
+      .then((isAuthenticated: boolean) => {
+        if (isAuthenticated) {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        }
+      })
+      .catch((errorMsg: string) => {
+        if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        }
+      });
   }
 }
