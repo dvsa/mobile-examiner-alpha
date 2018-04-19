@@ -71,9 +71,8 @@ export class DeclarationConsentPage {
   validation() {
     if (this.checkInsurance && this.checkDebrief && this.checkResidence && this.signature) {
       return false;
-    } else {
-      return true;
     }
+    return true;
   }
 
   continue() {
