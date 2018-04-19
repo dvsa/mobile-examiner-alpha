@@ -6,6 +6,9 @@
   color: map-get($colors, white);
   font-weight: bold;
   font-size: 17px;
+  &:active {
+    background-color: lighten(map-get($colors, mesPrimary), 5);
+  }
 }
 
 .mes-bottom-card {
@@ -24,4 +27,7 @@
   color: map-get($colors, white);
   font-weight: bold;
   font-size: 17px;
+  &:active {
+    background-color: lighten(map-get($colors, danger), 5);
+  }
 }

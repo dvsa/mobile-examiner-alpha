@@ -26,8 +26,8 @@
               </ion-col>
               <ion-col col-4>
                 <div class="slot__candidate">
-                  <span>Matt Murray</span>
-                  <span>App ref: 384 392 293 22</span>
+                  <span class="mes-journal-candidate-name" (press)="goToCandidateInfo(s)">Matt Murray</span>
+                  <span>Category: B</span>
                 </div>
               </ion-col>
               <ion-col col-6>
@@ -63,8 +63,8 @@
           </ion-col>
           <ion-col col-4>
             <div class="slot__candidate">
-              <span>{{s.candidateName.firstName}} {{s.candidateName.lastName}}</span>
-              <span>App ref: {{s.appId}}</span>
+              <span class="mes-journal-candidate-name" (press)="goToCandidateInfo(s)">{{s.candidateName.firstName}} {{s.candidateName.lastName}}</span>
+              <span>Category: {{extractCategoryCode(s.slotType)}}</span>
             </div>
           </ion-col>
           <ion-col *ngIf="s.details" col-4>
@@ -89,7 +89,7 @@
           </ion-col>
           <ion-col *ngIf="!s.details" col-2>
             <div>
-              <button ion-button [navPush]="candidateInfoPage" color="secondary">View Test</button>
+              <button ion-button [navPush]="declarationConsentPage" color="secondary">Start Test</button>
             </div>
           </ion-col>
         </ion-row>
