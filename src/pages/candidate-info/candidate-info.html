@@ -15,7 +15,7 @@
         <ion-card-header class="mes-main-card-header--border-bottom mes-breadcrumbs">
             <span class="mes-header-md mes-breadcrumb-link" navPop>
                 <ion-icon name="arrow-back"></ion-icon>
-                Your Journal /
+                {{getPreviousPage()}} /
             </span>
             <span padding-left class="mes-header-md">View Candidate</span>
             <span float-right>
@@ -51,9 +51,16 @@
                         <ion-col no-padding>
                             <span class="mes-header-sm">Driving number:</span>
                             <div class="mes-divider mes-one-third-divider"></div>
-                            <span class="mes-text-sm">
-                                PHIL6767655777BN
-                            </span>
+                            <div>
+                                <span class="mes-text-sm">
+                                    PHIL6767655777BN
+                                </span>
+                            </div>
+                            <div margin-top>
+                                <span class="mes-text-sm mes-dark-grey">
+                                    <strong>App ref.</strong> 394 580 790 10
+                                </span>
+                            </div>
                         </ion-col>
                     </ion-row>
                     <div margin-bottom>
@@ -74,11 +81,10 @@
             </div>
         </ion-card-content>
     </ion-card>
-    <button-card text="Take candidate forward" [page]="declarationConsentPage" *ngIf="!signature"></button-card>
     <div class="confirm-identity-box" *ngIf="signature">
         <div class="inner" (click)="confirmIdentity()">
             <ion-checkbox></ion-checkbox>
-            <button ion-button class="mes-button-primary">Confirm Candidates Identity</button>
+            <button class="mes-button-primary">Confirm Candidates Identity</button>
         </div>
     </div>
 </ion-content>

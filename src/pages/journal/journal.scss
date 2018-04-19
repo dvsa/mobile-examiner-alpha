@@ -39,6 +39,11 @@ page-journal {
     &.slot__double ion-col div {
       height: 160px;
     }
+    .mes-journal-candidate-name {
+      &:active {
+        color: map-get($colors, lighterGrey);
+      }
+    }
     ion-col {
       &:first-child {
         padding: 5px 5px 5px 0;

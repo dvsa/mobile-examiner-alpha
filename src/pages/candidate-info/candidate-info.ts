@@ -27,4 +27,9 @@ export class CandidateInfoPage {
   confirmIdentity() {
     this.navCtrl.push(this.pretestChecksPage);
   }
+
+  getPreviousPage() {
+    const prevPageName: string = this.navCtrl.getPrevious().component.name;
+    return prevPageName === 'JournalPage' ? 'Your Journal' : 'Declaration';
+  }
 }

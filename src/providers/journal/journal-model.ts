@@ -5,6 +5,7 @@ export interface IJournal {
   startTime: string;
   appId: string;
   testCentreName: string;
+  slotType: string | null;
   checkMarker: boolean;
 }
 

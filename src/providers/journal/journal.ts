@@ -29,19 +29,20 @@ export class JournalProvider {
     return slots.reduce((curr: IJournal[], next) => {
       const {
         details,
-        slot: { testCentreName = '', start = '' },
+        slot: { testCentreName = '', start = '', vehicleSlotType: slotType = null },
         booking: {
           candidate: { candidateName = '', _candidateId: candidateId = 0 },
           application: { checkMarker = false, _applicationId: appId = '' }
         }
       } = next;
 
-      let journalEntry = <IJournal>{
+      let journalEntry: IJournal = {
         candidateId,
         candidateName,
         appId,
         testCentreName,
         checkMarker,
+        slotType,
         startTime: this.dateTimeUtil.getTime(start)
       };
 

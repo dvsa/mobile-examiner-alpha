@@ -7,6 +7,7 @@ import { JournalProvider } from '../../providers/journal/journal';
 import { IJournal } from '../../providers/journal/journal-model';
 import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { DeclarationConsentPage } from '../declaration-consent/declaration-consent';
 
 @Component({
   selector: 'page-journal',
@@ -15,6 +16,7 @@ import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 export class JournalPage {
   journalSlots: IJournal[];
   candidateInfoPage: Page = CandidateInfoPage;
+  declarationConsentPage: Page = DeclarationConsentPage;
   initiateSwapPage: Page = InitiateSwapPage;
 
   constructor(
@@ -34,6 +36,14 @@ export class JournalPage {
     this.faultStore.reset();
   }
 
+  extractCategoryCode(slotType: string) {
+    // slotType comes from the vehicleSlotType key in the journal data
+    // Examples of slotType parameter: 'B57mins' / 'Voc90mins'
+    if (slotType === null) return 'N/A';
+    const re = /^[a-zA-Z]*/;
+    return slotType.match(re);
+  }
+
   hasFailed(slot) {
     return slot.details && !slot.details.success;
   }
@@ -44,5 +54,9 @@ export class JournalPage {
 
   requiresCheck(slot) {
     return slot.checkMarker;
+  }
+
+  goToCandidateInfo() {
+    return this.navCtrl.push(CandidateInfoPage);
   }
 }

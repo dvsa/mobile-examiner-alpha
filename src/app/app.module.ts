@@ -44,6 +44,7 @@ import { FaultStoreProvider } from '../providers/fault-store/fault-store';
 import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
 import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
+import { DeviceAuthentication } from '../types/device-authentication';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -119,7 +120,8 @@ export function createTranslateLoader(http: Http) {
     FaultStoreProvider,
     DevToolsExtension,
     FaultStoreActions,
-    CustomHammerConfigProvider
+    CustomHammerConfigProvider,
+    DeviceAuthentication
   ]
 })
 export class AppModule {}

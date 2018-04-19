@@ -1,3 +1,4 @@
+import { DeviceAuthentication } from '../../types/device-authentication';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -33,7 +34,8 @@ export class DeclarationConsentPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public configService: AppConfigProvider
+    public configService: AppConfigProvider,
+    private deviceAuth: DeviceAuthentication
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
   }
@@ -61,6 +63,17 @@ export class DeclarationConsentPage {
   }
 
   continue() {
-    this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+    this.deviceAuth
+      .runAuthentication('Please authenticate yourself to proceed')
+      .then((isAuthenticated: boolean) => {
+        if (isAuthenticated) {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        }
+      })
+      .catch((errorMsg: string) => {
+        if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
+          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+        }
+      });
   }
 }
