@@ -24,7 +24,8 @@ $app-direction: ltr;
 $colors: (
   primary: #488aff,
   secondary: #32db64,
-  danger: #c7413a,
+  danger: #f53d3d,
+  warn: #f0ad4e,
   light: #f4f4f4,
   dark: #222,
   lighterDark: #25292a,
@@ -45,7 +46,8 @@ $colors: (
   passedGreen: #1bb700,
   failRed: #c71e1f,
   seriousYellow: #c9c015,
-  deviceLockedOrange: #edc628
+  deviceLockedOrange: #edc628,
+  black: black
 );
 // App iOS Variables
 // --------------------------------------------------

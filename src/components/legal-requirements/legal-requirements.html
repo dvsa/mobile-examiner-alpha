@@ -1,0 +1,12 @@
+<ion-row *ngFor="let req of requirements" align-items-center no-padding (swipe)="openCustomerHammgerConfig()">
+  <ion-col no-padding>
+    <button [class.done]="hasMetReq(req.id)" (click)="setReq(req.id)">
+      <ion-row no-padding>
+        <ion-col col-1></ion-col>
+        <ion-col col-9>
+          <span>{{req.name}}</span>
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-col>
+</ion-row>

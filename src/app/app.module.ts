@@ -1,3 +1,4 @@
+import { AllOnOnePage } from './../pages/all-on-one/all-on-one';
 import { ErrorHandler, NgModule } from '@angular/core';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +32,22 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
 import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
 import { SelectButtonComponent } from '../components/select-button/select-button';
 import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
+import {
+  TranslateModule,
+  TranslateStaticLoader,
+  TranslateLoader
+} from 'ng2-translate/ng2-translate';
+import { Http } from '@angular/http';
+import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
+import { HazardRecorderProvider } from '../providers/hazard-recorder/hazard-recorder';
+import { FaultStoreProvider } from '../providers/fault-store/fault-store';
+import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
+import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -50,14 +67,21 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     TestResultPage,
     TrainerModePage,
     EyesightFaultRecordingModalPage,
-    PostTestSummaryPage
+    PostTestSummaryPage,
+    AllOnOnePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(App),
     ComponentsModule,
     HttpClientModule,
-    SignaturePadModule
+    SignaturePadModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: createTranslateLoader,
+      deps: [Http]
+    }),
+    NgReduxModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,7 +104,8 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     SelectButtonComponent,
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
-    WeatherSelectorComponent
+    WeatherSelectorComponent,
+    AllOnOnePage
   ],
   providers: [
     StatusBar,
@@ -88,7 +113,13 @@ import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recordi
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AppConfigProvider,
     JournalProvider,
-    DateTimeUtility
+    DateTimeUtility,
+    FaultsScorecardProvider,
+    HazardRecorderProvider,
+    FaultStoreProvider,
+    DevToolsExtension,
+    FaultStoreActions,
+    CustomHammerConfigProvider
   ]
 })
 export class AppModule {}

@@ -1,5 +1,8 @@
-.mes-header {
+mes-header {
   color: #ffff;
+  .toolbar {
+    min-height: 44px;
+  }
   .toolbar-background {
     background-color: black;
   }
@@ -10,12 +13,7 @@
   p {
     font-size: smaller;
   }
-}
-
-.phase-banner {
-  border-top: 10px;
-  border-top-style: solid;
-  border-top-color: #005ea5;
-  margin-left: 24px;
-  margin-right: 24px;
+  button {
+    background-color: black;
+  }
 }

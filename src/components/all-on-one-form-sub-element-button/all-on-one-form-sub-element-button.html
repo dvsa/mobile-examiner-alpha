@@ -1,0 +1,8 @@
+<ion-row align-items-center no-padding>
+  <ion-col no-padding>
+    <button class="all-on-one-form-fault-button" (click)="toggle()" [ngClass]="{'active' : isEnabled}">{{text}}
+        <span *ngIf="serious" class="serious fault-badge">S</span>
+        <span *ngIf="dangerous" class="dangerous fault-badge">D</span>
+    </button>
+  </ion-col>
+</ion-row>

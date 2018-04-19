@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { App } from 'ionic-angular';
 
 @Component({
-  selector: 'mes-header',
-  templateUrl: 'header.html'
+  selector: 'alpha-header',
+  templateUrl: 'alpha-header.html'
 })
-export class HeaderComponent {
+export class AlphaHeaderComponent {
   constructor(private app: App) {}
 
   goHome() {

@@ -5,6 +5,8 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { JournalProvider } from '../../providers/journal/journal';
 import { IJournal } from '../../providers/journal/journal-model';
+import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 @Component({
   selector: 'page-journal',
@@ -18,13 +20,18 @@ export class JournalPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private journalProvider: JournalProvider
+    private journalProvider: JournalProvider,
+    private faultsService: FaultsScorecardProvider,
+    private faultStore: FaultStoreProvider
   ) {}
 
   ionViewDidLoad() {
     this.journalProvider.getData('test@test.com').subscribe((data) => {
       this.journalSlots = data;
     });
+
+    this.faultsService.reset();
+    this.faultStore.reset();
   }
 
   hasFailed(slot) {

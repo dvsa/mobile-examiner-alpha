@@ -1,7 +1,7 @@
-<ion-header>
-  <mes-header></mes-header>
+<ion-header *ngIf="!canShowHeader">
+  <alpha-header></alpha-header>
 </ion-header>
 
-<ion-content>
+<ion-content #ionContent>
   <ion-nav [root]="rootPage" main #content></ion-nav>
 </ion-content>

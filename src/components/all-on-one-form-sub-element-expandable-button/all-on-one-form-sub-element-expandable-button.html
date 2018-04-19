@@ -1,0 +1,13 @@
+<ion-row align-items-center no-padding>
+  <ion-col no-padding>
+    <button class="all-on-one-form-fault-button" (click)="toggle()" [hidden]="isEnabled">{{text}}
+    </button>
+
+    <div class="expanded-box" [hidden]="!isEnabled">
+        <h1>{{text}} -</h1>
+        <all-on-one-form-sub-element-hold-no-modal *ngFor="let item of items" section="{{text}}-{{item}}-v1" text="{{item}}"></all-on-one-form-sub-element-hold-no-modal>
+
+        <button ion-button color="danger" class="close-button" (click)="close()">Close</button>
+    </div>
+  </ion-col>
+</ion-row>
