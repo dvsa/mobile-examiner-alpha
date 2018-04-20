@@ -60,6 +60,8 @@ export class DeclarationConsentPage {
     this.signaturePad.clear();
   }
 
+  drawStart() {}
+
   ionViewDidLoad() {
     this.signaturePad.resizeCanvas();
   }
