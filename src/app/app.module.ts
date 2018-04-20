@@ -46,6 +46,9 @@ import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
 import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
 import { DeviceAuthentication } from '../types/device-authentication';
 import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Insomnia } from '@ionic-native/insomnia';
+import { Globalization } from '@ionic-native/globalization';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -124,7 +127,10 @@ export function createTranslateLoader(http: Http) {
     DevToolsExtension,
     FaultStoreActions,
     CustomHammerConfigProvider,
-    DeviceAuthentication
+    DeviceAuthentication,
+    ScreenOrientation,
+    Insomnia,
+    Globalization
   ]
 })
 export class AppModule {}
