@@ -5,7 +5,6 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { JournalProvider } from '../../providers/journal/journal';
 import { IJournal } from '../../providers/journal/journal-model';
-import { FaultsScorecardProvider } from '../../providers/faults-scorecard/faults-scorecard';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 import { DeclarationConsentPage } from '../declaration-consent/declaration-consent';
 
@@ -23,7 +22,6 @@ export class JournalPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private journalProvider: JournalProvider,
-    private faultsService: FaultsScorecardProvider,
     private faultStore: FaultStoreProvider
   ) {}
 
@@ -32,7 +30,6 @@ export class JournalPage {
       this.journalSlots = data;
     });
 
-    this.faultsService.reset();
     this.faultStore.reset();
   }
 

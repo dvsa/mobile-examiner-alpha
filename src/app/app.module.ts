@@ -38,7 +38,6 @@ import {
   TranslateLoader
 } from 'ng2-translate/ng2-translate';
 import { Http } from '@angular/http';
-import { FaultsScorecardProvider } from '../providers/faults-scorecard/faults-scorecard';
 import { HazardRecorderProvider } from '../providers/hazard-recorder/hazard-recorder';
 import { FaultStoreProvider } from '../providers/fault-store/fault-store';
 import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
@@ -121,7 +120,6 @@ export function createTranslateLoader(http: Http) {
     AppConfigProvider,
     JournalProvider,
     DateTimeUtility,
-    FaultsScorecardProvider,
     HazardRecorderProvider,
     FaultStoreProvider,
     DevToolsExtension,
