@@ -1,8 +1,8 @@
+import { AllOnOnePage } from './../all-on-one/all-on-one';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { PolicyDataPage } from '../policy-data/policy-data';
-import { InitiateDrivingPeriodPage } from '../initiate-driving-period/initiate-driving-period';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { TellMeModalComponent } from '../../components/tell-me-modal/tell-me-modal';
@@ -13,7 +13,6 @@ import { TellMeModalComponent } from '../../components/tell-me-modal/tell-me-mod
 })
 export class PretestChecksPage {
   endTestReasonPage: Page = EndTestReasonPage;
-  initiateDrivingPeriodPage: Page = InitiateDrivingPeriodPage;
   policyDataPage: Page = PolicyDataPage;
   tellMeQuestionId: string;
   eyeSightSeriousFault = false;
@@ -49,5 +48,9 @@ export class PretestChecksPage {
     });
 
     eyesightFaultRecordingModal.present();
+  }
+
+  gotoDL25() {
+    this.navCtrl.push(AllOnOnePage, {}, { animate: false });
   }
 }

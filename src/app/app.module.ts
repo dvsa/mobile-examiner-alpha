@@ -1,3 +1,4 @@
+import { AllOnOnePage } from './../pages/all-on-one/all-on-one';
 import { ErrorHandler, NgModule } from '@angular/core';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +32,26 @@ import { AppConfigProvider } from '../providers/app-config/app-config';
 import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
 import { SelectButtonComponent } from '../components/select-button/select-button';
 import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
+import {
+  TranslateModule,
+  TranslateStaticLoader,
+  TranslateLoader
+} from 'ng2-translate/ng2-translate';
+import { Http } from '@angular/http';
+import { HazardRecorderProvider } from '../providers/hazard-recorder/hazard-recorder';
+import { FaultStoreProvider } from '../providers/fault-store/fault-store';
+import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
+import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
 import { DeviceAuthentication } from '../types/device-authentication';
+import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Insomnia } from '@ionic-native/insomnia';
+import { Globalization } from '@ionic-native/globalization';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -51,14 +71,22 @@ import { DeviceAuthentication } from '../types/device-authentication';
     TestResultPage,
     TrainerModePage,
     EyesightFaultRecordingModalPage,
-    PostTestSummaryPage
+    PostTestSummaryPage,
+    AllOnOnePage,
+    AoopCustomHammerConfigPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(App),
     ComponentsModule,
     HttpClientModule,
-    SignaturePadModule
+    SignaturePadModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: createTranslateLoader,
+      deps: [Http]
+    }),
+    NgReduxModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -81,7 +109,9 @@ import { DeviceAuthentication } from '../types/device-authentication';
     SelectButtonComponent,
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
-    WeatherSelectorComponent
+    WeatherSelectorComponent,
+    AllOnOnePage,
+    AoopCustomHammerConfigPage
   ],
   providers: [
     StatusBar,
@@ -90,7 +120,15 @@ import { DeviceAuthentication } from '../types/device-authentication';
     AppConfigProvider,
     JournalProvider,
     DateTimeUtility,
-    DeviceAuthentication
+    HazardRecorderProvider,
+    FaultStoreProvider,
+    DevToolsExtension,
+    FaultStoreActions,
+    CustomHammerConfigProvider,
+    DeviceAuthentication,
+    ScreenOrientation,
+    Insomnia,
+    Globalization
   ]
 })
 export class AppModule {}

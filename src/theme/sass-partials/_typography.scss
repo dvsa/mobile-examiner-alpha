@@ -25,3 +25,7 @@
 .center-text {
   text-align: center;
 }
+
+.bold-medium {
+  @include bold-24();
+}

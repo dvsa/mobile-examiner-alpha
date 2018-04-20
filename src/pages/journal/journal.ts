@@ -5,6 +5,7 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { JournalProvider } from '../../providers/journal/journal';
 import { IJournal } from '../../providers/journal/journal-model';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 import { DeclarationConsentPage } from '../declaration-consent/declaration-consent';
 
 @Component({
@@ -20,15 +21,18 @@ export class JournalPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private journalProvider: JournalProvider
+    private journalProvider: JournalProvider,
+    private faultStore: FaultStoreProvider
   ) {}
 
   ionViewDidLoad() {
     this.journalProvider.getData('test@test.com').subscribe((data) => {
       this.journalSlots = data;
     });
+
+    this.faultStore.reset();
   }
-  
+
   extractCategoryCode(slotType: string) {
     // slotType comes from the vehicleSlotType key in the journal data
     // Examples of slotType parameter: 'B57mins' / 'Voc90mins'

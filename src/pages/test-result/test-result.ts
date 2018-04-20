@@ -15,4 +15,8 @@ export class TestResultPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestResultPage');
   }
+
+  goBack() {
+    this.navCtrl.pop({ animate: false });
+  }
 }

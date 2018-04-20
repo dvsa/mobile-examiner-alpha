@@ -108,7 +108,7 @@
   </ion-card>
   <div class="action-buttons-wrapper">
     <button class="mes-button-danger end-test-button" [navPush]="endTestReasonPage">End Test</button>
-    <button class="mes-button-primary confirm-button" [navPush]="initiateDrivingPeriodPage">Confirm</button>
+    <button class="mes-button-primary confirm-button" (click)="gotoDL25()">Confirm</button>
     <div class="clearfix"></div>
   </div>
 </ion-content>
