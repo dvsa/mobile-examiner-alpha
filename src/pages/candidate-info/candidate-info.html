@@ -24,6 +24,11 @@
             </span>
         </ion-card-header>
         <ion-card-content>
+            <ion-row margin-bottom>
+                <ion-col col-3 offset-9>
+                    <button class="mes-button-neutral" outline color="dark" [navPush]="initiateSwapPage">Request swap</button>
+                </ion-col>
+            </ion-row>
             <ion-row>
                 <ion-col col-4 text-center padding-right>
                     <ion-icon class="mes-candidate-img" name="person"></ion-icon>
