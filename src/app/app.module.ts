@@ -45,6 +45,7 @@ import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 import { FaultStoreActions } from '../providers/fault-store/fault-store.action';
 import { CustomHammerConfigProvider } from '../providers/custom-hammer-config/custom-hammer-config';
 import { DeviceAuthentication } from '../types/device-authentication';
+import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -69,7 +70,8 @@ export function createTranslateLoader(http: Http) {
     TrainerModePage,
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
-    AllOnOnePage
+    AllOnOnePage,
+    AoopCustomHammerConfigPage
   ],
   imports: [
     BrowserModule,
@@ -106,7 +108,8 @@ export function createTranslateLoader(http: Http) {
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
     WeatherSelectorComponent,
-    AllOnOnePage
+    AllOnOnePage,
+    AoopCustomHammerConfigPage
   ],
   providers: [
     StatusBar,
