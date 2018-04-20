@@ -27,13 +27,13 @@
       <span class="mes-text-md">The use of the test vehicle for the purpose of the test is fully covered by a valid policy of insurance which satisfies
         the requirements of the legislation.</span>
       <div>
-        <input type="checkbox" name="insurance" id="check-insurance">
+        <input type="checkbox" name="insurance" id="check-insurance" [checked]="checkInsurance" (change)="updateValidation('checkInsurance')">
         <label for="check-insurance">I confirm</label>
       </div>
       <div class="mes-divider"></div>
       <span class=" mes-text-md ">I normally live/have lived in the UK for at least 185 days in the last 12 months (except taxi/private hire).</span>
       <div>
-        <input type="checkbox" name="residence" id="check-residence">
+        <input type="checkbox" name="residence" id="check-residence" [checked]="checkResidence" (change)="updateValidation('checkResidence')">
         <label for="check-residence">I confirm</label>
       </div>
       <div class="mes-divider"></div>
@@ -41,7 +41,7 @@
       <span class="mes-text-md">Debrief audio recording Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae ipsum libero odit totam.
         Fugiat, tempora cumque nostrum quas facere temporibus.</span>
       <div>
-        <input type="checkbox" name="debrief" id="check-debrief">
+        <input type="checkbox" name="debrief" id="check-debrief" [checked]="checkDebrief" (change)="updateValidation('checkDebrief')">
         <label for="check-debrief">I confirm</label>
       </div>
       <div class="mes-divider"></div>
@@ -52,7 +52,7 @@
       <span class="mes-text-sm">Sign here:</span>
       <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
       <button (click)="clearSignaturePad()" class="mes-button-danger" id="retry">Retry</button>
-      <button (click)="continue()" class="mes-button-primary" id="continue">Continue</button>
+      <button (click)="continue()" class="mes-button-primary" id="continue" [disabled]="validation()">Continue</button>
       <div class="clearfix"></div>
     </div>
   </ion-card>

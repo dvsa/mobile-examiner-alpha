@@ -29,6 +29,11 @@ export class DeclarationConsentPage {
   endTestReasonPage: Page = EndTestReasonPage;
   signaturePadOptions: any;
   signature: any;
+
+  checkInsurance: boolean = false;
+  checkResidence: boolean = false;
+  checkDebrief: boolean = false;
+
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
   constructor(
@@ -48,18 +53,28 @@ export class DeclarationConsentPage {
 
   drawComplete() {
     this.signature = this.signaturePad.toDataURL();
+    this.validation();
   }
 
   clearSignaturePad() {
     this.signaturePad.clear();
   }
 
-  drawStart() {
-    // will be notified of szimek/signature_pad's onBegin event
-  }
+  drawStart() {}
 
   ionViewDidLoad() {
     this.signaturePad.resizeCanvas();
+  }
+
+  updateValidation(prop: string) {
+    this[prop] = !this[prop];
+  }
+
+  validation() {
+    if (this.checkInsurance && this.checkDebrief && this.checkResidence && this.signature) {
+      return false;
+    }
+    return true;
   }
 
   continue() {
