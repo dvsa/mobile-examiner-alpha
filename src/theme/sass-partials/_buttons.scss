@@ -19,6 +19,16 @@
   }
 }
 
+.mes-button-neutral {
+  border: solid 1px map-get($colors, light);
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 15px;
+  background: map-get($colors, white);
+}
+
 .mes-button-danger {
   border-radius: 22px;
   min-width: 105px;
