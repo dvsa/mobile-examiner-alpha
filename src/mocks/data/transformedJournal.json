@@ -16,6 +16,7 @@
       "showMe": 6,
       "tellMe": 11
     },
+    "slotType": "B57mins",
     "startTime": "__TIME__",
     "testCentreName": "Example Test Centre"
   },
@@ -36,6 +37,7 @@
       "showMe": 3,
       "tellMe": 8
     },
+    "slotType": null,
     "startTime": "__TIME__",
     "testCentreName": "Example Test Centre"
   },
@@ -49,6 +51,7 @@
       "thirdName": "Ccc",
       "lastName": "Murry"
     },
+    "slotType": "Voc90mins",
     "checkMarker": false,
     "startTime": "__TIME__",
     "testCentreName": "Example Test Centre"
