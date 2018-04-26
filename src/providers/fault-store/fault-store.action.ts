@@ -30,23 +30,28 @@ export class FaultStoreActions {
   });
 
   @dispatch()
-  addFault = (id: string, faultType: string): FaultAddAction => ({
+  addFault = (id: string, faultText: string, faultType: string): FaultAddAction => ({
     type: FaultStoreActions.ADD_FAULTS,
     meta: null,
-    payload: { id, faultType }
+    payload: { id, faultText, faultType }
   });
 
   @dispatch()
-  removeFault = (id: string, faultType: string, faultCounter?: number): FaultDeleteAction => ({
+  removeFault = (
+    id: string,
+    faultText: string,
+    faultType: string,
+    faultCounter?: number
+  ): FaultDeleteAction => ({
     type: FaultStoreActions.DELETE_FAULTS,
     meta: null,
-    payload: { id, faultType, faultCounter }
+    payload: { id, faultText, faultType, faultCounter }
   });
 
   @dispatch()
-  undoLastFault = ({ id, faultType, action }): FaultUndoAction => ({
+  undoLastFault = ({ id, faultType, faultText, action }): FaultUndoAction => ({
     type: FaultStoreActions.UNDO_FAULTS,
     meta: null,
-    payload: { id, faultType, action }
+    payload: { id, faultType, faultText, action }
   });
 }

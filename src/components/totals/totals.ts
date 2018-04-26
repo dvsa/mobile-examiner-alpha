@@ -28,7 +28,7 @@ export class TotalsComponent {
     private hazardProvider: HazardRecorderProvider,
     private faultStore: FaultStoreProvider
   ) {
-    this.faultStore.currentfaults$.subscribe((data) => {
+    this.faultStore.currentFaults$.subscribe((data) => {
       let fs = 0;
       let ds = 0;
       let ss = 0;

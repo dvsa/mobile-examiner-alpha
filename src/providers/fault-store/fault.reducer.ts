@@ -1,6 +1,7 @@
 import { FaultStoreActions, FaultAddAction, FaultDeleteAction } from './fault-store.action';
 import { IFaultElementState } from './fault-store.model';
 import { Action } from 'redux';
+import { upperFirst } from 'lodash';
 
 const INITIAL_STATE: IFaultElementState = {};
 
@@ -26,15 +27,18 @@ export function faultReducer(
 
 const addFault = (state, action) => {
   const faultAddAction = action as FaultAddAction;
+  let { faultText } = faultAddAction.payload;
   const { id, faultType } = faultAddAction.payload;
   const currFaults = state[id] || {};
-  const lastFault = { id, faultType, action: 'ADD' };
+  const lastFault = { id, faultType, faultText, action: 'ADD' };
 
+  faultText = upperFirst(faultText);
   return {
     ...state,
     lastFault,
     [id]: {
       ...currFaults,
+      faultText,
       [faultType]: currFaults[faultType] ? (currFaults[faultType] += 1) : 1
     }
   };

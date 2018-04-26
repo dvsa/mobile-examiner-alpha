@@ -1,41 +1,34 @@
 import { Component } from '@angular/core';
-import { IFaultSummary, FaultTitle } from './interfaces/IFaultSummary';
+import { IFaultSummary } from './interfaces/IFaultSummary';
+import { FaultTitle } from './enums/FaultTitle';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 @Component({
   selector: 'test-summary',
   templateUrl: 'test-summary.html'
 })
 export class TestSummaryComponent {
-  faultSummaries: IFaultSummary[] = [
-    {
-      title: FaultTitle.Dangerous,
-      total: 2,
-      faults: [
-        { name: 'Positioning - Lane Discipline', total: 1 },
-        { name: 'Response to signs - Other Road Users', total: 1 }
-      ]
-    },
-    {
-      title: FaultTitle.Serious,
-      total: 3,
-      faults: [
-        { name: 'Judgement - Cutting Corners', total: 1 },
-        { name: 'Awareness / Planning', total: 1 },
-        { name: 'Overtaking', total: 1 }
-      ]
-    },
-    {
-      title: FaultTitle.DriverFaults,
-      total: 8,
-      faults: [
-        { name: 'Judgement - Cutting Corners', total: 2 },
-        { name: 'Awareness / Planning', total: 1 },
-        { name: 'Overtaking', total: 1 },
-        { name: 'Positioning - Lane Discipline', total: 3 },
-        { name: 'Response to signs - Other Road Users', total: 1 }
-      ]
-    }
-  ];
+  testResult: string;
+  faultSummaries: IFaultSummary[];
 
-  constructor() {}
+  constructor(private faultStore: FaultStoreProvider) {
+    this.testResult = this.faultStore.getTestResultAndCalculateFaultTotals();
+    this.faultSummaries = [
+      {
+        title: FaultTitle.Dangerous,
+        total: this.faultStore.getNumberOfDangerousFaults(),
+        faults: this.faultStore.getDangerousFaults()
+      },
+      {
+        title: FaultTitle.Serious,
+        total: this.faultStore.getNumberOfSeriousFaults(),
+        faults: this.faultStore.getSeriousFaults()
+      },
+      {
+        title: FaultTitle.DriverFaults,
+        total: this.faultStore.getNumberOfDrivingFaults(),
+        faults: this.faultStore.getDrivingFaults()
+      }
+    ];
+  }
 }

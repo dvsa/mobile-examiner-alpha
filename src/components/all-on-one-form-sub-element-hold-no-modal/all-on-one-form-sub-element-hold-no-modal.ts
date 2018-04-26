@@ -13,7 +13,7 @@ declare const Hammer: any;
 })
 export class AllOnOneFormSubElementHoldNoModalComponent {
   @Input('section') section: string = '';
-  @Input() text: string;
+  @Input('text') text: string = '';
 
   serious: boolean = false;
   dangerous: boolean = false;
@@ -34,7 +34,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       (data) => (this.isLastFault = data && data.id === this.section)
     );
 
-    faultStore.currentfaults$.subscribe((data) => {
+    faultStore.currentFaults$.subscribe((data) => {
       this.faultCounter = data[this.section] ? data[this.section].fault : 0;
       this.serious = data[this.section] ? !!data[this.section].serious : false;
       this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
@@ -79,7 +79,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       return;
     }
 
-    this.faultStore.addFault(this.section, 'fault');
+    this.faultStore.addFault(this.section, this.text, 'fault');
   }
 
   recordHazard() {
@@ -96,7 +96,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       ) {
         this.removeSeriousFault();
       } else if (this.faultCounter > 0) {
-        this.faultStore.removeFault(this.section, 'fault', this.faultCounter);
+        this.faultStore.removeFault(this.section, this.text, 'fault', this.faultCounter);
       }
     } else if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
       this.addDangerousFault();
@@ -110,24 +110,24 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
   addSeriousFault() {
     if (this.serious || this.dangerous) return;
     this.serious = true;
-    this.faultStore.addFault(this.section, 'serious');
+    this.faultStore.addFault(this.section, this.text, 'serious');
   }
 
   removeSeriousFault() {
     if (!this.serious) return;
     this.serious = false;
-    this.faultStore.removeFault(this.section, 'serious');
+    this.faultStore.removeFault(this.section, this.text, 'serious');
   }
 
   addDangerousFault() {
     if (this.dangerous) return;
     this.dangerous = true;
-    this.faultStore.addFault(this.section, 'dangerous');
+    this.faultStore.addFault(this.section, this.text, 'dangerous');
   }
 
   removeDangerousFault() {
     if (!this.dangerous) return;
     this.dangerous = false;
-    this.faultStore.removeFault(this.section, 'dangerous');
+    this.faultStore.removeFault(this.section, this.text, 'dangerous');
   }
 }

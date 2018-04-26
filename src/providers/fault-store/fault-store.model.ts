@@ -12,6 +12,7 @@ export interface IFaultState {
 export interface ILastFaultState {
   id: string;
   faultType: string;
+  faultText: string;
   action: string;
 }
 
@@ -22,12 +23,14 @@ export interface IFaultElementState {
 
 export interface IFaultPayload {
   id: string;
+  faultText: string;
   faultType: string;
   faultCounter?: number;
 }
 
 export interface ILastFaultPayload {
   id: string;
+  faultText: string;
   faultType: string;
   action: string;
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IFaultSummary, FaultTitle } from '../interfaces/IFaultSummary';
+import { IFaultSummary } from '../interfaces/IFaultSummary';
+import { FaultTitle } from '../enums/FaultTitle';
 import { find } from 'lodash';
 
 @Component({

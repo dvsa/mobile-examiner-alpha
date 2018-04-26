@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { IonicPage, ModalController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
-import { IFaultSummary, FaultTitle } from '../../components/test-summary/interfaces/IFaultSummary';
+import { IFaultSummary } from '../../components/test-summary/interfaces/IFaultSummary';
+import { FaultTitle } from '../../components/test-summary/enums/FaultTitle';
 import { WeatherSelectorComponent } from '../../components/weather-selector/weather-selector';
 import { JournalPage } from '../journal/journal';
 

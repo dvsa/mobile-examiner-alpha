@@ -64,12 +64,16 @@ export class AllOnOnePage {
     }
   }
 
-  selectManeuver(maneuverName: string, $event: any) {
+  selectManeuver(maneuverName: string, maneuverText: string, $event: any) {
     ['PR', 'RR', 'RPC', 'FP'].filter((man) => man !== maneuverName).forEach((manName) => {
-      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', 'serious');
-      this.faultStore.removeFault('manoeuver' + manName + 'Observationv1', 'serious');
-      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', 'dangerous');
-      this.faultStore.removeFault('manoeuver' + manName + 'Observationv1', 'dangerous');
+      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', maneuverText, 'serious');
+      this.faultStore.removeFault('manoeuver' + manName + 'Observationv1', maneuverText, 'serious');
+      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', maneuverText, 'dangerous');
+      this.faultStore.removeFault(
+        'manoeuver' + manName + 'Observationv1',
+        maneuverText,
+        'dangerous'
+      );
     }, this);
 
     this.selectedManeuver = $event.target.checked ? maneuverName : '';

@@ -18,7 +18,7 @@ export class AllOnOneFormSubElementButtonComponent {
     const controlKey = 'manoeuver' + this.sectionsToShow + 'Controlv1';
     const obsKey = 'manoeuver' + this.sectionsToShow + 'Observationv1';
 
-    this.faultStore.currentfaults$.subscribe((data) => {
+    this.faultStore.currentFaults$.subscribe((data) => {
       if (data[obsKey]) {
         if (data[obsKey].serious) {
           this.serious = !!data[obsKey].serious;
