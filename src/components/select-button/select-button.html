@@ -1,4 +1,4 @@
-<button class="select-button" (click)="onClick()">
+<button class="select-button" type="button" (click)="onClickEventHandler()">
   <span class="select-text" [ngClass]="{'black-text': selectedText || false}">{{selectedText || 'Select'}}</span>
   <span class="arrow">
     <ion-icon name="arrow-down"></ion-icon>

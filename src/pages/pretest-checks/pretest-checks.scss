@@ -58,4 +58,10 @@ page-pretest-checks {
       margin: 0;
     }
   }
+
+  .warning-text {
+    padding-left: 5px;
+    color: map-get($colors, danger);
+    position: absolute;
+  }
 }

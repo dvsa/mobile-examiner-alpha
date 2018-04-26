@@ -1,33 +1,29 @@
-<ion-content padding>
-  <span class="mes-header-md">Select tell me question</span>
-  <div class="mes-divider"></div>
-  <ion-row>
-    <ion-col offset-2 col-3 class="mes-header-md center-text">
-      Today
+<ion-header padding>
+  <ion-row class="align-items-center">
+    <ion-col>
+      <span class="mes-header-md">Select tell me question</span>
     </ion-col>
-    <ion-col col-3 class="mes-header-md center-text">
-      Last 7 days
+    <ion-col class="text-align-right">
+      <button (click)="dismiss()" class="mes-button-danger">Cancel</button>
     </ion-col>
   </ion-row>
+</ion-header>
 
-  <ion-row *ngFor="let question of tellMeQuestions" class="center-text mes-text-md align-items-center mes-bottom-border">
-    <ion-col col-2 class="mes-grey">
+<ion-content padding>
+  <ion-row *ngFor="let question of tellMeQuestions; let i = index" class="mes-text-md align-items-center mes-bottom-border">
+    <ion-col col-1 no-padding class="mes-grey center-text mes-header-md">
       {{question.id}}
     </ion-col>
-    <ion-col col-3>
-      {{question.today}}
+    <ion-col col-9 (click)="toggle(i)">
+      <div class="hidden" [class.active]="!question.isExpanded">
+        <span class="mes-header-md">{{question.keyWords}}</span>
+        <br>
+        <span class="counters">Today: {{question.today}} &nbsp;&nbsp; Last 7 days: {{question.last7days}}</span>
+      </div>
+      <div class="hidden" [class.active]="question.isExpanded">{{question.question}}</div>
     </ion-col>
-    <ion-col col-3>
-      {{question.last7days}}
-    </ion-col>
-    <ion-col col-4>
-      <button ion-button 
-        [ngClass]="selectedTellMeQuestionId===question.id ? 'mes-button-danger' : 'mes-button-primary'" 
-        (click)="select(selectedTellMeQuestionId===question.id ? null : question.id)">
-        {{selectedTellMeQuestionId===question.id ? 'Unselect' : 'Select'}}
-      </button>
+    <ion-col col-2 class="checkmark-circle" (click)="select(selectedTellMeQuestionId===question.id ? null : question.id)">
+      <ion-icon name="{{selectedTellMeQuestionId===question.id ? 'ios-checkmark-circle' : 'checkmark-circle-outline'}}"></ion-icon>
     </ion-col>
   </ion-row>
-
-  <button ion-button class="mes-button-danger margin-top" (click)="dismiss()">Cancel</button>
 </ion-content>

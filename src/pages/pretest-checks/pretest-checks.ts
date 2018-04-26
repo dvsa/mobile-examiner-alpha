@@ -1,6 +1,6 @@
 import { AllOnOnePage } from './../all-on-one/all-on-one';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
@@ -12,29 +12,35 @@ import { TellMeModalComponent } from '../../components/tell-me-modal/tell-me-mod
   templateUrl: 'pretest-checks.html'
 })
 export class PretestChecksPage {
+  @ViewChild('isAutomatic') isAutomaticInput;
   endTestReasonPage: Page = EndTestReasonPage;
   policyDataPage: Page = PolicyDataPage;
-  tellMeQuestionId: string;
   eyeSightSeriousFault = false;
   disableBackdropDismissModalOption = { enableBackdropDismiss: false };
+  preCheck = {
+    isEyesightCompleted: false,
+    carRegistration: null,
+    tellMeQuestionId: null,
+    isAutomatic: null
+  };
 
   constructor(public navCtrl: NavController, private modalCtrl: ModalController) {}
 
-  showTellMeOptions() {
+  showTellMeOptions = () => {
     const tellMeQuestionModal = this.modalCtrl.create(
       TellMeModalComponent,
-      { selectedTellMeQuestionId: this.tellMeQuestionId },
+      { selectedTellMeQuestionId: this.preCheck.tellMeQuestionId },
       this.disableBackdropDismissModalOption
     );
 
     tellMeQuestionModal.onDidDismiss((selectedTellMeQuestionId, role: string) => {
       if (role !== 'dismiss') {
-        this.tellMeQuestionId = selectedTellMeQuestionId;
+        this.preCheck.tellMeQuestionId = selectedTellMeQuestionId;
       }
     });
 
     tellMeQuestionModal.present();
-  }
+  };
 
   showEyesightFaultRecordingModal() {
     const eyesightFaultRecordingModal = this.modalCtrl.create(
@@ -50,7 +56,15 @@ export class PretestChecksPage {
     eyesightFaultRecordingModal.present();
   }
 
-  gotoDL25() {
-    this.navCtrl.push(AllOnOnePage, {}, { animate: false });
+  gotoDL25(form) {
+    if (form.valid) {
+      this.navCtrl.push(AllOnOnePage, {}, { animate: false });
+    }
+  }
+
+  automaticInputChanged(event, secondInput) {
+    secondInput.checked = false;
+    this.preCheck.isAutomatic = event.target.checked;
+    this.isAutomaticInput.control.markAsDirty();
   }
 }

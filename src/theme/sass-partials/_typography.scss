@@ -29,3 +29,11 @@
 .bold-medium {
   @include bold-24();
 }
+
+.capital-characters {
+  text-transform: uppercase;
+}
+
+.text-align-right {
+  text-align: right;
+}

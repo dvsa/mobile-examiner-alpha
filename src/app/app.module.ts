@@ -1,3 +1,4 @@
+import { DirectivesModule } from './../directives/directives.module';
 import { AllOnOnePage } from './../pages/all-on-one/all-on-one';
 import { ErrorHandler, NgModule } from '@angular/core';
 
@@ -48,6 +49,7 @@ import { AoopCustomHammerConfigPage } from '../pages/aoop-custom-hammer-config/a
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Insomnia } from '@ionic-native/insomnia';
 import { Globalization } from '@ionic-native/globalization';
+import { FormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -86,7 +88,9 @@ export function createTranslateLoader(http: Http) {
       useFactory: createTranslateLoader,
       deps: [Http]
     }),
-    NgReduxModule
+    NgReduxModule,
+    FormsModule,
+    DirectivesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

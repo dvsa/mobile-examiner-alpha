@@ -9,20 +9,131 @@ export class TellMeModalComponent {
   selectedTellMeQuestionId: string;
 
   tellMeQuestions = [
-    { id: 'T1', today: 2, last7days: 8 },
-    { id: 'T2', today: 2, last7days: 5 },
-    { id: 'T3', today: 1, last7days: 6 },
-    { id: 'T4', today: 2, last7days: 3 },
-    { id: 'T5', today: 0, last7days: 1 },
-    { id: 'T6', today: 0, last7days: 1 },
-    { id: 'T7', today: 0, last7days: 0 },
-    { id: 'T8', today: 0, last7days: 0 },
-    { id: 'T9', today: 0, last7days: 0 },
-    { id: 'T10', today: 0, last7days: 0 },
-    { id: 'T11', today: 0, last7days: 0 },
-    { id: 'T12', today: 0, last7days: 0 },
-    { id: 'T13', today: 0, last7days: 0 },
-    { id: 'T14', today: 0, last7days: 0 }
+    {
+      id: 'T1',
+      question:
+        'Tell me how you would check that the brakes are working before starting a journey.',
+      keyWords: 'Brakes',
+      today: 2,
+      last7days: 8,
+      isExpanded: false
+    },
+    {
+      id: 'T2',
+      question:
+        'Tell me where you would find the information for the recommended tyre pressures for this car and how tyre pressures should be checked.',
+      keyWords: 'Tyre pressures',
+      today: 2,
+      last7days: 5,
+      isExpanded: false
+    },
+    {
+      id: 'T3',
+      question:
+        'Tell me how you make sure your head restraint is correctly adjusted so it provides the best protection in the event of a crash.',
+      keyWords: 'Head restraint',
+      today: 1,
+      last7days: 6,
+      isExpanded: false
+    },
+    {
+      id: 'T4',
+      question:
+        'Tell me how you would check the tyres to ensure that they have sufficient tread depth and that their general condition is safe to use on the road.',
+      keyWords: 'Sufficient tread',
+      today: 2,
+      last7days: 3,
+      isExpanded: false
+    },
+    {
+      id: 'T5',
+      question:
+        'Tell me how you would check that the headlights & tail lights are working. (No need to exit vehicle)',
+      keyWords: 'Headlights & tail lights',
+      today: 0,
+      last7days: 1,
+      isExpanded: false
+    },
+    {
+      id: 'T6',
+      question:
+        'Tell me how you would know if there was a problem with your antilock braking system.',
+      keyWords: 'Antilock braking system',
+      today: 0,
+      last7days: 1,
+      isExpanded: false
+    },
+    {
+      id: 'T7',
+      question:
+        'Tell me how you would check the direction indicators are working. (No need to exit the vehicle)',
+      keyWords: 'Direction indicators',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T8',
+      question: 'Tell me how you would check the brake lights are working on this car.',
+      keyWords: 'Brake lights',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T9',
+      question:
+        'Tell me how you would check the power assisted steering is working before starting a journey.',
+      keyWords: 'Power assisted steering',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T10',
+      question:
+        'Tell me how you would switch on the rear fog light(s) and explain when you would use it/them, (no need to exit vehicle).',
+      keyWords: 'Rear fog light(s)',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T11',
+      question:
+        'Tell me how you switch your headlight from dipped to main beam and explain how you would know the main beam is on.',
+      keyWords: 'Dipped to main beam',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T12',
+      question:
+        'Open the bonnet and tell me how you would check that the engine has sufficient oil.',
+      keyWords: 'Engine has sufficient oil',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T13',
+      question:
+        'Open the bonnet and tell me how you would check that the engine has sufficient engine coolant.',
+      keyWords: 'Engine coolant',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    },
+    {
+      id: 'T14',
+      question:
+        'Open the bonnet and tell me how you would check that you have a safe level of hydraulic brake fluid.',
+      keyWords: 'Engine coolant',
+      today: 0,
+      last7days: 0,
+      isExpanded: false
+    }
   ];
 
   constructor(private viewCtrl: ViewController, params: NavParams) {
@@ -34,6 +145,11 @@ export class TellMeModalComponent {
   }
 
   select(itemId: string) {
-    this.viewCtrl.dismiss(itemId);
+    this.selectedTellMeQuestionId = itemId;
+    setTimeout(() => this.viewCtrl.dismiss(itemId), 300);
+  }
+
+  toggle(index: number) {
+    this.tellMeQuestions[index].isExpanded = !this.tellMeQuestions[index].isExpanded;
   }
 }
