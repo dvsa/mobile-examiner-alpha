@@ -3,11 +3,13 @@ import aws.dvsa.mes.Globals
 import aws.dvsa.mes.CommonFunctions
 import aws.dvsa.mes.GitFunctions
 import aws.dvsa.mes.MobileFunctions
+import aws.dvsa.mes.NVMFunctions
 //------------------------------------------
 def Globals         = new Globals()
 def CommonFunctions = new CommonFunctions()
 def GitFunctions    = new GitFunctions()
 def MobileFunctions = new MobileFunctions()
+def NVMFunctions    = new NVMFunctions()
 
 String branch_name          = "${env.BRANCH_NAME}"
 String ionic_app_id         = Globals.MOBILE_APP_ID
@@ -28,8 +30,17 @@ node (Globals.NONPROD_BUILDER_TAG) {
       CommonFunctions.log("info", "STAGE: Checkout")
       GitFunctions.git_check_out(Globals.MOBILE_REPO, branch_name, Globals.MOBILE_NAME, Globals.GITHUB_MOBILE_CREDS, false, false)
     }
+    stage("install dependencies") {
+      CommonFunctions.log("info", "STAGE: Install Dependencies")
+      dir(Globals.MOBILE_NAME) {
+        NVMFunctions.run(" -c 'npm install'")
+      }
+    }
     stage("tests") {
       CommonFunctions.log("info", "STAGE: Tests")
+      dir(Globals.MOBILE_NAME) {
+        NVMFunctions.run(" -c 'npm test'")
+      }
     }
     stage("build") {
       if(branch_name == "develop" || branch_name == "origin/develop"){
