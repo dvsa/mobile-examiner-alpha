@@ -37,6 +37,7 @@ export class DeviceAuthentication extends IonicNativePlugin {
    * @return {Promise<boolean>} Returns a promise that resolves when user tried to authenticate
    * @throws {Promise<string>} Returns a promise that rejects when there are some errors. Returned string contains localized message
    */
+  /* istanbul ignore next */
   @Cordova()
   runAuthentication(message: string): Promise<boolean> {
     return;
