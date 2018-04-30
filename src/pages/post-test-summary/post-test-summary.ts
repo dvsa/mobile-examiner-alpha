@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
 import { IFaultSummary } from '../../components/test-summary/interfaces/IFaultSummary';
@@ -55,7 +55,11 @@ export class PostTestSummaryPage {
     }
   ];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private navCtrl: NavController) {}
+
+  backToJournal() {
+    this.navCtrl.popToRoot();
+  }
 
   openWeatherModal() {
     const modal = this.modalCtrl.create(WeatherSelectorComponent);

@@ -24,6 +24,7 @@ const reduxLogger = require('redux-logger');
 export class FaultStoreProvider {
   lastFault$: Observable<ILastFaultState>;
   currentFaults$: Observable<IFaultElementState>;
+  testResult: TestResult;
 
   INITIAL_STATE: IState = {
     faults: {},
@@ -88,7 +89,7 @@ export class FaultStoreProvider {
    *
    * {@link TestSummaryComponent}
    */
-  getTestResultAndCalculateFaultTotals(): TestResult {
+  calculateFaultTotals(): void {
     let drivingFaults = 0;
     let dangerousFaults = 0;
     let seriousFaults = 0;
@@ -131,11 +132,18 @@ export class FaultStoreProvider {
     this.seriousFaultsNumber = seriousFaults;
     this.dangerousFaultsNumber = dangerousFaults;
 
-    if (drivingFaults >= 16 || dangerousFaults > 0 || seriousFaults > 0) {
-      return TestResult.Fail;
-    }
+  }
 
-    return TestResult.Pass;
+  calculateTestResult() {
+    if (this.drivingFaultsNumber >= 16 || this.seriousFaultsNumber > 0 || this.dangerousFaultsNumber > 0) {
+      return this.testResult = TestResult.Fail;
+    }
+    return this.testResult = TestResult.Pass;
+  }
+
+  getTestResult(): TestResult {
+    this.calculateTestResult();
+    return this.testResult;
   }
 
   getNumberOfDrivingFaults(): number {

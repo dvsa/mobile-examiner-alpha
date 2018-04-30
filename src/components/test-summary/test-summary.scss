@@ -14,7 +14,7 @@ test-summary {
       color: map-get($colors, failRed);
     }
     &.pass {
-      color: map-get($colors, passedGreen);
+      color: map-get($colors, mesPrimary);
     }
   }
   .mes-test-summary-details-list {

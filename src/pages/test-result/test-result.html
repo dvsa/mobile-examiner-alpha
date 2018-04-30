@@ -19,10 +19,10 @@
       <span padding-left class="mes-header-md">Florence Pearson</span>
     </ion-card-header>
     <ion-card-content>
-      <test-summary></test-summary>
+      <test-summary [faultSummaries]="faultSummaries" [testResult]="testResult"></test-summary>
     </ion-card-content>
   </ion-card>
   <ion-card class="mes-bottom-card" text-center>
-      <button [navPush]="postTestSummaryPage" ion-button class="mes-button-primary">Confirm Result</button>
+    <button [navPush]="getNextPage()" class="mes-button-primary">Confirm Result</button>
   </ion-card>
 </ion-content>

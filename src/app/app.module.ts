@@ -50,6 +50,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Insomnia } from '@ionic-native/insomnia';
 import { Globalization } from '@ionic-native/globalization';
 import { FormsModule } from '@angular/forms';
+import { PassDataCollectionPage } from '../pages/pass-data-collection/pass-data-collection';
+import { HealthDeclarationPage } from '../pages/health-declaration/health-declaration';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -75,7 +77,9 @@ export function createTranslateLoader(http: Http) {
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
     AllOnOnePage,
-    AoopCustomHammerConfigPage
+    AoopCustomHammerConfigPage,
+    PassDataCollectionPage,
+    HealthDeclarationPage
   ],
   imports: [
     BrowserModule,
@@ -115,7 +119,9 @@ export function createTranslateLoader(http: Http) {
     PostTestSummaryPage,
     WeatherSelectorComponent,
     AllOnOnePage,
-    AoopCustomHammerConfigPage
+    AoopCustomHammerConfigPage,
+    PassDataCollectionPage,
+    HealthDeclarationPage
   ],
   providers: [
     StatusBar,

@@ -1,4 +1,5 @@
 import { FaultStoreProvider } from './fault-store';
+import { TestResult } from '../../components/test-summary/enums/TestResult';
 
 const generateFaultStoreData = function(
   drivingFaults: number,
@@ -59,7 +60,8 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    expect(faultStore.getTestResultAndCalculateFaultTotals()).toEqual('Pass');
+    faultStore.calculateFaultTotals()
+    expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
     expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
     expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
@@ -78,7 +80,8 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    expect(faultStore.getTestResultAndCalculateFaultTotals()).toEqual('Pass');
+    faultStore.calculateFaultTotals()
+    expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
     expect(faultStore.getNumberOfDrivingFaults()).toEqual(15);
     expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
@@ -96,12 +99,12 @@ describe('Fault store - ', () => {
     };
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
-
-    expect(faultStore.getTestResultAndCalculateFaultTotals()).toEqual('Fail');
+    faultStore.calculateFaultTotals()
 
     expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
     expect(faultStore.getNumberOfDangerousFaults()).toEqual(1);
     expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 
   it('should return "Fail" for a test with a serious fault', () => {
@@ -116,11 +119,12 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    expect(faultStore.getTestResultAndCalculateFaultTotals()).toEqual('Fail');
+    faultStore.calculateFaultTotals()
 
     expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
     expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
     expect(faultStore.getNumberOfSeriousFaults()).toEqual(1);
+    expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 
   it('should return "Fail" for a test with 16 driving faults', () => {
@@ -135,10 +139,11 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    expect(faultStore.getTestResultAndCalculateFaultTotals()).toEqual('Fail');
+    faultStore.calculateFaultTotals()
 
     expect(faultStore.getNumberOfDrivingFaults()).toEqual(16);
     expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
     expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 });
