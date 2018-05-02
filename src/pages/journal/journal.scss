@@ -74,6 +74,10 @@ page-journal {
               font-size: 1.2em;
               font-weight: bold;
             }
+            ion-icon {
+              float: right;
+              margin-right: 4px;
+            }
           }
         }
         &.slot__details {
