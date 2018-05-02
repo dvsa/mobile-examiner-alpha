@@ -24,9 +24,9 @@
               <ion-col col-2>
                 <div class="slot__time">10:14</div>
               </ion-col>
-              <ion-col col-4>
+              <ion-col col-4 (click)="goToCandidateInfo(s)">
                 <div class="slot__candidate">
-                  <span class="mes-journal-candidate-name" (press)="goToCandidateInfo(s)">Matt Murray</span>
+                  <span class="mes-journal-candidate-name">Matt Murray <ion-icon ios="ios-information-circle-outline" md="md-information-circle"></ion-icon></span> 
                   <span>Category: B</span>
                 </div>
               </ion-col>
@@ -61,9 +61,9 @@
           <ion-col col-2>
             <div class="slot__time">{{s.startTime}}</div>
           </ion-col>
-          <ion-col col-4>
+          <ion-col col-4 (click)="goToCandidateInfo(s)">
             <div class="slot__candidate">
-              <span class="mes-journal-candidate-name" (press)="goToCandidateInfo(s)">{{s.candidateName.firstName}} {{s.candidateName.lastName}}</span>
+              <span class="mes-journal-candidate-name">{{s.candidateName.firstName}} {{s.candidateName.lastName}} <ion-icon ios="ios-information-circle-outline" md="md-information-circle"></ion-icon></span> 
               <span>Category: {{extractCategoryCode(s.slotType)}}</span>
             </div>
           </ion-col>
