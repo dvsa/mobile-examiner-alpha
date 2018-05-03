@@ -10,33 +10,37 @@
         </span>
     </ion-card-header>
     <ion-card-content class="content-narrow">
-      <div>
-        <span>Route Number</span>
-        <div float-right>
-          <input type="text">
-          <button class="mes-button-primary">Route Deviations</button>
-        </div>
-      </div>
+      <ion-row align-items-center>
+        <ion-col col-4 class="mes-header-md">
+            <span>Route Number</span>
+        </ion-col>
+        <ion-col col-2>
+            <input type="text" appInputRestriction="integer">
+        </ion-col>
+        <ion-col class="align-content-to-right">
+            <button class="mes-button-primary">Route Deviations</button>
+        </ion-col>
+      </ion-row>
       <div class="mes-divider"></div>
       <div>
-        <span>Weather</span>
+        <span class="mes-header-md">Weather</span>
         <span class="conditions-list">{{conditionsList}}</span>
         <div float-right>
           <button float-right class="mes-button-primary" (click)="openWeatherModal()">Select</button>
         </div>
       </div>
       <div class="mes-divider"></div>
-      <div>
+      <div class="mes-header-md">
         Examiner took action
         <div float-right>
           <input id="verbal-action" name="verbal" type="checkbox">
-          <label for="verbal-action">Verbal</label>
+          <label for="verbal-action" class="mes-header-md">Verbal</label>
           <input id="physical-action" name="physical" type="checkbox">
-          <label for="physical-action">Physical</label>
+          <label for="physical-action" class="mes-header-md">Physical</label>
         </div>
       </div>
       <div class="mes-divider"></div>
-      <div>
+      <div class="mes-header-md">
         Physical description of candidate:
         <textarea rows="5"></textarea>
       </div>
