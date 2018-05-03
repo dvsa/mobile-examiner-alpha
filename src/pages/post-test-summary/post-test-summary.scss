@@ -12,7 +12,7 @@ page-post-test-summary {
     border: thick solid map-get($colors, divider);
   }
 
-  input[type='text'] {
+  input[type='number'] {
     height: 45px;
     width: 100%;
     border: 5px solid map-get($map: $colors, $key: divider);

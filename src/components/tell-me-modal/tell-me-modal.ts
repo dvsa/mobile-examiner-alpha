@@ -129,7 +129,7 @@ export class TellMeModalComponent {
       id: 'T14',
       question:
         'Open the bonnet and tell me how you would check that you have a safe level of hydraulic brake fluid.',
-      keyWords: 'Brake Fluid',
+      keyWords: 'Brake fluid',
       today: 0,
       last7days: 0,
       isExpanded: false
