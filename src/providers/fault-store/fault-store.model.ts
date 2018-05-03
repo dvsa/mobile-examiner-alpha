@@ -1,3 +1,5 @@
+import { IFaultSummary } from "../../components/test-summary/interfaces/IFaultSummary";
+
 export interface IState {
   totals: IFaultState;
   faults: IFaultElementState;
@@ -33,4 +35,8 @@ export interface ILastFaultPayload {
   faultText: string;
   faultType: string;
   action: string;
+}
+
+export interface ITestResults {
+  [summary: string]: IFaultSummary;
 }

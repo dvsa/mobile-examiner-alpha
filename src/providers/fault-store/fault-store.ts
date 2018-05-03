@@ -3,12 +3,13 @@ import { NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { combineReducers } from 'redux';
 
 import { Observable } from 'rxjs/Observable';
-import { IState, ILastFaultState, IFaultElementState } from './fault-store.model';
+import { IState, ILastFaultState, IFaultElementState, ITestResults } from './fault-store.model';
 import { faultReducer as faults } from './fault.reducer';
 import { FaultStoreActions } from './fault-store.action';
 import { upperFirst } from 'lodash';
-import { IFault } from '../../components/test-summary/interfaces/IFault';
 import { TestResult } from '../../components/test-summary/enums/TestResult';
+import { FaultTitle } from '../../components/test-summary/enums/FaultTitle';
+import { Observer } from 'rxjs';
 
 declare var require;
 
@@ -22,6 +23,7 @@ const reduxLogger = require('redux-logger');
 */
 @Injectable()
 export class FaultStoreProvider {
+
   lastFault$: Observable<ILastFaultState>;
   currentFaults$: Observable<IFaultElementState>;
   testResult: TestResult;
@@ -31,9 +33,7 @@ export class FaultStoreProvider {
     totals: {}
   };
 
-  drivingFaults = [];
-  seriousFaults = [];
-  dangerousFaults = [];
+  testResults$: Observable<ITestResults>;
 
   drivingFaultsNumber = 0;
   seriousFaultsNumber = 0;
@@ -79,23 +79,14 @@ export class FaultStoreProvider {
     return this.store.getState();
   }
 
-  /**
-   * This method returns the string 'Pass' or 'Fail' depending on the outcome of
-   * the test.
-   *
-   * It also computes the the numbers of the different types of faults and
-   * stores the representation of the faults required by the test-summary
-   * screen.
-   *
-   * {@link TestSummaryComponent}
-   */
-  calculateFaultTotals(): void {
-    let drivingFaults = 0;
-    let dangerousFaults = 0;
-    let seriousFaults = 0;
-    this.seriousFaults = [];
-    this.dangerousFaults = [];
-    this.drivingFaults = [];
+  calculateFaultTotals(): ITestResults {
+
+    let drivingFaultsNum = 0;
+    let dangerousFaultsNum = 0;
+    let seriousFaultsNum = 0;
+    const seriousFaults = [];
+    const dangerousFaults = [];
+    const drivingFaults = [];
     const sectionRegEx = new RegExp(/^[a-z]*/);
     const data = this.getTotals();
     Object.keys(data.faults).forEach((fault) => {
@@ -103,35 +94,60 @@ export class FaultStoreProvider {
         return false;
       }
       if (data.faults[fault].fault) {
-        drivingFaults += data.faults[fault].fault;
+        drivingFaultsNum += data.faults[fault].fault;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
-        this.drivingFaults.push({
+        drivingFaults.push({
           name: section + ' - ' + data.faults[fault].faultText,
           total: data.faults[fault].fault
         });
       }
       if (data.faults[fault].dangerous) {
-        dangerousFaults += data.faults[fault].dangerous;
+        dangerousFaultsNum += data.faults[fault].dangerous;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
-        this.dangerousFaults.push({
+        dangerousFaults.push({
           name: section + ' - ' + data.faults[fault].faultText,
           total: data.faults[fault].fault
         });
       }
       if (data.faults[fault].serious) {
-        seriousFaults += data.faults[fault].serious;
+        seriousFaultsNum += data.faults[fault].serious;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
-        this.seriousFaults.push({
+        seriousFaults.push({
           name: section + ' - ' + data.faults[fault].faultText,
           total: data.faults[fault].fault
         });
       }
     });
 
-    this.drivingFaultsNumber = drivingFaults;
-    this.seriousFaultsNumber = seriousFaults;
-    this.dangerousFaultsNumber = dangerousFaults;
+    this.drivingFaultsNumber = drivingFaultsNum;
+    this.seriousFaultsNumber = seriousFaultsNum;
+    this.dangerousFaultsNumber = dangerousFaultsNum;
 
+    const dangerousFaultSummary = {
+      title: FaultTitle.Dangerous,
+      total: dangerousFaultsNum,
+      faults: dangerousFaults
+    }
+    const seriousFaultSummary = {
+      title: FaultTitle.Serious,
+      total: seriousFaultsNum,
+      faults: seriousFaults
+    }
+    const drivingFaultSummary = {
+      title: FaultTitle.DriverFaults,
+      total: drivingFaultsNum,
+      faults: drivingFaults
+    }
+
+    return { dangerousFaultSummary, seriousFaultSummary, drivingFaultSummary }
+
+  }
+
+  getFaultTotals(): Observable<ITestResults> {
+    return new Observable((observer: Observer<any>) => {
+      observer.next(this.calculateFaultTotals());
+      observer.complete();
+    });
   }
 
   calculateTestResult() {
@@ -146,27 +162,4 @@ export class FaultStoreProvider {
     return this.testResult;
   }
 
-  getNumberOfDrivingFaults(): number {
-    return this.drivingFaultsNumber;
-  }
-
-  getNumberOfDangerousFaults(): number {
-    return this.dangerousFaultsNumber;
-  }
-
-  getNumberOfSeriousFaults(): number {
-    return this.seriousFaultsNumber;
-  }
-
-  getDrivingFaults(): IFault[] {
-    return this.drivingFaults;
-  }
-
-  getSeriousFaults(): IFault[] {
-    return this.seriousFaults;
-  }
-
-  getDangerousFaults(): IFault[] {
-    return this.dangerousFaults;
-  }
 }

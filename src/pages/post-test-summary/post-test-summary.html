@@ -47,7 +47,9 @@
         <span class="mes-header-md">Test Summary</span>
       </ion-card-header>
       <ion-card-content class="content-narrow">
-        <test-summary-section *ngFor="let summary of faultSummaries" [summary]="summary"></test-summary-section>
+        <post-test-summary-section [summary]="drivingFaultSummary" *ngIf="drivingFaultSummary.total > 0"></post-test-summary-section>
+        <post-test-summary-section [summary]="seriousFaultSummary" *ngIf="seriousFaultSummary.total > 0"></post-test-summary-section>
+        <post-test-summary-section [summary]="dangerousFaultSummary" *ngIf="dangerousFaultSummary.total > 0"></post-test-summary-section>
       </ion-card-content>
   </ion-card>
   <ion-card class="mes-bottom-card" text-center>

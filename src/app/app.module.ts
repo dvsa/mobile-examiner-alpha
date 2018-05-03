@@ -52,6 +52,7 @@ import { Globalization } from '@ionic-native/globalization';
 import { FormsModule } from '@angular/forms';
 import { PassDataCollectionPage } from '../pages/pass-data-collection/pass-data-collection';
 import { HealthDeclarationPage } from '../pages/health-declaration/health-declaration';
+import { TextboxModalComponent } from '../components/textbox-modal/textbox-modal';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -121,7 +122,8 @@ export function createTranslateLoader(http: Http) {
     AllOnOnePage,
     AoopCustomHammerConfigPage,
     PassDataCollectionPage,
-    HealthDeclarationPage
+    HealthDeclarationPage,
+    TextboxModalComponent
   ],
   providers: [
     StatusBar,

@@ -63,9 +63,9 @@ describe('Fault store - ', () => {
     faultStore.calculateFaultTotals()
     expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
-    expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
-    expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
-    expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.drivingFaultsNumber).toEqual(0);
+    expect(faultStore.dangerousFaultsNumber).toEqual(0);
+    expect(faultStore.seriousFaultsNumber).toEqual(0);
   });
 
   it('should return "Pass" for a test with 15 driving faults', () => {
@@ -83,9 +83,9 @@ describe('Fault store - ', () => {
     faultStore.calculateFaultTotals()
     expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
-    expect(faultStore.getNumberOfDrivingFaults()).toEqual(15);
-    expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
-    expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.drivingFaultsNumber).toEqual(15);
+    expect(faultStore.dangerousFaultsNumber).toEqual(0);
+    expect(faultStore.seriousFaultsNumber).toEqual(0);
   });
 
   it('should return "Fail" for a test with a dangerous fault', () => {
@@ -101,9 +101,9 @@ describe('Fault store - ', () => {
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
     faultStore.calculateFaultTotals()
 
-    expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
-    expect(faultStore.getNumberOfDangerousFaults()).toEqual(1);
-    expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.drivingFaultsNumber).toEqual(0);
+    expect(faultStore.dangerousFaultsNumber).toEqual(1);
+    expect(faultStore.seriousFaultsNumber).toEqual(0);
     expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 
@@ -121,9 +121,9 @@ describe('Fault store - ', () => {
 
     faultStore.calculateFaultTotals()
 
-    expect(faultStore.getNumberOfDrivingFaults()).toEqual(0);
-    expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
-    expect(faultStore.getNumberOfSeriousFaults()).toEqual(1);
+    expect(faultStore.drivingFaultsNumber).toEqual(0);
+    expect(faultStore.dangerousFaultsNumber).toEqual(0);
+    expect(faultStore.seriousFaultsNumber).toEqual(1);
     expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 
@@ -141,9 +141,9 @@ describe('Fault store - ', () => {
 
     faultStore.calculateFaultTotals()
 
-    expect(faultStore.getNumberOfDrivingFaults()).toEqual(16);
-    expect(faultStore.getNumberOfDangerousFaults()).toEqual(0);
-    expect(faultStore.getNumberOfSeriousFaults()).toEqual(0);
+    expect(faultStore.drivingFaultsNumber).toEqual(16);
+    expect(faultStore.dangerousFaultsNumber).toEqual(0);
+    expect(faultStore.seriousFaultsNumber).toEqual(0);
     expect(faultStore.getTestResult()).toEqual(TestResult.Fail);
   });
 });

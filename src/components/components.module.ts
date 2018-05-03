@@ -16,6 +16,8 @@ import { WeatherSelectorComponent } from './weather-selector/weather-selector';
 import { TimerComponent } from './timer/timer';
 import { LegalRequirementsComponent } from './legal-requirements/legal-requirements';
 import { HeaderComponent } from './mes-header/mes-header';
+import { PostTestSummarySectionComponent } from './post-test-summary-section/post-test-summary-section';
+import { TextboxModalComponent } from './textbox-modal/textbox-modal';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { HeaderComponent } from './mes-header/mes-header';
     TotalsComponent,
     AllOnOneFormSubElementHoldNoModalComponent,
     LegalRequirementsComponent,
-    AlphaHeaderComponent
+    AlphaHeaderComponent,
+    PostTestSummarySectionComponent,
+    TextboxModalComponent
   ],
   imports: [IonicModule.forRoot(PageHeaderComponent)],
   exports: [
@@ -53,7 +57,9 @@ import { HeaderComponent } from './mes-header/mes-header';
     TotalsComponent,
     AllOnOneFormSubElementHoldNoModalComponent,
     LegalRequirementsComponent,
-    AlphaHeaderComponent
+    AlphaHeaderComponent,
+    PostTestSummarySectionComponent,
+    TextboxModalComponent
   ]
 })
 export class ComponentsModule {}
