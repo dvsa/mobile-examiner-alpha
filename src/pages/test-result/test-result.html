@@ -13,17 +13,28 @@
     <ion-card class="mes-card">
         <ion-card-header class="mes-main-card-header mes-breadcrumbs">
             <span class="mes-header-md mes-breadcrumb-link" (click)="goBack()">
-        <ion-icon name="arrow-back"></ion-icon>
-        Back to DL25 /
-      </span>
+                <ion-icon name="arrow-back"></ion-icon>
+                Back to DL25 /
+            </span>
             <span padding-left class="mes-header-md">Florence Pearson</span>
         </ion-card-header>
         <ion-card-content>
             <test-summary [faultSummaries]="faultSummaries" [testResult]="testResult"></test-summary>
         </ion-card-content>
     </ion-card>
-    <ion-card class="mes-bottom-card" text-center>
-        <record-debrief-button></record-debrief-button>
-        <button [navPush]="getNextPage()" class="mes-button-primary">End debrief</button>
+    <ion-card class="mes-bottom-card" text-center >
+        <ion-row align-items-center>
+            <ion-col>
+                <record-debrief-button></record-debrief-button>
+            </ion-col>
+            <ion-col>
+                <div class="recording-controls" align-items-center ion-row>
+                    <stop-debrief-recording-button></stop-debrief-recording-button>
+                </div>
+            </ion-col>
+            <ion-col>
+                <button [navPush]="getNextPage()" class="mes-button-primary">End debrief</button>
+            </ion-col>
+        </ion-row>
     </ion-card>
 </ion-content>
