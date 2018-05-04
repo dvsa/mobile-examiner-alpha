@@ -1,8 +1,8 @@
 all-on-one-form-eta-button {
   position: relative;
   .pActive:before,
-  .vAction:before,
-  .pActive.vAction:before {
+  .vActive:before,
+  .pActive.vActive:before {
     display: block;
     position: absolute;
     top: 15px;
@@ -12,19 +12,19 @@ all-on-one-form-eta-button {
     z-index: 1;
     font-weight: bold;
   }
-  .pActive.vAction:before {
+  .pActive.vActive:before {
     content: 'P, V';
   }
   .pActive:before {
     content: 'P';
   }
-  .vAction:before {
+  .vActive:before {
     content: 'V';
   }
   .active {
     &.pActive:before,
-    &.vAction:before,
-    &.pActive.vAction:before,
+    &.vActive:before,
+    &.pActive.vActive:before,
     button {
       color: white;
     }
