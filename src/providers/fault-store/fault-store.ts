@@ -120,7 +120,7 @@ export class FaultStoreProvider {
       faults: seriousFaults
     };
     const drivingFaultSummary = {
-      title: FaultTitle.DriverFaults,
+      title: FaultTitle.DrivingFaults,
       total: drivingFaultsNum,
       faults: drivingFaults
     };

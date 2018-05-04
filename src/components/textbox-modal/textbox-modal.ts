@@ -7,12 +7,29 @@ import { ViewController, NavParams } from 'ionic-angular';
 })
 export class TextboxModalComponent {
   title: string;
+  liveNotes: string;
+  notes: string;
 
   constructor(private viewCtrl: ViewController, public params: NavParams) {
     this.title = params.get('title');
+    this.notes = params.get('notes');
+    this.liveNotes = this.notes;
   }
 
-  dismiss() {
-    this.viewCtrl.dismiss(null, 'dismiss');
+  cancel() {
+    if (this.notes) {
+      this.viewCtrl.dismiss(this.notes);
+    } else {
+      this.viewCtrl.dismiss();
+    }
+  }
+
+  save() {
+    if (this.liveNotes) {
+      this.notes = this.liveNotes;
+      this.viewCtrl.dismiss(this.notes);
+    } else {
+      this.viewCtrl.dismiss();
+    }
   }
 }

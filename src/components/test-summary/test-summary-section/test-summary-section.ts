@@ -13,7 +13,7 @@ export class TestSummarySectionComponent {
   faultTitleColourMap = [
     { title: FaultTitle.Dangerous, colour: 'failRed' },
     { title: FaultTitle.Serious, colour: 'seriousYellow' },
-    { title: FaultTitle.DriverFaults, colour: 'dark' }
+    { title: FaultTitle.DrivingFaults, colour: 'dark' }
   ];
 
   constructor() {}

@@ -7,7 +7,9 @@
       <li padding-bottom *ngFor="let fault of summary.faults">
         {{fault.name}} 
         <span *ngIf="fault.total > 1">({{fault.total}})</span>
-        <span float-right (click)="openTextboxModal(fault.name)"><ion-icon name="create"></ion-icon></span>
+        <span *ngIf="summary.title !== drivingFaultsTitle" float-right (click)="openTextboxModal(fault.name)">
+          <ion-icon [ngClass]="{green: faultNotes, dark: !faultNotes}" [name]="faultNotes ? 'checkmark-circle' : 'create'"></ion-icon>
+        </span>
       </li>
     </ul>
   </ion-card-content>

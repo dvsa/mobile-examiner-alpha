@@ -17,8 +17,13 @@ post-test-summary-section {
         font-weight: 900;
         color: map-get($colors, textDarkerGrey);
         ion-icon {
-          color: map-get($colors, dark);
-          font-size: 25px;
+            font-size: 25px;
+            &.dark {
+              color: map-get($colors, dark);
+            }
+            &.green { 
+              color: map-get($colors, btnGreen);
+            }
         }
       }
     }

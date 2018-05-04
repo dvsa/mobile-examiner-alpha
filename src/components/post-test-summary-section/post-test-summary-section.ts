@@ -11,20 +11,25 @@ import { TextboxModalComponent } from '../textbox-modal/textbox-modal';
 })
 export class PostTestSummarySectionComponent {
   @Input() summary: IFaultSummary;
+  drivingFaultsTitle: string = FaultTitle.DrivingFaults;
+  faultNotes: string;
 
   faultTitleColourMap = [
     { title: FaultTitle.Dangerous, colour: 'failRed' },
     { title: FaultTitle.Serious, colour: 'seriousYellow' },
-    { title: FaultTitle.DriverFaults, colour: 'dark' }
+    { title: FaultTitle.DrivingFaults, colour: 'dark' }
   ];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController) {
+  }
 
   getFaultTitleColour(title: FaultTitle) {
     return find(this.faultTitleColourMap, { title }).colour;
   }
 
   openTextboxModal(faultName: string) {
-    this.modalCtrl.create(TextboxModalComponent, { title: faultName }).present();
+    const textboxModal = this.modalCtrl.create(TextboxModalComponent, { title: faultName, notes: this.faultNotes || '' });
+    textboxModal.onDidDismiss((notes?: string) => this.faultNotes = notes);
+    textboxModal.present();
   }
 }
