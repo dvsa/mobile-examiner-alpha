@@ -13,8 +13,8 @@ import { Component, Input } from '@angular/core';
 export class AllOnOneFormEtaButtonComponent {
   @Input() isEnabled: boolean = false;
   @Input() text: string;
-  @Input() pActive: boolean;
-  @Input() vActive: boolean;
+  @Input() pAction: boolean;
+  @Input() vAction: boolean;
 
   constructor() {}
 
