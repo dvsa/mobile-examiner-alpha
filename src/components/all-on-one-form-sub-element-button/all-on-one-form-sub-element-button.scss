@@ -4,8 +4,9 @@ all-on-one-form-sub-element-button {
   }
   .fault-total {
     position: absolute;
-    top: 7px;
-    left: 12px;
+    top: 10px;
+    left: 35px;
+    font-size: 1.2em;
   }
   ion-checkbox {
     padding-top: 5px;
@@ -21,7 +22,7 @@ all-on-one-form-sub-element-button {
     font-size: 12px;
     position: absolute;
     top: 10px;
-    left: 6px;
+    left: 35px;
     background-color: map-get($colors, dark);
     padding: 6px;
     border-radius: 12px;
@@ -32,7 +33,7 @@ all-on-one-form-sub-element-button {
       color: map-get($colors, dark);
     }
     &.dangerous {
-      left: 214px;
+      left: 215px;
       background-color: lighten(map-get($colors, danger), 15);
       color: map-get($colors, dark);
     }
@@ -60,15 +61,15 @@ all-on-one-form-sub-element-button {
   .highlight {
     text-decoration: underline;
   }
-  .active {
+  .active button {
     color: white;
     background-color: black;
   }
-
   button.all-on-one-form-fault-button .tick-icon {
     opacity: 0;
   }
 }
+
 .maneuver-completed {
   button:before {
     content: '✔';

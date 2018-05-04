@@ -1,4 +1,4 @@
-import { AllOnOnePage } from './../all-on-one/all-on-one';
+import { AllOnOneV2Page } from './../all-on-one-v2/all-on-one-v2';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
@@ -58,7 +58,7 @@ export class PretestChecksPage {
 
   gotoDL25(form) {
     if (form.valid) {
-      this.navCtrl.push(AllOnOnePage, {}, { animate: false });
+      this.navCtrl.push(AllOnOneV2Page, {}, { animate: false });
     }
   }
 

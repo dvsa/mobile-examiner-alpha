@@ -11,37 +11,25 @@ export class AllOnOneFormSubElementButtonComponent {
   @Input() sectionsToShow: string;
   serious: boolean = false;
   dangerous: boolean = false;
+  faultCount: number = 0;
 
-  constructor(private faultStore: FaultStoreProvider) {}
-
-  ngOnChanges() {
-    const controlKey = 'manoeuver' + this.sectionsToShow + 'Controlv1';
-    const obsKey = 'manoeuver' + this.sectionsToShow + 'Observationv1';
-
+  constructor(private faultStore: FaultStoreProvider) {
     this.faultStore.currentFaults$.subscribe((data) => {
-      if (data[obsKey]) {
-        if (data[obsKey].serious) {
-          this.serious = !!data[obsKey].serious;
-        }
-        if (data[obsKey].dangerous) {
-          this.dangerous = !!data[obsKey].dangerous;
-        }
-      }
+      let serious = false;
+      let dangerous = false;
+      let sumCount = 0;
 
-      if (data[controlKey]) {
-        if (data[controlKey].serious) {
-          this.serious = !!data[controlKey].serious;
+      Object.keys(data).map((section) => {
+        if (section.includes(this.sectionsToShow) && this.sectionsToShow !== '') {
+          sumCount = data[section].fault ? data[section].fault + sumCount : sumCount;
+          serious = data[section].serious ? !!data[section].serious : serious;
+          dangerous = data[section].dangerous ? !!data[section].dangerous : dangerous;
         }
+      });
 
-        if (data[controlKey].dangerous) {
-          this.dangerous = !!data[controlKey].dangerous;
-        }
-      }
-
-      if (!data[controlKey] && !data[obsKey]) {
-        this.serious = false;
-        this.dangerous = false;
-      }
+      this.serious = serious;
+      this.dangerous = dangerous;
+      this.faultCount = sumCount;
     });
   }
 

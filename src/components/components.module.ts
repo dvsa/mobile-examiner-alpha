@@ -16,6 +16,8 @@ import { WeatherSelectorComponent } from './weather-selector/weather-selector';
 import { TimerComponent } from './timer/timer';
 import { LegalRequirementsComponent } from './legal-requirements/legal-requirements';
 import { HeaderComponent } from './mes-header/mes-header';
+import { AllOnOneFormEtaButtonComponent } from './all-on-one-form-eta-button/all-on-one-form-eta-button';
+import { EvenOddPipe } from '../pipes/evenOdd';
 import { PostTestSummarySectionComponent } from './post-test-summary-section/post-test-summary-section';
 import { TextboxModalComponent } from './textbox-modal/textbox-modal';
 
@@ -37,6 +39,8 @@ import { TextboxModalComponent } from './textbox-modal/textbox-modal';
     AllOnOneFormSubElementHoldNoModalComponent,
     LegalRequirementsComponent,
     AlphaHeaderComponent,
+    AllOnOneFormEtaButtonComponent,
+    EvenOddPipe,
     PostTestSummarySectionComponent,
     TextboxModalComponent
   ],
@@ -58,6 +62,7 @@ import { TextboxModalComponent } from './textbox-modal/textbox-modal';
     AllOnOneFormSubElementHoldNoModalComponent,
     LegalRequirementsComponent,
     AlphaHeaderComponent,
+    AllOnOneFormEtaButtonComponent,
     PostTestSummarySectionComponent,
     TextboxModalComponent
   ]

@@ -14,7 +14,6 @@ import { JournalPage } from '../journal/journal';
   templateUrl: 'post-test-summary.html'
 })
 export class PostTestSummaryPage {
-  
   drivingFaultSummary: IFaultSummary;
   seriousFaultSummary: IFaultSummary;
   dangerousFaultSummary: IFaultSummary;
@@ -28,12 +27,16 @@ export class PostTestSummaryPage {
     { title: FaultTitle.DriverFaults, colour: 'dark' }
   ];
 
-  constructor(private modalCtrl: ModalController, private navCtrl: NavController, private faultStore: FaultStoreProvider) {
+  constructor(
+    private modalCtrl: ModalController,
+    private navCtrl: NavController,
+    private faultStore: FaultStoreProvider
+  ) {
     this.faultStore.getFaultTotals().subscribe((faultSummaries) => {
       this.drivingFaultSummary = faultSummaries.drivingFaultSummary;
       this.seriousFaultSummary = faultSummaries.seriousFaultSummary;
       this.dangerousFaultSummary = faultSummaries.dangerousFaultSummary;
-    })
+    });
   }
 
   backToJournal() {

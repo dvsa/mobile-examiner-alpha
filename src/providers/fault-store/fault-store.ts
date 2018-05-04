@@ -3,7 +3,7 @@ import { NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { combineReducers } from 'redux';
 
 import { Observable } from 'rxjs/Observable';
-import { IState, ILastFaultState, IFaultElementState, ITestResults } from './fault-store.model';
+import { IState, IFaultElementState, ITestResults } from './fault-store.model';
 import { faultReducer as faults } from './fault.reducer';
 import { FaultStoreActions } from './fault-store.action';
 import { upperFirst } from 'lodash';
@@ -15,22 +15,13 @@ declare var require;
 
 const reduxLogger = require('redux-logger');
 
-/*
-  Generated class for the FaultStoreProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FaultStoreProvider {
-
-  lastFault$: Observable<ILastFaultState>;
   currentFaults$: Observable<IFaultElementState>;
   testResult: TestResult;
 
   INITIAL_STATE: IState = {
-    faults: {},
-    totals: {}
+    faults: {}
   };
 
   testResults$: Observable<ITestResults>;
@@ -54,12 +45,15 @@ export class FaultStoreProvider {
     );
 
     this.faultActions.loadFaults();
-    this.lastFault$ = this.store.select((state) => state.faults.lastFault);
     this.currentFaults$ = this.store.select((state) => state.faults);
   }
 
   reset() {
     this.faultActions.resetFaults();
+  }
+
+  resetFault(id) {
+    this.faultActions.resetFault(id);
   }
 
   addFault(id, text, faultType) {
@@ -70,17 +64,11 @@ export class FaultStoreProvider {
     this.faultActions.removeFault(id, text, faultType, faultCounter);
   }
 
-  undoFault() {
-    const currState = this.store.getState();
-    this.faultActions.undoLastFault(currState.faults.lastFault);
-  }
-
-  getTotals() {
+  getState() {
     return this.store.getState();
   }
 
   calculateFaultTotals(): ITestResults {
-
     let drivingFaultsNum = 0;
     let dangerousFaultsNum = 0;
     let seriousFaultsNum = 0;
@@ -88,33 +76,31 @@ export class FaultStoreProvider {
     const dangerousFaults = [];
     const drivingFaults = [];
     const sectionRegEx = new RegExp(/^[a-z]*/);
-    const data = this.getTotals();
-    Object.keys(data.faults).forEach((fault) => {
-      if (fault === 'lastFault') {
-        return false;
-      }
-      if (data.faults[fault].fault) {
-        drivingFaultsNum += data.faults[fault].fault;
+
+    const { faults } = this.getState();
+    Object.keys(faults).forEach((fault) => {
+      if (faults[fault].fault) {
+        drivingFaultsNum += faults[fault].fault;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
         drivingFaults.push({
-          name: section + ' - ' + data.faults[fault].faultText,
-          total: data.faults[fault].fault
+          name: section + ' - ' + faults[fault].faultText,
+          total: faults[fault].fault
         });
       }
-      if (data.faults[fault].dangerous) {
-        dangerousFaultsNum += data.faults[fault].dangerous;
+      if (faults[fault].dangerous) {
+        dangerousFaultsNum += faults[fault].dangerous;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
         dangerousFaults.push({
-          name: section + ' - ' + data.faults[fault].faultText,
-          total: data.faults[fault].fault
+          name: section + ' - ' + faults[fault].faultText,
+          total: faults[fault].fault
         });
       }
-      if (data.faults[fault].serious) {
-        seriousFaultsNum += data.faults[fault].serious;
+      if (faults[fault].serious) {
+        seriousFaultsNum += faults[fault].serious;
         const section = upperFirst(fault.match(sectionRegEx)[0]);
         seriousFaults.push({
-          name: section + ' - ' + data.faults[fault].faultText,
-          total: data.faults[fault].fault
+          name: section + ' - ' + faults[fault].faultText,
+          total: faults[fault].fault
         });
       }
     });
@@ -127,20 +113,19 @@ export class FaultStoreProvider {
       title: FaultTitle.Dangerous,
       total: dangerousFaultsNum,
       faults: dangerousFaults
-    }
+    };
     const seriousFaultSummary = {
       title: FaultTitle.Serious,
       total: seriousFaultsNum,
       faults: seriousFaults
-    }
+    };
     const drivingFaultSummary = {
       title: FaultTitle.DriverFaults,
       total: drivingFaultsNum,
       faults: drivingFaults
-    }
+    };
 
-    return { dangerousFaultSummary, seriousFaultSummary, drivingFaultSummary }
-
+    return { dangerousFaultSummary, seriousFaultSummary, drivingFaultSummary };
   }
 
   getFaultTotals(): Observable<ITestResults> {
@@ -151,15 +136,16 @@ export class FaultStoreProvider {
   }
 
   calculateTestResult() {
-    if (this.drivingFaultsNumber >= 16 || this.seriousFaultsNumber > 0 || this.dangerousFaultsNumber > 0) {
-      return this.testResult = TestResult.Fail;
-    }
-    return this.testResult = TestResult.Pass;
+    const failResult =
+      this.drivingFaultsNumber >= 16 ||
+      this.seriousFaultsNumber > 0 ||
+      this.dangerousFaultsNumber > 0;
+    this.testResult = failResult ? TestResult.Fail : TestResult.Pass;
+    return this.testResult;
   }
 
   getTestResult(): TestResult {
     this.calculateTestResult();
     return this.testResult;
   }
-
 }

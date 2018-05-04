@@ -63,7 +63,7 @@ export class App {
 
   ngAfterViewInit() {
     this.nav.viewWillEnter.subscribe((viewController: ViewController) => {
-      this.canShowHeader = viewController.name === 'AllOnOnePage';
+      this.canShowHeader = viewController.name === 'AllOnOneV2Page';
       this.ionContent.resize();
     });
   }

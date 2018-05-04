@@ -13,22 +13,22 @@ export class LegalRequirementsComponent {
   requirements: ILegals[] = [
     {
       id: 'stop1',
-      name: 'Normal Stop 1',
-      complete: false
-    },
-    {
-      id: 'stop2',
-      name: 'Normal Stop 1',
+      name: 'NS',
       complete: false
     },
     {
       id: 'angled',
-      name: 'Angled Start',
+      name: 'AS',
+      complete: false
+    },
+    {
+      id: 'stop2',
+      name: 'NS',
       complete: false
     },
     {
       id: 'hill',
-      name: 'Hill Start',
+      name: 'HS',
       complete: false
     }
   ];

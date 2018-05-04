@@ -13,7 +13,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false
   },
-  "include": ["src/**/*.ts", "typings.d.ts"],
+  "include": ["src/**/*.ts", "typings/typings.d.ts"],
   "exclude": ["node_modules"],
   "compileOnSave": false,
   "atom": {

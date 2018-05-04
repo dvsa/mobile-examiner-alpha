@@ -1,5 +1,5 @@
 import { DirectivesModule } from './../directives/directives.module';
-import { AllOnOnePage } from './../pages/all-on-one/all-on-one';
+import { AllOnOneV2Page } from './../pages/all-on-one-v2/all-on-one-v2';
 import { ErrorHandler, NgModule } from '@angular/core';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -77,7 +77,7 @@ export function createTranslateLoader(http: Http) {
     TrainerModePage,
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
-    AllOnOnePage,
+    AllOnOneV2Page,
     AoopCustomHammerConfigPage,
     PassDataCollectionPage,
     HealthDeclarationPage
@@ -119,7 +119,7 @@ export function createTranslateLoader(http: Http) {
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
     WeatherSelectorComponent,
-    AllOnOnePage,
+    AllOnOneV2Page,
     AoopCustomHammerConfigPage,
     PassDataCollectionPage,
     HealthDeclarationPage,

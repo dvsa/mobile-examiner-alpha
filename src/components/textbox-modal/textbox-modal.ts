@@ -6,9 +6,8 @@ import { ViewController, NavParams } from 'ionic-angular';
   templateUrl: 'textbox-modal.html'
 })
 export class TextboxModalComponent {
-
   title: string;
-  
+
   constructor(private viewCtrl: ViewController, public params: NavParams) {
     this.title = params.get('title');
   }
@@ -16,5 +15,4 @@ export class TextboxModalComponent {
   dismiss() {
     this.viewCtrl.dismiss(null, 'dismiss');
   }
-
 }

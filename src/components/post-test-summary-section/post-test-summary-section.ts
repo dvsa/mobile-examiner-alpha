@@ -10,7 +10,6 @@ import { TextboxModalComponent } from '../textbox-modal/textbox-modal';
   templateUrl: 'post-test-summary-section.html'
 })
 export class PostTestSummarySectionComponent {
-  
   @Input() summary: IFaultSummary;
 
   faultTitleColourMap = [
@@ -28,5 +27,4 @@ export class PostTestSummarySectionComponent {
   openTextboxModal(faultName: string) {
     this.modalCtrl.create(TextboxModalComponent, { title: faultName }).present();
   }
-
 }

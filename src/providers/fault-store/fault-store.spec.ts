@@ -60,7 +60,7 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    faultStore.calculateFaultTotals()
+    faultStore.calculateFaultTotals();
     expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
     expect(faultStore.drivingFaultsNumber).toEqual(0);
@@ -80,7 +80,7 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    faultStore.calculateFaultTotals()
+    faultStore.calculateFaultTotals();
     expect(faultStore.getTestResult()).toEqual(TestResult.Pass);
 
     expect(faultStore.drivingFaultsNumber).toEqual(15);
@@ -99,7 +99,7 @@ describe('Fault store - ', () => {
     };
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
-    faultStore.calculateFaultTotals()
+    faultStore.calculateFaultTotals();
 
     expect(faultStore.drivingFaultsNumber).toEqual(0);
     expect(faultStore.dangerousFaultsNumber).toEqual(1);
@@ -119,7 +119,7 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    faultStore.calculateFaultTotals()
+    faultStore.calculateFaultTotals();
 
     expect(faultStore.drivingFaultsNumber).toEqual(0);
     expect(faultStore.dangerousFaultsNumber).toEqual(0);
@@ -139,7 +139,7 @@ describe('Fault store - ', () => {
 
     faultStore = new FaultStoreProvider(storeMock, faultActionsMock, devToolsMock);
 
-    faultStore.calculateFaultTotals()
+    faultStore.calculateFaultTotals();
 
     expect(faultStore.drivingFaultsNumber).toEqual(16);
     expect(faultStore.dangerousFaultsNumber).toEqual(0);

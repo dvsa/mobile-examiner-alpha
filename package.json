@@ -43,7 +43,8 @@
     "cordova-ios": "4.5.4",
     "cordova-plugin-advanced-http": "^1.11.0",
     "cordova-plugin-device": "^2.0.1",
-    "cordova-plugin-device-authentication": "https://github.com/dvsa/cordova-plugin-device-authentication.git",
+    "cordova-plugin-device-authentication":
+      "https://github.com/dvsa/cordova-plugin-device-authentication.git",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-insomnia": "~4.3.0",
     "cordova-plugin-ionic": "^4.1.0",
@@ -81,9 +82,6 @@
     "tslint-config-prettier": "^1.10.0",
     "typescript": "2.4.2"
   },
-  "config": {
-    "ionic_webpack": "./config/webpack.config.js"
-  },
   "cordova": {
     "plugins": {
       "cordova-plugin-ionic": {
@@ -106,8 +104,6 @@
       "cordova-plugin-device-authentication": {},
       "cordova-plugin-globalization": {}
     },
-    "platforms": [
-      "ios"
-    ]
+    "platforms": ["ios"]
   }
 }

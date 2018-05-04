@@ -17,9 +17,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
 
   serious: boolean = false;
   dangerous: boolean = false;
-
   faultCounter: number;
-  isLastFault: boolean;
 
   mc: any;
 
@@ -30,10 +28,6 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     public customHammerConfig: CustomHammerConfigProvider,
     public el: ElementRef
   ) {
-    faultStore.lastFault$.subscribe(
-      (data) => (this.isLastFault = data && data.id === this.section)
-    );
-
     faultStore.currentFaults$.subscribe((data) => {
       this.faultCounter = data[this.section] ? data[this.section].fault : 0;
       this.serious = data[this.section] ? !!data[this.section].serious : false;

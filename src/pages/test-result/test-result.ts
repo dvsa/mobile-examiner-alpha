@@ -17,15 +17,23 @@ export class TestResultPage {
   testResult: string;
   faultSummaries: {
     [key: string]: IFaultSummary;
-  }
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private faultStore: FaultStoreProvider) {
-    this.faultStore.getFaultTotals().subscribe((faultSummaries) => this.faultSummaries = faultSummaries);
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private faultStore: FaultStoreProvider
+  ) {
+    this.faultStore
+      .getFaultTotals()
+      .subscribe((faultSummaries) => (this.faultSummaries = faultSummaries));
     this.testResult = this.faultStore.getTestResult();
   }
 
   getNextPage(): Page {
-    return this.testResult === TestResult.Fail ? this.postTestSummaryPage : this.passDataCollectionPage;
+    return this.testResult === TestResult.Fail
+      ? this.postTestSummaryPage
+      : this.passDataCollectionPage;
   }
 
   goBack() {

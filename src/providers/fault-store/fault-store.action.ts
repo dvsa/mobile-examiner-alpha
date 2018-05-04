@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { dispatch } from '@angular-redux/store';
 import { FluxStandardAction } from 'flux-standard-action';
-import { IFaultPayload, ILastFaultPayload } from './fault-store.model';
+import { IFaultPayload, IFaultCalcPayload, ILastFaultPayload } from './fault-store.model';
 
-export type FaultAction = FluxStandardAction<null, null>;
+export type FaultAction = FluxStandardAction<IFaultPayload, null>;
 export type FaultUndoAction = FluxStandardAction<ILastFaultPayload, null>;
-export type FaultAddAction = FluxStandardAction<IFaultPayload, null>;
-export type FaultDeleteAction = FluxStandardAction<IFaultPayload, null>;
+export type FaultAddAction = FluxStandardAction<IFaultCalcPayload, null>;
+export type FaultDeleteAction = FluxStandardAction<IFaultCalcPayload, null>;
 @Injectable()
 export class FaultStoreActions {
   static readonly RESET_FAULTS = 'RESET_FAULTS';
+  static readonly RESET_FAULT = 'RESET_FAULT';
   static readonly LOAD_FAULTS = 'LOAD_FAULTS';
   static readonly ADD_FAULTS = 'ADD_FAULTS';
   static readonly DELETE_FAULTS = 'DELETE_FAULTS';
@@ -20,6 +21,13 @@ export class FaultStoreActions {
     type: FaultStoreActions.RESET_FAULTS,
     meta: null,
     payload: null
+  });
+
+  @dispatch()
+  resetFault = (id: string): FaultAction => ({
+    type: FaultStoreActions.RESET_FAULT,
+    meta: null,
+    payload: { id }
   });
 
   @dispatch()
@@ -46,12 +54,5 @@ export class FaultStoreActions {
     type: FaultStoreActions.DELETE_FAULTS,
     meta: null,
     payload: { id, faultText, faultType, faultCounter }
-  });
-
-  @dispatch()
-  undoLastFault = ({ id, faultType, faultText, action }): FaultUndoAction => ({
-    type: FaultStoreActions.UNDO_FAULTS,
-    meta: null,
-    payload: { id, faultType, faultText, action }
   });
 }
