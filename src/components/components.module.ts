@@ -21,7 +21,7 @@ import { EvenOddPipe } from '../pipes/evenOdd';
 import { PostTestSummarySectionComponent } from './post-test-summary-section/post-test-summary-section';
 import { TextboxModalComponent } from './textbox-modal/textbox-modal';
 import { RecordDebriefButtonComponent } from './record-debrief-button/record-debrief-button';
-import { StopDebriefRecordingButtonComponent } from './stop-debrief-recording-button/stop-debrief-recording-button';
+import { StopDebriefDestroyRecordingButtonComponent } from './stop-debrief-destroy-recording-button/stop-debrief-destroy-recording-button';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { StopDebriefRecordingButtonComponent } from './stop-debrief-recording-bu
     PostTestSummarySectionComponent,
     TextboxModalComponent,
     RecordDebriefButtonComponent,
-    StopDebriefRecordingButtonComponent
+    StopDebriefDestroyRecordingButtonComponent
   ],
   imports: [IonicModule.forRoot(PageHeaderComponent)],
   exports: [
@@ -70,7 +70,7 @@ import { StopDebriefRecordingButtonComponent } from './stop-debrief-recording-bu
     PostTestSummarySectionComponent,
     TextboxModalComponent,
     RecordDebriefButtonComponent,
-    StopDebriefRecordingButtonComponent
+    StopDebriefDestroyRecordingButtonComponent
   ]
 })
 export class ComponentsModule {}
