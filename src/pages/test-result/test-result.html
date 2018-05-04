@@ -29,7 +29,7 @@
             </ion-col>
             <ion-col>
                 <div class="recording-controls" align-items-center ion-row>
-                    <stop-debrief-recording-button></stop-debrief-recording-button>
+                    <stop-debrief-destroy-recording-button (click)="toggleStopOrDestroy()" [buttonStatus]="stopOrDestroyRecording"></stop-debrief-destroy-recording-button>
                 </div>
             </ion-col>
             <ion-col>

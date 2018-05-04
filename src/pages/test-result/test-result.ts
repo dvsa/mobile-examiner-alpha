@@ -18,6 +18,7 @@ export class TestResultPage {
   faultSummaries: {
     [key: string]: IFaultSummary;
   };
+  stopOrDestroyRecording: string = 'stop';
 
   constructor(
     public navCtrl: NavController,
@@ -38,5 +39,9 @@ export class TestResultPage {
 
   goBack() {
     this.navCtrl.pop({ animate: false });
+  }
+
+  toggleStopOrDestroy() {
+    this.stopOrDestroyRecording = this.stopOrDestroyRecording === 'stop' ? 'destroy' : 'stop';
   }
 }
