@@ -21,6 +21,7 @@ export class TestResultPage {
     [key: string]: IFaultSummary;
   };
   stopOrDestroyRecording: string = 'stop';
+  playOrPauseRecording: string = 'play';
 
   // audio debrief
 
@@ -59,6 +60,10 @@ export class TestResultPage {
 
   toggleStopOrDestroy() {
     this.stopOrDestroyRecording = this.stopOrDestroyRecording === 'stop' ? 'destroy' : 'stop';
+  }
+
+  togglePlayOrPause() {
+    this.playOrPauseRecording = this.playOrPauseRecording === 'play' ? 'pause' : 'play';
   }
 
   // audio debrief
