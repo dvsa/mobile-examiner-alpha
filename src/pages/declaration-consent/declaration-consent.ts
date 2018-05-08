@@ -3,13 +3,11 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { AppConfigProvider } from '../../providers/app-config/app-config';
-import { PolicyDataPage } from '../policy-data/policy-data';
 import { PretestChecksPage } from '../pretest-checks/pretest-checks';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
-import { CandidateInfoPage } from '../candidate-info/candidate-info';
 
 /**
  * Generated class for the DeclarationConsentPage page.
@@ -24,8 +22,6 @@ import { CandidateInfoPage } from '../candidate-info/candidate-info';
 })
 export class DeclarationConsentPage {
   pretestChecksPage: Page = PretestChecksPage;
-  policyDataPage: Page = PolicyDataPage;
-  candidateInfopage: Page = CandidateInfoPage;
   endTestReasonPage: Page = EndTestReasonPage;
   signaturePadOptions: any;
   signature: any;
@@ -82,12 +78,12 @@ export class DeclarationConsentPage {
       .runAuthentication('Please authenticate yourself to proceed')
       .then((isAuthenticated: boolean) => {
         if (isAuthenticated) {
-          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          this.navCtrl.push(this.pretestChecksPage);
         }
       })
       .catch((errorMsg: string) => {
         if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
-          this.navCtrl.push(this.candidateInfopage, { signature: this.signature });
+          this.navCtrl.push(this.pretestChecksPage);
         }
       });
   }
