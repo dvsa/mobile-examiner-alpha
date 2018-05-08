@@ -18,7 +18,7 @@ import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 export class AllOnOnePage {
   isDButtonPressed = false;
   isSButtonPressed = false;
-  selectedManeuver = '';
+  selectedManoeuvre = '';
 
   @ViewChild('manoeuvresButton') manoeuvresButton;
   @ViewChild('ecoButton') ecoButton;
@@ -64,18 +64,22 @@ export class AllOnOnePage {
     }
   }
 
-  selectManeuver(maneuverName: string, maneuverText: string, $event: any) {
-    ['PR', 'RR', 'RPC', 'FP'].filter((man) => man !== maneuverName).forEach((manName) => {
-      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', maneuverText, 'serious');
-      this.faultStore.removeFault('manoeuver' + manName + 'Observationv1', maneuverText, 'serious');
-      this.faultStore.removeFault('manoeuver' + manName + 'Controlv1', maneuverText, 'dangerous');
+  selectManoeuvre(manoeuvreName: string, manoeuvreText: string, $event: any) {
+    ['PR', 'RR', 'RPC', 'FP'].filter((man) => man !== manoeuvreName).forEach((manName) => {
+      this.faultStore.removeFault('manoeuvre' + manName + 'Controlv1', manoeuvreText, 'serious');
       this.faultStore.removeFault(
-        'manoeuver' + manName + 'Observationv1',
-        maneuverText,
+        'manoeuvre' + manName + 'Observationv1',
+        manoeuvreText,
+        'serious'
+      );
+      this.faultStore.removeFault('manoeuvre' + manName + 'Controlv1', manoeuvreText, 'dangerous');
+      this.faultStore.removeFault(
+        'manoeuvre' + manName + 'Observationv1',
+        manoeuvreText,
         'dangerous'
       );
     }, this);
 
-    this.selectedManeuver = $event.target.checked ? maneuverName : '';
+    this.selectedManoeuvre = $event.target.checked ? manoeuvreName : '';
   }
 }
