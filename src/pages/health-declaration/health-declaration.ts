@@ -1,12 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { DeviceAuthentication } from '../../types/device-authentication';
 import { PostTestSummaryPage } from '../post-test-summary/post-test-summary';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
-@IonicPage()
 @Component({
   selector: 'page-health-declaration',
   templateUrl: 'health-declaration.html',

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { HealthDeclarationPage } from '../health-declaration/health-declaration';
 import { Page } from 'ionic-angular/navigation/nav-util';
 
-@IonicPage()
 @Component({
   selector: 'page-pass-data-collection',
   templateUrl: 'pass-data-collection.html',
