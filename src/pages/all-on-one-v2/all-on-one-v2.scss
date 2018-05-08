@@ -86,7 +86,7 @@ page-all-on-one-v2 {
   .no-padding-bottom {
     padding-bottom: 0px;
   }
-  .manoeuver-section {
+  .manoeuvre-section {
     background-color: map-get($map: $colors, $key: expanderBg);
     margin-left: -16px;
     padding-left: 16px;
@@ -98,7 +98,7 @@ page-all-on-one-v2 {
     max-height: 0;
     opacity: 0;
     transition: all 0.3s ease;
-    .manoeuver-header {
+    .manoeuvre-header {
       text-align: left;
       display: flex;
       align-content: center;
@@ -112,7 +112,7 @@ page-all-on-one-v2 {
     opacity: 1;
     padding: 15px 20px;
     margin: 0 8px 8px 0;
-  } // Ugly workaround for fitting all competencies together with Manoeuver row
+  } // Ugly workaround for fitting all competencies together with Manoeuvre row
   .margin-top-minus-20 {
     margin-top: -20px;
   }
