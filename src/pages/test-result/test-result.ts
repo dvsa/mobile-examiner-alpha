@@ -20,20 +20,20 @@ export class TestResultPage {
   faultSummaries: {
     [key: string]: IFaultSummary;
   };
+
+  // audio related
   stopOrDestroyRecording: string = 'stop';
-  playOrPauseRecording: string = 'play';
+  stopOrDesDisabled: boolean = true;
 
-  // audio debrief
+  playOrPauseRecording: string = 'pause';
+  playOrPauseDisabled: boolean = true;
 
-  recordButtonText = 'Record audio';
-  startingRecording = true;
-  playButtonText = 'Play';
+  isRecording = false;
+  playing = false;
 
   audio: MediaObject;
-  playing = false;
-  buttonDisabled = true;
   fileName = 'audio_debrief.m4a';
-  fileLength = '';
+  fileLength = 0;
   fileSize = '';
 
   constructor(
@@ -59,16 +59,36 @@ export class TestResultPage {
   }
 
   toggleStopOrDestroy() {
+    if (this.stopOrDestroyRecording === 'stop') {
+      this.stopRecordingAudio();
+    }
+    if (this.stopOrDestroyRecording === 'destroy') {
+      this.deleteAudio();
+    }
     this.stopOrDestroyRecording = this.stopOrDestroyRecording === 'stop' ? 'destroy' : 'stop';
   }
 
   togglePlayOrPause() {
+    if (this.playOrPauseRecording === 'play') {
+      if (this.isRecording) {
+        this.resumeRecording();
+      } else {
+        this.playAudio();
+      }
+    }
+    if (this.playOrPauseRecording === 'pause') {
+      if (this.isRecording) {
+        this.pauseRecording();
+      } else {
+        this.pauseAudio();
+      }
+    }
     this.playOrPauseRecording = this.playOrPauseRecording === 'play' ? 'pause' : 'play';
   }
 
   // audio debrief
   recordAudio() {
-    if (this.startingRecording) {
+    if (!this.isRecording) {
       this.file
         .createFile(this.file.dataDirectory, this.fileName, true)
         .then(() => {
@@ -81,35 +101,12 @@ export class TestResultPage {
             this.mediaStatus
           );
           this.audio.startRecord();
-          this.recordButtonText = 'Pause audio recording';
-          this.startingRecording = false;
+          this.isRecording = true;
+          this.stopOrDesDisabled = false;
+          this.playOrPauseDisabled = false;
         })
         .catch(this.logError);
-    } else if (!this.startingRecording) {
-      if (this.recordButtonText == 'Pause audio recording') {
-        this.recordButtonText = 'Resume audio recording';
-        this.audio.pauseRecord();
-      } else if (this.recordButtonText == 'Resume audio recording') {
-        this.recordButtonText = 'Pause audio recording';
-        this.audio.resumeRecord();
-      }
     }
-  }
-
-  mediaSuccess(e) {
-    console.log('media success ' + e);
-  }
-
-  mediaError(e) {
-    console.log('media error ' + e);
-  }
-
-  mediaStatus(e) {
-    console.log('media status ' + e);
-  }
-
-  logError(error) {
-    console.log(error);
   }
 
   stopRecordingAudio() {
@@ -117,8 +114,7 @@ export class TestResultPage {
 
     var self = this;
     this.audio.stopRecord();
-    this.buttonDisabled = null;
-    this.recordButtonText = 'Record audio';
+
     this.countDuration();
 
     this.file
@@ -131,6 +127,8 @@ export class TestResultPage {
           console.log(fileObject.size);
           self.fileSize = '' + fileObject.size + ' bytes';
         }, this.logError);
+        self.isRecording = false;
+        self.playOrPauseRecording = 'play';
       })
       .catch(this.logError);
   }
@@ -152,31 +150,58 @@ export class TestResultPage {
       var dur = this.audio.getDuration();
       if (dur > 0) {
         clearInterval(timerDur);
-        this.fileLength = dur + ' sec';
+        this.fileLength = dur;
       }
     }, 100);
   }
 
   playAudio() {
-    if (this.playing === false) {
-      this.playing = true;
-      this.playButtonText = 'Pause';
-      this.audio.play();
-    } else {
-      this.playButtonText = 'Play';
+    let self = this;
+    this.playing = true;
+    this.audio.play();
+    setTimeout(function() {
+      self.playOrPauseRecording = 'play';
+    }, Math.ceil(self.fileLength) * 1000);
+  }
 
-      this.playing = false;
-      this.audio.pause();
-    }
+  pauseAudio() {
+    this.playing = false;
+    this.audio.pause();
   }
 
   deleteAudio() {
     this.audio.release();
     this.file.removeFile(this.file.dataDirectory, 'audio_debrief.m4a');
-    this.buttonDisabled = true;
-    this.playButtonText = 'Play';
-    this.startingRecording = true;
+
+    this.isRecording = false;
     this.fileLength = null;
     this.fileSize = null;
+    this.playOrPauseRecording = 'pause';
+    this.stopOrDesDisabled = true;
+    this.playOrPauseDisabled = true;
+  }
+
+  pauseRecording() {
+    this.audio.pauseRecord();
+  }
+
+  resumeRecording() {
+    this.audio.resumeRecord();
+  }
+
+  mediaSuccess(e) {
+    console.log('media success ' + e);
+  }
+
+  mediaError(e) {
+    console.log('media error ' + e);
+  }
+
+  mediaStatus(e) {
+    console.log('media status ' + e);
+  }
+
+  logError(error) {
+    console.log(error);
   }
 }

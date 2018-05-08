@@ -8,6 +8,10 @@ play-pause-debrief-button {
     border-radius: 40px;
     background-color: #ff0000;
     border: solid 5px #e2e2e2;
+
+    &:disabled {
+      opacity: 0.3;
+    }
   }
   .inner-red-icon {
     &.play {

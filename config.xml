@@ -99,4 +99,6 @@
     <plugin name="cordova-plugin-media" spec="^5.0.2" />
     <engine name="browser" spec="~5.0.3" />
     <engine name="ios" spec="~4.5.4" />
+    <allow-navigation href="http://172.27.237.231:8100" />
+    <allow-navigation href="http://192.168.14.205:8100" />
 </widget>
