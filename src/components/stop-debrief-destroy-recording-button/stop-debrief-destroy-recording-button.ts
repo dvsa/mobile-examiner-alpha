@@ -8,10 +8,6 @@ export class StopDebriefDestroyRecordingButtonComponent {
   @Input() buttonStatus: string;
 
   constructor() {}
-  ionViewWillEnter() {
-    console.log(this.buttonStatus);
-  }
-  ngOnInit() {
-    console.log(this.buttonStatus);
-  }
+  ionViewWillEnter() {}
+  ngOnInit() {}
 }
