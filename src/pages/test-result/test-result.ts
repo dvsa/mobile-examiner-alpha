@@ -58,7 +58,7 @@ export class TestResultPage {
     this.navCtrl.pop({ animate: false });
   }
 
-  toggleStopOrDestroy() {
+  toggleStopOrDestroy = () => {
     if (this.stopOrDestroyRecording === 'stop') {
       this.stopRecordingAudio();
     }
@@ -66,9 +66,9 @@ export class TestResultPage {
       this.deleteAudio();
     }
     this.stopOrDestroyRecording = this.stopOrDestroyRecording === 'stop' ? 'destroy' : 'stop';
-  }
+  };
 
-  togglePlayOrPause() {
+  togglePlayOrPause = () => {
     if (this.playOrPauseRecording === 'play') {
       if (this.isRecording) {
         this.resumeRecording();
@@ -84,7 +84,7 @@ export class TestResultPage {
       }
     }
     this.playOrPauseRecording = this.playOrPauseRecording === 'play' ? 'pause' : 'play';
-  }
+  };
 
   // audio debrief
   recordAudio() {
@@ -104,6 +104,7 @@ export class TestResultPage {
           this.isRecording = true;
           this.stopOrDesDisabled = false;
           this.playOrPauseDisabled = false;
+          this.playOrPauseRecording = 'pause';
         })
         .catch(this.logError);
     }

@@ -22,12 +22,12 @@
             </ion-col>
             <ion-col>
                 <div class="recording-controls" align-items-center ion-row>
-                    <play-pause-debrief-button (click)="togglePlayOrPause()" [disabled]="playOrPauseDisabled" [buttonStatus]="playOrPauseRecording"></play-pause-debrief-button>
-                    <stop-debrief-destroy-recording-button (click)="toggleStopOrDestroy()" [disabled]="stopOrDesDisabled" [buttonStatus]="stopOrDestroyRecording"></stop-debrief-destroy-recording-button>
+                    <play-pause-debrief-button [clickEventHandler]="togglePlayOrPause" [disabled]="playOrPauseDisabled" [buttonStatus]="playOrPauseRecording"></play-pause-debrief-button>
+                    <stop-debrief-destroy-recording-button [clickEventHandler]="toggleStopOrDestroy" [disabled]="stopOrDesDisabled" [buttonStatus]="stopOrDestroyRecording"></stop-debrief-destroy-recording-button>
                 </div>
             </ion-col>
             <ion-col>
-                <button [navPush]="getNextPage()" class="mes-button-primary">End debrief</button>
+                <button [disabled]="isRecording" [navPush]="getNextPage()" class="mes-button-primary">End debrief</button>
             </ion-col>
         </ion-row>
     </ion-card>
