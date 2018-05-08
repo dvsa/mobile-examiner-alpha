@@ -15,7 +15,7 @@
             <test-summary [faultSummaries]="faultSummaries" [testResult]="testResult"></test-summary>
         </ion-card-content>
     </ion-card>
-    <ion-card class="mes-bottom-card" text-center >
+    <ion-card class="mes-bottom-card" text-center>
         <ion-row align-items-center>
             <ion-col>
                 <record-debrief-button (click)="recordAudio();"></record-debrief-button>
@@ -23,6 +23,7 @@
             <ion-col>
                 <div class="recording-controls" align-items-center ion-row>
                     <stop-debrief-destroy-recording-button (click)="toggleStopOrDestroy()" [buttonStatus]="stopOrDestroyRecording"></stop-debrief-destroy-recording-button>
+                    <play-pause-debrief-button (click)="togglePlayOrPause()" [buttonStatus]="playOrPauseRecording"></play-pause-debrief-button>
                 </div>
             </ion-col>
             <ion-col>

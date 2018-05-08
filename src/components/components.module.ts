@@ -22,6 +22,7 @@ import { PostTestSummarySectionComponent } from './post-test-summary-section/pos
 import { TextboxModalComponent } from './textbox-modal/textbox-modal';
 import { RecordDebriefButtonComponent } from './record-debrief-button/record-debrief-button';
 import { StopDebriefDestroyRecordingButtonComponent } from './stop-debrief-destroy-recording-button/stop-debrief-destroy-recording-button';
+import { PlayPauseDebriefButtonComponent } from './play-pause-debrief-button/play-pause-debrief-button';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { StopDebriefDestroyRecordingButtonComponent } from './stop-debrief-destr
     PostTestSummarySectionComponent,
     TextboxModalComponent,
     RecordDebriefButtonComponent,
-    StopDebriefDestroyRecordingButtonComponent
+    StopDebriefDestroyRecordingButtonComponent,
+    PlayPauseDebriefButtonComponent
   ],
   imports: [IonicModule.forRoot(PageHeaderComponent)],
   exports: [
@@ -70,7 +72,8 @@ import { StopDebriefDestroyRecordingButtonComponent } from './stop-debrief-destr
     PostTestSummarySectionComponent,
     TextboxModalComponent,
     RecordDebriefButtonComponent,
-    StopDebriefDestroyRecordingButtonComponent
+    StopDebriefDestroyRecordingButtonComponent,
+    PlayPauseDebriefButtonComponent
   ]
 })
 export class ComponentsModule {}
