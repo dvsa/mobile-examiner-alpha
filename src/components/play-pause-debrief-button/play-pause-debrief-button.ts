@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PlayPauseDebriefButtonComponent {
   @Input() buttonStatus: string;
-
+  @Input() disabled: boolean;
   constructor() {}
   ionViewWillEnter() {}
   ngOnInit() {}

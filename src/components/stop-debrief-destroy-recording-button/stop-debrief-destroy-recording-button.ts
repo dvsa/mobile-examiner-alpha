@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class StopDebriefDestroyRecordingButtonComponent {
   @Input() buttonStatus: string;
-
+  @Input() disabled: boolean;
   constructor() {}
   ionViewWillEnter() {}
   ngOnInit() {}
