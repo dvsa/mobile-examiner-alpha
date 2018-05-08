@@ -1,3 +1,4 @@
+import { File } from '@ionic-native/file';
 import { DirectivesModule } from './../directives/directives.module';
 import { AllOnOneV2Page } from './../pages/all-on-one-v2/all-on-one-v2';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -53,6 +54,7 @@ import { FormsModule } from '@angular/forms';
 import { PassDataCollectionPage } from '../pages/pass-data-collection/pass-data-collection';
 import { HealthDeclarationPage } from '../pages/health-declaration/health-declaration';
 import { TextboxModalComponent } from '../components/textbox-modal/textbox-modal';
+import { Media } from '@ionic-native/media';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -140,7 +142,9 @@ export function createTranslateLoader(http: Http) {
     DeviceAuthentication,
     ScreenOrientation,
     Insomnia,
-    Globalization
+    Globalization,
+    File,
+    Media
   ]
 })
 export class AppModule {}
