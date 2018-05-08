@@ -161,7 +161,9 @@ export class TestResultPage {
     this.playing = true;
     this.audio.play();
     setTimeout(function() {
-      self.playOrPauseRecording = 'play';
+      if (self.fileLength) {
+        self.playOrPauseRecording = 'play';
+      }
     }, Math.ceil(self.fileLength) * 1000);
   }
 
@@ -171,9 +173,9 @@ export class TestResultPage {
   }
 
   deleteAudio() {
+    this.audio.stop();
     this.audio.release();
     this.file.removeFile(this.file.dataDirectory, 'audio_debrief.m4a');
-
     this.isRecording = false;
     this.fileLength = null;
     this.fileSize = null;
