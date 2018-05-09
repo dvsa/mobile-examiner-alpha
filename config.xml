@@ -99,4 +99,7 @@
     <plugin name="cordova-plugin-media" spec="^5.0.2" />
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
+    <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
+        <string>Need microphone access to record audio</string>
+    </edit-config>
 </widget>
