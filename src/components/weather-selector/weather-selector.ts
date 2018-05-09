@@ -7,16 +7,16 @@ import { ViewController } from 'ionic-angular';
 export class WeatherSelectorComponent {
   selectedWeather: string = '';
   weatherConditions: object[] = [
-    { label: 'Bright roads', value: 'brightRoads' },
-    { label: 'Wet roads', value: 'WetRoads' },
-    { label: 'Dull Roads', value: 'dullRoads' },
-    { label: 'Dry Roads', value: 'dryRoads' },
-    { label: 'Raining Through Test', value: 'raining' },
+    { label: 'Dull / wet Roads', value: 'dullWetRoads' },
+    { label: 'Bright / dry roads', value: 'brightDryRoads' },
+    { label: 'Dull / dry Roads', value: 'dullDryRoads' },
+    { label: 'Bright / wet roads', value: 'brightWetRoads' },
     { label: 'Snowing', value: 'snow' },
-    { label: 'Showers', value: 'showers' },
+    { label: 'Raining through test', value: 'raining' },
     { label: 'Icy', value: 'icy' },
-    { label: 'Foggy/Misty', value: 'fog' },
-    { label: 'Windy', value: 'wind' }
+    { label: 'Showers', value: 'showers' },
+    { label: 'Windy', value: 'wind' },
+    { label: 'Foggy / misty', value: 'fog' }
   ];
 
   constructor(private viewCtrl: ViewController) {}

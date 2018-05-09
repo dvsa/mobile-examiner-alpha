@@ -15,28 +15,18 @@
             <span>Route Number</span>
         </ion-col>
         <ion-col col-2>
-            <input type="number" appInputRestriction="integer">
+            <input type="number" class="center-text" appInputRestriction="integer" [(ngModel)]="selectedRoute">
         </ion-col>
         <ion-col class="align-content-to-right">
-            <button class="mes-button-primary">Route Deviations</button>
+            <button class="mes-button-primary" (click)="showRouteListAlert()">Route Deviations</button>
         </ion-col>
-      </ion-row>
+      </ion-row>      
       <div class="mes-divider"></div>
       <div>
         <span class="mes-header-md">Weather</span>
         <span class="conditions-list">{{conditionsList}}</span>
         <div float-right>
           <button float-right class="mes-button-primary" (click)="openWeatherModal()">Select</button>
-        </div>
-      </div>
-      <div class="mes-divider"></div>
-      <div class="mes-header-md">
-        Examiner took action
-        <div float-right>
-          <input id="verbal-action" name="verbal" type="checkbox">
-          <label for="verbal-action" class="mes-header-md">Verbal</label>
-          <input id="physical-action" name="physical" type="checkbox">
-          <label for="physical-action" class="mes-header-md">Physical</label>
         </div>
       </div>
       <div class="mes-divider"></div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, AlertController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
@@ -17,6 +17,7 @@ export class PostTestSummaryPage {
   seriousFaultSummary: IFaultSummary;
   dangerousFaultSummary: IFaultSummary;
   journalPage: Page = JournalPage;
+  selectedRoute: number = null;
 
   conditionsList: string;
 
@@ -29,7 +30,8 @@ export class PostTestSummaryPage {
   constructor(
     private modalCtrl: ModalController,
     private navCtrl: NavController,
-    private faultStore: FaultStoreProvider
+    private faultStore: FaultStoreProvider,
+    private alertCtrl: AlertController
   ) {
     this.faultStore.getFaultTotals().subscribe((faultSummaries) => {
       this.drivingFaultSummary = faultSummaries.drivingFaultSummary;
@@ -51,5 +53,31 @@ export class PostTestSummaryPage {
       }
     });
     modal.present();
+  }
+
+  showRouteListAlert() {
+    const inputs = [];
+    for (let i = 1; i <= 13; i += 1) {
+      inputs.push({
+        type: 'radio',
+        label: i,
+        value: i,
+        checked: this.selectedRoute === i
+      });
+    }
+
+    const prompt = this.alertCtrl.create({
+      inputs,
+      title: 'Choose route number',
+      buttons: [
+        {
+          text: 'Ok',
+          handler: (chosenRoute) => {
+            this.selectedRoute = chosenRoute;
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }
