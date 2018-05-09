@@ -38,21 +38,19 @@ export class FaultStoreActions {
   });
 
   @dispatch()
-  addFault = (id: string, faultText: string, faultType: string): FaultAddAction => ({
+  addFault = (id: string, faultType: string): FaultAddAction => ({
     type: FaultStoreActions.ADD_FAULTS,
     meta: null,
-    payload: { id, faultText, faultType }
+    payload: { id, faultType }
   });
 
   @dispatch()
   removeFault = (
     id: string,
-    faultText: string,
-    faultType: string,
-    faultCounter?: number
+    faultType: string
   ): FaultDeleteAction => ({
     type: FaultStoreActions.DELETE_FAULTS,
     meta: null,
-    payload: { id, faultText, faultType, faultCounter }
+    payload: { id, faultType }
   });
 }

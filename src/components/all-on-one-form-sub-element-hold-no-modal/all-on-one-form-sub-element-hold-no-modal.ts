@@ -73,7 +73,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       return;
     }
 
-    this.faultStore.addFault(this.section, this.text, 'fault');
+    this.faultStore.addFault(this.section, 'fault');
   }
 
   recordHazard() {
@@ -90,7 +90,7 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
       ) {
         this.removeSeriousFault();
       } else if (this.faultCounter > 0) {
-        this.faultStore.removeFault(this.section, this.text, 'fault', this.faultCounter);
+        this.faultStore.removeFault(this.section, 'fault');
       }
     } else if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
       this.addDangerousFault();
@@ -104,24 +104,24 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
   addSeriousFault() {
     if (this.serious || this.dangerous) return;
     this.serious = true;
-    this.faultStore.addFault(this.section, this.text, 'serious');
+    this.faultStore.addFault(this.section, 'serious');
   }
 
   removeSeriousFault() {
     if (!this.serious) return;
     this.serious = false;
-    this.faultStore.removeFault(this.section, this.text, 'serious');
+    this.faultStore.removeFault(this.section, 'serious');
   }
 
   addDangerousFault() {
     if (this.dangerous) return;
     this.dangerous = true;
-    this.faultStore.addFault(this.section, this.text, 'dangerous');
+    this.faultStore.addFault(this.section, 'dangerous');
   }
 
   removeDangerousFault() {
     if (!this.dangerous) return;
     this.dangerous = false;
-    this.faultStore.removeFault(this.section, this.text, 'dangerous');
+    this.faultStore.removeFault(this.section, 'dangerous');
   }
 }

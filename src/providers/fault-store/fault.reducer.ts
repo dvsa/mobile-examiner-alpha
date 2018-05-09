@@ -6,7 +6,6 @@ import {
 } from './fault-store.action';
 import { IFaultElementState } from './fault-store.model';
 import { Action } from 'redux';
-import { upperFirst } from 'lodash';
 
 const INITIAL_STATE: IFaultElementState = {};
 
@@ -46,16 +45,13 @@ const resetFault = (state, action) => {
 
 const addFault = (state, action) => {
   const faultAddAction = action as FaultAddAction;
-  let { faultText } = faultAddAction.payload;
   const { id, faultType } = faultAddAction.payload;
   const currFaults = state[id] || {};
 
-  faultText = upperFirst(faultText);
   return {
     ...state,
     [id]: {
       ...currFaults,
-      faultText,
       [faultType]: currFaults[faultType] ? (currFaults[faultType] += 1) : 1
     }
   };

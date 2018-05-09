@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { IState, IFaultElementState, ITestResults } from './fault-store.model';
 import { faultReducer as faults } from './fault.reducer';
 import { FaultStoreActions } from './fault-store.action';
-import { upperFirst } from 'lodash';
 import { TestResult } from '../../components/test-summary/enums/TestResult';
 import { FaultTitle } from '../../components/test-summary/enums/FaultTitle';
 import { Observer } from 'rxjs';
@@ -17,6 +16,8 @@ const reduxLogger = require('redux-logger');
 
 @Injectable()
 export class FaultStoreProvider {
+  summaryLookups = require('../../assets/data/fault-summary-lookup.json');
+  
   currentFaults$: Observable<IFaultElementState>;
   testResult: TestResult;
 
@@ -31,8 +32,8 @@ export class FaultStoreProvider {
   dangerousFaultsNumber = 0;
 
   constructor(
-    public store: NgRedux<IState>,
-    public faultActions: FaultStoreActions,
+    private store: NgRedux<IState>,
+    private faultActions: FaultStoreActions,
     public devTools: DevToolsExtension
   ) {
     const reducers = combineReducers<IState>({ faults });
@@ -56,16 +57,24 @@ export class FaultStoreProvider {
     this.faultActions.resetFault(id);
   }
 
-  addFault(id, text, faultType) {
-    this.faultActions.addFault(id, text, faultType);
+  addFault(id, faultType) {
+    this.faultActions.addFault(id, faultType);
   }
 
-  removeFault(id, text, faultType, faultCounter?) {
-    this.faultActions.removeFault(id, text, faultType, faultCounter);
+  removeFault(id, faultType) {
+    this.faultActions.removeFault(id, faultType);
   }
 
   getState() {
     return this.store.getState();
+  }
+
+  private getSummaryText(key: string) {
+    if (key in this.summaryLookups) {
+      return this.summaryLookups[key];
+    }
+
+    return key;
   }
 
   calculateFaultTotals(): ITestResults {
@@ -75,31 +84,29 @@ export class FaultStoreProvider {
     const seriousFaults = [];
     const dangerousFaults = [];
     const drivingFaults = [];
-    const sectionRegEx = new RegExp(/^[a-z]*/);
 
     const { faults } = this.getState();
     Object.keys(faults).forEach((fault) => {
+      const faultText = this.getSummaryText(fault);
+
       if (faults[fault].fault) {
         drivingFaultsNum += faults[fault].fault;
-        const section = upperFirst(fault.match(sectionRegEx)[0]);
         drivingFaults.push({
-          name: section + ' - ' + faults[fault].faultText,
+          name: faultText,
           total: faults[fault].fault
         });
       }
       if (faults[fault].dangerous) {
         dangerousFaultsNum += faults[fault].dangerous;
-        const section = upperFirst(fault.match(sectionRegEx)[0]);
         dangerousFaults.push({
-          name: section + ' - ' + faults[fault].faultText,
+          name: faultText,
           total: faults[fault].fault
         });
       }
       if (faults[fault].serious) {
         seriousFaultsNum += faults[fault].serious;
-        const section = upperFirst(fault.match(sectionRegEx)[0]);
         seriousFaults.push({
-          name: section + ' - ' + faults[fault].faultText,
+          name: faultText,
           total: faults[fault].fault
         });
       }

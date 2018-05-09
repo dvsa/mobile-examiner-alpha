@@ -4,7 +4,7 @@ import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 /**
- * Generated class for the AllOnOnePage page.
+ * Generated class for the AllOnOneV2Page page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
