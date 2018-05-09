@@ -48,12 +48,14 @@ export class TestResultPage {
       .getFaultTotals()
       .subscribe((faultSummaries) => (this.faultSummaries = faultSummaries));
     this.testResult = this.faultStore.getTestResult();
-    this.debriefConsent = this.faultStore.getDebriefConsentStatus();
+    // this.debriefConsent = this.faultStore.getDebriefConsentStatus();
+    this.debriefConsent = true;
 
     if (this.debriefConsent) {
       const toast = this.toastCtrl.create({
         message: 'Candidate has given permission to be recorded',
-        position: 'bottom'
+        position: 'bottom',
+        duration: 3000
       });
 
       toast.present();
