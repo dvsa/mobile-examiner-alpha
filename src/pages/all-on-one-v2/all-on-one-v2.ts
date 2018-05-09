@@ -1,6 +1,6 @@
 import { HazardRecorderProvider } from './../../providers/hazard-recorder/hazard-recorder';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 /**
@@ -16,7 +16,6 @@ export enum manoeuvre {
   OBSERVATION = 'Obs'
 }
 
-@IonicPage()
 @Component({
   selector: 'page-all-on-one-v2',
   templateUrl: 'all-on-one-v2.html'

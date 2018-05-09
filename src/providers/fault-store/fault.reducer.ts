@@ -64,24 +64,23 @@ const addFault = (state, action) => {
 const deleteFault = (state, action) => {
   const faultDeleteAction = action as FaultDeleteAction;
   let newFaultState;
-  const { id } = faultDeleteAction.payload;
-  let { faultType } = faultDeleteAction.payload;
+  const { id, faultType } = faultDeleteAction.payload;
   const currFaults = state[id] || {};
-  if (currFaults[faultType] > 0) {
+
+  // reduce fault counter or remove fault type completely
+  if (currFaults[faultType] > 1) {
     newFaultState = { [faultType]: (currFaults[faultType] -= 1) };
   } else {
-    ({ faultType, ...newFaultState } = currFaults);
-  }
-
-  const minus = {
-    [id]: {
-      ...currFaults,
+    ({
+      [faultType]: {},
       ...newFaultState
-    }
-  };
+    } = currFaults);
+  }
 
   return {
     ...state,
-    ...minus
+    [id]: {
+      ...newFaultState
+    }
   };
 };

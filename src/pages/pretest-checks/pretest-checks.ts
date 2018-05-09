@@ -1,3 +1,4 @@
+import { FaultStoreProvider } from './../../providers/fault-store/fault-store';
 import { AllOnOneV2Page } from './../all-on-one-v2/all-on-one-v2';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 import { Component, ViewChild } from '@angular/core';
@@ -6,6 +7,7 @@ import { PolicyDataPage } from '../policy-data/policy-data';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { TellMeModalComponent } from '../../components/tell-me-modal/tell-me-modal';
+import { select } from '@angular-redux/store';
 
 @Component({
   selector: 'page-pretest-checks',
@@ -24,7 +26,28 @@ export class PretestChecksPage {
     isAutomatic: null
   };
 
-  constructor(public navCtrl: NavController, private modalCtrl: ModalController) {}
+  @select(['faults', 'tellMe']) tellMeState$;
+
+  constructor(
+    public navCtrl: NavController,
+    private modalCtrl: ModalController,
+    private faultStore: FaultStoreProvider
+  ) {}
+
+  resetTellMe() {
+    this.faultStore.resetFault('tellMe');
+  }
+
+  setTellMeState(questionId, faultType, $event) {
+    const isActive = $event.currentTarget.className.includes('active');
+    const faultMethod = isActive ? 'removeFault' : 'addFault';
+
+    // reset other faults if we are setting a new one
+    // we could build in better functionality in the reducers to handle this kind of logic..BETA!!
+    if (!isActive) this.resetTellMe();
+
+    this.faultStore[faultMethod]('tellMe', questionId, faultType);
+  }
 
   showTellMeOptions = () => {
     const tellMeQuestionModal = this.modalCtrl.create(
