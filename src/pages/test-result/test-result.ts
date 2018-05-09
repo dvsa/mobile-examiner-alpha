@@ -151,7 +151,7 @@ export class TestResultPage {
     let counter = 0;
     this.audio.play();
 
-    let timerDur = setInterval(() => {
+    const timerDur = setInterval(() => {
       // workaround we can't stop playback just after call .play(). We trying to do it in interval...
       this.audio.pause();
       this.audio.stop();
@@ -172,7 +172,7 @@ export class TestResultPage {
     const self = this;
     this.playing = true;
     this.audio.play();
-    setTimeout(function() {
+    setTimeout(() => {
       if (self.fileLength) {
         self.playOrPauseRecording = 'play';
       }
