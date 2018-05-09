@@ -17,10 +17,10 @@
     </ion-card>
     <ion-card class="mes-bottom-card" text-center>
         <ion-row align-items-center>
-            <ion-col>
+            <ion-col *ngIf="debriefConsent">
                 <record-debrief-button [isRecording]="isRecording" [activeFile]="fileLength" (click)="recordAudio();"></record-debrief-button>
             </ion-col>
-            <ion-col>
+            <ion-col *ngIf="debriefConsent">
                 <div class="recording-controls" align-items-center ion-row>
                     <play-pause-debrief-button [clickEventHandler]="togglePlayOrPause" [disabled]="playOrPauseDisabled" [buttonStatus]="playOrPauseRecording"></play-pause-debrief-button>
                     <stop-debrief-destroy-recording-button [clickEventHandler]="toggleStopOrDestroy" [disabled]="stopOrDesDisabled" [buttonStatus]="stopOrDestroyRecording"></stop-debrief-destroy-recording-button>

@@ -29,6 +29,7 @@ export class FaultStoreProvider {
   drivingFaultsNumber = 0;
   seriousFaultsNumber = 0;
   dangerousFaultsNumber = 0;
+  debriefConsent = false;
 
   constructor(
     public store: NgRedux<IState>,
@@ -66,6 +67,14 @@ export class FaultStoreProvider {
 
   getState() {
     return this.store.getState();
+  }
+
+  getDebriefConsentStatus() {
+    return this.debriefConsent;
+  }
+
+  setDebriefConsentStatus(status: boolean) {
+    this.debriefConsent = status;
   }
 
   calculateFaultTotals(): ITestResults {
