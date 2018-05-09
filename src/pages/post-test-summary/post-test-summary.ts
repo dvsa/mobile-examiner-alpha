@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
@@ -8,7 +8,6 @@ import { FaultTitle } from '../../components/test-summary/enums/FaultTitle';
 import { WeatherSelectorComponent } from '../../components/weather-selector/weather-selector';
 import { JournalPage } from '../journal/journal';
 
-@IonicPage()
 @Component({
   selector: 'page-post-test-summary',
   templateUrl: 'post-test-summary.html'
