@@ -55,6 +55,7 @@ import { PassDataCollectionPage } from '../pages/pass-data-collection/pass-data-
 import { HealthDeclarationPage } from '../pages/health-declaration/health-declaration';
 import { TextboxModalComponent } from '../components/textbox-modal/textbox-modal';
 import { Media } from '@ionic-native/media';
+import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorder';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -144,7 +145,8 @@ export function createTranslateLoader(http: Http) {
     Insomnia,
     Globalization,
     File,
-    Media
+    Media,
+    AudioRecorderProvider
   ]
 })
 export class AppModule {}
