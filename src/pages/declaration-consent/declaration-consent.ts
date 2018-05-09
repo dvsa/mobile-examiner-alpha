@@ -86,6 +86,7 @@ export class DeclarationConsentPage {
       })
       .catch((errorMsg: string) => {
         if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
+          this.faultStore.setDebriefConsentStatus(this.checkDebrief);
           this.navCtrl.push(this.pretestChecksPage);
         }
       });
