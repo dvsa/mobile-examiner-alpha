@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="uk.gov.dvsa.mobile-examiner" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>App</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>Mobile Examiner Alpha</name>
+    <description>Alpha stage for Mobile Examiner Services.</description>
+    <author email="mobexaminer@gmail.com">MES Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -99,7 +99,10 @@
     <plugin name="cordova-plugin-media" spec="^5.0.2" />
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
+<<<<<<< HEAD
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
         <string>Need microphone access to record audio</string>
     </edit-config>
+=======
+>>>>>>> 537c360df83ca78871ad856ca2af833f024d07ea
 </widget>

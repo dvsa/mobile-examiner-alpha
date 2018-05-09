@@ -16,14 +16,11 @@ export interface IFaultElementState {
 
 export interface IFaultCalcPayload {
   id: string;
-  faultText: string;
   faultType: string;
-  faultCounter?: number;
 }
 
 export interface ILastFaultPayload {
   id: string;
-  faultText: string;
   faultType: string;
   action: string;
 }

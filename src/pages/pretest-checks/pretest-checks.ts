@@ -46,7 +46,7 @@ export class PretestChecksPage {
     // we could build in better functionality in the reducers to handle this kind of logic..BETA!!
     if (!isActive) this.resetTellMe();
 
-    this.faultStore[faultMethod]('tellMe', questionId, faultType);
+    this.faultStore[faultMethod]('tellMe', faultType);
   }
 
   showTellMeOptions = () => {
