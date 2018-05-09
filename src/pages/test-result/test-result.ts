@@ -124,9 +124,6 @@ export class TestResultPage {
   }
 
   stopRecordingAudio() {
-    console.log('Stopping recording');
-
-    const self = this;
     this.audio.stopRecord();
 
     this.countDuration();
@@ -134,15 +131,14 @@ export class TestResultPage {
     this.file
       .resolveLocalFilesystemUrl(this.file.dataDirectory)
       .then((directoryEntry: DirectoryEntry) => {
-        return this.file.getFile(directoryEntry, self.fileName, { create: false });
+        return this.file.getFile(directoryEntry, this.fileName, { create: false });
       })
       .then((fileEntry: FileEntry) => {
         fileEntry.file((fileObject) => {
-          console.log(fileObject.size);
-          self.fileSize = '' + fileObject.size + ' bytes';
+          this.fileSize = '' + fileObject.size + ' bytes';
         }, this.logError);
-        self.isRecording = false;
-        self.playOrPauseRecording = 'play';
+        this.isRecording = false;
+        this.playOrPauseRecording = 'play';
       })
       .catch(this.logError);
   }
@@ -170,14 +166,13 @@ export class TestResultPage {
   }
 
   playAudio() {
-    const self = this;
     this.playing = true;
     this.audio.play();
     setTimeout(() => {
-      if (self.fileLength) {
-        self.playOrPauseRecording = 'play';
+      if (this.fileLength) {
+        this.playOrPauseRecording = 'play';
       }
-    }, Math.ceil(self.fileLength) * 1000);
+    }, Math.ceil(this.fileLength) * 1000);
   }
 
   pauseAudio() {

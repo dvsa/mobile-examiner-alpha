@@ -70,8 +70,6 @@ export class FaultStoreProvider {
     return this.store.getState();
   }
 
-<<<<<<< HEAD
-=======
   private getSummaryText(key: string) {
     if (key in this.summaryLookups) {
       return this.summaryLookups[key];
@@ -80,7 +78,6 @@ export class FaultStoreProvider {
     return key;
   }
 
->>>>>>> 537c360df83ca78871ad856ca2af833f024d07ea
   getDebriefConsentStatus() {
     return this.debriefConsent;
   }

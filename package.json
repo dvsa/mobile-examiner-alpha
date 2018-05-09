@@ -47,7 +47,7 @@
     "cordova-plugin-advanced-http": "^1.11.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-device-authentication":
-      "https://github.com/dvsa/cordova-plugin-device-authentication.git",
+      "git+https://github.com/dvsa/cordova-plugin-device-authentication.git",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-insomnia": "^4.3.0",
@@ -109,8 +109,10 @@
       "cordova-plugin-device-authentication": {},
       "cordova-plugin-globalization": {},
       "cordova-plugin-file": {},
-      "cordova-plugin-media": {}
+      "cordova-plugin-media": {
+        "KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE": "NO"
+      }
     },
-    "platforms": ["ios"]
+    "platforms": ["ios", "browser"]
   }
 }
