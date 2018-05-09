@@ -11,8 +11,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'page-header.html'
 })
 export class PageHeaderComponent {
-
   @Input() deviceLocked: boolean;
+  @Input() isRecording: boolean;
   examinerName: string = 'Ammar Haider';
 
   constructor() {}
