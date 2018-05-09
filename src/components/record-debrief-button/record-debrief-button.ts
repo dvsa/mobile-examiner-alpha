@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RecordDebriefButtonComponent {
   @Input() isRecording: boolean;
+  @Input() isPausedRecording: boolean;
   @Input() activeFile: any;
   constructor() {
     // if(!this.isRecording){
