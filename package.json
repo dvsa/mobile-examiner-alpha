@@ -111,6 +111,6 @@
       "cordova-plugin-file": {},
       "cordova-plugin-media": {}
     },
-    "platforms": ["ios", "browser"]
+    "platforms": ["ios"]
   }
 }
