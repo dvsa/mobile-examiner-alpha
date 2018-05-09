@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
 import { PostTestSummaryPage } from '../post-test-summary/post-test-summary';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
@@ -35,17 +35,29 @@ export class TestResultPage {
   fileName = 'audio_debrief.m4a';
   fileLength = 0;
   fileSize = '';
+  debriefConsent = false;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private faultStore: FaultStoreProvider,
-    private file: File
+    private file: File,
+    private toastCtrl: ToastController
   ) {
     this.faultStore
       .getFaultTotals()
       .subscribe((faultSummaries) => (this.faultSummaries = faultSummaries));
     this.testResult = this.faultStore.getTestResult();
+    this.debriefConsent = this.faultStore.getDebriefConsentStatus();
+
+    if (this.debriefConsent) {
+      const toast = this.toastCtrl.create({
+        message: 'Candidate has given permission to be recorded',
+        position: 'bottom'
+      });
+
+      toast.present();
+    }
   }
 
   getNextPage(): Page {
@@ -92,7 +104,7 @@ export class TestResultPage {
       this.file
         .createFile(this.file.dataDirectory, this.fileName, true)
         .then(() => {
-          let src = this.file.dataDirectory.replace(/^file:\/\//, '') + this.fileName;
+          const src = this.file.dataDirectory.replace(/^file:\/\//, '') + this.fileName;
           // ionic media.create is buggy (getDuration returns always -1), the solution is to use raw cordova API
           this.audio = new (<any>window).Media(
             src,
@@ -113,7 +125,7 @@ export class TestResultPage {
   stopRecordingAudio() {
     console.log('Stopping recording');
 
-    var self = this;
+    const self = this;
     this.audio.stopRecord();
 
     this.countDuration();
@@ -136,10 +148,10 @@ export class TestResultPage {
 
   // Workaround In order to get file duration, we need to play recording
   countDuration() {
-    var counter = 0;
+    let counter = 0;
     this.audio.play();
 
-    var timerDur = setInterval(() => {
+    let timerDur = setInterval(() => {
       // workaround we can't stop playback just after call .play(). We trying to do it in interval...
       this.audio.pause();
       this.audio.stop();
@@ -148,7 +160,7 @@ export class TestResultPage {
         clearInterval(timerDur);
       }
       this.audio.getDuration();
-      var dur = this.audio.getDuration();
+      const dur = this.audio.getDuration();
       if (dur > 0) {
         clearInterval(timerDur);
         this.fileLength = dur;
@@ -157,7 +169,7 @@ export class TestResultPage {
   }
 
   playAudio() {
-    let self = this;
+    const self = this;
     this.playing = true;
     this.audio.play();
     setTimeout(function() {
