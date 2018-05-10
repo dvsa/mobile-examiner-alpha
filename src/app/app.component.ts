@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginPage } from '../pages/login/login';
+import { LoginPage } from './../pages/login/login';
 import { Content } from 'ionic-angular/navigation/nav-interfaces';
 import { DEFAULT_LANG, SYS_OPTIONS, AVAILABLE_LANG } from './constants';
 import { TranslateService } from 'ng2-translate';

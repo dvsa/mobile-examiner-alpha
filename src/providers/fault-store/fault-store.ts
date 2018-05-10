@@ -17,7 +17,7 @@ const reduxLogger = require('redux-logger');
 @Injectable()
 export class FaultStoreProvider {
   summaryLookups = require('../../assets/data/fault-summary-lookup.json');
-  
+
   currentFaults$: Observable<IFaultElementState>;
   testResult: TestResult;
 
@@ -30,6 +30,7 @@ export class FaultStoreProvider {
   drivingFaultsNumber = 0;
   seriousFaultsNumber = 0;
   dangerousFaultsNumber = 0;
+  debriefConsent = false;
 
   constructor(
     private store: NgRedux<IState>,
@@ -75,6 +76,14 @@ export class FaultStoreProvider {
     }
 
     return key;
+  }
+
+  getDebriefConsentStatus() {
+    return this.debriefConsent;
+  }
+
+  setDebriefConsentStatus(status: boolean) {
+    this.debriefConsent = status;
   }
 
   calculateFaultTotals(): ITestResults {

@@ -20,6 +20,9 @@ import { AllOnOneFormEtaButtonComponent } from './all-on-one-form-eta-button/all
 import { EvenOddPipe } from '../pipes/evenOdd';
 import { PostTestSummarySectionComponent } from './post-test-summary-section/post-test-summary-section';
 import { TextboxModalComponent } from './textbox-modal/textbox-modal';
+import { RecordDebriefButtonComponent } from './record-debrief-button/record-debrief-button';
+import { StopDebriefDestroyRecordingButtonComponent } from './stop-debrief-destroy-recording-button/stop-debrief-destroy-recording-button';
+import { PlayPauseDebriefButtonComponent } from './play-pause-debrief-button/play-pause-debrief-button';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { TextboxModalComponent } from './textbox-modal/textbox-modal';
     AllOnOneFormEtaButtonComponent,
     EvenOddPipe,
     PostTestSummarySectionComponent,
-    TextboxModalComponent
+    TextboxModalComponent,
+    RecordDebriefButtonComponent,
+    StopDebriefDestroyRecordingButtonComponent,
+    PlayPauseDebriefButtonComponent
   ],
   imports: [IonicModule.forRoot(PageHeaderComponent)],
   exports: [
@@ -64,7 +70,10 @@ import { TextboxModalComponent } from './textbox-modal/textbox-modal';
     AlphaHeaderComponent,
     AllOnOneFormEtaButtonComponent,
     PostTestSummarySectionComponent,
-    TextboxModalComponent
+    TextboxModalComponent,
+    RecordDebriefButtonComponent,
+    StopDebriefDestroyRecordingButtonComponent,
+    PlayPauseDebriefButtonComponent
   ]
 })
 export class ComponentsModule {}

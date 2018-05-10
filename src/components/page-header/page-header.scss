@@ -16,4 +16,15 @@ page-header {
       padding-top: 10px;
     }
   }
+  .recording {
+    background: map-get($colors, recording);
+    height: 47px;
+    z-index: 99;
+    text-align: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    .inner {
+      padding-top: 10px;
+    }
+  }
 }

@@ -6,6 +6,7 @@ import { AppConfigProvider } from '../../providers/app-config/app-config';
 import { PretestChecksPage } from '../pretest-checks/pretest-checks';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 import { Page } from 'ionic-angular/navigation/nav-util';
+import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 
@@ -36,7 +37,8 @@ export class DeclarationConsentPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: AppConfigProvider,
-    private deviceAuth: DeviceAuthentication
+    private deviceAuth: DeviceAuthentication,
+    private faultStore: FaultStoreProvider
   ) {
     this.signaturePadOptions = configService.getSignaturePadOptions();
   }
@@ -78,11 +80,13 @@ export class DeclarationConsentPage {
       .runAuthentication('Please authenticate yourself to proceed')
       .then((isAuthenticated: boolean) => {
         if (isAuthenticated) {
+          this.faultStore.setDebriefConsentStatus(this.checkDebrief);
           this.navCtrl.push(this.pretestChecksPage);
         }
       })
       .catch((errorMsg: string) => {
         if (errorMsg === 'cordova_not_available' || errorMsg === 'plugin_not_installed') {
+          this.faultStore.setDebriefConsentStatus(this.checkDebrief);
           this.navCtrl.push(this.pretestChecksPage);
         }
       });
