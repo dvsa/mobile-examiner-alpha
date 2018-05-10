@@ -12,6 +12,7 @@ export class QuestionsModalComponent {
 
   constructor(private viewCtrl: ViewController, params: NavParams) {
     this.options = params.get('options');
+    this.options.forEach((option, index) => (this.options[index].isExpanded = false));
     this.selectedTellMeQuestionId = params.get('selectedTellMeQuestionId');
   }
 
