@@ -2,12 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-<<<<<<< HEAD
-import { LoginPage } from './../pages/login/login';
-=======
 import { LoginPage } from '../pages/login/login';
 import { AllOnOneV2Page } from '../pages/all-on-one-v2/all-on-one-v2';
->>>>>>> Fix double header for DL25 in prod build mode
 import { Content } from 'ionic-angular/navigation/nav-interfaces';
 import { DEFAULT_LANG, SYS_OPTIONS, AVAILABLE_LANG } from './constants';
 import { TranslateService } from 'ng2-translate';
