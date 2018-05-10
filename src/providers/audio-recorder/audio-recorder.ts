@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { File, DirectoryEntry, FileEntry } from '@ionic-native/file';
 import { MediaObject } from '@ionic-native/media';
+import { Subject } from 'rxjs';
 /*
   Generated class for the AudioRecorderProvider provider.
 
@@ -9,11 +10,8 @@ import { MediaObject } from '@ionic-native/media';
 */
 @Injectable()
 export class AudioRecorderProvider {
-  stopOrDestroyRecording: string = 'stop';
-  stopOrDesDisabled: boolean = true;
-
-  playOrPauseRecording: string = 'pause';
-  playOrPauseDisabled: boolean = true;
+  public isRecordingChange: Subject<boolean> = new Subject();
+  public fileLengthChange: Subject<number> = new Subject();
 
   isRecording = false;
   playing = false;
@@ -40,21 +38,11 @@ export class AudioRecorderProvider {
             this.mediaStatus
           );
           this.audio.startRecord();
-          this.isRecording = true;
-          this.stopOrDesDisabled = false;
-          this.playOrPauseDisabled = false;
-          this.playOrPauseRecording = 'pause';
+          // this.isRecording = true;
+          this.isRecordingChange.next(true);
         })
         .catch(this.logError);
     }
-  }
-
-  getFileLength() {
-    return this.fileLength;
-  }
-
-  getIsRecording() {
-    return this.isRecording;
   }
 
   stopRecordingAudio() {
@@ -71,8 +59,7 @@ export class AudioRecorderProvider {
         fileEntry.file((fileObject) => {
           this.fileSize = '' + fileObject.size + ' bytes';
         }, this.logError);
-        this.isRecording = false;
-        this.playOrPauseRecording = 'play';
+        this.isRecordingChange.next(false);
       })
       .catch(this.logError);
   }
@@ -94,7 +81,7 @@ export class AudioRecorderProvider {
       const dur = this.audio.getDuration();
       if (dur > 0) {
         clearInterval(timerDur);
-        this.fileLength = dur;
+        this.fileLengthChange.next(dur);
       }
     }, 100);
   }
@@ -102,11 +89,6 @@ export class AudioRecorderProvider {
   playAudio() {
     this.playing = true;
     this.audio.play();
-    setTimeout(() => {
-      if (this.fileLength) {
-        this.playOrPauseRecording = 'play';
-      }
-    }, Math.ceil(this.fileLength) * 1000);
   }
 
   pauseAudio() {
@@ -118,12 +100,9 @@ export class AudioRecorderProvider {
     this.audio.stop();
     this.audio.release();
     this.file.removeFile(this.file.dataDirectory, 'audio_debrief.m4a');
-    this.isRecording = false;
-    this.fileLength = null;
+    this.isRecordingChange.next(false);
+    this.fileLengthChange.next(null);
     this.fileSize = null;
-    this.playOrPauseRecording = 'pause';
-    this.stopOrDesDisabled = true;
-    this.playOrPauseDisabled = true;
   }
 
   pauseRecording() {

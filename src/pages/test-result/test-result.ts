@@ -22,13 +22,11 @@ export class TestResultPage {
 
   // audio related
   stopOrDestroyRecording: string = 'stop';
-  stopOrDesDisabled: boolean = true;
-
-  playOrPauseRecording: string = 'pause';
   playOrPauseDisabled: boolean = true;
-
-  isRecording = this.audioRecorder.getIsRecording();
-  fileLength = this.audioRecorder.getFileLength();
+  playOrPauseRecording: string = 'pause';
+  stopOrDesDisabled: boolean = true;
+  isRecording;
+  fileLength;
 
   debriefConsent = false;
 
@@ -43,8 +41,7 @@ export class TestResultPage {
       .getFaultTotals()
       .subscribe((faultSummaries) => (this.faultSummaries = faultSummaries));
     this.testResult = this.faultStore.getTestResult();
-    // this.debriefConsent = this.faultStore.getDebriefConsentStatus();
-    this.debriefConsent = true;
+    this.debriefConsent = this.faultStore.getDebriefConsentStatus();
 
     if (this.debriefConsent) {
       const toast = this.toastCtrl.create({
@@ -52,13 +49,23 @@ export class TestResultPage {
         position: 'bottom',
         duration: 3000
       });
-
       toast.present();
     }
+
+    this.audioRecorder.isRecordingChange.subscribe((newValue) => {
+      this.isRecording = newValue;
+    });
+
+    this.audioRecorder.fileLengthChange.subscribe((newValue) => {
+      this.fileLength = newValue;
+    });
   }
 
   recordAudio() {
     this.audioRecorder.recordAudio();
+    this.playOrPauseRecording = 'pause';
+    this.stopOrDesDisabled = false;
+    this.playOrPauseDisabled = false;
   }
 
   getNextPage(): Page {
@@ -74,9 +81,13 @@ export class TestResultPage {
   toggleStopOrDestroy = () => {
     if (this.stopOrDestroyRecording === 'stop') {
       this.audioRecorder.stopRecordingAudio();
+      this.playOrPauseRecording = 'play';
     }
     if (this.stopOrDestroyRecording === 'destroy') {
       this.audioRecorder.deleteAudio();
+      this.playOrPauseRecording = 'pause';
+      this.stopOrDesDisabled = true;
+      this.playOrPauseDisabled = true;
     }
     this.stopOrDestroyRecording = this.stopOrDestroyRecording === 'stop' ? 'destroy' : 'stop';
   };
@@ -87,6 +98,11 @@ export class TestResultPage {
         this.audioRecorder.resumeRecording();
       } else {
         this.audioRecorder.playAudio();
+        setTimeout(() => {
+          if (this.fileLength) {
+            this.playOrPauseRecording = 'play';
+          }
+        }, Math.ceil(this.fileLength) * 1000);
       }
     }
     if (this.playOrPauseRecording === 'pause') {
