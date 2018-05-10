@@ -36,20 +36,17 @@
         </p>
         <div class="mes-divider"></div>
         <ion-row>
-          <ion-col col-3 class="mes-header-md">
+          <ion-col col-4 class="mes-header-md">
             Tell me question*
           </ion-col>
           <ion-col col-4>
             <select-button required #tellMeQuestion="ngModel" [(ngModel)]="preCheck.tellMeQuestionId" name="tellMeQuestionId" [onClickEventHandler]="showTellMeOptions"
               [selectedText]="preCheck.tellMeQuestionId"></select-button>
           </ion-col>
-          <ion-col col-5 [ngClass]="{'btns-disabled': !preCheck.tellMeQuestionId }">
-            <div class="fault-btn fault-btn-icon complete-btn" [ngClass]="{'active': (tellMeState$ | async)?.complete}" (click)="setTellMeState(preCheck.tellMeQuestionId,'complete', $event)">
-              <ion-icon ios="ios-checkmark"></ion-icon>
-            </div>
-            <div class="fault-btn driverFault-btn" [ngClass]="{'active': (tellMeState$ | async)?.fault}" (click)="setTellMeState(preCheck.tellMeQuestionId, 'fault', $event)">D/F</div>
-            <div class="fault-btn serious-btn" [ngClass]="{'active': (tellMeState$ | async)?.serious}" (click)="setTellMeState(preCheck.tellMeQuestionId, 'serious', $event)">S</div>
-            <div class="fault-btn dangerous-btn" [ngClass]="{'active': (tellMeState$ | async)?.dangerous}" (click)="setTellMeState(preCheck.tellMeQuestionId, 'dangerous', $event)">D</div>
+          <ion-col col-4 [ngClass]="{'btns-disabled': !preCheck.tellMeQuestionId }">
+            <div class="fault-btn driverFault-btn" [ngClass]="{'active': (vcState$ | async)?.fault}" (click)="setTellMeState('fault', $event)">D/F</div>
+            <div class="fault-btn serious-btn" [ngClass]="{'active': (vcState$ | async)?.serious}" (click)="setTellMeState('serious', $event)">S</div>
+            <div class="fault-btn dangerous-btn" [ngClass]="{'active': (vcState$ | async)?.dangerous}" (click)="setTellMeState('dangerous', $event)">D</div>
           </ion-col>
         </ion-row>
         <p [hidden]="tellMeQuestion.valid || (tellMeQuestion.pristine && !form.submitted)" class="warning-text">

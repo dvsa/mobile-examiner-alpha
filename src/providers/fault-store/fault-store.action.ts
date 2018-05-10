@@ -45,10 +45,7 @@ export class FaultStoreActions {
   });
 
   @dispatch()
-  removeFault = (
-    id: string,
-    faultType: string
-  ): FaultDeleteAction => ({
+  removeFault = (id: string, faultType: string): FaultDeleteAction => ({
     type: FaultStoreActions.DELETE_FAULTS,
     meta: null,
     payload: { id, faultType }

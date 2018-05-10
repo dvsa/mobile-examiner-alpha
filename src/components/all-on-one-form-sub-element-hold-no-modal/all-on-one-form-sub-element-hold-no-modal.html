@@ -1,6 +1,6 @@
 <ion-row align-items-center no-padding (swipe)="openCustomerHammgerConfig()">
   <ion-col no-padding>
-    <button style="padding-left:0px; padding-right:0px;" class="all-on-one-form-fault-button" (click)="recordHazard(section)"
+    <button [disabled]="isDisabled" style="padding-left:0px; padding-right:0px;" class="all-on-one-form-fault-button" (click)="recordHazard(section)"
       [ngClass]="{'highlight' : isLastFault}">
       <ion-row no-padding>
         <ion-col col-1>

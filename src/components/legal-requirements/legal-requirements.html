@@ -1,4 +1,4 @@
-<ion-row align-items-center no-padding (swipe)="openCustomerHammgerConfig()">
+<ion-row align-items-center no-padding>
   <ion-col *ngFor="let req of requirements | evenOdd:'odd'" no-padding col-6>
     <button [class.done]="hasMetReq(req.id)" (click)="setReq(req.id)">
       <ion-row no-padding>
@@ -10,7 +10,7 @@
     </button>
   </ion-col>
 </ion-row>
-<ion-row align-items-center no-padding (swipe)="openCustomerHammgerConfig()">
+<ion-row align-items-center no-padding>
   <ion-col *ngFor="let req of requirements | evenOdd:'even'" no-padding col-6>
     <button [class.done]="hasMetReq(req.id)" (click)="setReq(req.id)">
       <ion-row no-padding>

@@ -8,10 +8,9 @@ import { Page } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-health-declaration',
-  templateUrl: 'health-declaration.html',
+  templateUrl: 'health-declaration.html'
 })
 export class HealthDeclarationPage {
-
   signaturePadOptions: any;
   signature: any;
   postTestSummaryPage: Page = PostTestSummaryPage;
@@ -70,5 +69,4 @@ export class HealthDeclarationPage {
         }
       });
   }
-
 }

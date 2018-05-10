@@ -54,6 +54,7 @@ import { FormsModule } from '@angular/forms';
 import { PassDataCollectionPage } from '../pages/pass-data-collection/pass-data-collection';
 import { HealthDeclarationPage } from '../pages/health-declaration/health-declaration';
 import { TextboxModalComponent } from '../components/textbox-modal/textbox-modal';
+import { VehicleCheckProvider } from '../providers/vehicle-check/vehicle-check';
 import { Media } from '@ionic-native/media';
 import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorder';
 
@@ -144,6 +145,7 @@ export function createTranslateLoader(http: Http) {
     ScreenOrientation,
     Insomnia,
     Globalization,
+    VehicleCheckProvider,
     File,
     Media,
     AudioRecorderProvider

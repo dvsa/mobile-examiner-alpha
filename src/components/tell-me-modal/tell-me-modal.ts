@@ -144,9 +144,9 @@ export class TellMeModalComponent {
     this.viewCtrl.dismiss(null, 'dismiss');
   }
 
-  select(itemId: string) {
-    this.selectedTellMeQuestionId = itemId;
-    setTimeout(() => this.viewCtrl.dismiss(itemId), 300);
+  select({ id, keyWords } = { id: '', keyWords: '' }) {
+    this.selectedTellMeQuestionId = id;
+    setTimeout(() => this.viewCtrl.dismiss({ id, keyWords }), 300);
   }
 
   toggle(index: number) {

@@ -9,6 +9,7 @@ export class AllOnOneFormSubElementButtonComponent {
   @Input() isEnabled: boolean = false;
   @Input() text: string;
   @Input() sectionsToShow: string;
+  @Input() isComplete: boolean;
   serious: boolean = false;
   dangerous: boolean = false;
   faultCount: number = 0;

@@ -22,7 +22,7 @@
       </div>
       <div class="hidden" [class.active]="question.isExpanded">{{question.question}}</div>
     </ion-col>
-    <ion-col col-2 class="checkmark-circle" (click)="select(selectedTellMeQuestionId===question.id ? null : question.id)">
+    <ion-col col-2 class="checkmark-circle" (click)="select(selectedTellMeQuestionId===question.id ? {} : question)">
       <ion-icon name="{{selectedTellMeQuestionId===question.id ? 'ios-checkmark-circle' : 'checkmark-circle-outline'}}"></ion-icon>
     </ion-col>
   </ion-row>

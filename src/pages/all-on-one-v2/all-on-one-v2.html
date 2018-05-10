@@ -17,7 +17,7 @@
           </ion-col>
         </ion-row>
 
-        <div class="form-section no-margin-bottom" [ngClass]="{ 'manoeuvre-completed' : selectedManoeuvre }">
+        <div class="form-section no-margin-bottom" [ngClass]="{ 'action-completed' : selectedManoeuvre }">
           <all-on-one-form-sub-element-button [sectionsToShow]="selectedManoeuvre" #manoeuvresButton text="{{ 'MANOEUVRES' | translate }}"></all-on-one-form-sub-element-button>
         </div>
       </ion-col>
@@ -40,7 +40,7 @@
     </ion-row>
 
     <!-- Manoeuvres -->
-    <ion-row class="main-content manoeuvre-section flex-none" [ngClass]="{'content-open': manoeuvresButton.isEnabled}">
+    <ion-row class="main-content expanded-section flex-none" [ngClass]="{'content-open': manoeuvresButton.isEnabled}">
       <ion-col col-4 class="form-section" style="padding-right: 25px;">
         <div class="check-btn" *ngFor="let key of manoeuvreKeys">
           <label>
@@ -63,16 +63,14 @@
           <all-on-one-form-sub-element-hold-no-modal section="controlledStop" text="Controlled Stop"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
-        <div class="form-section">
-          <all-on-one-form-sub-element-hold-no-modal section="vehicleCheck" text="Vehicle Check"></all-on-one-form-sub-element-hold-no-modal>
-        </div>
+        <all-on-one-form-vc-button></all-on-one-form-vc-button>
 
-        <div class="form-section" [ngClass]="{'manoeuvre-completed': isEcoComplete() || ecoControlOption.isEnabled || ecoPlanningOption.isEnabled}">
+        <div class="form-section" [ngClass]="{'action-completed': isEcoComplete() || ecoControlOption.isEnabled || ecoPlanningOption.isEnabled}">
           <all-on-one-form-sub-element-button #ecoButton section="ECO" text="ECO"></all-on-one-form-sub-element-button>
         </div>
 
         <!-- ECO Options -->
-        <div class="main-content manoeuvre-section flex-none expanded-section-in-column" [ngClass]="{'content-open': ecoButton.isEnabled}">
+        <div class="main-content expanded-section flex-none expanded-section-in-column" [ngClass]="{'content-open': ecoButton.isEnabled}">
           <div class="check-btn">
             <label>
               <input type="checkbox" [disabled]="ecoControlOption.isEnabled || ecoPlanningOption.isEnabled" [checked]="isEcoComplete() || ecoControlOption.isEnabled || ecoPlanningOption.isEnabled"
@@ -94,7 +92,7 @@
         </div>
 
         <!-- ETA Options -->
-        <div class="main-content manoeuvre-section flex-none expanded-section-in-column" [ngClass]="{'content-open': etaButton.isEnabled}">
+        <div class="main-content expanded-section flex-none expanded-section-in-column" [ngClass]="{'content-open': etaButton.isEnabled}">
           <all-on-one-form-sub-element-button #etaPhysicalOption text="physical"></all-on-one-form-sub-element-button>
           <all-on-one-form-sub-element-button #etaVerbalOption text="verbal"></all-on-one-form-sub-element-button>
         </div>

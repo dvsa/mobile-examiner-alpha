@@ -1,32 +1,31 @@
-import { Component, Input, ElementRef } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { VehicleCheckProvider, vCheckType } from './../../providers/vehicle-check/vehicle-check';
+import { Component, ElementRef } from '@angular/core';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
-import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
 import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
-import { AoopCustomHammerConfigPage } from '../../pages/aoop-custom-hammer-config/aoop-custom-hammer-config';
+
+export interface IVehicleCheck {
+  complete?: boolean;
+  faultType?: string;
+}
 
 declare const Hammer: any;
 @Component({
-  selector: 'all-on-one-form-sub-element-hold-no-modal',
-  templateUrl: 'all-on-one-form-sub-element-hold-no-modal.html'
+  selector: 'all-on-one-form-vc-button',
+  templateUrl: 'all-on-one-form-vc-button.html'
 })
-export class AllOnOneFormSubElementHoldNoModalComponent {
-  @Input('section') section: string = '';
-  @Input('text') text: string = '';
-  @Input('isDisabled') isDisabled: boolean = false;
-
-  serious: boolean = false;
-  dangerous: boolean = false;
-  faultCounter: number;
+export class AllOnOneFormVcButtonComponent {
+  tellMe: IVehicleCheck = {};
+  showMe: IVehicleCheck = {};
   mc: any;
 
   constructor(
     private hazardRecorderProvider: HazardRecorderProvider,
-    private faultStore: FaultStoreProvider,
-    public modalCtrl: ModalController,
+    private vcProvider: VehicleCheckProvider,
     public customHammerConfig: CustomHammerConfigProvider,
     public el: ElementRef
   ) {
+    this.tellMe = this.vcProvider.getTellMe();
+    this.vcProvider.showMeSub.subscribe((data) => (this.showMe = data));
     customHammerConfig.change.subscribe((newDuration) => {
       this.resetHammer(newDuration);
     });
@@ -44,12 +43,11 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     this.mc.on('press', (e) => {
       this.addDrivingFault();
     });
+  }
 
-    this.faultStore.currentFaults$.subscribe((data) => {
-      this.faultCounter = data[this.section] ? data[this.section].fault : 0;
-      this.serious = data[this.section] ? !!data[this.section].serious : false;
-      this.dangerous = data[this.section] ? !!data[this.section].dangerous : false;
-    });
+  // check that object has given faultType set
+  isFaultType(type, fault) {
+    return this[type].faultType === fault;
   }
 
   resetHammer(newDuration: number) {
@@ -61,18 +59,22 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
     this.mc.add(hammerPress);
   }
 
-  openCustomerHammgerConfig() {
-    const modal = this.modalCtrl.create(AoopCustomHammerConfigPage);
-    modal.present();
+  // check both vehicle check elements have been completed
+  isCheckComplete() {
+    return this.tellMe.complete && this.showMe.complete;
   }
 
   addDrivingFault() {
     // prevent fault marking
-    if (this.hazardRecorderProvider.isRecordingOrRemoving() || this.dangerous || this.serious) {
+    if (
+      this.hazardRecorderProvider.isRecordingOrRemoving() ||
+      this.showMe.faultType === 'dangerous' ||
+      this.showMe.faultType === 'serious'
+    ) {
       return;
     }
 
-    this.faultStore.addFault(this.section, 'fault');
+    this.vcProvider.addFault(vCheckType.SHOWME, 'fault');
   }
 
   recordHazard() {
@@ -88,39 +90,41 @@ export class AllOnOneFormSubElementHoldNoModalComponent {
         this.hazardRecorderProvider.isSeriousRecordingEnabled
       ) {
         this.removeSeriousFault();
-      } else if (this.faultCounter > 0) {
-        this.faultStore.removeFault(this.section, 'fault');
+      } else if (this.showMe.faultType === 'fault') {
+        this.vcProvider.removeFault(vCheckType.SHOWME);
       }
     } else if (this.hazardRecorderProvider.isDangerousRecordingEnabled) {
       this.addDangerousFault();
     } else if (this.hazardRecorderProvider.isSeriousRecordingEnabled) {
       this.addSeriousFault();
+    } else {
+      this.toggleComplete();
     }
 
     this.hazardRecorderProvider.disableRecording();
   }
 
+  toggleComplete() {
+    this.vcProvider.markAsComplete({}, vCheckType.SHOWME);
+  }
+
   addSeriousFault() {
-    if (this.serious || this.dangerous) return;
-    this.serious = true;
-    this.faultStore.addFault(this.section, 'serious');
+    if (this.showMe.faultType === 'serious' || this.showMe.faultType === 'dangerous') return;
+    this.vcProvider.addFault(vCheckType.SHOWME, 'serious');
   }
 
   removeSeriousFault() {
-    if (!this.serious) return;
-    this.serious = false;
-    this.faultStore.removeFault(this.section, 'serious');
+    if (this.showMe.faultType !== 'serious') return;
+    this.vcProvider.removeFault(vCheckType.SHOWME);
   }
 
   addDangerousFault() {
-    if (this.dangerous) return;
-    this.dangerous = true;
-    this.faultStore.addFault(this.section, 'dangerous');
+    if (this.showMe.faultType === 'dangerous') return;
+    this.vcProvider.addFault(vCheckType.SHOWME, 'dangerous');
   }
 
   removeDangerousFault() {
-    if (!this.dangerous) return;
-    this.dangerous = false;
-    this.faultStore.removeFault(this.section, 'dangerous');
+    if (this.showMe.faultType !== 'dangerous') return;
+    this.vcProvider.removeFault(vCheckType.SHOWME);
   }
 }

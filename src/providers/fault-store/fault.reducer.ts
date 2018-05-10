@@ -34,7 +34,10 @@ const resetFault = (state, action) => {
   const { id: faultId } = faultAction.payload;
 
   if (state[faultId]) {
-    const { [faultId]: deleted, ...newState } = state;
+    const {
+      [faultId]: {},
+      ...newState
+    } = state;
     return {
       ...newState
     };

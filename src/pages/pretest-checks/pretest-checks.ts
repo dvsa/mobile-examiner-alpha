@@ -1,4 +1,4 @@
-import { FaultStoreProvider } from './../../providers/fault-store/fault-store';
+import { VehicleCheckProvider, vCheckType } from './../../providers/vehicle-check/vehicle-check';
 import { AllOnOneV2Page } from './../all-on-one-v2/all-on-one-v2';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 import { Component, ViewChild } from '@angular/core';
@@ -26,27 +26,28 @@ export class PretestChecksPage {
     isAutomatic: null
   };
 
-  @select(['faults', 'tellMe']) tellMeState$;
+  @select(['faults', 'vehicleCheck'])
+  vcState$;
 
   constructor(
     public navCtrl: NavController,
     private modalCtrl: ModalController,
-    private faultStore: FaultStoreProvider
+    private vcProvider: VehicleCheckProvider
   ) {}
 
-  resetTellMe() {
-    this.faultStore.resetFault('tellMe');
+  ngAfterViewInit() {
+    this.vcProvider.reset(vCheckType.TELLME);
+    this.vcProvider.reset(vCheckType.SHOWME);
   }
 
-  setTellMeState(questionId, faultType, $event) {
+  setTellMeState(faultType, $event) {
     const isActive = $event.currentTarget.className.includes('active');
-    const faultMethod = isActive ? 'removeFault' : 'addFault';
 
-    // reset other faults if we are setting a new one
-    // we could build in better functionality in the reducers to handle this kind of logic..BETA!!
-    if (!isActive) this.resetTellMe();
-
-    this.faultStore[faultMethod]('tellMe', faultType);
+    if (isActive) {
+      this.vcProvider.removeFault(vCheckType.TELLME);
+    } else {
+      this.vcProvider.addFault(vCheckType.TELLME, faultType);
+    }
   }
 
   showTellMeOptions = () => {
@@ -56,9 +57,10 @@ export class PretestChecksPage {
       this.disableBackdropDismissModalOption
     );
 
-    tellMeQuestionModal.onDidDismiss((selectedTellMeQuestionId, role: string) => {
+    tellMeQuestionModal.onDidDismiss((selectedQuestion = { id: null }, role: string) => {
       if (role !== 'dismiss') {
-        this.preCheck.tellMeQuestionId = selectedTellMeQuestionId;
+        this.preCheck.tellMeQuestionId = selectedQuestion.id;
+        this.vcProvider.markAsComplete(selectedQuestion, vCheckType.TELLME);
       }
     });
 
