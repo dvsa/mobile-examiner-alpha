@@ -32,7 +32,6 @@ export class CandidateInfoPage {
   }
 
   getPreviousPage() {
-    const prevPageName: string = this.navCtrl.getPrevious().component.name;
-    return prevPageName === 'JournalPage' ? 'Your Journal' : 'Declaration';
+    return 'Your Journal';
   }
 }

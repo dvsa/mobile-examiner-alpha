@@ -2,7 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController, ViewController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+<<<<<<< HEAD
 import { LoginPage } from './../pages/login/login';
+=======
+import { LoginPage } from '../pages/login/login';
+import { AllOnOneV2Page } from '../pages/all-on-one-v2/all-on-one-v2';
+>>>>>>> Fix double header for DL25 in prod build mode
 import { Content } from 'ionic-angular/navigation/nav-interfaces';
 import { DEFAULT_LANG, SYS_OPTIONS, AVAILABLE_LANG } from './constants';
 import { TranslateService } from 'ng2-translate';
@@ -16,6 +21,7 @@ import { Globalization } from '@ionic-native/globalization';
 export class App {
   @ViewChild('content') nav: NavController;
   @ViewChild('ionContent') ionContent: Content;
+  @ViewChild('ionContent') header: Content;
   rootPage: any = LoginPage;
   canShowHeader = false;
 
@@ -61,10 +67,11 @@ export class App {
     return AVAILABLE_LANG.some((x) => x.code === langCode) ? lang : DEFAULT_LANG;
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.nav.viewWillEnter.subscribe((viewController: ViewController) => {
-      this.canShowHeader = viewController.name === 'AllOnOneV2Page';
+      this.canShowHeader = viewController.component === AllOnOneV2Page;
       this.ionContent.resize();
+      this.header.resize();
     });
   }
 }
