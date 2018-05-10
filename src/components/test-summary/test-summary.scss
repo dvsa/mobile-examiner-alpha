@@ -32,10 +32,10 @@ test-summary {
           left: -18px;
           font-size: 30px;
           top: -5px;
-          &[name="checkmark"] {
+          &[name='checkmark'] {
             color: map-get($colors, mesPrimary);
           }
-          &[name="close"] {
+          &[name='close'] {
             color: map-get($colors, failRed);
           }
         }

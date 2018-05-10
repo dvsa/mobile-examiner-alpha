@@ -1,7 +1,7 @@
 <ion-header padding>
   <ion-row class="align-items-center">
     <ion-col>
-      <span class="mes-header-md">Select tell me question</span>
+      <span class="mes-header-md">Select question</span>
     </ion-col>
     <ion-col class="text-align-right">
       <button (click)="dismiss()" class="mes-button-danger">Cancel</button>
@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-row *ngFor="let question of tellMeQuestions; let i = index" class="mes-text-md align-items-center mes-bottom-border">
+  <ion-row *ngFor="let question of options; let i = index" class="mes-text-md align-items-center mes-bottom-border">
     <ion-col col-1 no-padding class="mes-grey center-text mes-header-md">
       {{question.id}}
     </ion-col>

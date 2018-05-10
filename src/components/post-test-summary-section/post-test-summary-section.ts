@@ -1,3 +1,4 @@
+import { IManualSummary } from './../test-summary/interfaces/IManualSummary';
 import { Component, Input } from '@angular/core';
 import { IFaultSummary } from '../test-summary/interfaces/IFaultSummary';
 import { FaultTitle } from '../test-summary/enums/FaultTitle';
@@ -11,6 +12,7 @@ import { TextboxModalComponent } from '../textbox-modal/textbox-modal';
 })
 export class PostTestSummarySectionComponent {
   @Input() summary: IFaultSummary;
+  @Input() manualSummary: IManualSummary;
   drivingFaultsTitle: string = FaultTitle.DrivingFaults;
   faultNotes: string;
 
@@ -20,16 +22,18 @@ export class PostTestSummarySectionComponent {
     { title: FaultTitle.DrivingFaults, colour: 'dark' }
   ];
 
-  constructor(private modalCtrl: ModalController) {
-  }
+  constructor(private modalCtrl: ModalController) {}
 
   getFaultTitleColour(title: FaultTitle) {
     return find(this.faultTitleColourMap, { title }).colour;
   }
 
   openTextboxModal(faultName: string) {
-    const textboxModal = this.modalCtrl.create(TextboxModalComponent, { title: faultName, notes: this.faultNotes || '' });
-    textboxModal.onDidDismiss((notes?: string) => this.faultNotes = notes);
+    const textboxModal = this.modalCtrl.create(TextboxModalComponent, {
+      title: faultName,
+      notes: this.faultNotes || ''
+    });
+    textboxModal.onDidDismiss((notes?: string) => (this.faultNotes = notes));
     textboxModal.present();
   }
 }

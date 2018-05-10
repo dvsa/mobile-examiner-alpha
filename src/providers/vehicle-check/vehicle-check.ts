@@ -65,8 +65,6 @@ export class VehicleCheckProvider {
     if (this.showMe.faultType === undefined) {
       this.addFaultToStore(this.tellMe.faultType);
     }
-
-    console.log(type, this[type]);
   }
 
   addFaultToStore(faultType: string) {

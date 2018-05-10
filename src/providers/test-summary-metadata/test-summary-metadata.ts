@@ -3,7 +3,6 @@ import { uniq } from 'lodash';
 
 @Injectable()
 export class TestSummaryMetadataProvider {
-
   constructor() {}
 
   selectedManoeuvre: string;
@@ -52,7 +51,7 @@ export class TestSummaryMetadataProvider {
     this.eta = {
       physical: false,
       verbal: false
-    }
+    };
   }
 
   getMetadata() {
@@ -61,7 +60,6 @@ export class TestSummaryMetadataProvider {
       eco: this.eco,
       eta: this.eta,
       controlledStopDone: this.controlledStopDone
-    }
+    };
   }
-
 }

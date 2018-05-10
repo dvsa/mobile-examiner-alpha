@@ -31,7 +31,7 @@ import { WeatherSelectorComponent } from '../components/weather-selector/weather
 import { JournalProvider } from '../providers/journal/journal';
 import { DateTimeUtility } from '../shared/utils/datetime';
 import { AppConfigProvider } from '../providers/app-config/app-config';
-import { TellMeModalComponent } from '../components/tell-me-modal/tell-me-modal';
+import { QuestionsModalComponent } from '../components/questions-modal/questions-modal';
 import { SelectButtonComponent } from '../components/select-button/select-button';
 import { EyesightFaultRecordingModalPage } from '../pages/eyesight-fault-recording-modal/eyesight-fault-recording-modal';
 import {
@@ -119,7 +119,7 @@ export function createTranslateLoader(http: Http) {
     PretestChecksPage,
     TestResultPage,
     TrainerModePage,
-    TellMeModalComponent,
+    QuestionsModalComponent,
     SelectButtonComponent,
     EyesightFaultRecordingModalPage,
     PostTestSummaryPage,
