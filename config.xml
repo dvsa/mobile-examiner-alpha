@@ -100,8 +100,6 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
         <string>Need microphone access to record audio</string>
     </edit-config>
-    <allow-navigation href="http://192.168.14.202:8100" />
-    <allow-navigation href="http://172.27.235.133:8100" />
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
 </widget>
