@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
 */
 @Injectable()
 export class CustomHammerConfigProvider {
-  pressDuration: number = 500;
+  pressDuration: number = 300;
   change: Subject<any> = new Subject();
 
   constructor() {}

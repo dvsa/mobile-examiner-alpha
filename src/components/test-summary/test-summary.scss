@@ -24,6 +24,22 @@ test-summary {
       font-size: 14px;
       font-weight: 900;
       color: map-get($colors, textGrey);
+      padding: 2px 0 2px;
+      div {
+        position: relative;
+        ion-icon {
+          position: absolute;
+          left: -18px;
+          font-size: 30px;
+          top: -5px;
+          &[name="checkmark"] {
+            color: map-get($colors, mesPrimary);
+          }
+          &[name="close"] {
+            color: map-get($colors, failRed);
+          }
+        }
+      }
     }
   }
 }

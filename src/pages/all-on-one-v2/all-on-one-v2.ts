@@ -1,3 +1,4 @@
+import { TestSummaryMetadataProvider } from './../../providers/test-summary-metadata/test-summary-metadata';
 import { HazardRecorderProvider } from './../../providers/hazard-recorder/hazard-recorder';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
@@ -24,6 +25,7 @@ export class AllOnOneV2Page {
   isDButtonPressed = false;
   isSButtonPressed = false;
   isEcoCompleted = false;
+  isControlledStopDone = false;
   selectedManoeuvre = '';
   manoeuvreBtns = {
     RR: 'Reverse / Right',
@@ -36,13 +38,19 @@ export class AllOnOneV2Page {
 
   @ViewChild('manoeuvresButton') manoeuvresButton;
   @ViewChild('ecoButton') ecoButton;
+  @ViewChild('etaPhysicalOption') etaPhysicalOption;
+  @ViewChild('etaVerbalOption') etaVerbalOption;
+  @ViewChild('ecoControlOption') ecoControlOption;
+  @ViewChild('ecoPlanningOption') ecoPlanningOption;
+  @ViewChild('ecoCompletionInput') ecoCompletionInput;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private hazardRecorderProvider: HazardRecorderProvider,
     private faultStore: FaultStoreProvider,
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
+    private summaryMetaDataService: TestSummaryMetadataProvider
   ) {
     this.manoeuvreKeys = Object.keys(this.manoeuvreBtns);
   }
@@ -91,6 +99,20 @@ export class AllOnOneV2Page {
 
   setEco($event: any) {
     this.isEcoCompleted = $event.target.checked;
+    if (!this.isEcoCompleted) this.summaryMetaDataService.clearEcoSelections();
+    this.summaryMetaDataService.setEcoCompletion(this.isEcoCompleted);
+  }
+
+  ecoSelection() {
+    // Set eco completion if it is checked
+    if (this.ecoCompletionInput.nativeElement.checked) {
+      this.isEcoCompleted = true;
+      this.summaryMetaDataService.setEcoCompletion(this.isEcoCompleted);
+    }
+    const arr = [];
+    if (this.ecoControlOption.isEnabled) arr.push('Control');
+    if (this.ecoPlanningOption.isEnabled) arr.push('Planning');
+    arr.forEach((ecoSelection) => this.summaryMetaDataService.setEcoSelection(ecoSelection));
   }
 
   isEcoComplete() {
@@ -109,8 +131,19 @@ export class AllOnOneV2Page {
     return this.selectedManoeuvre === key;
   }
 
+  controlledStopTap() {
+    this.isControlledStopDone = true;
+    this.summaryMetaDataService.setControlledStopComplete();
+  }
+
+  etaClick() {
+    this.summaryMetaDataService.updateETA('physical', this.etaPhysicalOption.isEnabled);
+    this.summaryMetaDataService.updateETA('verbal', this.etaVerbalOption.isEnabled);
+  }
+
   selectManoeuvre(manoeuvreName: string, $event: any) {
     this.selectedManoeuvre = $event.target.checked ? manoeuvreName : '';
+    this.summaryMetaDataService.updateManoeuvre(this.manoeuvreBtns[this.selectedManoeuvre]);
 
     const filteredManoeuvres =
       this.selectedManoeuvre === ''

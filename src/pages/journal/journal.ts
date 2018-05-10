@@ -1,3 +1,4 @@
+import { TestSummaryMetadataProvider } from './../../providers/test-summary-metadata/test-summary-metadata';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CandidateInfoPage } from '../candidate-info/candidate-info';
@@ -20,7 +21,8 @@ export class JournalPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private journalProvider: JournalProvider,
-    private faultStore: FaultStoreProvider
+    private faultStore: FaultStoreProvider,
+    private summaryMetadata: TestSummaryMetadataProvider
   ) {}
 
   ionViewDidLoad() {
@@ -29,6 +31,11 @@ export class JournalPage {
     });
 
     this.faultStore.reset();
+  }
+
+  ionViewDidEnter() {
+    this.faultStore.reset();
+    this.summaryMetadata.reset();
   }
 
   extractCategoryCode(slotType: string) {

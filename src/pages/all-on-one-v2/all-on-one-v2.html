@@ -59,7 +59,7 @@
 
     <ion-row class="main-content" [style.margin-top]="setPixelVal(!manoeuvresButton.isEnabled, 2)" [ngClass]="{'scroll': manoeuvresButton.isEnabled}">
       <ion-col col-4>
-        <div class="form-section">
+        <div class="form-section" [ngClass]="{'manoeuvre-completed': isControlledStopDone}" (click)="controlledStopTap()">
           <all-on-one-form-sub-element-hold-no-modal section="controlledStop" text="Controlled Stop"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
@@ -73,13 +73,13 @@
         <div class="main-content expanded-section flex-none expanded-section-in-column" [ngClass]="{'content-open': ecoButton.isEnabled}">
           <div class="check-btn">
             <label>
-              <input type="checkbox" [disabled]="ecoControlOption.isEnabled || ecoPlanningOption.isEnabled" [checked]="isEcoComplete() || ecoControlOption.isEnabled || ecoPlanningOption.isEnabled"
-                (click)="setEco($event)" />
+              <input #ecoCompletionInput type="checkbox" [disabled]="ecoControlOption.isEnabled || ecoPlanningOption.isEnabled" [checked]="isEcoComplete() || ecoControlOption.isEnabled || ecoPlanningOption.isEnabled"
+                (change)="setEco($event)" />
               <span>Completed</span>
             </label>
           </div>
-          <all-on-one-form-sub-element-button #ecoControlOption text="control"></all-on-one-form-sub-element-button>
-          <all-on-one-form-sub-element-button #ecoPlanningOption text="planning"></all-on-one-form-sub-element-button>
+          <all-on-one-form-sub-element-button (click)="ecoSelection()" #ecoControlOption text="control"></all-on-one-form-sub-element-button>
+          <all-on-one-form-sub-element-button (click)="ecoSelection()" #ecoPlanningOption text="planning"></all-on-one-form-sub-element-button>
         </div>
 
         <div class="form-section bottom-border">
@@ -92,7 +92,7 @@
         </div>
 
         <!-- ETA Options -->
-        <div class="main-content expanded-section flex-none expanded-section-in-column" [ngClass]="{'content-open': etaButton.isEnabled}">
+        <div class="main-content expanded-section flex-none expanded-section-in-column" [ngClass]="{'content-open': etaButton.isEnabled}" (click)="etaClick()">
           <all-on-one-form-sub-element-button #etaPhysicalOption text="physical"></all-on-one-form-sub-element-button>
           <all-on-one-form-sub-element-button #etaVerbalOption text="verbal"></all-on-one-form-sub-element-button>
         </div>

@@ -69,7 +69,7 @@ export class DeclarationConsentPage {
   }
 
   validation() {
-    if (this.checkInsurance && this.checkDebrief && this.checkResidence && this.signature) {
+    if (this.checkInsurance && this.checkResidence && this.signature) {
       return false;
     }
     return true;

@@ -1,3 +1,4 @@
+import { TestSummaryMetadataProvider } from './../../providers/test-summary-metadata/test-summary-metadata';
 import { Component } from '@angular/core';
 import { ModalController, NavController, AlertController } from 'ionic-angular';
 import { Page } from 'ionic-angular/navigation/nav-util';
@@ -31,7 +32,8 @@ export class PostTestSummaryPage {
     private modalCtrl: ModalController,
     private navCtrl: NavController,
     private faultStore: FaultStoreProvider,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private summaryMetadata: TestSummaryMetadataProvider
   ) {
     this.faultStore.getFaultTotals().subscribe((faultSummaries) => {
       this.drivingFaultSummary = faultSummaries.drivingFaultSummary;
@@ -42,6 +44,7 @@ export class PostTestSummaryPage {
 
   backToJournal() {
     this.faultStore.reset();
+    this.summaryMetadata.reset();
     this.navCtrl.popToRoot();
   }
 
