@@ -14,7 +14,8 @@ export class PostTestSummarySectionComponent {
   @Input() summary: IFaultSummary;
   @Input() manualSummary: IManualSummary;
   drivingFaultsTitle: string = FaultTitle.DrivingFaults;
-  faultNotes: string;
+  // Map of fault name to the note
+  private faultNotes = new Map<string, string>();
 
   faultTitleColourMap = [
     { title: FaultTitle.Dangerous, colour: 'failRed' },
@@ -31,9 +32,9 @@ export class PostTestSummarySectionComponent {
   openTextboxModal(faultName: string) {
     const textboxModal = this.modalCtrl.create(TextboxModalComponent, {
       title: faultName,
-      notes: this.faultNotes || ''
+      notes: this.faultNotes[faultName] || ''
     });
-    textboxModal.onDidDismiss((notes?: string) => (this.faultNotes = notes));
+    textboxModal.onDidDismiss((notes?: string) => (this.faultNotes[faultName] = notes));
     textboxModal.present();
   }
 }
