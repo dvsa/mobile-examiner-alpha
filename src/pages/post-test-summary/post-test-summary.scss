@@ -1,7 +1,6 @@
 page-post-test-summary {
   .conditions-list {
     display: inline-flex;
-    width: 50%;
     font-weight: normal;
   }
 
@@ -18,8 +17,13 @@ page-post-test-summary {
     border: 5px solid map-get($map: $colors, $key: divider);
   }
 
+  .mes-checkbox {
+    margin: 0 0 0 20px;
+    height: 18px;
+    width: 18px;
+  }
+
   input[type='checkbox'] {
-    position: relative;
     bottom: 10px;
     margin: 0px 5px 0 30px;
     & + label {
@@ -35,7 +39,6 @@ page-post-test-summary {
 
   ion-card-content {
     div {
-      padding: 0 0 10px 0;
       font-weight: bold;
       font-size: 1.5em;
 
@@ -44,5 +47,9 @@ page-post-test-summary {
         position: relative;
       }
     }
+  }
+
+  .margin-top {
+    margin-top: 8px;
   }
 }

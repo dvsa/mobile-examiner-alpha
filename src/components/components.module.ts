@@ -10,7 +10,7 @@ import { JournalHeaderComponent } from './journal-header/journal-header';
 import { TestSummaryComponent } from './test-summary/test-summary';
 import { ButtonCardComponent } from './button-card/button-card';
 import { TestSummarySectionComponent } from './test-summary/test-summary-section/test-summary-section';
-import { TellMeModalComponent } from './tell-me-modal/tell-me-modal';
+import { QuestionsModalComponent } from './questions-modal/questions-modal';
 import { SelectButtonComponent } from './select-button/select-button';
 import { WeatherSelectorComponent } from './weather-selector/weather-selector';
 import { TimerComponent } from './timer/timer';
@@ -33,7 +33,7 @@ import { PlayPauseDebriefButtonComponent } from './play-pause-debrief-button/pla
     TestSummaryComponent,
     ButtonCardComponent,
     TestSummarySectionComponent,
-    TellMeModalComponent,
+    QuestionsModalComponent,
     SelectButtonComponent,
     WeatherSelectorComponent,
     AllOnOneFormSubElementButtonComponent,
@@ -60,7 +60,7 @@ import { PlayPauseDebriefButtonComponent } from './play-pause-debrief-button/pla
     TestSummaryComponent,
     ButtonCardComponent,
     TestSummarySectionComponent,
-    TellMeModalComponent,
+    QuestionsModalComponent,
     SelectButtonComponent,
     WeatherSelectorComponent,
     AllOnOneFormSubElementButtonComponent,

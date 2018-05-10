@@ -1,3 +1,4 @@
+import { TELL_ME_QUESTIONS } from './../../app/constants';
 import { VehicleCheckProvider, vCheckType } from './../../providers/vehicle-check/vehicle-check';
 import { AllOnOneV2Page } from './../all-on-one-v2/all-on-one-v2';
 import { EyesightFaultRecordingModalPage } from './../eyesight-fault-recording-modal/eyesight-fault-recording-modal';
@@ -6,7 +7,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { PolicyDataPage } from '../policy-data/policy-data';
 import { EndTestReasonPage } from '../end-test-reason/end-test-reason';
 import { Page } from 'ionic-angular/navigation/nav-util';
-import { TellMeModalComponent } from '../../components/tell-me-modal/tell-me-modal';
+import { QuestionsModalComponent } from '../../components/questions-modal/questions-modal';
 import { select } from '@angular-redux/store';
 
 @Component({
@@ -52,8 +53,8 @@ export class PretestChecksPage {
 
   showTellMeOptions = () => {
     const tellMeQuestionModal = this.modalCtrl.create(
-      TellMeModalComponent,
-      { selectedTellMeQuestionId: this.preCheck.tellMeQuestionId },
+      QuestionsModalComponent,
+      { options: TELL_ME_QUESTIONS, selectedTellMeQuestionId: this.preCheck.tellMeQuestionId },
       this.disableBackdropDismissModalOption
     );
 
