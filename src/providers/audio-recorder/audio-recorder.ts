@@ -2,12 +2,7 @@ import { Injectable } from '@angular/core';
 import { File, DirectoryEntry, FileEntry } from '@ionic-native/file';
 import { MediaObject } from '@ionic-native/media';
 import { Subject } from 'rxjs';
-/*
-  Generated class for the AudioRecorderProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AudioRecorderProvider {
   public isRecordingChange: Subject<boolean> = new Subject();
@@ -38,7 +33,6 @@ export class AudioRecorderProvider {
             this.mediaStatus
           );
           this.audio.startRecord();
-          // this.isRecording = true;
           this.isRecordingChange.next(true);
         })
         .catch(this.logError);
