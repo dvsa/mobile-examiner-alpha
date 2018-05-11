@@ -43,6 +43,7 @@ export class AllOnOneV2Page {
   @ViewChild('ecoControlOption') ecoControlOption;
   @ViewChild('ecoPlanningOption') ecoPlanningOption;
   @ViewChild('ecoCompletionInput') ecoCompletionInput;
+  @ViewChild('controlledStopEl') controlledStopEl;
 
   constructor(
     public navCtrl: NavController,
@@ -132,6 +133,7 @@ export class AllOnOneV2Page {
   }
 
   controlledStopTap() {
+    if (this.controlledStopEl.faultCounter > 0) return;
     this.isControlledStopDone = !this.isControlledStopDone;
     this.summaryMetaDataService.toggleControlledStopComplete();
   }
