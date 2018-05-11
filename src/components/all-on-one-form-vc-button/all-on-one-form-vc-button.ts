@@ -47,6 +47,8 @@ export class AllOnOneFormVcButtonComponent {
 
     // Add a fault badge counter if there is a tell me fault
     if (this.isFaultType('tellMe', 'fault')) this.vCheckButton.faultCount = 1;
+    if (this.isFaultType('tellMe', 'serious')) this.vCheckButton.serious = true;
+    if (this.isFaultType('tellMe', 'dangerous')) this.vCheckButton.dangerous = true;
   }
 
   // check that object has given faultType set
