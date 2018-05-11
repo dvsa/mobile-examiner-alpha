@@ -125,6 +125,10 @@ export class PostTestSummaryPage {
     textBoxModal.present();
   }
 
+  independentDrivingOptionChanged(event, secondInput) {
+    secondInput.checked = false;
+  }
+
   private mapSafetyQuestion(showMeQuestion?): string[] {
     return [
       this.vehicleCheckProvider.getTellMe(),

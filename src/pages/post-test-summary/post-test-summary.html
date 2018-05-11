@@ -51,11 +51,11 @@
       <ion-row class="margin-top">
         <ion-col col-6 class="mes-header-md center-text">
           Sat nav
-          <input type="checkbox" class="mes-checkbox">
+          <input #satNavInput type="checkbox" class="mes-checkbox" (change)="independentDrivingOptionChanged($event, trafficSignsInput);">
         </ion-col>
         <ion-col col-6 class="mes-header-md center-text">
           Traffic signs
-          <input type="checkbox" class="mes-checkbox">
+          <input #trafficSignsInput type="checkbox" class="mes-checkbox" (change)="independentDrivingOptionChanged($event, satNavInput);">
         </ion-col>
       </ion-row>
       <div class="mes-divider"></div>
