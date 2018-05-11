@@ -15,10 +15,10 @@
             <span>Route Number</span>
         </ion-col>
         <ion-col col-2>
-            <input type="number" class="center-text" appInputRestriction="integer" [(ngModel)]="selectedRoute">
+            <input type="number" (click)="showRouteListAlert()" readonly="readonly" class="center-text" appInputRestriction="integer" [(ngModel)]="selectedRoute">
         </ion-col>
         <ion-col class="align-content-to-right">
-            <button class="mes-button-primary" (click)="showRouteListAlert()">Route Deviations</button>
+            <button class="mes-button-primary" (click)="openTextBoxModal()">Route Deviations</button>
         </ion-col>
       </ion-row>      
       <div class="mes-divider"></div>

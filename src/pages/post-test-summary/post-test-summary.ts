@@ -11,6 +11,7 @@ import { JournalPage } from '../journal/journal';
 import { QuestionsModalComponent } from '../../components/questions-modal/questions-modal';
 import { SHOW_ME_QUESTIONS } from '../../app/constants';
 import { VehicleCheckProvider } from '../../providers/vehicle-check/vehicle-check';
+import { TextboxModalComponent } from '../../components/textbox-modal/textbox-modal';
 
 @Component({
   selector: 'page-post-test-summary',
@@ -31,6 +32,7 @@ export class PostTestSummaryPage {
     { title: FaultTitle.Serious, colour: 'seriousYellow' },
     { title: FaultTitle.DrivingFaults, colour: 'dark' }
   ];
+  routeDeviations: string;
 
   constructor(
     private modalCtrl: ModalController,
@@ -110,6 +112,17 @@ export class PostTestSummaryPage {
       ]
     });
     prompt.present();
+  }
+
+  openTextBoxModal() {
+    const textBoxModal = this.modalCtrl.create(TextboxModalComponent, {
+      title: 'Route Deviations',
+      notes: this.routeDeviations || ''
+    });
+    textBoxModal.onDidDismiss(
+      (routeDeviations?: string) => (this.routeDeviations = routeDeviations)
+    );
+    textBoxModal.present();
   }
 
   private mapSafetyQuestion(showMeQuestion?): string[] {
