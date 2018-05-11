@@ -67,7 +67,9 @@ export class JournalPage {
   }
 
   skipToDL25() {
-    this.vcProvider.addFault(vCheckType.TELLME, 'fault');
-    return this.navCtrl.push(this.allonOneV2Page);
+    this.vcProvider.markAsComplete({ id: 'foo' }, vCheckType.TELLME);
+    return this.navCtrl.push(this.allonOneV2Page, {
+      trainingMode: true
+    });
   }
 }

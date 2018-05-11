@@ -17,7 +17,8 @@ export class ReportHeaderV2Component {
   @Input() options;
 
   defaultOptions: any = {
-    undo: true
+    undo: true,
+    nextPage: TestResultPage
   };
 
   constructor(private navCtrl: NavController) {
@@ -27,6 +28,6 @@ export class ReportHeaderV2Component {
   }
 
   goToTestResultPage() {
-    this.navCtrl.push(TestResultPage);
+    this.navCtrl.push(this.options.nextPage);
   }
 }
