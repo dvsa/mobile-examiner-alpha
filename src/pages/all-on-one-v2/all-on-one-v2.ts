@@ -3,6 +3,7 @@ import { HazardRecorderProvider } from './../../providers/hazard-recorder/hazard
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
+import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
 
 /**
  * Generated class for the AllOnOneV2Page page.
@@ -11,6 +12,7 @@ import { FaultStoreProvider } from '../../providers/fault-store/fault-store';
  * Ionic pages and navigation.
  */
 
+declare const Hammer: any;
 export enum manoeuvre {
   PREFIX = 'manoeuvre',
   CONTROL = 'Ctrl',
@@ -35,6 +37,7 @@ export class AllOnOneV2Page {
   };
 
   manoeuvreKeys = [];
+  mc: any;
 
   @ViewChild('manoeuvresButton') manoeuvresButton;
   @ViewChild('ecoButton') ecoButton;
@@ -43,6 +46,7 @@ export class AllOnOneV2Page {
   @ViewChild('ecoControlOption') ecoControlOption;
   @ViewChild('ecoPlanningOption') ecoPlanningOption;
   @ViewChild('ecoCompletionInput') ecoCompletionInput;
+  @ViewChild('controlledStopDiv') controlledStopDiv;
 
   constructor(
     public navCtrl: NavController,
@@ -50,9 +54,24 @@ export class AllOnOneV2Page {
     private hazardRecorderProvider: HazardRecorderProvider,
     private faultStore: FaultStoreProvider,
     private menuCtrl: MenuController,
-    private summaryMetaDataService: TestSummaryMetadataProvider
+    private summaryMetaDataService: TestSummaryMetadataProvider,
+    public customHammerConfig: CustomHammerConfigProvider,
   ) {
     this.manoeuvreKeys = Object.keys(this.manoeuvreBtns);
+  }
+
+  ngAfterViewInit() {
+    const button = this.controlledStopDiv.nativeElement;
+    this.mc = new Hammer.Manager(button);
+    const hammerPress = new Hammer.Press({
+      event: 'press',
+      time: this.customHammerConfig.pressDuration
+    });
+    this.mc.add(hammerPress);
+
+    this.mc.on('press', (e) => {
+      this.controlledStopTap();
+    });
   }
 
   ionViewDidEnter() {
