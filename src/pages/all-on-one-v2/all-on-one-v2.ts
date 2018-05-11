@@ -132,8 +132,8 @@ export class AllOnOneV2Page {
   }
 
   controlledStopTap() {
-    this.isControlledStopDone = true;
-    this.summaryMetaDataService.setControlledStopComplete();
+    this.isControlledStopDone = !this.isControlledStopDone;
+    this.summaryMetaDataService.toggleControlledStopComplete();
   }
 
   etaClick() {
