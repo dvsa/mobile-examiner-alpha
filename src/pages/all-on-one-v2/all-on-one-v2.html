@@ -59,8 +59,8 @@
 
     <ion-row class="main-content" [style.margin-top]="setPixelVal(!manoeuvresButton.isEnabled, 2)" [ngClass]="{'scroll': manoeuvresButton.isEnabled}">
       <ion-col col-4>
-        <div class="form-section" [ngClass]="{'action-completed': isControlledStopDone}" (click)="controlledStopTap()">
-          <all-on-one-form-sub-element-hold-no-modal section="controlledStop" text="Controlled Stop"></all-on-one-form-sub-element-hold-no-modal>
+        <div class="form-section" [ngClass]="{'action-completed': isControlledStopDone}" (click)="controlledStopTap()" (press)="controlledStopTap()">
+          <all-on-one-form-sub-element-hold-no-modal #controlledStopEl section="controlledStop" text="Controlled Stop"></all-on-one-form-sub-element-hold-no-modal>
         </div>
 
         <all-on-one-form-vc-button></all-on-one-form-vc-button>

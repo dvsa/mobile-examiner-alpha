@@ -37,8 +37,8 @@ export class TestSummaryMetadataProvider {
     this.eta[action] = value;
   }
 
-  setControlledStopComplete() {
-    this.controlledStopDone = true;
+  toggleControlledStopComplete() {
+    this.controlledStopDone = !this.controlledStopDone;
   }
 
   reset() {
