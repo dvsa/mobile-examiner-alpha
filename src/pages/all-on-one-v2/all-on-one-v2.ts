@@ -57,10 +57,13 @@ export class AllOnOneV2Page {
     private summaryMetaDataService: TestSummaryMetadataProvider
   ) {
     this.manoeuvreKeys = Object.keys(this.manoeuvreBtns);
-    if (this.navParams.get('trainingMode')) this.trainingMode = true;
-    this.reportHeaderOptions = {
-      nextPage: JournalPage,
-      undo: true
+    if (this.navParams.get('trainingMode')) {
+      this.trainingMode = true;
+      this.reportHeaderOptions = {
+        nextPage: JournalPage,
+        undo: true,
+        trainingMode: this.trainingMode
+      }
     }
   }
 
