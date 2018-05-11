@@ -8,7 +8,7 @@
         {{fault.name}}
         <span *ngIf="fault.total > 1">({{fault.total}})</span>
         <span *ngIf="summary.title !== drivingFaultsTitle" float-right (click)="openTextboxModal(fault.name)">
-          <ion-icon [ngClass]="{green: faultNotes, dark: !faultNotes}" [name]="faultNotes ? 'checkmark-circle' : 'create'"></ion-icon>
+          <ion-icon [ngClass]="{green: faultNotes[fault.name], dark: !faultNotes[fault.name]}" [name]="faultNotes[fault.name] ? 'checkmark-circle' : 'create'"></ion-icon>
         </span>
       </li>
     </ul>
