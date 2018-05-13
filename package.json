@@ -90,7 +90,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-ionic": {
-        "APP_ID": "2833cf7c",
+        "APP_ID": "33dd3db4",
         "CHANNEL_NAME": "Production",
         "UPDATE_METHOD": "background",
         "WARN_DEBUG": "true",
