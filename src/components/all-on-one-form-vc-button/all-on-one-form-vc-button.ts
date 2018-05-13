@@ -1,5 +1,5 @@
 import { VehicleCheckProvider, vCheckType } from './../../providers/vehicle-check/vehicle-check';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HazardRecorderProvider } from '../../providers/hazard-recorder/hazard-recorder';
 import { CustomHammerConfigProvider } from '../../providers/custom-hammer-config/custom-hammer-config';
 
@@ -17,6 +17,7 @@ export class AllOnOneFormVcButtonComponent {
   tellMe: IVehicleCheck = {};
   showMe: IVehicleCheck = {};
   mc: any;
+  @ViewChild('vCheckButton') vCheckButton;
 
   constructor(
     private hazardRecorderProvider: HazardRecorderProvider,
@@ -43,6 +44,11 @@ export class AllOnOneFormVcButtonComponent {
     this.mc.on('press', (e) => {
       this.addDrivingFault();
     });
+
+    // Add a fault badge counter if there is a tell me fault
+    if (this.isFaultType('tellMe', 'fault')) this.vCheckButton.faultCount = 1;
+    if (this.isFaultType('tellMe', 'serious')) this.vCheckButton.serious = true;
+    if (this.isFaultType('tellMe', 'dangerous')) this.vCheckButton.dangerous = true;
   }
 
   // check that object has given faultType set

@@ -1,3 +1,5 @@
+import { VehicleCheckProvider, vCheckType } from './../../providers/vehicle-check/vehicle-check';
+import { AllOnOneV2Page } from './../all-on-one-v2/all-on-one-v2';
 import { TestSummaryMetadataProvider } from './../../providers/test-summary-metadata/test-summary-metadata';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -16,13 +18,15 @@ export class JournalPage {
   journalSlots: IJournal[];
   candidateInfoPage: Page = CandidateInfoPage;
   declarationConsentPage: Page = DeclarationConsentPage;
+  allonOneV2Page: Page = AllOnOneV2Page;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private journalProvider: JournalProvider,
     private faultStore: FaultStoreProvider,
-    private summaryMetadata: TestSummaryMetadataProvider
+    private summaryMetadata: TestSummaryMetadataProvider,
+    private vcProvider: VehicleCheckProvider
   ) {}
 
   ionViewDidLoad() {
@@ -60,5 +64,12 @@ export class JournalPage {
 
   goToCandidateInfo() {
     return this.navCtrl.push(CandidateInfoPage);
+  }
+
+  skipToDL25() {
+    this.vcProvider.markAsComplete({ id: 'foo' }, vCheckType.TELLME);
+    return this.navCtrl.push(this.allonOneV2Page, {
+      trainingMode: true
+    });
   }
 }

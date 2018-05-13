@@ -1,3 +1,4 @@
+import { JournalPage } from './../journal/journal';
 import { TestSummaryMetadataProvider } from './../../providers/test-summary-metadata/test-summary-metadata';
 import { HazardRecorderProvider } from './../../providers/hazard-recorder/hazard-recorder';
 import { Component, ViewChild } from '@angular/core';
@@ -33,6 +34,8 @@ export class AllOnOneV2Page {
     RPC: 'Reverse Park (Carpark)',
     FP: 'Forward Park'
   };
+  reportHeaderOptions: any;
+  trainingMode: boolean = false;
 
   manoeuvreKeys = [];
 
@@ -54,6 +57,14 @@ export class AllOnOneV2Page {
     private summaryMetaDataService: TestSummaryMetadataProvider
   ) {
     this.manoeuvreKeys = Object.keys(this.manoeuvreBtns);
+    if (this.navParams.get('trainingMode')) {
+      this.trainingMode = true;
+      this.reportHeaderOptions = {
+        nextPage: JournalPage,
+        undo: true,
+        trainingMode: this.trainingMode
+      }
+    }
   }
 
   ionViewDidEnter() {

@@ -17,16 +17,29 @@ export class ReportHeaderV2Component {
   @Input() options;
 
   defaultOptions: any = {
-    undo: true
+    undo: true,
+    nextPage: TestResultPage,
+    trainingMode: false
   };
 
   constructor(private navCtrl: NavController) {
+    this.setDefaultOptions();
+  }
+
+  ngAfterViewInit() {
+    this.setDefaultOptions();
+  }
+
+  setDefaultOptions() {
     if (typeof this.options === 'undefined' || this.options === null) {
       this.options = this.defaultOptions;
     }
   }
 
   goToTestResultPage() {
-    this.navCtrl.push(TestResultPage);
+    if (this.options.trainingMode) {
+      return this.navCtrl.popToRoot();
+    }
+    this.navCtrl.push(this.options.nextPage);
   }
 }
