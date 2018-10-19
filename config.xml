@@ -100,6 +100,6 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
         <string>Need microphone access to record audio</string>
     </edit-config>
-    <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
+    <engine name="ios" spec="4.5.5" />
 </widget>
