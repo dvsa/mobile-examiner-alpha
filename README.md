@@ -48,3 +48,23 @@ After installing scanRepo as part of the pre-requisites, run with `git log -p | 
 ### Cordova plugins in browser
 
 Some Cordova plugins have special code that should handle the `browser` platform. Unfortunately `ionic serve` does not use them. To use them, run `ionic cordova run browser`
+
+### Running the Appium/Selenium testsuite
+
+You can run the Appium testsuite either against a web based version of the application or against a simulator version.
+
+Pre-requisites
+* Appium (https://www.npmjs.com/package/appium)
+* WebDriver-Manager (https://www.npmjs.com/package/webdriver-manager)
+
+To run against the web based version
+* Run the application as per the Get started guide above `ionic serve`
+* In a separate tab run up up the WebDriver manager `webdriver-manager start`
+* In another tab execute the browser based testsuite `npm run test:e2e-browser-bdd`
+* Once complete generate the report `npm run test:generate-report`
+
+To run against the simulator
+* Build, deploy and run the simulator `ionic cordova build ios -- --buildFlag="-UseModernBuildSystem=0"`
+* Run Appium `appium`
+* In another tab execute the simulator based testsuite `npm run test:e2e-simulator-bdd`
+* Once complete generate the report `npm run test:generate-report`
