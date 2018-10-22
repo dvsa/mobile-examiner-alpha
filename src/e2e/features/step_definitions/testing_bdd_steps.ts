@@ -17,8 +17,6 @@ When('I launch the mobile app', function() {
 });
 
 Then('I should see the login screen', function() {
-  browser.sleep(2000);
-
   return expect(
     element
       .all(by.css('ion-navbar:first-child'))
@@ -37,8 +35,6 @@ When('I click a login button', function() {
 });
 
 Then('I successfully log in and see the journal page', function() {
-  browser.sleep(2000);
-
   return expect(
     element
       .all(by.css('span.mes-header-md'))
@@ -47,6 +43,29 @@ Then('I successfully log in and see the journal page', function() {
   ).to.eventually.equal('Your Journal');
 });
 
+Given('I am logged in and on the journal page', function() {
+  var loginButton = element(by.id('loginButton'));
+  browser.get('');
+  return loginButton.click();
+});
+
+Then('I have a slot at {string} for {string}', function(time, candidate) {
+  return expect(
+    element
+      .all(
+        by.xpath(
+          '//ion-row[ion-col[div[@class="slot__time" and text()="' +
+            time +
+            '"]] and ion-col[div[@class="slot__candidate" and div[span[@class="mes-journal-candidate-name" and text()="' +
+            candidate +
+            '"]]]]]'
+        )
+      )
+      .isPresent()
+  ).to.eventually.equal(true);
+});
+
+// After hook to take screenshots of page on failure
 After(function(testCase) {
   var world = this;
   if (testCase.result.status === Status.FAILED) {
