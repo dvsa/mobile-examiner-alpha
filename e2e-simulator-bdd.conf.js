@@ -11,7 +11,8 @@ exports.config = {
     autoWebview: true,
     //fullReset: true,
     app: appPath,
-    automationName: 'XCUITest'
+    automationName: 'XCUITest',
+    isHeadless: true
   },
   specs: ['./src/e2e/features/*.feature'],
   framework: 'custom',
